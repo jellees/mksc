@@ -1,0 +1,9 @@
+/.vscode
+
+/build
+*.elf
+*.gba
+*.map
+
+/tools/agbcc
+/tools/gbafix
