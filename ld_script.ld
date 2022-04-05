@@ -21,6 +21,8 @@ SECTIONS
         /* code */
         asm/rom_header.o(.text);
         asm/crt0.o(.text);
+        asm/text080001D8.o(.text);
+        asm/text08061EB0.o(.text);
     }
 
     /* Discard everything not specifically mentioned above. */
