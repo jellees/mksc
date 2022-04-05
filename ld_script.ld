@@ -22,6 +22,8 @@ SECTIONS
         asm/rom_header.o(.text);
         asm/crt0.o(.text);
         asm/text080001D8.o(.text);
+        asm/palette.o(.text);
+        asm/text0802E6A4.o(.text);
         *libgcc.a:*_call_via_rX*.o(.text*);
         *libgcc.a:_divsi3.o(.text*);
         *libgcc.a:_dvmd_tls.o(.text*);
