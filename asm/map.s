@@ -3,16 +3,16 @@
     .syntax unified
     .text
 
-    thumb_func_start sub_802E6A4
-sub_802E6A4:
+    thumb_func_start map_getBufferPtr
+map_getBufferPtr:
     lsls r0, r0, #0x0B
     ldr r1, _0802E6AC @ =0x030006E0
     adds r0, r0, r1
     bx lr
 _0802E6AC: .4byte 0x030006E0
 
-    thumb_func_start sub_802E6B0
-sub_802E6B0:
+    thumb_func_start map_getBufferPtr2d
+map_getBufferPtr2d:
     lsls r0, r0, #0x0B
     lsls r2, r2, #0x05
     adds r2, r2, r1
@@ -23,8 +23,8 @@ sub_802E6B0:
     bx lr
 _0802E6C0: .4byte 0x030006E0
 
-    thumb_func_start sub_802E6C4
-sub_802E6C4:
+    thumb_func_start map_setBufferDestination
+map_setBufferDestination:
     ldr r2, _0802E6D0 @ =0x030016E8
     lsls r0, r0, #0x02
     adds r0, r0, r2
@@ -33,8 +33,8 @@ sub_802E6C4:
     .byte 0x00, 0x00
 _0802E6D0: .4byte 0x030016E8
 
-    thumb_func_start sub_802E6D4
-sub_802E6D4:
+    thumb_func_start map_clearBuffer
+map_clearBuffer:
     push {lr}
     add sp, #-0x004
     adds r1, r0, #0x0
@@ -53,8 +53,8 @@ sub_802E6D4:
 _0802E6F4: .4byte 0x030006E0
 _0802E6F8: .4byte 0x01000200
 
-    thumb_func_start sub_802E6FC
-sub_802E6FC:
+    thumb_func_start map_setBufferEnableMask
+map_setBufferEnableMask:
     lsls r0, r0, #0x10
     lsrs r0, r0, #0x10
     ldr r2, _0802E70C @ =0x030016E0
@@ -64,9 +64,9 @@ sub_802E6FC:
     bx lr
     .byte 0x00, 0x00
 _0802E70C: .4byte 0x030016E0
-    
-    thumb_func_start sub_802E710
-sub_802E710:
+
+    thumb_func_start map_copyBuffersToHw
+map_copyBuffersToHw:
     ldr r3, _0802E758 @ =0x030016E0
     ldrh r2, [r3, #0x00]
     movs r0, #0x01

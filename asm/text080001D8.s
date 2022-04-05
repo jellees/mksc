@@ -1005,7 +1005,7 @@
         ldr r7, [r0, #0x00]
         ldr r1, _08000A5C @ =0x06001000
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         movs r1, #0xA4
         lsls r1, r1, #0x01
         adds r0, r7, r1
@@ -1121,12 +1121,12 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         bl LZ77UnCompWram
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r0, _08000DC8 @ =0x080D455C
         adds r1, r4, #0x0
@@ -2026,17 +2026,17 @@
         movs r1, #0xC0
         lsls r1, r1, #0x13
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r4, _08001A4C @ =0x080D89B4
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r4, _08001A50 @ =0x080D82EC
         movs r0, #0x00
@@ -6755,7 +6755,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -6764,7 +6764,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _080047F8 @ =0x06002000
         ldr r3, _080047FC @ =0x80000400
@@ -6775,7 +6775,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -6784,12 +6784,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x03
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r2, _08004808 @ =0x000011FE
         adds r1, r7, r2
@@ -6938,10 +6938,10 @@
         movs r1, #0xC0
         lsls r1, r1, #0x13
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _080048D4 @ =0x06001000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         mov r0, r8
         adds r1, r4, #0x0
         bl sub_8004584
@@ -7636,13 +7636,13 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _080057EC @ =0x01000140
         mov r0, sp
         bl CpuFastSet
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r4, _080057F0 @ =0x080AAD30
         movs r0, #0x00
@@ -7734,7 +7734,7 @@
         movs r1, #0x00
     _08005836:
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -7751,7 +7751,7 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -7767,7 +7767,7 @@
         bl CpuFastSet
     _08005886:
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x004
         pop {r3, r4, r5}
         mov r8, r3
@@ -8391,12 +8391,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x004
         pop {r4, r5, r6}
         pop {r0}
@@ -9961,7 +9961,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -9970,7 +9970,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _080070EC @ =0x06002000
         ldr r3, _080070F0 @ =0x80000400
@@ -9981,7 +9981,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -9990,12 +9990,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x03
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
     _08006FF6:
         ldr r2, _080070FC @ =0x000011FE
@@ -10229,10 +10229,10 @@
         movs r1, #0xC0
         lsls r1, r1, #0x13
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _08007370 @ =0x06001000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         adds r0, r7, #0x0
         ldr r1, [sp, #0x06C]
         bl sub_8006E08
@@ -11200,7 +11200,7 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x02
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _08008898 @ =0x01000080
         mov r0, sp
@@ -11218,7 +11218,7 @@
         movs r0, #0x00
         movs r1, #0x12
         movs r2, #0x02
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -11234,7 +11234,7 @@
         movs r0, #0x00
         movs r1, #0x13
         movs r2, #0x02
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r7, r0, #0x0
         movs r2, #0x00
         ldr r1, _08008914 @ =0x00000C6C
@@ -11619,7 +11619,7 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -11627,7 +11627,7 @@
         movs r0, #0x01
         bl pltt_setDirtyFlag
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         pop {r4}
         pop {r0}
         bx r0
@@ -11740,7 +11740,7 @@
         movs r0, #0x00
         movs r1, #0x05
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xD0
         lsls r0, r0, #0x01
@@ -11757,7 +11757,7 @@
         movs r0, #0x00
         movs r1, #0x08
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         movs r2, #0xB0
@@ -11777,7 +11777,7 @@
         movs r0, #0x00
         movs r1, #0x05
         movs r2, #0x0E
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         mov r0, r9
         str r0, [sp, #0x000]
@@ -11792,7 +11792,7 @@
         movs r0, #0x00
         movs r1, #0x08
         movs r2, #0x0E
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xB0
@@ -11819,7 +11819,7 @@
         movs r0, #0x00
         movs r1, #0x05
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xD0
         lsls r0, r0, #0x01
@@ -11836,7 +11836,7 @@
         movs r0, #0x00
         movs r1, #0x08
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         movs r2, #0xB0
@@ -11858,7 +11858,7 @@
         movs r0, #0x00
         movs r1, #0x05
         movs r2, #0x0E
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         mov r0, r9
         str r0, [sp, #0x000]
@@ -11873,7 +11873,7 @@
         movs r0, #0x00
         movs r1, #0x08
         movs r2, #0x0E
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xB0
@@ -11988,7 +11988,7 @@
         adds r2, #0x0A
         movs r0, #0x00
         movs r1, #0x11
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         ldr r2, _0800911C @ =0x0100000C
@@ -12008,7 +12008,7 @@
         ldr r2, [r5, #0x00]
         movs r0, #0x00
         movs r1, #0x11
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0x0C
@@ -12017,7 +12017,7 @@
         adds r2, #0x01
         movs r0, #0x00
         movs r1, #0x11
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r7, #0x0
         movs r2, #0x0C
@@ -12040,7 +12040,7 @@
         ldr r2, [r6, #0x00]
         movs r0, #0x00
         movs r1, #0x11
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         movs r2, #0x0C
@@ -12052,13 +12052,13 @@
         adds r2, #0x01
         movs r0, #0x00
         movs r1, #0x11
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0x0C
         bl CpuSet
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x018
         pop {r3, r4, r5}
         mov r8, r3
@@ -14098,7 +14098,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -14107,7 +14107,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0800AE8C @ =0x06002000
         ldr r3, _0800AE90 @ =0x80000400
@@ -14119,7 +14119,7 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0800AE94 @ =0x01000140
         mov r0, sp
@@ -14130,7 +14130,7 @@
         movs r0, #0x00
         movs r1, #0x0F
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r2, r0, #0x0
         ldr r3, _0800AE9C @ =0x80000100
         adds r0, r4, #0x0
@@ -14543,10 +14543,10 @@
         bl sub_8001FC0
         ldr r1, _0800B220 @ =0x06003000
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _0800B224 @ =0x06001000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         mov r0, r8
         bl sub_8002CF0
         mov r3, r8
@@ -14753,7 +14753,7 @@
         cmp r0, #0x00
         beq _0800B394
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _0800B394:
         movs r6, #0xA7
         lsls r6, r6, #0x03
@@ -16518,21 +16518,21 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r1, #0x00
         strh r1, [r0, #0x00]
         ldr r4, _0800D2D8 @ =0x08079A68
         movs r0, #0x00
         movs r1, #0x01
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x00
         movs r1, #0x0D
         movs r2, #0x02
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r7, r0, #0x0
         movs r1, #0x00
         ldr r6, _0800D2DC @ =0x00000FFF
@@ -16558,12 +16558,12 @@
         cmp r1, #0x01
         ble _0800D242
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r4, _0800D2E0 @ =0x08079F18
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -17159,10 +17159,10 @@
         bl sub_8001FC0
         ldr r1, _0800D87C @ =0x06002000
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _0800D880 @ =0x06001000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         mov r0, r10
         bl sub_800CF3C
         ldr r0, [sp, #0x028]
@@ -17591,7 +17591,7 @@
         adds r2, #0x02
         movs r0, #0x00
         movs r1, #0x0D
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r12, r0
         mov r1, r8
         ldr r0, [r1, #0x00]
@@ -17643,7 +17643,7 @@
         cmp r4, #0x07
         ble _0800E5DA
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         pop {r3}
         mov r8, r3
         pop {r4, r5, r6, r7}
@@ -17672,7 +17672,7 @@
         movs r0, #0x01
         bl pltt_setDirtyFlag
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         pop {r4}
         pop {r0}
         bx r0
@@ -18363,7 +18363,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0800EF10 @ =0x01000080
         add r0, sp, #0x008
@@ -18383,13 +18383,13 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
     _0800EF30:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _0800EF36:
         cmp r7, #0x01
         bgt _0800EFF0
@@ -19509,7 +19509,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -19518,13 +19518,13 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0800FA74 @ =0x01000080
         mov r0, sp
         bl CpuFastSet
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl sub_8011424
         ldr r0, _0800FA78 @ =0x020378CC
         ldr r4, [r0, #0x00]
@@ -19976,7 +19976,7 @@
         ble _0800FE1A
         ldr r1, _080100F4 @ =0x06001000
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r0, _080100F8 @ =0x030029B0
         movs r4, #0x00
         str r4, [r0, #0x00]
@@ -19986,7 +19986,7 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         str r0, [r5, #0x00]
         adds r6, r0, #0x0
         str r4, [sp, #0x008]
@@ -20666,12 +20666,12 @@
         strh r0, [r1, #0x00]
         ldr r1, _0801124C @ =0x06001000
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r4, _08011250 @ =0x03000100
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         str r0, [r4, #0x00]
         adds r6, r0, #0x0
         movs r1, #0x00
@@ -20871,7 +20871,7 @@
         bl sub_8030434
         bl sub_80302A8
         bl pltt_copyBufferToHw
-        bl sub_802E710
+        bl map_copyBuffersToHw
         bl oam_reset
         ldr r0, _080113C8 @ =0x03002E20
         ldr r0, [r0, #0x0C]
@@ -23433,7 +23433,7 @@
         str r0, [sp, #0x008]
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _080129C4 @ =0x01000080
         add r0, sp, #0x008
@@ -23451,13 +23451,13 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
     _080129E6:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r5, #0xF8
         lsls r5, r5, #0x02
         adds r0, r6, r5
@@ -24512,7 +24512,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -24521,7 +24521,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0801353C @ =0x01000080
         mov r0, sp
@@ -24529,21 +24529,21 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x15
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x0D
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0x60
         bl CpuFastSet
         ldr r1, _08013540 @ =0x06001000
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r4, _08013544 @ =0x080C3B68
         movs r0, #0x01
@@ -26253,7 +26253,7 @@
         cmp r0, #0x00
         beq _080143A2
         movs r0, #0x00
-        bl sub_802E6D4
+        bl map_clearBuffer
         b _080143A2
     _080142EE:
         movs r0, #0x00
@@ -26290,7 +26290,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         lsls r1, r6, #0x06
         adds r0, r0, r1
         lsls r1, r5, #0x01
@@ -26359,7 +26359,7 @@
         cmp r0, #0x00
         beq _080143BA
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _080143BA:
         add sp, #0x00C
         pop {r3, r4, r5}
@@ -26740,10 +26740,10 @@
         movs r1, #0xC0
         lsls r1, r1, #0x13
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _080148E8 @ =0x06001000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r0, _080148EC @ =0x0807DA94
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -26766,7 +26766,7 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _08014904 @ =0x01000140
         mov r0, sp
@@ -26782,7 +26782,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x05
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -26804,24 +26804,24 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x08
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
     _08014924:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r4, _0801499C @ =0x080C7374
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldrh r0, [r5, #0x02]
         movs r1, #0x00
@@ -27213,7 +27213,7 @@
         .byte 0x59, 0xFC, 0x01, 0x1C, 0x05, 0x4A, 0x20, 0x1C, 0x4C, 0xF0, 0xA2, 0xFA
     _08014E08:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x010
         pop {r4}
         pop {r0}
@@ -27472,7 +27472,7 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _080151C0 @ =0x01000140
         mov r0, sp
@@ -27507,7 +27507,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x08
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -27519,13 +27519,13 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x08
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
     _08015210:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r2, _08015258 @ =0x0203EC18
         ldrb r1, [r2, #0x00]
         movs r0, #0xFB
@@ -27952,10 +27952,10 @@
         movs r1, #0xC0
         lsls r1, r1, #0x13
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _080156F8 @ =0x06001000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r0, _080156FC @ =0x0807DA94
         ldr r4, _080156E8 @ =0x02010400
         adds r1, r4, #0x0
@@ -28226,7 +28226,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -28234,12 +28234,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x03
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r0, _08015928 @ =0x06005800
         mov r8, r0
         movs r7, #0x00
@@ -28501,12 +28501,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r4, _08015E70 @ =0x080E7FEC
         adds r0, r6, #0x0
         bl sub_8033BAC
@@ -28533,7 +28533,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _08015E7C @ =0x01000200
         adds r0, r4, #0x0
@@ -28542,12 +28542,12 @@
         movs r0, #0x00
         movs r1, #0x01
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         lsls r4, r6, #0x01
         adds r4, r4, r6
         lsls r4, r4, #0x08
@@ -28697,7 +28697,7 @@
         movs r0, #0x01
         movs r1, #0x11
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r5, r0, #0x0
         movs r1, #0x00
         ldr r7, _08016008 @ =0x00000FFF
@@ -28753,7 +28753,7 @@
         movs r3, #0x0F
         bl sub_80166D8
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x014
         pop {r3, r4, r5}
         mov r8, r3
@@ -28981,7 +28981,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -28989,12 +28989,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x03
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r0, _08016314 @ =0x06005800
         mov r8, r0
         movs r7, #0x00
@@ -29293,7 +29293,7 @@
         movs r0, #0x01
         adds r1, r5, #0x0
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r2, #0xC8
         lsls r2, r2, #0x02
@@ -29315,7 +29315,7 @@
         movs r0, #0x01
         adds r1, r3, #0x0
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r2, #0xD8
         lsls r2, r2, #0x02
@@ -29341,7 +29341,7 @@
         movs r0, #0x01
         adds r1, r3, #0x0
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r2, r0, #0x0
         ldr r1, _08016774 @ =0x02008400
         movs r0, #0xC8
@@ -29612,10 +29612,10 @@
         ldr r4, _08016B5C @ =0x06001000
         movs r0, #0x00
         adds r1, r4, #0x0
-        bl sub_802E6C4
+        bl map_setBufferDestination
         movs r0, #0x01
         adds r1, r4, #0x0
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r0, _08016B60 @ =0x080C83FC
         adds r1, r5, #0x0
         bl LZ77UnCompWram
@@ -29630,14 +29630,14 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -29654,7 +29654,7 @@
         adds r2, #0x0F
         movs r0, #0x01
         adds r1, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r2, r8
         strh r2, [r0, #0x00]
         adds r4, #0x01
@@ -29664,7 +29664,7 @@
         cmp r0, #0x05
         ble _08016A1A
         movs r0, #0x03
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r0, _08016B6C @ =0x080C8080
         ldr r4, _08016B08 @ =0x02010400
@@ -29918,7 +29918,7 @@
         bgt _08016CCE
         movs r0, #0x01
     _08016CCE:
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x09
         ands r5, r0
         cmp r5, #0x00
@@ -31443,14 +31443,14 @@
         ldr r3, _08017BE4 @ =0x81000040
         bl sub_80303E4
         movs r0, #0x00
-        bl sub_802E6D4
+        bl map_clearBuffer
         movs r0, #0x01
-        bl sub_802E6D4
+        bl map_clearBuffer
         ldr r4, _08017BE8 @ =0x080C4DAC
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -31469,9 +31469,9 @@
         bl sub_80142CC
         bl core_frameProc
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl sub_8030434
         adds r1, r4, #0x0
         ldr r2, _08017BFC @ =0x06001000
@@ -31589,13 +31589,13 @@
         ldr r0, _08017FCC @ =0x00000504
         adds r7, r6, r0
         movs r0, #0x00
-        bl sub_802E6D4
+        bl map_clearBuffer
         movs r0, #0x01
-        bl sub_802E6D4
+        bl map_clearBuffer
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         ldr r4, _08017FD0 @ =0x08076FF4
         movs r0, #0x00
@@ -31837,7 +31837,7 @@
         movs r0, #0x01
         movs r1, #0x01
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -31865,9 +31865,9 @@
         ldr r1, _080180AC @ =0x080DA76C
         bl sub_801D010
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl sub_8030434
         ldr r4, _080180B0 @ =0x02004400
         adds r1, r4, #0x0
@@ -32054,9 +32054,9 @@
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x00
-        bl sub_802E6D4
+        bl map_clearBuffer
         movs r0, #0x01
-        bl sub_802E6D4
+        bl map_clearBuffer
         ldr r0, _08018324 @ =0x0807DA94
         ldr r6, _08018328 @ =0x02004400
         adds r1, r6, #0x0
@@ -32151,9 +32151,9 @@
         bl sub_80303E4
         bl core_frameProc
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl sub_8030434
         adds r1, r6, #0x0
         ldr r2, _0801838C @ =0x06001000
@@ -32194,7 +32194,7 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -32202,9 +32202,9 @@
         movs r0, #0x00
         bl sub_80142CC
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl core_frameProc
         movs r0, #0x02
         strb r0, [r5, #0x0C]
@@ -32326,12 +32326,12 @@
         bl sub_80303E4
         bl core_frameProc
         movs r0, #0x00
-        bl sub_802E6D4
+        bl map_clearBuffer
         ldr r4, _080185A4 @ =0x080BEDDC
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -32350,9 +32350,9 @@
         bl sub_80142CC
         bl core_frameProc
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl sub_8030434
         adds r1, r4, #0x0
         ldr r2, _080185B8 @ =0x06001000
@@ -34679,7 +34679,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r3, r0, #0x0
         ldr r2, _080197EC @ =0x080DA5B8
         str r4, [sp, #0x000]
@@ -34689,7 +34689,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r3, r0, #0x0
         ldr r2, _08019800 @ =0x080DA5D0
         b _08019826
@@ -34698,7 +34698,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r3, r0, #0x0
         ldr r2, _08019814 @ =0x080DA5E8
         b _08019826
@@ -34707,7 +34707,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r3, r0, #0x0
         ldr r2, _0801983C @ =0x080DA600
     _08019826:
@@ -34727,7 +34727,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r3, r0, #0x0
         ldr r2, _08019870 @ =0x080DA618
         movs r0, #0x00
@@ -34741,7 +34741,7 @@
         bl sub_801445C
     _08019862:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x00C
         pop {r4}
         pop {r0}
@@ -35248,7 +35248,7 @@
         movs r0, #0x00
         movs r1, #0x03
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r4, #0xB0
         lsls r4, r4, #0x08
         movs r3, #0x00
@@ -35285,7 +35285,7 @@
         movs r0, #0x00
         movs r1, #0x0F
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r4, #0xB0
         lsls r4, r4, #0x08
         movs r3, #0x00
@@ -35324,7 +35324,7 @@
         movs r0, #0x00
         movs r1, #0x05
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xB0
         lsls r0, r0, #0x02
@@ -35345,7 +35345,7 @@
         movs r0, #0x00
         movs r1, #0x07
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -35359,7 +35359,7 @@
         movs r0, #0x00
         movs r1, #0x11
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         mov r0, r9
         str r0, [sp, #0x000]
@@ -35377,7 +35377,7 @@
         movs r0, #0x00
         movs r1, #0x13
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -35663,7 +35663,7 @@
         movs r0, #0x00
         movs r1, #0x03
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r4, #0xB0
         lsls r4, r4, #0x08
         movs r3, #0x00
@@ -35702,7 +35702,7 @@
         movs r0, #0x00
         movs r1, #0x0F
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r4, #0xB0
         lsls r4, r4, #0x08
         movs r3, #0x00
@@ -35735,7 +35735,7 @@
         movs r0, #0x00
         movs r1, #0x05
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xB0
         lsls r0, r0, #0x02
@@ -35756,7 +35756,7 @@
         movs r0, #0x00
         movs r1, #0x07
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -35770,7 +35770,7 @@
         movs r0, #0x00
         movs r1, #0x11
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         mov r0, r10
         str r0, [sp, #0x000]
@@ -35788,7 +35788,7 @@
         movs r0, #0x00
         movs r1, #0x13
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -36105,7 +36105,7 @@
         movs r0, #0x00
         movs r1, #0x08
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r4, #0xB0
         lsls r4, r4, #0x08
         movs r3, #0x00
@@ -36139,7 +36139,7 @@
         movs r0, #0x00
         movs r1, #0x0A
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xB0
         lsls r0, r0, #0x02
@@ -36158,7 +36158,7 @@
         movs r0, #0x00
         movs r1, #0x0C
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -37180,7 +37180,7 @@
         movs r0, #0x8D
         bl m4aSongNumStart
         movs r0, #0x00
-        bl sub_802E6D4
+        bl map_clearBuffer
         mov r2, r8
         ldr r1, [r2, #0x00]
         ldr r6, _0801B588 @ =0x06005800
@@ -37213,7 +37213,7 @@
         lsls r2, r4, #0x01
         movs r0, #0x01
         movs r1, #0x0D
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r12, r0
         cmp r4, r9
         beq _0801B594
@@ -37298,7 +37298,7 @@
         movs r0, #0x00
         movs r1, #0x02
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xB0
         lsls r0, r0, #0x02
@@ -37317,7 +37317,7 @@
         movs r0, #0x00
         movs r1, #0x04
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -37336,9 +37336,9 @@
         adds r1, r6, #0x0
         bl sub_80142CC
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl sub_8030434
         ldr r4, _0801B6D0 @ =0x02004400
         adds r1, r4, #0x0
@@ -37493,7 +37493,7 @@
         movs r0, #0x8E
         bl m4aSongNumStart
         movs r0, #0x00
-        bl sub_802E6D4
+        bl map_clearBuffer
         mov r0, r8
         ldr r1, [r0, #0x00]
         ldr r0, [r0, #0x04]
@@ -37526,7 +37526,7 @@
         movs r0, #0x00
         movs r1, #0x02
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xB0
         lsls r0, r0, #0x02
@@ -37545,7 +37545,7 @@
         movs r0, #0x00
         movs r1, #0x04
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -37563,7 +37563,7 @@
         adds r1, r6, #0x0
         bl sub_80142CC
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r3, #0x00
         ldr r1, [sp, #0x008]
         strb r3, [r1, #0x12]
@@ -37766,7 +37766,7 @@
         str r0, [sp, #0x008]
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0801BCA0 @ =0x01000080
         add r0, sp, #0x008
@@ -37784,13 +37784,13 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
     _0801BCC2:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         mov r3, r8
         str r3, [r6, #0x08]
         movs r4, #0x9F
@@ -39452,10 +39452,10 @@
         bl oam_init
         movs r0, #0x00
         adds r1, r4, #0x0
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _0801CD48 @ =0x06000800
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         bl core_frameProc
         adds r0, r6, #0x0
         bl sub_801C9B4
@@ -39722,7 +39722,7 @@
         movs r0, #0x00
         movs r1, #0x02
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         movs r0, #0xB0
         lsls r0, r0, #0x02
@@ -39741,7 +39741,7 @@
         movs r0, #0x00
         movs r1, #0x04
         movs r2, #0x07
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0xC8
@@ -39801,7 +39801,7 @@
         lsls r2, r4, #0x01
         movs r0, #0x01
         movs r1, #0x0D
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r12, r0
         cmp r4, r8
         beq _0801D118
@@ -40207,7 +40207,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         bl sub_804F6F4
@@ -40218,7 +40218,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40262,7 +40262,7 @@
         movs r0, #0x00
         adds r1, r5, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40273,7 +40273,7 @@
         adds r1, r5, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40381,7 +40381,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40393,7 +40393,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40554,7 +40554,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40565,7 +40565,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40602,7 +40602,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40613,7 +40613,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40684,12 +40684,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r9, r0
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r12, r0
         movs r0, #0x00
         cmp r0, r8
@@ -40800,7 +40800,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -40808,7 +40808,7 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0801DC30 @ =0x01000110
         mov r0, sp
@@ -40828,25 +40828,25 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x01
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         mov r0, r8
         adds r5, r0, r7
         movs r0, #0x00
         adds r1, r5, #0x0
         movs r2, #0x1C
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x02
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x00
         adds r1, r5, #0x0
         movs r2, #0x1D
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         adds r7, #0x01
@@ -40963,7 +40963,7 @@
         movs r0, #0x01
         movs r1, #0x09
         movs r2, #0x0E
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -40990,7 +40990,7 @@
         movs r0, #0x01
         movs r1, #0x0A
         movs r2, #0x0F
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42191,7 +42191,7 @@
         cmp r0, #0x00
         beq _0801FDFA
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _0801FDFA:
         ldr r1, [r7, #0x04]
         subs r0, r1, #0x3
@@ -42588,7 +42588,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         bl sub_804F6F4
@@ -42599,7 +42599,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42643,7 +42643,7 @@
         movs r0, #0x00
         adds r1, r5, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42654,7 +42654,7 @@
         adds r1, r5, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42762,7 +42762,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42774,7 +42774,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42935,7 +42935,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42946,7 +42946,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42983,7 +42983,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -42994,7 +42994,7 @@
         adds r1, r6, #0x1
         movs r0, #0x00
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -43065,12 +43065,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r9, r0
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r12, r0
         movs r0, #0x00
         cmp r0, r8
@@ -43192,7 +43192,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -43200,7 +43200,7 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x03
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _08020918 @ =0x01000110
         mov r0, sp
@@ -43220,25 +43220,25 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         mov r0, r8
         adds r5, r0, r7
         movs r0, #0x00
         adds r1, r5, #0x0
         movs r2, #0x1C
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x00
         adds r1, r6, #0x0
         movs r2, #0x01
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x00
         adds r1, r5, #0x0
         movs r2, #0x1D
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         adds r7, #0x01
@@ -44052,7 +44052,7 @@
         cmp r0, #0x00
         beq _08021A00
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _08021A00:
         mov r3, r9
         ldr r0, [r3, #0x04]
@@ -44870,7 +44870,7 @@
         movs r0, #0x00
         mov r1, r10
         ldr r2, [sp, #0x020]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -44920,7 +44920,7 @@
         lsls r2, r0, #0x10
         lsrs r2, r2, #0x10
         movs r0, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r5, r0, #0x0
         add r1, sp, #0x008
         add r2, sp, #0x00C
@@ -44976,7 +44976,7 @@
         movs r0, #0x00
         mov r1, r10
         ldr r2, [sp, #0x020]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -45024,7 +45024,7 @@
         lsls r2, r0, #0x10
         lsrs r2, r2, #0x10
         movs r0, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r5, r0, #0x0
         add r1, sp, #0x014
         add r2, sp, #0x018
@@ -45099,7 +45099,7 @@
         movs r0, #0x00
         adds r1, r5, #0x0
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl sub_804F6F4
@@ -45149,7 +45149,7 @@
         mov r0, r9
         lsrs r2, r0, #0x10
         movs r0, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r5, r0, #0x0
         adds r0, r4, #0x0
         mov r1, sp
@@ -45873,7 +45873,7 @@
         cmp r0, #0x00
         beq _08023484
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _08023484:
         mov r1, r8
         ldr r0, [r1, #0x00]
@@ -47038,7 +47038,7 @@
         cmp r0, #0x00
         beq _080248D0
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _080248D0:
         add sp, #0x074
         pop {r3, r4, r5}
@@ -48117,7 +48117,7 @@
         cmp r1, #0x00
         beq _08025CC6
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _08025CC6:
         add sp, #0x060
         pop {r3, r4, r5}
@@ -48281,7 +48281,7 @@
         cmp r0, #0x00
         beq _080260E0
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _080260E0:
         add sp, #0x008
         pop {r3, r4, r5}
@@ -48557,14 +48557,14 @@
         movs r0, #0x00
         movs r1, #0x1B
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         mov r5, r8
         adds r5, #0x1E
         movs r0, #0x01
         ldr r1, [sp, #0x004]
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r1, [r0, #0x00]
         ldr r0, _080268A0 @ =0x00000FFF
         ands r0, r1
@@ -48573,12 +48573,12 @@
         movs r0, #0x00
         movs r1, #0x1C
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         mov r1, r9
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r1, [r0, #0x00]
         ldr r0, _080268A0 @ =0x00000FFF
         ands r0, r1
@@ -48587,12 +48587,12 @@
         movs r0, #0x00
         movs r1, #0x1D
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         mov r1, r10
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r1, [r0, #0x00]
         ldr r0, _080268A0 @ =0x00000FFF
         ands r0, r1
@@ -48603,7 +48603,7 @@
         mov r3, r8
         cmp r3, #0x01
         ble _08026808
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x008
         pop {r3, r4, r5}
         mov r8, r3
@@ -49296,13 +49296,13 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _08027AB4 @ =0x01000200
         mov r0, sp
         bl CpuFastSet
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r0, _08027AB8 @ =0x0203EBB8
         ldr r0, [r0, #0x00]
         cmp r0, #0x02
@@ -49311,7 +49311,7 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -49325,7 +49325,7 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
@@ -49334,19 +49334,19 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x14
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         bl LZ77UnCompWram
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x1B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         movs r1, #0x1A
         movs r2, #0x06
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r3, r0, #0x0
         movs r0, #0x00
         mov r10, r0
@@ -49392,7 +49392,7 @@
         adds r1, #0x11
         adds r2, r5, #0x5
         movs r0, #0x01
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r2, r7, #0x0
         adds r1, r2, #0x1
         lsls r1, r1, #0x10
@@ -49440,12 +49440,12 @@
         movs r0, #0x01
         movs r1, #0x09
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         strh r4, [r0, #0x00]
         movs r0, #0x01
         movs r1, #0x09
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         strh r4, [r0, #0x00]
         b _08027C10
     _08027BC8: .4byte 0x080EE704
@@ -49457,23 +49457,23 @@
         movs r0, #0x01
         movs r1, #0x0A
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         movs r1, #0x0B
         movs r2, #0x0A
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x0A
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         movs r1, #0x0B
         movs r2, #0x0B
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
     _08027C10:
@@ -49497,47 +49497,47 @@
         movs r0, #0x01
         movs r1, #0x0E
         ldr r2, [sp, #0x024]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         lsls r5, r5, #0x01
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x17
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x0F
         ldr r2, [sp, #0x024]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         adds r6, r5, #0x1
         movs r0, #0x01
         adds r1, r6, #0x0
         movs r2, #0x17
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x0E
         ldr r2, [sp, #0x020]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x18
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x0F
         ldr r2, [sp, #0x020]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         adds r1, r6, #0x0
         movs r2, #0x18
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         bl sub_805D9B0
@@ -49558,7 +49558,7 @@
         movs r0, #0x01
         movs r1, #0x11
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         ldr r1, [sp, #0x004]
         movs r0, #0x0F
@@ -49567,24 +49567,24 @@
         adds r5, #0x1E
         movs r0, #0x01
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x12
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         movs r1, #0x0A
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x13
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         ldr r1, [sp, #0x008]
         lsrs r1, r1, #0x04
@@ -49592,37 +49592,37 @@
         ands r1, r2
         movs r0, #0x01
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x14
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         ldr r1, [sp, #0x008]
         movs r3, #0x0F
         ands r1, r3
         movs r0, #0x01
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x15
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         movs r1, #0x0B
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x16
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         ldr r1, [sp, #0x00C]
         lsrs r1, r1, #0x04
@@ -49630,20 +49630,20 @@
         ands r1, r0
         movs r0, #0x01
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x17
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         ldr r1, [sp, #0x00C]
         movs r2, #0x0F
         ands r1, r2
         movs r0, #0x01
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         adds r6, #0x01
@@ -49667,13 +49667,13 @@
         movs r0, #0x01
         movs r1, #0x19
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         adds r2, r6, #0x0
         adds r2, #0x1E
         movs r0, #0x01
         adds r1, r7, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         adds r5, #0x01
@@ -49709,25 +49709,25 @@
         movs r0, #0x01
         movs r1, #0x1C
         adds r2, r7, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r5, r0, #0x0
         adds r4, r6, #0x0
         adds r4, #0x1E
         movs r0, #0x01
         mov r1, r8
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r5, #0x00]
         movs r0, #0x01
         movs r1, #0x1D
         adds r2, r7, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r5, r0, #0x0
         movs r0, #0x01
         mov r1, r9
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r5, #0x00]
         adds r7, #0x01
@@ -49766,36 +49766,36 @@
         movs r0, #0x01
         movs r1, #0x1B
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         mov r5, r10
         adds r5, #0x1E
         movs r0, #0x01
         mov r1, r9
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x1C
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         mov r1, r8
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r0, #0x01
         movs r1, #0x1D
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, r0, #0x0
         movs r0, #0x01
         adds r1, r7, #0x0
         adds r2, r5, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r0, [r0, #0x00]
         strh r0, [r4, #0x00]
         movs r3, #0x01
@@ -50994,10 +50994,10 @@
         bl pltt_clearBuffer
         ldr r1, _08028A28 @ =0x06003800
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _08028A2C @ =0x06003000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r0, _08028A30 @ =0x080DC430
         movs r1, #0x18
         bl sub_802D53C
@@ -51859,12 +51859,12 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r8, r0
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r10, r0
         movs r0, #0x00
     _08029008:
@@ -51899,16 +51899,16 @@
         cmp r0, #0x0B
         blt _08029008
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r8, r0
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r10, r0
         movs r0, #0x00
     _08029060:
@@ -51946,7 +51946,7 @@
         cmp r0, #0x05
         blt _08029060
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         movs r4, #0x0F
     _080290A6:
         bl sub_8027F00
@@ -52258,12 +52258,12 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r10, r0
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r12, r0
         movs r0, #0x00
         cmp r0, r9
@@ -52313,7 +52313,7 @@
         blt _080297DA
     _08029828:
         movs r0, #0x01
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x008
         pop {r3, r4, r5}
         mov r8, r3
@@ -52520,7 +52520,7 @@
         movs r0, #0x00
         adds r1, r7, #0x0
         mov r2, r10
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r6, _08029E28 @ =0x080DC82C
         lsls r1, r4, #0x03
         adds r1, r1, r6
@@ -52535,7 +52535,7 @@
         movs r0, #0x00
         mov r1, r9
         mov r2, r10
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         lsls r4, r4, #0x02
         adds r1, r4, #0x1
         lsls r1, r1, #0x01
@@ -52549,7 +52549,7 @@
         movs r0, #0x00
         adds r1, r7, #0x0
         mov r2, r8
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r4, #0x2
         lsls r1, r1, #0x01
         adds r1, r1, r6
@@ -52559,7 +52559,7 @@
         movs r0, #0x00
         mov r1, r9
         mov r2, r8
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, #0x03
         lsls r4, r4, #0x01
         adds r4, r4, r6
@@ -52604,7 +52604,7 @@
         movs r0, #0x00
         adds r1, r5, #0x0
         mov r2, r10
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r1, #0xE0
         lsls r1, r1, #0x08
         adds r2, r1, #0x0
@@ -52615,7 +52615,7 @@
         adds r1, r5, #0x0
         mov r2, r10
         adds r2, #0x01
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r4, #0x20
         ldr r2, _08029E34 @ =0xFFFFE000
         adds r1, r2, #0x0
@@ -52660,7 +52660,7 @@
         str r0, [sp, #0x000]
         movs r1, #0x00
         movs r2, #0x10
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _08029E78 @ =0x01000040
         mov r0, sp
@@ -53336,10 +53336,10 @@
         bl pltt_clearBuffer
         ldr r1, _0802B5BC @ =0x06003800
         movs r0, #0x00
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r1, _0802B5C0 @ =0x06003000
         movs r0, #0x01
-        bl sub_802E6C4
+        bl map_setBufferDestination
         ldr r0, _0802B5C4 @ =0x080DCEE8
         movs r1, #0x18
         bl sub_802D53C
@@ -53500,7 +53500,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r5, _0802B610 @ =0x01000200
         adds r0, r4, #0x0
@@ -53511,13 +53511,13 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         adds r2, r5, #0x0
         bl CpuFastSet
         movs r0, #0x03
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r1, _0802B5C8 @ =0x04000008
         ldrb r0, [r1, #0x00]
         movs r2, #0x7F
@@ -53864,7 +53864,7 @@
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r5, _0802B87C @ =0x01000200
         add r0, sp, #0x004
@@ -53875,13 +53875,13 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         adds r2, r5, #0x0
         bl CpuFastSet
         movs r0, #0x03
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         mov r1, r8
         ldr r0, [r1, #0x00]
         adds r0, #0x01
@@ -54408,13 +54408,13 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         ldr r2, _0802C114 @ =0x01000140
         mov r0, sp
         bl CpuFastSet
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         bl sub_802CB7C
         ldr r3, _0802C118 @ =0x08102414
         ldr r2, _0802C11C @ =0x08102498
@@ -54618,12 +54618,12 @@
         movs r0, #0x01
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         str r0, [sp, #0x014]
         movs r0, #0x00
         movs r1, #0x00
         movs r2, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         str r0, [sp, #0x018]
         cmp r8, r10
         ble _0802C2E2
@@ -54732,7 +54732,7 @@
         blt _0802C2F8
     _0802C39C:
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         ldr r1, _0802C3B0 @ =0x030001A6
         ldrh r0, [r1, #0x00]
         adds r0, #0x01
@@ -54763,7 +54763,7 @@
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x12
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r3, _0802C450 @ =0x0000B0A0
         adds r1, r3, #0x0
         strh r1, [r0, #0x00]
@@ -54772,21 +54772,21 @@
         movs r0, #0x01
         adds r1, r4, #0x0
         movs r2, #0x12
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r6, _0802C454 @ =0x0000B0A1
         adds r1, r6, #0x0
         strh r1, [r0, #0x00]
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x13
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802C458 @ =0x0000B0A2
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
         movs r0, #0x01
         adds r1, r4, #0x0
         movs r2, #0x13
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r3, _0802C45C @ =0x0000B0A3
         adds r1, r3, #0x0
         strh r1, [r0, #0x00]
@@ -54796,7 +54796,7 @@
         cmp r7, r0
         blt _0802C3D4
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _0802C42E:
         ldr r0, _0802C460 @ =0x030001A4
         movs r6, #0x00
@@ -55089,7 +55089,7 @@
         movs r0, #0x01
         adds r1, r6, #0x0
         movs r2, #0x12
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         movs r1, #0x00
         mov r8, r1
         strh r1, [r0, #0x00]
@@ -55098,19 +55098,19 @@
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x12
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r2, r8
         strh r2, [r0, #0x00]
         movs r0, #0x01
         adds r1, r6, #0x0
         movs r2, #0x13
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r3, r8
         strh r3, [r0, #0x00]
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x13
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         mov r6, r8
         strh r6, [r0, #0x00]
         b _0802C7B2
@@ -55125,7 +55125,7 @@
         movs r0, #0x01
         adds r1, r6, #0x0
         movs r2, #0x12
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r7, _0802C7BC @ =0x0000B0A0
         adds r1, r7, #0x0
         strh r1, [r0, #0x00]
@@ -55134,27 +55134,27 @@
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x12
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802C7C0 @ =0x0000B0A1
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
         movs r0, #0x01
         adds r1, r6, #0x0
         movs r2, #0x13
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r3, _0802C7C4 @ =0x0000B0A2
         adds r1, r3, #0x0
         strh r1, [r0, #0x00]
         movs r0, #0x01
         adds r1, r5, #0x0
         movs r2, #0x13
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r6, _0802C7C8 @ =0x0000B0A3
         adds r1, r6, #0x0
         strh r1, [r0, #0x00]
     _0802C7B2:
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         b _0802C7D4
         .byte 0x00, 0x00
     _0802C7BC: .4byte 0x0000B0A0
@@ -55313,7 +55313,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         mov r2, r9
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE0C @ =0x0000F001
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55321,7 +55321,7 @@
         movs r0, #0x00
         adds r1, r4, #0x0
         mov r2, r9
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE10 @ =0x0000F002
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55344,7 +55344,7 @@
         movs r0, #0x00
         mov r2, r9
         add r2, r8
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         strh r4, [r0, #0x00]
         adds r5, #0x01
         ldr r1, [sp, #0x008]
@@ -55356,7 +55356,7 @@
         add r4, r8
         movs r0, #0x00
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE18 @ =0x0000F402
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55364,7 +55364,7 @@
         adds r1, r6, r5
         movs r0, #0x00
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE1C @ =0x0000F401
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55374,7 +55374,7 @@
         add r2, r8
         movs r0, #0x00
         adds r1, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE20 @ =0x0000F021
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55387,7 +55387,7 @@
         movs r0, #0x00
         mov r2, r9
         add r2, r8
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         strh r4, [r0, #0x00]
         adds r5, #0x01
         cmp r5, r10
@@ -55397,7 +55397,7 @@
         mov r2, r9
         add r2, r8
         movs r0, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE24 @ =0x0000F421
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55412,7 +55412,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE28 @ =0x0000F020
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55424,7 +55424,7 @@
         adds r1, r6, r5
         movs r0, #0x00
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         strh r7, [r0, #0x00]
         adds r5, #0x01
         cmp r5, r10
@@ -55433,7 +55433,7 @@
         adds r1, r6, r5
         movs r0, #0x00
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE2C @ =0x0000F420
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55449,7 +55449,7 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE30 @ =0x0000F821
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55461,7 +55461,7 @@
         adds r1, r6, r5
         movs r0, #0x00
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         strh r7, [r0, #0x00]
         adds r5, #0x01
         cmp r5, r10
@@ -55471,7 +55471,7 @@
         mov r2, r9
         add r2, r8
         movs r0, #0x00
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE34 @ =0x0000FC21
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55482,14 +55482,14 @@
         movs r0, #0x00
         adds r1, r6, #0x0
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE38 @ =0x0000F801
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
         movs r0, #0x00
         ldr r1, [sp, #0x00C]
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE3C @ =0x0000F802
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55504,7 +55504,7 @@
         movs r0, #0x00
         mov r2, r9
         add r2, r8
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         strh r4, [r0, #0x00]
         adds r5, #0x01
         ldr r2, [sp, #0x008]
@@ -55516,7 +55516,7 @@
         add r4, r8
         movs r0, #0x00
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE44 @ =0x0000FC02
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55524,7 +55524,7 @@
         adds r1, r6, r5
         movs r0, #0x00
         adds r2, r4, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldr r2, _0802CE48 @ =0x0000FC01
         adds r1, r2, #0x0
         strh r1, [r0, #0x00]
@@ -55559,7 +55559,7 @@
         movs r0, #0x00
         mov r1, r10
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r5, #0x0
         movs r2, #0x07
@@ -55569,7 +55569,7 @@
         movs r0, #0x00
         mov r1, r10
         adds r2, r7, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0x07
@@ -55609,7 +55609,7 @@
         adds r2, #0x01
         movs r0, #0x00
         ldr r1, [sp, #0x00C]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0x07
@@ -55619,14 +55619,14 @@
         adds r2, #0x02
         movs r0, #0x00
         ldr r1, [sp, #0x00C]
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r1, r0, #0x0
         adds r0, r4, #0x0
         movs r2, #0x07
         bl CpuSet
     _0802CE88:
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
         add sp, #0x014
         pop {r3, r4, r5}
         mov r8, r3
@@ -55802,7 +55802,7 @@
         adds r1, r2, #0x1
         movs r0, #0x01
         mov r2, r10
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         adds r2, r4, #0x0
         adds r1, r0, #0x0
         movs r0, #0x00
@@ -55842,7 +55842,7 @@
         movs r0, #0x01
         adds r1, r4, #0x0
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r1, [r0, #0x00]
         mov r2, r9
         ands r1, r2
@@ -55850,7 +55850,7 @@
         movs r0, #0x01
         adds r1, r4, #0x0
         adds r2, r6, #0x0
-        bl sub_802E6B0
+        bl map_getBufferPtr2d
         ldrh r2, [r0, #0x00]
         ldr r1, [sp, #0x004]
         orrs r1, r2
@@ -55870,7 +55870,7 @@
         blt _0802CFAA
     _0802D05A:
         movs r0, #0x02
-        bl sub_802E6FC
+        bl map_setBufferEnableMask
     _0802D060:
         add sp, #0x010
         pop {r3, r4, r5}
@@ -56154,7 +56154,7 @@
         bl sub_8030434
         bl sub_80302A8
         bl pltt_copyBufferToHw
-        bl sub_802E710
+        bl map_copyBuffersToHw
         ldr r0, [r4, #0x0C]
         cmp r0, #0x00
         beq _0802D2FE
