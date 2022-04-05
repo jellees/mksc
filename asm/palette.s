@@ -10,6 +10,7 @@ pltt_getBuffer: @ 0802E630
     adds r0, r0, r1
     bx lr
 _0802E638: .4byte 0x030002D8
+
     thumb_func_start pltt_clearBuffer
 pltt_clearBuffer: @ 0802E63C
     push {lr}
@@ -30,6 +31,7 @@ pltt_clearBuffer: @ 0802E63C
 _0802E65C: .4byte 0x030002D8
 _0802E660: .4byte 0x01000100
 _0802E664: .4byte 0x030006D8
+    
     thumb_func_start pltt_setDirtyFlag
 pltt_setDirtyFlag: @ 0802E668
     ldr r1, _0802E670 @ =0x030006D8
@@ -37,6 +39,7 @@ pltt_setDirtyFlag: @ 0802E668
     bx lr
     .byte 0x00, 0x00
 _0802E670: .4byte 0x030006D8
+    
     thumb_func_start pltt_copyBufferToHw
 pltt_copyBufferToHw: @ 0802E674
     ldr r2, _0802E694 @ =0x030006D8
