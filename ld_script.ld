@@ -19,6 +19,7 @@ SECTIONS
     .text :
     {
         /* code */
+        asm/rom_header.o(.text);
         asm/crt0.o(.text);
     }
 
