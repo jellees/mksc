@@ -14,6 +14,7 @@ SECTIONS
     {
         . = 0x02D8;
         src/palette.o(.bss);
+        src/map.o(.bss);
     }
 
     . = 0x8000000;
@@ -25,7 +26,7 @@ SECTIONS
         asm/crt0.o(.text);
         asm/text080001D8.o(.text);
         src/palette.o(.text);
-        asm/map.o(.text);
+        src/map.o(.text);
         asm/text0802E778.o(.text);
         *libgcc.a:*_call_via_rX*.o(.text*);
         *libgcc.a:_divsi3.o(.text*);

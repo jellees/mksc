@@ -1,8 +1,8 @@
 #include "gba/gba.h"
 #include "palette.h"
 
-static IWRAM_DATA u16 sBuffer[2][256];
-static IWRAM_DATA bool32 sDirtyFlag;
+static u16 sBuffer[2][256];
+static bool32 sDirtyFlag;
 
 u16* pltt_getBuffer(int buffer)
 {
