@@ -18,9 +18,9 @@ extern void title_main();
 
 static gbm_state_t *sState;
 
-void gbm_vblank();
+void gbm_vblank(void);
 
-int gbm_main()
+int gbm_main(void)
 {
     gbm_state_t *state;
     int i;
@@ -83,7 +83,7 @@ int gbm_main()
     return 1;
 }
 
-void gbm_vblank()
+void gbm_vblank(void)
 {
     gbm_state_t *state = sState;
     REG_BLDCNT = state->bldcnt;
