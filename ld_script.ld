@@ -30,6 +30,8 @@ SECTIONS
         src/palette.o(.text);
         src/map.o(.text);
         asm/text0802E778.o(.text);
+        src/list.o(.text);
+        asm/text0802ED80.o(.text);
         *libgcc.a:*_call_via_rX*.o(.text*);
         *libgcc.a:_divsi3.o(.text*);
         *libgcc.a:_dvmd_tls.o(.text*);
