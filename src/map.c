@@ -1,4 +1,4 @@
-#include "gba/gba.h"
+#include "common.h"
 #include "map.h"
 
 static u16 sBuffer[2][1024];

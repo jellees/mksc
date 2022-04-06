@@ -25,6 +25,8 @@ SECTIONS
         asm/rom_header.o(.text);
         asm/crt0.o(.text);
         asm/text080001D8.o(.text);
+        src/frameHeap.o(.text);
+        asm/text0802D708.o(.text);
         src/palette.o(.text);
         src/map.o(.text);
         asm/text0802E778.o(.text);
