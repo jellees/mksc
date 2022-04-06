@@ -21,15 +21,15 @@ AS 			    := $(BIN_DIR)/./$(PREFIX)as$(EXE)
 SHA1			:= $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 FIX				:= tools/gbafix/./gbafix
 SHELL			:= /bin/bash -o pipefail
+CC1				:= tools/agbcc/bin/old_agbcc$(EXE)
 
 # Flags
 ASFLAGS			:= -mcpu=arm7tdmi
-CC1				:= tools/agbcc/bin/old_agbcc$(EXE)
-CFLAGS			:= -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
+CFLAGS			:= -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
 CPPFLAGS		:= -I tools/agbcc -I tools/agbcc/include -iquote include -nostdinc
 LIBC			:= tools/agbcc/lib/libc.a
 LIBGCC			:= tools/agbcc/lib/libgcc.a
-LDFLAGS			= -L../tools/agbcc/lib -lgcc -lc
+LDFLAGS			= -L../tools/agbcc/lib -lgcc -lc --just-symbols=../symbols.txt
 
 # Files
 ELF = $(ROM:.gba=.elf)
