@@ -22,7 +22,7 @@ SECTIONS
     .text :
     {
         /* code */
-        asm/rom_header.o(.text);
+        asm/romHeader.o(.text);
         asm/crt0.o(.text);
         asm/text080001D8.o(.text);
         src/frameHeap.o(.text);
