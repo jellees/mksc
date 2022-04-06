@@ -12,6 +12,8 @@ SECTIONS
     .bss (NOLOAD) :
     ALIGN(0)
     {
+        . = 0x02D8;
+        src/palette.o(.bss);
     }
 
     . = 0x8000000;
@@ -22,7 +24,7 @@ SECTIONS
         asm/rom_header.o(.text);
         asm/crt0.o(.text);
         asm/text080001D8.o(.text);
-        asm/palette.o(.text);
+        src/palette.o(.text);
         asm/map.o(.text);
         asm/text0802E778.o(.text);
         *libgcc.a:*_call_via_rX*.o(.text*);
