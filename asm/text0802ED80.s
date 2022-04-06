@@ -3026,8 +3026,8 @@ _080303C6:
     pop {r0}
     bx r0
     .byte 0x00, 0x00
-    thumb_func_start sub_80303E4
-sub_80303E4:
+    thumb_func_start dmaq_enqueue
+dmaq_enqueue:
     push {r4, r5, r6, r7, lr}
     mov r7, r9
     mov r6, r8
@@ -3068,8 +3068,8 @@ _08030422:
     pop {r1}
     bx r1
     .byte 0x00, 0x00
-    thumb_func_start sub_8030434
-sub_8030434:
+    thumb_func_start dmaq_getVBlankDmaQueue
+dmaq_getVBlankDmaQueue:
     ldr r0, _08030438 @ =0x03002190
     bx lr
 _08030438: .4byte 0x03002190
@@ -5309,14 +5309,14 @@ _080314CC:
     b _08031576
 _080314DC: .4byte 0x06008000
 _080314E0:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     adds r1, r5, #0x0
     adds r1, #0x80
     ldr r1, [r1, #0x00]
     adds r1, r5, r1
     ldr r2, _080314F8 @ =0x06008000
     ldr r3, _080314FC @ =0x84001000
-    bl sub_80303E4
+    bl dmaq_enqueue
     b _08031576
     .byte 0x00, 0x00
 _080314F8: .4byte 0x06008000
@@ -5761,11 +5761,11 @@ _08031BA4:
     ldr r0, [r0, #0x10]
     cmp r0, #0x08
     bne _08031BBE
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _08031BD8 @ =0x08068F0C
     ldr r2, _08031BDC @ =0x06013F60
     ldr r3, _08031BE0 @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
 _08031BBE:
     ldr r0, [r4, #0x00]
     ldr r0, [r0, #0x0C]
@@ -8906,11 +8906,11 @@ _080337B4:
     cmp r5, #0x00
     bne _080337B4
 _0803381A:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _08033830 @ =0x02000000
     ldr r2, [r4, #0x14]
     ldr r3, _08033834 @ =0x80002000
-    bl sub_80303E4
+    bl dmaq_enqueue
     pop {r4, r5}
     pop {r0}
     bx r0
@@ -10282,13 +10282,13 @@ _08034386:
     ble _080343AE
     movs r4, #0x00
 _080343AE:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r4, #0x02
     adds r1, r1, r6
     ldr r1, [r1, #0x00]
     ldr r2, _08034418 @ =0x06005CA0
     ldr r3, _0803441C @ =0x800001A0
-    bl sub_80303E4
+    bl dmaq_enqueue
     mov r0, r10
     str r4, [r0, #0x00]
 _080343C4:
@@ -24203,14 +24203,14 @@ _0803CEF8:
     movs r4, #0x80
     lsls r4, r4, #0x02
 _0803CF18:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsrs r3, r4, #0x01
     movs r1, #0x80
     lsls r1, r1, #0x18
     orrs r3, r1
     adds r1, r7, #0x0
     adds r2, r5, #0x0
-    bl sub_80303E4
+    bl dmaq_enqueue
     mov r2, r8
     str r7, [r2, #0x00]
 _0803CF30:
@@ -36899,11 +36899,11 @@ _080438B4:
     lsls r0, r0, #0x02
     adds r0, r0, r1
     ldr r4, [r0, #0x00]
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r2, _08043908 @ =0x06012C00
     ldr r3, _0804390C @ =0x80000100
     adds r1, r4, #0x0
-    bl sub_80303E4
+    bl dmaq_enqueue
 _080438DC:
     movs r0, #0x01
     bl pltt_getBuffer
@@ -37018,11 +37018,11 @@ _0804399A:
     ldr r5, _080439F4 @ =0x06012E00
     adds r4, r0, r1
 _080439BE:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     adds r1, r4, #0x0
     adds r2, r5, #0x0
     ldr r3, _080439F8 @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
     adds r5, #0x80
     movs r0, #0x80
     lsls r0, r0, #0x03
@@ -46726,11 +46726,11 @@ sub_8048D44:
     push {r5, r6, r7}
     add sp, #-0x014
     adds r5, r0, #0x0
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _08048D98 @ =0x08066F0C
     ldr r2, _08048D9C @ =0x06012000
     ldr r3, _08048DA0 @ =0x80001000
-    bl sub_80303E4
+    bl dmaq_enqueue
     ldr r4, _08048DA4 @ =0x08066E4C
     movs r0, #0x01
     bl pltt_getBuffer
@@ -53852,7 +53852,7 @@ _0804CFB0:
     bne _0804CFB6
     movs r7, #0x0A
 _0804CFB6:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r7, #0x07
     b _0804D2AC
     .byte 0x00, 0x00
@@ -54088,7 +54088,7 @@ _0804D188:
     bne _0804D18E
     movs r7, #0x0A
 _0804D18E:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r7, #0x07
     b _0804D2AC
     .byte 0x00, 0x00
@@ -54229,14 +54229,14 @@ _0804D2A0:
     bne _0804D2A6
     movs r6, #0x0A
 _0804D2A6:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r6, #0x07
 _0804D2AC:
     ldr r2, _0804D2C4 @ =0x0806F33C
     adds r1, r1, r2
     ldr r2, _0804D2C8 @ =0x06000E00
     ldr r3, _0804D2CC @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
     b _0804D324
     .byte 0x00, 0x00
 _0804D2BC: .4byte 0x00000FFF
@@ -54280,13 +54280,13 @@ _0804D30C:
     bne _0804D312
     movs r7, #0x0A
 _0804D312:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r7, #0x07
     ldr r2, _0804D334 @ =0x0806F33C
     adds r1, r1, r2
     ldr r2, _0804D338 @ =0x06000E00
     ldr r3, _0804D33C @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
 _0804D324:
     pop {r4, r5, r6, r7}
     pop {r0}
@@ -54350,13 +54350,13 @@ _0804D39C:
     bne _0804D3A2
     movs r7, #0x0A
 _0804D3A2:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r7, #0x07
     ldr r2, _0804D3D4 @ =0x0806F33C
     adds r1, r1, r2
     ldr r2, _0804D3D8 @ =0x06000E00
     ldr r3, _0804D3DC @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
     pop {r4, r5, r6, r7}
     pop {r0}
     bx r0
@@ -54619,13 +54619,13 @@ _0804D5D8:
     bne _0804D5DE
     movs r7, #0x0A
 _0804D5DE:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r7, #0x07
     ldr r2, _0804D604 @ =0x0806F33C
     adds r1, r1, r2
     ldr r2, _0804D608 @ =0x06000E00
     ldr r3, _0804D60C @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
     b _0804D61A
     .byte 0x00, 0x00
 _0804D5F4: .4byte 0x00000C6C
@@ -54705,13 +54705,13 @@ _0804D698:
     bne _0804D69E
     movs r7, #0x0A
 _0804D69E:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r7, #0x07
     ldr r2, _0804D6BC @ =0x0806F33C
     adds r1, r1, r2
     ldr r2, _0804D6C0 @ =0x06000E00
     ldr r3, _0804D6C4 @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
     b _0804D700
     .byte 0x00, 0x00
 _0804D6B4: .4byte 0x00000FFF
@@ -55635,7 +55635,7 @@ _0804DDCE:
     lsrs r0, r0, #0x01
     cmp r0, #0x00
     beq _0804DE1C
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldrh r1, [r4, #0x00]
     lsrs r1, r1, #0x01
     subs r1, #0x01
@@ -55644,13 +55644,13 @@ _0804DDCE:
     adds r1, r1, r2
     ldr r2, _0804DE58 @ =0x06012640
     ldr r3, _0804DE5C @ =0x80000020
-    bl sub_80303E4
+    bl dmaq_enqueue
 _0804DE1C:
     ldrh r0, [r4, #0x00]
     lsrs r0, r0, #0x01
     cmp r0, r5
     bge _0804DEE8
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldrh r1, [r4, #0x00]
     lsrs r1, r1, #0x01
     adds r1, #0x01
@@ -55659,7 +55659,7 @@ _0804DE1C:
     adds r1, r1, r2
     ldr r2, _0804DE60 @ =0x06012680
     ldr r3, _0804DE5C @ =0x80000020
-    bl sub_80303E4
+    bl dmaq_enqueue
     b _0804DEE8
     .byte 0x00, 0x00
 _0804DE40: .4byte 0x030023B0
@@ -55676,11 +55676,11 @@ _0804DE64:
     lsls r0, r0, #0x02
     cmp r1, r0
     bne _0804DE88
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804DE7C @ =0x0806CE8C
     ldr r2, _0804DE80 @ =0x06012640
     ldr r3, _0804DE84 @ =0x80000040
-    bl sub_80303E4
+    bl dmaq_enqueue
     b _0804DEE8
 _0804DE7C: .4byte 0x0806CE8C
 _0804DE80: .4byte 0x06012640
@@ -55716,13 +55716,13 @@ _0804DEB2:
     ldr r0, [r1, #0x00]
     cmp r0, r8
     beq _0804DEDA
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r4, #0x06
     ldr r2, _0804DF00 @ =0x0806CD8C
     adds r1, r1, r2
     adds r2, r6, #0x0
     ldr r3, _0804DF04 @ =0x80000020
-    bl sub_80303E4
+    bl dmaq_enqueue
     adds r6, #0x40
     adds r7, #0x01
     cmp r7, #0x02
@@ -56147,7 +56147,7 @@ _0804E1D6:
     lsrs r0, r0, #0x01
     cmp r0, #0x00
     beq _0804E22E
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldrh r1, [r5, #0x00]
     lsrs r1, r1, #0x01
     subs r1, #0x01
@@ -56156,13 +56156,13 @@ _0804E1D6:
     adds r1, r1, r2
     ldr r2, _0804E2CC @ =0x06012640
     ldr r3, _0804E2D0 @ =0x80000020
-    bl sub_80303E4
+    bl dmaq_enqueue
 _0804E22E:
     ldrh r0, [r5, #0x00]
     lsrs r0, r0, #0x01
     cmp r0, r6
     bge _0804E24E
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldrh r1, [r5, #0x00]
     lsrs r1, r1, #0x01
     adds r1, #0x01
@@ -56171,19 +56171,19 @@ _0804E22E:
     adds r1, r1, r2
     ldr r2, _0804E2D4 @ =0x06012680
     ldr r3, _0804E2D0 @ =0x80000020
-    bl sub_80303E4
+    bl dmaq_enqueue
 _0804E24E:
     ldr r1, _0804E2D8 @ =0x0203EC4C
     movs r0, #0x20
     strh r0, [r1, #0x00]
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r2, _0804E2DC @ =0x080EE704
     lsls r1, r7, #0x02
     adds r1, r1, r2
     ldr r1, [r1, #0x00]
     ldr r2, _0804E2E0 @ =0x06001C00
     ldr r3, _0804E2E4 @ =0x800000B0
-    bl sub_80303E4
+    bl dmaq_enqueue
 _0804E268:
     ldr r2, _0804E2D8 @ =0x0203EC4C
     ldrh r1, [r2, #0x00]
@@ -56542,7 +56542,7 @@ _0804E516:
     mov r1, r8
     str r0, [r1, #0x00]
     ldrb r4, [r4, #0x02]
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r2, _0804E5B4 @ =0x080EE724
     movs r1, #0x81
     negs r1, r1
@@ -56552,7 +56552,7 @@ _0804E516:
     ldr r1, [r1, #0x00]
     ldr r2, _0804E5B8 @ =0x06000C80
     ldr r3, _0804E5BC @ =0x800000C0
-    bl sub_80303E4
+    bl dmaq_enqueue
     movs r0, #0x80
     ands r4, r0
     ldr r5, _0804E5C0 @ =0x080EEF30
@@ -57140,11 +57140,11 @@ sub_804EA0C:
     ands r0, r1
     strh r0, [r2, #0x00]
     movs r7, #0xA0
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804EA88 @ =0x0806500C
     ldr r2, _0804EA8C @ =0x06001400
     ldr r3, _0804EA90 @ =0x80000120
-    bl sub_80303E4
+    bl dmaq_enqueue
     movs r0, #0x00
 _0804EA32:
     movs r4, #0x00
@@ -57406,17 +57406,17 @@ sub_804EC30:
     adds r2, #0x04
     adds r0, r4, r2
     strh r1, [r0, #0x00]
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804EC98 @ =0x08062834
     movs r2, #0xC0
     lsls r2, r2, #0x13
     ldr r3, _0804EC9C @ =0x80001000
-    bl sub_80303E4
-    bl sub_8030434
+    bl dmaq_enqueue
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804ECA0 @ =0x0203EC68
     ldr r2, _0804ECA4 @ =0x06001C00
     ldr r3, _0804ECA8 @ =0x810000B0
-    bl sub_80303E4
+    bl dmaq_enqueue
     ldr r0, _0804ECAC @ =0x000007DA
     adds r4, r4, r0
     ldrh r0, [r4, #0x00]
@@ -57464,11 +57464,11 @@ _0804ECB0:
     movs r2, #0x18
     bl CpuFastSet
 _0804ECE2:
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804ED84 @ =0x08064834
     ldr r2, _0804ED88 @ =0x06001000
     ldr r3, _0804ED8C @ =0x80000200
-    bl sub_80303E4
+    bl dmaq_enqueue
 _0804ECF0:
     movs r0, #0x01
     negs r0, r0
@@ -57674,16 +57674,16 @@ _0804EE86:
     lsls r1, r1, #0x02
     cmp r0, r1
     bne _0804EF1C
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804EF84 @ =0x08066C0C
     ldr r2, _0804EF88 @ =0x06002800
     ldr r3, _0804EF8C @ =0x80000120
-    bl sub_80303E4
-    bl sub_8030434
+    bl dmaq_enqueue
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804EF90 @ =0x0806640C
     ldr r2, _0804EF94 @ =0x06017800
     ldr r3, _0804EF98 @ =0x80000400
-    bl sub_80303E4
+    bl dmaq_enqueue
     movs r7, #0x00
     movs r0, #0x00
     ldr r1, _0804EF9C @ =0x080EE76C
@@ -58137,11 +58137,11 @@ sub_804F394:
     ldr r0, [r0, #0x00]
     cmp r0, #0x00
     blt _0804F3BA
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804F3CC @ =0x080655AC
     ldr r2, _0804F3D0 @ =0x06001400
     ldr r3, _0804F3D4 @ =0x800001B0
-    bl sub_80303E4
+    bl dmaq_enqueue
 _0804F3BA:
     pop {r0}
     bx r0
@@ -58161,11 +58161,11 @@ sub_804F3D8:
     ldr r1, _0804F3FC @ =0x0000FFDF
     ands r1, r2
     strh r1, [r0, #0x00]
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804F400 @ =0x0806524C
     ldr r2, _0804F404 @ =0x06001800
     ldr r3, _0804F408 @ =0x800001B0
-    bl sub_80303E4
+    bl dmaq_enqueue
     pop {r0}
     bx r0
 _0804F3F8: .4byte 0x00000C68
@@ -58806,11 +58806,11 @@ sub_804FAE0:
     ldsh r1, [r6, r2]
     adds r1, #0x28
     strh r1, [r0, #0x22]
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     ldr r1, _0804FB4C @ =0x0806CF0C
     ldr r2, _0804FB50 @ =0x06013600
     ldr r3, _0804FB54 @ =0x80000080
-    bl sub_80303E4
+    bl dmaq_enqueue
     ldr r0, _0804FB58 @ =0x03002E20
     ldr r1, _0804FB5C @ =0x00000838
     adds r0, r0, r1
@@ -62270,7 +62270,7 @@ sub_80524CC:
     lsls r1, r1, #0x04
     adds r0, r6, r1
     ldrb r4, [r0, #0x00]
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     lsls r1, r4, #0x01
     adds r1, r1, r4
     lsls r1, r1, #0x06
@@ -62278,7 +62278,7 @@ sub_80524CC:
     adds r1, r1, r2
     ldr r2, _0805256C @ =0x06000020
     ldr r3, _08052570 @ =0x84000030
-    bl sub_80303E4
+    bl dmaq_enqueue
     ldr r0, _08052574 @ =0x080EFD58
     adds r0, r5, r0
     ldr r0, [r0, #0x00]
@@ -63149,7 +63149,7 @@ _08053268:
     lsrs r3, r3, #0x18
     adds r0, r6, #0x0
     bl sub_8032798
-    bl sub_8030434
+    bl dmaq_getVBlankDmaQueue
     movs r2, #0x08
     ldsh r1, [r5, r2]
     lsls r1, r1, #0x06
@@ -63160,7 +63160,7 @@ _08053268:
     lsls r2, r2, #0x06
     adds r2, r2, r3
     ldr r3, _080532B4 @ =0x80000020
-    bl sub_80303E4
+    bl dmaq_enqueue
     ldr r0, [r7, #0x00]
     adds r0, #0x01
     str r0, [r7, #0x00]

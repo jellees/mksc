@@ -1092,30 +1092,30 @@
         ldr r4, _08000DA4 @ =0x02025400
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000DA8 @ =0x06004000
         ldr r3, _08000DAC @ =0x80001400
         adds r1, r4, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000DB0 @ =0x080CEBB4
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000DB4 @ =0x06008000
         ldr r5, _08000DB8 @ =0x80001300
         adds r1, r4, #0x0
         adds r3, r5, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000DBC @ =0x080D0060
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000DC0 @ =0x0600A600
         adds r1, r4, #0x0
         adds r3, r5, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r5, _08000DC4 @ =0x080D4794
         movs r0, #0x00
@@ -1131,31 +1131,31 @@
         ldr r0, _08000DC8 @ =0x080D455C
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000DCC @ =0x06002000
         ldr r6, _08000DD0 @ =0x80000400
         adds r1, r4, #0x0
         adds r3, r6, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000DD4 @ =0x080D49FC
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000DD8 @ =0x06002800
         ldr r3, _08000DDC @ =0x80000800
         adds r1, r4, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000DE0 @ =0x080D4E10
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000DE4 @ =0x06003800
         mov r8, r2
         adds r1, r4, #0x0
         adds r3, r6, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r5, _08000DE8 @ =0x080CAC64
         movs r0, #0x01
@@ -1175,66 +1175,66 @@
         ldr r0, _08000DF0 @ =0x080CAE78
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000DF4 @ =0x06011400
         ldr r5, _08000DF8 @ =0x80000A80
         adds r1, r4, #0x0
         adds r3, r5, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000DFC @ =0x080CB62C
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000E00 @ =0x06012900
         adds r1, r4, #0x0
         adds r3, r5, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000E04 @ =0x080CBA10
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000E08 @ =0x06013E00
         adds r1, r4, #0x0
         adds r3, r5, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000E0C @ =0x080CC1F0
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000E10 @ =0x06015300
         adds r1, r4, #0x0
         adds r3, r5, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000E14 @ =0x080CC748
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000E18 @ =0x06016800
         ldr r3, _08000E1C @ =0x80000200
         adds r1, r4, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000E20 @ =0x080CCCEC
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000E24 @ =0x06016C00
         adds r1, r4, #0x0
         adds r3, r6, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000E28 @ =0x080CC8F4
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r2, _08000E2C @ =0x06017400
         ldr r3, _08000E30 @ =0x80000260
         adds r1, r4, #0x0
-        bl sub_80303E4
+        bl dmaq_enqueue
         bl core_frameProc
         ldr r0, _08000E34 @ =0x080D0DE0
         ldr r4, _08000E38 @ =0x02010400
@@ -1835,11 +1835,11 @@
         lsls r0, r0, #0x01
         cmp r1, r0
         bls _080017F4
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r1, _08001860 @ =0x0203EBE0
         ldr r2, _08001864 @ =0x06008000
         ldr r3, _08001868 @ =0x81000020
-        bl sub_80303E4
+        bl dmaq_enqueue
     _080017F4:
         ldr r0, [r6, #0x2C]
         adds r0, #0x01
@@ -1862,11 +1862,11 @@
         ldr r0, [r0, #0x00]
         ldr r1, [r6, #0x34]
         bl LZ77UnCompWram
-        bl sub_8030434
+        bl dmaq_getVBlankDmaQueue
         ldr r1, [r6, #0x34]
         ldr r2, _08001870 @ =0x06006000
         ldr r3, _08001874 @ =0x80000A00
-        bl sub_80303E4
+        bl dmaq_enqueue
     _0800182C:
         adds r0, r6, #0x0
         bl sub_8000350

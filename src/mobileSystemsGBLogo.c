@@ -31,11 +31,11 @@ int gbm_main()
     sState = (gbm_state_t *)frmheap_calloc(&scene->frameHeap, 1, 12);
     state = sState;
     *(vu16 *)&state->bg0cnt;
-    state->bg0cnt = 4;
+    state->bg0cnt = BGCNT_CHARBASE(1);
     *(vu16 *)&state->dispcnt;
-    state->dispcnt = 256;
+    state->dispcnt = DISPCNT_BG0_ON;
     *(vu16 *)&state->bldcnt;
-    state->bldcnt = 191;
+    state->bldcnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
     *(vu16 *)&state->bldy;
     state->bldy = 16;
 
@@ -43,10 +43,10 @@ int gbm_main()
     core_frameProc();
 
     LZ77UnCompWram(dword_80D830C, title_sDriversBgTilesBuf);
-    sub_80303E4(sub_8030434(), (int)title_sDriversBgTilesBuf, 0x6004000, 0x80000600);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), (int)title_sDriversBgTilesBuf, BG_CHAR_ADDR(1), 0x80000600);
     core_frameProc();
 
-    map_setBufferDestination(0, 0x6000000);
+    map_setBufferDestination(0, BG_VRAM);
     LZ77UnCompWram(dword_80D89B4, map_getBufferPtr2d(0, 0, 0));
     map_setBufferDirty(MAP_MASK_BUFFER_0);
     core_frameProc();
@@ -55,7 +55,7 @@ int gbm_main()
     pltt_setDirtyFlag(TRUE);
     core_frameProc();
 
-    for (i = 0; i <= 15; ++i)
+    for (i = 0; i < 16; ++i)
     {
         int val;
         core_frameProc();
@@ -67,7 +67,7 @@ int gbm_main()
     for (i = 59; i >= 0; --i)
         core_frameProc();
 
-    for (i = 0; i <= 15; ++i)
+    for (i = 0; i < 16; ++i)
     {
         core_frameProc();
         *(vu16 *)&state->bldy;
