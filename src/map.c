@@ -34,13 +34,13 @@ void map_copyBuffersToHw(void)
 {
     if (sBufferDirtyMask & MAP_MASK_BUFFER_0)
     {
-        DmaCopy32(0, sBuffer[0], sBufferDestinations[0], 2048);
+        DmaCopy32(0, sBuffer[0], sBufferDestinations[0], sizeof(sBuffer[0]));
         sBufferDirtyMask &= ~MAP_MASK_BUFFER_0;
     }
 
     if (sBufferDirtyMask & MAP_MASK_BUFFER_1)
     {
-        DmaCopy32(0, sBuffer[1], sBufferDestinations[1], 2048);
+        DmaCopy32(0, sBuffer[1], sBufferDestinations[1], sizeof(sBuffer[1]));
         sBufferDirtyMask &= ~MAP_MASK_BUFFER_1;
     }
 }
