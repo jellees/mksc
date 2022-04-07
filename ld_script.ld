@@ -23,6 +23,9 @@ SECTIONS
         . = 0x02D8;
         src/palette.o(.bss);
         src/map.o(.bss);
+
+        . = 0x23F8;
+        src/unklib/irq.o(.bss);
         
         . = 0x2E20;
         gSceneState = .; /* As of now we don't know how big this struct is. */
@@ -49,6 +52,12 @@ SECTIONS
         *libgcc.a:_divsi3.o(.text*);
         *libgcc.a:_dvmd_tls.o(.text*);
         asm/text08061EB0.o(.text);
+        src/unklib/irq.o(.text);
+        src/unklib/dma.o(.text);
+
+        asm/rodata08062774.o(.rodata);
+        src/unklib/irq.o(.rodata);
+        asm/rodata081E9B1C.o(.rodata);
     }
 
     /* Discard everything not specifically mentioned above. */

@@ -1,4 +1,5 @@
 #pragma once
+#include "unklib/irq.h"
 
 typedef struct
 {
@@ -12,9 +13,9 @@ typedef struct
 
 extern scene_state_t gSceneState;
 
-static inline void setVblankFunc(scene_state_t *scene, int func)
+static inline void scene_setVBlankFunc(scene_state_t *scene, int func)
 {
-    irq_updateMask(1, -2);
+    irq_updateMask(IRQ_UPDATE_MODE_AND, ~IRQ_MASK_VBLANK);
     scene->vBlankFunc = func;
-    irq_updateMask(2, 0x10001);
+    irq_updateMask(IRQ_UPDATE_MODE_OR, IRQ_MASK_VBLANK | IRQ_MASK_IME);
 }

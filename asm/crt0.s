@@ -80,7 +80,7 @@ intr_main:
 
 2:
     strh    r0, [r3, #(REG_IF - REG_IE)]
-    ldr     r1,= 0x03004F80 //IntrTable
+    ldr     r1,= gIrqTable
     add     r1, r1, r2
     ldr     r0, [r1]
     bx      r0

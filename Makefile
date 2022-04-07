@@ -73,6 +73,12 @@ clean:
 	rm -f $(ROM) $(ELF) $(MAP)
 	rm -r build/*
 
+$(OBJ_DIR)/src/unklib/%.o : src/unklib/%.c
+	@$(CPP) $(CPPFLAGS) $< -o $(OBJ_DIR)/src/unklib/$*.i
+	@$(CC1) $(OBJ_DIR)/src/unklib/$*.i $(CFLAGS) -mno-thumb-interwork -o $(OBJ_DIR)/src/unklib/$*.s
+	@echo -e ".text\n\t.align\t2, 0\n" >> $(OBJ_DIR)/src/unklib/$*.s
+	$(AS) $(ASFLAGS) -o $@ $(OBJ_DIR)/src/unklib/$*.s
+
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c
 	@$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
 	@$(CC1) $(C_BUILDDIR)/$*.i $(CFLAGS) -o $(C_BUILDDIR)/$*.s

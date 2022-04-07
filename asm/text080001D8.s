@@ -1043,7 +1043,7 @@
         adds r0, r4, #0x0
         bl LZ77UnCompWram
     _08000A98:
-        bl core_frameProc
+        bl main_frameProc
         movs r1, #0xC2
         lsls r1, r1, #0x01
         adds r0, r7, r1
@@ -1087,7 +1087,7 @@
     _08000B02:
         movs r0, #0x01
         bl pltt_setDirtyFlag
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DA0 @ =0x080CDCA0
         ldr r4, _08000DA4 @ =0x02025400
         adds r1, r4, #0x0
@@ -1097,7 +1097,7 @@
         ldr r3, _08000DAC @ =0x80001400
         adds r1, r4, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DB0 @ =0x080CEBB4
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1107,7 +1107,7 @@
         adds r1, r4, #0x0
         adds r3, r5, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DBC @ =0x080D0060
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1116,7 +1116,7 @@
         adds r1, r4, #0x0
         adds r3, r5, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r5, _08000DC4 @ =0x080D4794
         movs r0, #0x00
         movs r1, #0x00
@@ -1127,7 +1127,7 @@
         bl LZ77UnCompWram
         movs r0, #0x01
         bl map_setBufferDirty
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DC8 @ =0x080D455C
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1137,7 +1137,7 @@
         adds r1, r4, #0x0
         adds r3, r6, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DD4 @ =0x080D49FC
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1146,7 +1146,7 @@
         ldr r3, _08000DDC @ =0x80000800
         adds r1, r4, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DE0 @ =0x080D4E10
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1156,7 +1156,7 @@
         adds r1, r4, #0x0
         adds r3, r6, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r5, _08000DE8 @ =0x080CAC64
         movs r0, #0x01
         bl pltt_getBuffer
@@ -1165,13 +1165,13 @@
         bl LZ77UnCompWram
         movs r0, #0x01
         bl pltt_setDirtyFlag
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DEC @ =0x080CADC4
         movs r2, #0xC4
         lsls r2, r2, #0x01
         adds r1, r7, r2
         bl LZ77UnCompWram
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DF0 @ =0x080CAE78
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1181,7 +1181,7 @@
         adds r1, r4, #0x0
         adds r3, r5, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000DFC @ =0x080CB62C
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1190,7 +1190,7 @@
         adds r1, r4, #0x0
         adds r3, r5, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E04 @ =0x080CBA10
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1199,7 +1199,7 @@
         adds r1, r4, #0x0
         adds r3, r5, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E0C @ =0x080CC1F0
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1208,7 +1208,7 @@
         adds r1, r4, #0x0
         adds r3, r5, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E14 @ =0x080CC748
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1217,7 +1217,7 @@
         ldr r3, _08000E1C @ =0x80000200
         adds r1, r4, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E20 @ =0x080CCCEC
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1226,7 +1226,7 @@
         adds r1, r4, #0x0
         adds r3, r6, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E28 @ =0x080CC8F4
         adds r1, r4, #0x0
         bl LZ77UnCompWram
@@ -1235,35 +1235,35 @@
         ldr r3, _08000E30 @ =0x80000260
         adds r1, r4, #0x0
         bl dmaq_enqueue
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E34 @ =0x080D0DE0
         ldr r4, _08000E38 @ =0x02010400
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E3C @ =0x080D1D20
         movs r2, #0xB0
         lsls r2, r2, #0x05
         adds r1, r4, r2
         bl LZ77UnCompWram
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E40 @ =0x080D2BA8
         movs r2, #0xB0
         lsls r2, r2, #0x06
         adds r1, r4, r2
         bl LZ77UnCompWram
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E44 @ =0x080D3A90
         movs r1, #0x84
         lsls r1, r1, #0x07
         adds r4, r4, r1
         adds r1, r4, #0x0
         bl LZ77UnCompWram
-        bl core_frameProc
+        bl main_frameProc
         ldr r0, _08000E48 @ =0x080D58F8
         ldr r1, _08000E4C @ =0x02004400
         bl LZ77UnCompWram
-        bl core_frameProc
+        bl main_frameProc
         movs r2, #0xA4
         lsls r2, r2, #0x01
         adds r0, r7, r2
@@ -1292,7 +1292,7 @@
         movs r0, #0x01
         bl pltt_setDirtyFlag
     _08000D3E:
-        bl core_frameProc
+        bl main_frameProc
         ldrh r0, [r7, #0x22]
         movs r1, #0x00
         ldr r0, _08000E5C @ =0x00004204
@@ -1640,7 +1640,7 @@
         bl irq_updateMask
     _08001060:
         bl oam_802FD3C
-        bl core_frameProc
+        bl main_frameProc
         movs r1, #0xE4
         lsls r1, r1, #0x02
         adds r0, r6, r1

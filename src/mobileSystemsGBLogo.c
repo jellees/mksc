@@ -16,19 +16,19 @@ extern int dword_80D82EC[1];
 extern void title_main();
 // End external declarations.
 
-static gbm_state_t *sState;
+static gbm_state_t* sState;
 
 void gbm_vblank(void);
 
 int gbm_main(void)
 {
-    gbm_state_t *state;
+    gbm_state_t* state;
     int i;
-    scene_state_t *scene = &gSceneState;
+    scene_state_t* scene = &gSceneState;
 
     frmheap_init(&scene->frameHeap, &gMainFrmHeap, sizeof(gMainFrmHeap));
 
-    sState = (gbm_state_t *)frmheap_calloc(&scene->frameHeap, 1, 12);
+    sState = (gbm_state_t*)frmheap_calloc(&scene->frameHeap, 1, 12);
     state = sState;
     *(vu16 *)&state->bg0cnt;
     state->bg0cnt = BGCNT_CHARBASE(1);
@@ -39,44 +39,44 @@ int gbm_main(void)
     *(vu16 *)&state->bldy;
     state->bldy = 16;
 
-    setVblankFunc(scene, gbm_vblank);
-    core_frameProc();
+    scene_setVBlankFunc(scene, gbm_vblank);
+    main_frameProc();
 
     LZ77UnCompWram(dword_80D830C, title_sDriversBgTilesBuf);
     dmaq_enqueue(dmaq_getVBlankDmaQueue(), (int)title_sDriversBgTilesBuf, BG_CHAR_ADDR(1), 0x80000600);
-    core_frameProc();
+    main_frameProc();
 
     map_setBufferDestination(0, BG_VRAM);
     LZ77UnCompWram(dword_80D89B4, map_getBufferPtr2d(0, 0, 0));
     map_setBufferDirty(MAP_MASK_BUFFER_0);
-    core_frameProc();
+    main_frameProc();
 
     CpuFastSet(dword_80D82EC, pltt_getBuffer(PLTT_BUFFER_BG), 8);
     pltt_setDirtyFlag(TRUE);
-    core_frameProc();
+    main_frameProc();
 
     for (i = 0; i < 16; ++i)
     {
         int val;
-        core_frameProc();
+        main_frameProc();
         val = 16 - i;
         *(vu16 *)&state->bldy;
         state->bldy = val;
     }
 
     for (i = 59; i >= 0; --i)
-        core_frameProc();
+        main_frameProc();
 
     for (i = 0; i < 16; ++i)
     {
-        core_frameProc();
+        main_frameProc();
         *(vu16 *)&state->bldy;
         state->bldy = i;
     }
 
     state = 0;
 
-    setVblankFunc(&gSceneState, 0);
+    scene_setVBlankFunc(&gSceneState, NULL);
     gSceneState.menuMainFunc = (int)title_main;
     gSceneState.byte_3002E28 = (gSceneState.byte_3002E28 + 1) & 7;
 
@@ -85,7 +85,7 @@ int gbm_main(void)
 
 void gbm_vblank(void)
 {
-    gbm_state_t *state = sState;
+    gbm_state_t* state = sState;
     REG_BLDCNT = state->bldcnt;
     REG_BLDALPHA = state->bldalpha;
     REG_BLDY = state->bldy;

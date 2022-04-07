@@ -5287,7 +5287,7 @@ _0803149E:
     adds r0, r0, r1
     adds r1, r7, #0x0
     bl LZ77UnCompVram
-    bl core_frameProc
+    bl main_frameProc
 _080314B6:
     movs r0, #0x80
     lsls r0, r0, #0x05
@@ -5356,7 +5356,7 @@ _0803152E:
     adds r0, r0, r1
     adds r1, r7, #0x0
     bl LZ77UnCompVram
-    bl core_frameProc
+    bl main_frameProc
 _08031548:
     movs r2, #0x80
     lsls r2, r2, #0x05
@@ -5378,7 +5378,7 @@ _08031568:
     ldr r1, _08031590 @ =0x06008000
     bl LZ77UnCompVram
 _08031576:
-    bl core_frameProc
+    bl main_frameProc
     ldr r0, _08031594 @ =0x08076C1C
     ldr r1, _08031598 @ =0x0600B800
     bl LZ77UnCompVram
@@ -5433,7 +5433,7 @@ _080315D8:
     adds r0, r0, r1
     adds r1, r6, #0x0
     bl LZ77UnCompVram
-    bl core_frameProc
+    bl main_frameProc
 _080315F0:
     movs r0, #0x80
     lsls r0, r0, #0x05
@@ -5490,7 +5490,7 @@ _0803164A:
     adds r0, r0, r1
     mov r1, r8
     bl LZ77UnCompVram
-    bl core_frameProc
+    bl main_frameProc
 _08031664:
     movs r2, #0x80
     lsls r2, r2, #0x05
@@ -5648,7 +5648,7 @@ _080319BC:
     lsls r0, r0, #0x08
     orrs r0, r1
     strh r0, [r2, #0x00]
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r5, #0x0
     adds r1, r7, #0x0
     adds r2, r6, #0x0
@@ -5671,19 +5671,19 @@ _080319BC:
     adds r0, r4, #0x0
     movs r2, #0x08
     bl CpuFastSet
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r5, #0x0
     adds r1, r7, #0x0
     adds r2, r6, #0x0
     bl sub_803159C
     adds r0, r5, #0x0
     bl sub_80329BC
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r5, #0x0
     adds r0, #0xA4
     adds r1, r6, #0x0
     bl sub_8032E8C
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r6, #0x0
     adds r0, #0xF0
     ldr r0, [r0, #0x00]
@@ -5692,7 +5692,7 @@ _080319BC:
     adds r0, r5, #0x0
     bl sub_8032428
 _08031A54:
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r6, #0x0
     adds r0, #0xCA
     ldrb r0, [r0, #0x00]
@@ -5710,10 +5710,10 @@ _08031A6E:
     adds r0, #0xC0
     ldrh r0, [r0, #0x00]
     str r0, [r5, #0x04]
-    bl core_frameProc
+    bl main_frameProc
     mov r0, r8
     bl loadtrack_loadSky
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r5, #0x0
     adds r1, r7, #0x0
     bl sub_80316C8
@@ -6488,7 +6488,7 @@ _08032476:
     ands r0, r4
     cmp r0, #0x1F
     bne _08032482
-    bl core_frameProc
+    bl main_frameProc
 _08032482:
     adds r0, r5, #0x0
     adds r1, r6, #0x0
@@ -9180,11 +9180,11 @@ _08033A1C:
     cmp r0, #0x00
     beq _08033A34
     adds r4, r7, r0
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r4, #0x0
     adds r1, r6, #0x0
     bl LZ77UnCompWram
-    bl core_frameProc
+    bl main_frameProc
 _08033A34:
     movs r0, #0x80
     lsls r0, r0, #0x05
@@ -9447,7 +9447,7 @@ loadtrack_loadSky: @ 08033D14
     adds r0, r0, r1
     ldr r0, [r0, #0x00]
     adds r5, r0, r1
-    bl core_frameProc
+    bl main_frameProc
     ldrb r1, [r5, #0x01]
     movs r0, #0x01
     ands r0, r1
@@ -9470,7 +9470,7 @@ _08033D40:
     adds r0, r0, r1
     adds r1, r7, #0x0
     bl LZ77UnCompVram
-    bl core_frameProc
+    bl main_frameProc
 _08033D56:
     movs r0, #0x80
     lsls r0, r0, #0x04
@@ -9507,7 +9507,7 @@ _08033D8E:
     adds r0, r4, #0x0
     movs r2, #0x3F
     bl CpuSet
-    bl core_frameProc
+    bl main_frameProc
     ldrb r1, [r5, #0x00]
     cmp r1, #0x08
     bne _08033DB0
@@ -9666,7 +9666,7 @@ _08033EE0:
     ldr r1, _08033F10 @ =0x06006000
     bl LZ77UnCompVram
 _08033EFE:
-    bl core_frameProc
+    bl main_frameProc
     pop {r4, r5, r6, r7}
     pop {r0}
     bx r0
@@ -46779,10 +46779,10 @@ _08048DCA:
     lsls r2, r2, #0x03
     adds r0, r5, r2
     str r1, [r0, #0x00]
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r5, #0x0
     bl loadtrack_loadObjects
-    bl core_frameProc
+    bl main_frameProc
     adds r0, r5, #0x0
     bl sub_804C12C
     ldr r3, _08048E34 @ =0x000007D4
@@ -60777,7 +60777,7 @@ race_main: @ 0805167C
     movs r0, #0x02
     ldr r1, _080516E8 @ =0x00010001
     bl irq_updateMask
-    bl core_frameProc
+    bl main_frameProc
     movs r0, #0xA0
     lsls r0, r0, #0x13
     strh r5, [r0, #0x00]
@@ -60843,15 +60843,15 @@ _08051712:
     movs r0, #0x01
     bl oam_802FE4C
     bl oam_802FD3C
-    bl core_frameProc
+    bl main_frameProc
     ldr r0, _080517B4 @ =0x03002E44
     bl sub_8048D44
-    bl core_frameProc
+    bl main_frameProc
     bl sub_8050F74
-    bl core_frameProc
+    bl main_frameProc
     ldr r0, _080517B4 @ =0x03002E44
     bl sub_804AE08
-    bl core_frameProc
+    bl main_frameProc
     subs r7, #0x3A
     adds r0, r4, r7
     ldrh r1, [r0, #0x00]
@@ -60979,7 +60979,7 @@ _0805184E:
     cmp r3, #0x00
     bne _0805184E
 _0805185E:
-    bl core_frameProc
+    bl main_frameProc
     movs r2, #0xE0
     lsls r2, r2, #0x05
     cmp r4, r2
@@ -61047,7 +61047,7 @@ _0805189E:
     ands r0, r1
     cmp r0, #0x00
     bne _0805191C
-    bl core_frameProc
+    bl main_frameProc
     bl sub_8052A4C
     b _08051932
 _08051900: .4byte 0x03004F50
@@ -61174,7 +61174,7 @@ _08051A0A:
     str r2, [sp, #0x000]
 _08051A12:
     bl oam_802FD3C
-    bl core_frameProc
+    bl main_frameProc
     ldr r3, [sp, #0x004]
     ldrb r1, [r3, #0x00]
     movs r0, #0x40
@@ -61698,7 +61698,7 @@ _08051F1E:
     cmp r4, #0x00
     bne _08051F1E
 _08051F30:
-    bl core_frameProc
+    bl main_frameProc
     movs r1, #0x05
     negs r1, r1
     movs r0, #0x01
@@ -62709,7 +62709,7 @@ _08052AC2:
     str r0, [r1, #0x00]
 _08052AC8:
     bl oam_802FD3C
-    bl core_frameProc
+    bl main_frameProc
     mov r7, r8
     cmp r7, #0x0A
     bls _08052AD8
@@ -76896,7 +76896,7 @@ _0805D16C:
     beq _0805D17C
     adds r4, r0, #0x0
 _0805D172:
-    bl core_frameProc
+    bl main_frameProc
     subs r4, #0x01
     cmp r4, #0x00
     bne _0805D172
@@ -77085,7 +77085,7 @@ _0805D2DA:
     beq _0805D2F4
     movs r4, #0x1D
 _0805D2E2:
-    bl core_frameProc
+    bl main_frameProc
     subs r4, #0x01
     cmp r4, #0x00
     bge _0805D2E2
@@ -80042,7 +80042,7 @@ sub_805EFD8:
     mov r8, r0
     ldr r6, _0805F048 @ =0x02029400
 _0805EFE8:
-    bl core_frameProc
+    bl main_frameProc
     mov r1, r8
     lsls r0, r1, #0x18
     lsrs r7, r0, #0x18

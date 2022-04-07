@@ -1,3 +1,5 @@
+gIrqTable = 0x03004F80;
+
 dword_80D830C = 0x80D830C;
 dword_80D89B4 = 0x80D89B4;
 dword_80D82EC = 0x80D82EC;
