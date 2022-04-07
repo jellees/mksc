@@ -2669,7 +2669,7 @@ _08030128:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     ldr r1, [r2, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
     b _080300C0
     .byte 0x00, 0x00
 _08030148: .4byte 0x08102414
@@ -2690,7 +2690,7 @@ _08030166:
     ldr r0, [r6, #0x00]
     ldr r1, _0803018C @ =0x08102498
     ldr r1, [r1, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
     adds r6, #0x0C
     subs r5, #0x01
     cmp r5, #0x00
@@ -17221,7 +17221,7 @@ _080380A8:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r4, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -17230,7 +17230,7 @@ _080380A8:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r5, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _08038122:
     mov r0, r9
     ldrh r1, [r0, #0x00]
@@ -18108,7 +18108,7 @@ _08038C42:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r0, #0xA5
     bl m4aSongNumStart
     b _08038D68
@@ -18953,7 +18953,7 @@ _080399DE:
     lsls r0, r0, #0x02
     adds r0, r0, r5
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r0, #0xA1
     lsls r0, r0, #0x03
     adds r4, r4, r0
@@ -18963,7 +18963,7 @@ _080399DE:
     lsls r0, r0, #0x02
     adds r0, r0, r5
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r1, #0xCD
     lsls r1, r1, #0x01
     adds r2, r6, r1
@@ -20418,7 +20418,7 @@ _0803B228:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -20427,7 +20427,7 @@ _0803B228:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _0803B27E:
     adds r0, r7, #0x0
     adds r0, #0x6A
@@ -20711,7 +20711,7 @@ _0803B46A:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -20720,7 +20720,7 @@ _0803B46A:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _0803B4BE:
     adds r1, r7, #0x0
     adds r1, #0x5E
@@ -26813,7 +26813,7 @@ sub_803E7F0:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r5, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803E854:
     ldr r1, _0803E910 @ =0x00000814
     adds r0, r7, r1
@@ -27296,7 +27296,7 @@ _0803EBF2:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     mov r2, r8
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803EC2E:
     adds r1, r7, #0x0
     adds r1, #0x5A
@@ -27527,7 +27527,7 @@ _0803EDC6:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     mov r2, r8
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803EE02:
     adds r1, r7, #0x0
     adds r1, #0x5A
@@ -28495,7 +28495,7 @@ _0803F538:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -28504,7 +28504,7 @@ _0803F538:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _0803F58E:
     ldr r1, _0803F64C @ =0x03002E44
     ldr r2, _0803F650 @ =0x00000814
@@ -28563,7 +28563,7 @@ _0803F5C2:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -28572,7 +28572,7 @@ _0803F5C2:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _0803F618:
     mov r0, r9
     mov r1, r10
@@ -28683,7 +28683,7 @@ _0803F6BC:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -28692,7 +28692,7 @@ _0803F6BC:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
     b _0803F7DA
 _0803F714: .4byte 0x03002E20
 _0803F718: .4byte 0x00000838
@@ -28780,7 +28780,7 @@ _0803F792:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r7, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803F7CE:
     adds r0, r6, #0x0
     adds r0, #0x4E
@@ -28892,7 +28892,7 @@ _0803F840:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803F8B2:
     add sp, #0x004
     pop {r4, r5, r6, r7}
@@ -28994,7 +28994,7 @@ _0803F91A:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     b _0803FA24
 _0803F97C: .4byte 0x03002E20
 _0803F980: .4byte 0x00041FFF
@@ -29502,7 +29502,7 @@ _0803FD32:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803FD6E:
     pop {r4, r5, r6, r7}
     pop {r0}
@@ -29656,7 +29656,7 @@ _0803FE6E:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803FEAA:
     pop {r4, r5, r6}
     pop {r0}
@@ -29753,7 +29753,7 @@ _0803FF36:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0803FF72:
     pop {r4, r5, r6, r7}
     pop {r0}
@@ -29864,7 +29864,7 @@ _08040016:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08040052:
     pop {r4, r5, r6}
     pop {r0}
@@ -29962,7 +29962,7 @@ _080400DE:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0804011A:
     pop {r4, r5, r6}
     pop {r0}
@@ -30165,7 +30165,7 @@ _08040266:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -30174,7 +30174,7 @@ _08040266:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
     b _08040564
 _080402BC: .4byte 0x0000100C
 _080402C0: .4byte 0x03002E20
@@ -30878,7 +30878,7 @@ _08040994:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -30887,7 +30887,7 @@ _08040994:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _080409E8:
     ldr r3, [sp, #0x000]
     cmp r3, #0x00
@@ -32022,7 +32022,7 @@ _08041270:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     ldrb r1, [r4, #0x00]
     movs r0, #0xFC
     ands r0, r1
@@ -32063,7 +32063,7 @@ _080412B0:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r0, #0xCD
     lsls r0, r0, #0x01
     adds r2, r6, r0
@@ -32094,7 +32094,7 @@ _08041312:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r0, #0xCD
     lsls r0, r0, #0x01
     adds r2, r6, r0
@@ -32161,7 +32161,7 @@ _08041398:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r0, #0xA1
     bl m4aSongNumStart
     movs r0, #0xCD
@@ -32347,7 +32347,7 @@ _080414EC:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     str r3, [sp, #0x000]
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     mov r2, r8
     ldrb r1, [r2, #0x00]
     movs r0, #0x07
@@ -32367,7 +32367,7 @@ _080414EC:
     lsls r2, r5, #0x10
     asrs r2, r2, #0x10
     movs r1, #0x01
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
     adds r0, r6, #0x0
     adds r0, #0x7E
     ldrb r0, [r0, #0x00]
@@ -32680,7 +32680,7 @@ _0804179A:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     movs r1, #0x01
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     b _080418A4
 _080417B8: .4byte 0x000007D4
 _080417BC: .4byte 0x08102414
@@ -32729,7 +32729,7 @@ _080417F2:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     ldr r0, [r4, #0x48]
     ldr r1, _08041830 @ =0xFFFBFFFF
     ands r0, r1
@@ -32784,7 +32784,7 @@ _08041868:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     ldr r0, [r4, #0x48]
     ldr r1, _080418B8 @ =0xFFFBFFFF
     ands r0, r1
@@ -32931,7 +32931,7 @@ _0804198E:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     movs r1, #0x01
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _080419B6:
     pop {r3, r4, r5}
     mov r8, r3
@@ -38188,7 +38188,7 @@ _0804465C:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _080446DC:
     pop {r4, r5, r6, r7}
     pop {r0}
@@ -38317,7 +38317,7 @@ _08044752:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _080447EA:
     pop {r3}
     mov r8, r3
@@ -38449,7 +38449,7 @@ _080448AA:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08044906:
     pop {r3}
     mov r8, r3
@@ -38686,7 +38686,7 @@ _08044B02:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r7, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08044B5E:
     adds r1, r6, #0x0
     adds r1, #0x74
@@ -40918,7 +40918,7 @@ _08045BAE:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08045BE2:
     adds r6, #0x01
     movs r1, #0xFE
@@ -41790,7 +41790,7 @@ _08046200:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -41799,7 +41799,7 @@ _08046200:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _08046286:
     ldr r0, [r7, #0x00]
     ldr r1, [r7, #0x28]
@@ -42067,7 +42067,7 @@ _08046464:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     b _08046564
     .byte 0x00, 0x00
 _0804649C: .4byte 0x00000A8B
@@ -42166,7 +42166,7 @@ _0804652A:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08046564:
     pop {r3, r4, r5}
     mov r8, r3
@@ -43090,7 +43090,7 @@ _08046C70:
     movs r1, #0x03
 _08046C8E:
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     b _08046DAE
     .byte 0x00, 0x00
 _08046C98: .4byte 0x03002E44
@@ -43225,7 +43225,7 @@ _08046D74:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08046DAE:
     add sp, #0x004
     pop {r3, r4, r5}
@@ -44743,7 +44743,7 @@ _08047956:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _080479C4:
     pop {r4, r5, r6, r7}
     pop {r0}
@@ -44840,7 +44840,7 @@ _08047A1A:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08047A92:
     pop {r4, r5, r6, r7}
     pop {r0}
@@ -44946,7 +44946,7 @@ _08047B38:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r7, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08047B72:
     mov r0, r10
     ldr r1, _08047BC0 @ =0x03002E44
@@ -45236,7 +45236,7 @@ _08047D86:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08047DC0:
     add sp, #0x004
     pop {r3, r4, r5}
@@ -45389,7 +45389,7 @@ _08047EC6:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _08047F00:
     pop {r3, r4}
     mov r8, r3
@@ -52388,7 +52388,7 @@ _0804C402:
     lsls r0, r0, #0x02
     adds r0, r0, r5
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r4, #0x05
     ldr r0, _0804C474 @ =0x0000000B
     lsls r0, r0, #0x18
@@ -52401,7 +52401,7 @@ _0804C434:
     cmp r4, #0x08
     beq _0804C43E
     ldr r0, [r5, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
 _0804C43E:
     adds r5, #0x0C
     adds r4, #0x01
@@ -52633,7 +52633,7 @@ _0804C600:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     ldr r1, [r2, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
     b _0804C9C4
 _0804C61C: .4byte 0x00000C74
 _0804C620: .4byte 0x08102414
@@ -52905,7 +52905,7 @@ _0804C802:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     mov r2, r10
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r4, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -52914,7 +52914,7 @@ _0804C802:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r5, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
     b _0804C9C4
 _0804C850: .4byte 0x00000C74
 _0804C854: .4byte 0x08102414
@@ -52949,7 +52949,7 @@ _0804C85C:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     mov r2, r10
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r4, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -52958,7 +52958,7 @@ _0804C85C:
     ldr r0, [r0, #0x00]
     mov r2, r8
     movs r1, #0x01
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
     b _0804C900
 _0804C8B4: .4byte 0x00000C76
 _0804C8B8: .4byte 0x00000C74
@@ -52980,7 +52980,7 @@ _0804C8C4:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     mov r2, r10
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r0, [r5, #0x00]
     lsls r0, r0, #0x03
     adds r0, r0, r4
@@ -52992,7 +52992,7 @@ _0804C8C4:
     ldr r0, [r0, #0x00]
     mov r2, r8
     movs r1, #0x01
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _0804C900:
     ldr r2, _0804C918 @ =0x00000C76
     adds r1, r7, r2
@@ -53024,7 +53024,7 @@ _0804C91C:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     ldr r1, [r2, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
 _0804C946:
     ldr r5, _0804C94C @ =0x00000C76
     adds r1, r7, r5
@@ -53054,7 +53054,7 @@ _0804C958:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     ldr r1, [r2, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
 _0804C986:
     ldr r3, _0804C990 @ =0x00000C76
     adds r1, r7, r3
@@ -53083,7 +53083,7 @@ _0804C9A0:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     ldr r1, [r2, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
 _0804C9C4:
     ldr r1, [sp, #0x014]
     ldrb r0, [r1, #0x00]
@@ -53248,7 +53248,7 @@ _0804CADC:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     ldr r1, [r2, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
 _0804CAF8:
     ldr r0, _0804CB44 @ =0x00000C7C
     adds r5, r7, r0
@@ -53403,7 +53403,7 @@ _0804CBE4:
     adds r0, r0, r3
     ldr r0, [r0, #0x00]
     ldr r1, [r2, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
     movs r2, #0xCD
     lsls r2, r2, #0x01
     add r2, r9
@@ -61692,7 +61692,7 @@ _08051F1E:
     ldr r0, [r5, #0x00]
     ldr r1, _08051F7C @ =0x08102498
     ldr r1, [r1, #0x08]
-    bl MPlayStart_rev01
+    bl MPlayStart
     adds r5, #0x0C
     subs r4, #0x01
     cmp r4, #0x00
@@ -62228,7 +62228,7 @@ _0805248C:
     adds r0, r0, r5
     ldr r0, [r0, #0x00]
     adds r1, r6, #0x0
-    bl MPlayTempoControl
+    bl m4aMPlayTempoControl
 _080524BC:
     pop {r4, r5, r6}
     pop {r0}
@@ -65930,7 +65930,7 @@ _08056038:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -65939,7 +65939,7 @@ _08056038:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
     b _08056152
     .byte 0x00, 0x00
 _08056090: .4byte 0x03002E20
@@ -66020,7 +66020,7 @@ _080560FA:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r4, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
     ldrh r1, [r5, #0x04]
     lsls r0, r1, #0x01
     adds r0, r0, r1
@@ -66029,7 +66029,7 @@ _080560FA:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayPitchControl
+    bl m4aMPlayPitchControl
 _08056152:
     pop {r3}
     mov r8, r3
@@ -72888,7 +72888,7 @@ sub_805AD68:
     lsls r0, r0, #0x02
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
-    bl MPlayStop_rev01
+    bl m4aMPlayStop
     movs r0, #0xCD
     lsls r0, r0, #0x01
     adds r2, r4, r0
@@ -74276,7 +74276,7 @@ _0805B844:
     ldr r0, [r0, #0x00]
     movs r1, #0x01
     adds r2, r6, #0x0
-    bl MPlayVolumeControl
+    bl m4aMPlayVolumeControl
 _0805B884:
     movs r1, #0x2E
     ldsh r0, [r7, r1]
@@ -76166,7 +76166,7 @@ sub_805C9A4:
     push {r4, r5, r6, r7, lr}
     ldr r7, _0805CA98 @ =0x02032B80
     movs r4, #0x01
-    bl SoundVSyncOff_rev01
+    bl m4aSoundVSyncOff
     ldr r0, _0805CA9C @ =0x04000200
     ldrh r0, [r0, #0x00]
     adds r6, r0, #0x0
@@ -76281,7 +76281,7 @@ _0805CA7E:
     movs r0, #0x02
     adds r1, r6, #0x0
     bl irq_updateMask
-    bl SoundVSyncOn_rev01
+    bl m4aSoundVSyncOn
     adds r0, r4, #0x0
     pop {r4, r5, r6, r7}
     pop {r1}
@@ -76375,7 +76375,7 @@ _0805CB30:
     ldr r1, _0805CC30 @ =0x00000FFE
     adds r0, r5, r1
     strh r2, [r0, #0x00]
-    bl SoundVSyncOff_rev01
+    bl m4aSoundVSyncOff
     ldr r0, _0805CC34 @ =0x04000200
     ldrh r0, [r0, #0x00]
     adds r6, r0, #0x0
@@ -76478,7 +76478,7 @@ _0805CC0A:
     movs r0, #0x02
     adds r1, r6, #0x0
     bl irq_updateMask
-    bl SoundVSyncOn_rev01
+    bl m4aSoundVSyncOn
     adds r0, r7, #0x0
     pop {r4, r5, r6, r7}
     pop {r1}
@@ -76889,7 +76889,7 @@ _0805D152:
     beq _0805D16C
     ldr r0, _0805D1D8 @ =0x030066E0
     movs r1, #0x03
-    bl sub_80600C8
+    bl m4aMPlayFadeOutTemporarily
     movs r0, #0x40
 _0805D16C:
     cmp r0, #0x00
@@ -77091,7 +77091,7 @@ _0805D2E2:
     bge _0805D2E2
     ldr r0, _0805D308 @ =0x030066E0
     movs r1, #0x04
-    bl sub_80600E8
+    bl m4aMPlayFadeIn
 _0805D2F4:
     ldr r0, [sp, #0x020]
     add sp, #0x028
@@ -77881,7 +77881,7 @@ sub_805D9C8:
     ldr r4, _0805DA0C @ =0x030023DC
     movs r0, #0x00
     strb r0, [r4, #0x00]
-    bl SoundVSyncOff_rev01
+    bl m4aSoundVSyncOff
     bl IdentifyFlash
     lsls r0, r0, #0x10
     cmp r0, #0x00
@@ -77896,7 +77896,7 @@ sub_805D9C8:
     movs r0, #0x01
     strb r0, [r4, #0x00]
 _0805D9F2:
-    bl SoundVSyncOn_rev01
+    bl m4aSoundVSyncOn
     ldr r2, _0805DA0C @ =0x030023DC
     ldrb r0, [r2, #0x00]
     cmp r0, #0x00
@@ -78849,7 +78849,7 @@ sub_805E6FC:
     lsrs r7, r1, #0x18
     movs r0, #0x02
     mov r10, r0
-    bl SoundVSyncOff_rev01
+    bl m4aSoundVSyncOff
     ldr r0, _0805E7C8 @ =0x04000200
     ldrh r0, [r0, #0x00]
     str r0, [sp, #0x000]
@@ -79042,7 +79042,7 @@ _0805E88A:
     movs r0, #0x02
     ldr r1, [sp, #0x000]
     bl irq_updateMask
-    bl SoundVSyncOn_rev01
+    bl m4aSoundVSyncOn
     adds r0, r4, #0x0
     add sp, #0x004
     pop {r3, r4, r5}
@@ -80715,8 +80715,8 @@ _0805F680:
     pop {r0}
     bx r0
     .byte 0x00, 0x00
-    thumb_func_start MPlyJmpTblCopy
-MPlyJmpTblCopy: @ 0805F68C
+    thumb_func_start MPlayJumpTableCopy
+MPlayJumpTableCopy: @ 0805F68C
     mov r12, lr
     movs r1, #0x24
     ldr r2, _0805F6BC @ =0x080F31D0
@@ -81005,8 +81005,8 @@ _0805F882:
     bx lr
 _0805F884: .4byte 0x040000BC
 _0805F888: .4byte 0x84400004
-    thumb_func_start MPlayMain_rev01
-MPlayMain_rev01: @ 0805F88C
+    thumb_func_start MPlayMain
+MPlayMain: @ 0805F88C
     ldr r2, _0805FAF0 @ =0x68736D53
     ldr r3, [r0, #0x34]
     cmp r2, r3
@@ -81039,7 +81039,7 @@ _0805F8C0:
     ldr r0, [r0, #0x00]
     mov r8, r0
     adds r0, r7, #0x0
-    bl FadeOutBody_rev01
+    bl FadeOutBody
     ldr r0, [r7, #0x04]
     cmp r0, #0x00
     bge _0805F8D4
@@ -81250,7 +81250,7 @@ _0805FA30:
     mov r9, r2
     adds r0, r7, #0x0
     adds r1, r5, #0x0
-    bl TrkVolPitSet_rev01
+    bl TrkVolPitSet
     ldr r4, [r5, #0x20]
     cmp r4, #0x00
     beq _0805FAC0
@@ -81340,8 +81340,8 @@ _0805FAE4:
 _0805FAE8: .4byte 0x080F3444
 _0805FAEC: .4byte 0x03007FF0
 _0805FAF0: .4byte 0x68736D53
-    thumb_func_start TrackStop_rev01
-TrackStop_rev01: @ 0805FAF4
+    thumb_func_start TrackStop
+TrackStop: @ 0805FAF4
     push {r4, r5, r6, lr}
     adds r5, r1, #0x0
     ldrb r1, [r5, #0x00]
@@ -81407,8 +81407,8 @@ _0805FB50:
 _0805FB64:
     strb r0, [r4, #0x03]
     bx lr
-    thumb_func_start ply_note_rev01
-ply_note_rev01: @ 0805FB68
+    thumb_func_start ply_note
+ply_note: @ 0805FB68
     push {r4, r5, r6, r7, lr}
     mov r4, r8
     mov r5, r9
@@ -81610,7 +81610,7 @@ _0805FCBC:
 _0805FCCE:
     ldr r0, [sp, #0x000]
     adds r1, r5, #0x0
-    bl TrkVolPitSet_rev01
+    bl TrkVolPitSet
     ldr r0, [r5, #0x04]
     str r0, [r4, #0x10]
     ldr r0, [sp, #0x010]
@@ -81685,8 +81685,8 @@ _0805FD4E:
     .byte 0x00, 0x00
 _0805FD60: .4byte 0x03007FF0
 _0805FD64: .4byte 0x080F3444
-    thumb_func_start ply_endtie_rev01
-ply_endtie_rev01: @ 0805FD68
+    thumb_func_start ply_endtie
+ply_endtie: @ 0805FD68
     push {r4, r5}
     ldr r2, [r1, #0x40]
     ldrb r3, [r2, #0x00]
@@ -81750,8 +81750,8 @@ ld_r3_tp_adr_i_rev: @ 0805FDC4
     ldrb r3, [r2, #0x00]
     bx lr
     .byte 0x00, 0x00
-    thumb_func_start ply_lfos_rev01
-ply_lfos_rev01: @ 0805FDD0
+    thumb_func_start ply_lfos
+ply_lfos: @ 0805FDD0
     mov r12, lr
     bl ld_r3_tp_adr_i_rev
     strb r3, [r1, #0x19]
@@ -81761,8 +81761,8 @@ ply_lfos_rev01: @ 0805FDD0
 _0805FDE0:
     bx r12
     .byte 0x00, 0x00
-    thumb_func_start ply_mod_rev01
-ply_mod_rev01: @ 0805FDE4
+    thumb_func_start ply_mod
+ply_mod: @ 0805FDE4
     mov r12, lr
     bl ld_r3_tp_adr_i_rev
     strb r3, [r1, #0x17]
@@ -81771,4136 +81771,4 @@ ply_mod_rev01: @ 0805FDE4
     bl clear_modM
 _0805FDF4:
     bx r12
-    .byte 0x00, 0x00
-    thumb_func_start MidiKey2fr
-MidiKey2fr: @ 0805FDF8
-    push {r4, r5, r6, r7, lr}
-    mov r12, r0
-    lsls r1, r1, #0x18
-    lsrs r6, r1, #0x18
-    lsls r7, r2, #0x18
-    cmp r6, #0xB2
-    bls _0805FE0C
-    movs r6, #0xB2
-    movs r7, #0xFF
-    lsls r7, r7, #0x18
-_0805FE0C:
-    ldr r3, _0805FE54 @ =0x080F3260
-    adds r0, r6, r3
-    ldrb r5, [r0, #0x00]
-    ldr r4, _0805FE58 @ =0x080F3314
-    movs r2, #0x0F
-    adds r0, r5, #0x0
-    ands r0, r2
-    lsls r0, r0, #0x02
-    adds r0, r0, r4
-    lsrs r1, r5, #0x04
-    ldr r5, [r0, #0x00]
-    lsrs r5, r1
-    adds r0, r6, #0x1
-    adds r0, r0, r3
-    ldrb r1, [r0, #0x00]
-    adds r0, r1, #0x0
-    ands r0, r2
-    lsls r0, r0, #0x02
-    adds r0, r0, r4
-    lsrs r1, r1, #0x04
-    ldr r0, [r0, #0x00]
-    lsrs r0, r1
-    mov r1, r12
-    ldr r4, [r1, #0x04]
-    subs r0, r0, r5
-    adds r1, r7, #0x0
-    bl umul3232H32
-    adds r1, r0, #0x0
-    adds r1, r5, r1
-    adds r0, r4, #0x0
-    bl umul3232H32
-    pop {r4, r5, r6, r7}
-    pop {r1}
-    bx r1
-_0805FE54: .4byte 0x080F3260
-_0805FE58: .4byte 0x080F3314
-    thumb_func_start DummyFunc
-DummyFunc: @ 0805FE5C
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start MPlayContinue
-MPlayContinue: @ 0805FE60
-    adds r2, r0, #0x0
-    ldr r3, [r2, #0x34]
-    ldr r0, _0805FE74 @ =0x68736D53
-    cmp r3, r0
-    bne _0805FE72
-    ldr r0, [r2, #0x04]
-    ldr r1, _0805FE78 @ =0x7FFFFFFF
-    ands r0, r1
-    str r0, [r2, #0x04]
-_0805FE72:
-    bx lr
-_0805FE74: .4byte 0x68736D53
-_0805FE78: .4byte 0x7FFFFFFF
-    thumb_func_start MPlayFadeOut
-MPlayFadeOut: @ 0805FE7C
-    adds r2, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    ldr r3, [r2, #0x34]
-    ldr r0, _0805FE98 @ =0x68736D53
-    cmp r3, r0
-    bne _0805FE94
-    strh r1, [r2, #0x26]
-    strh r1, [r2, #0x24]
-    movs r0, #0x80
-    lsls r0, r0, #0x01
-    strh r0, [r2, #0x28]
-_0805FE94:
-    bx lr
-    .byte 0x00, 0x00
-_0805FE98: .4byte 0x68736D53
-    thumb_func_start m4aSoundInit
-m4aSoundInit: @ 0805FE9C
-    push {r4, r5, r6, lr}
-    ldr r0, _0805FEF0 @ =0x0805F2F5
-    movs r1, #0x02
-    negs r1, r1
-    ands r0, r1
-    ldr r1, _0805FEF4 @ =0x03002600
-    ldr r2, _0805FEF8 @ =0x040000E0
-    bl CpuSet
-    ldr r0, _0805FEFC @ =0x03005CA0
-    bl SoundInit_rev01
-    ldr r0, _0805FF00 @ =0x030067B0
-    bl MPlayExtender
-    ldr r0, _0805FF04 @ =0x0093C600
-    bl SoundMode_rev01
-    ldr r0, _0805FF08 @ =0x0000000B
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    cmp r0, #0x00
-    beq _0805FEEA
-    ldr r5, _0805FF0C @ =0x08102414
-    adds r6, r0, #0x0
-_0805FECE:
-    ldr r4, [r5, #0x00]
-    ldr r1, [r5, #0x04]
-    ldrb r2, [r5, #0x08]
-    adds r0, r4, #0x0
-    bl MPlayOpen_rev01
-    ldrh r0, [r5, #0x0A]
-    strb r0, [r4, #0x0B]
-    ldr r0, _0805FF10 @ =0x030069F0
-    str r0, [r4, #0x18]
-    adds r5, #0x0C
-    subs r6, #0x01
-    cmp r6, #0x00
-    bne _0805FECE
-_0805FEEA:
-    pop {r4, r5, r6}
-    pop {r0}
-    bx r0
-_0805FEF0: .4byte SoundMainRAM
-_0805FEF4: .4byte 0x03002600
-_0805FEF8: .4byte 0x040000E0
-_0805FEFC: .4byte 0x03005CA0
-_0805FF00: .4byte 0x030067B0
-_0805FF04: .4byte 0x0093C600
-_0805FF08: .4byte 0x0000000B
-_0805FF0C: .4byte 0x08102414
-_0805FF10: .4byte 0x030069F0
-    thumb_func_start m4aSoundMain
-m4aSoundMain: @ 0805FF14
-    push {lr}
-    bl SoundMain
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-    thumb_func_start m4aSongNumStart
-m4aSongNumStart: @ 0805FF20
-    push {lr}
-    lsls r0, r0, #0x10
-    ldr r2, _0805FF44 @ =0x08102414
-    ldr r1, _0805FF48 @ =0x08102498
-    lsrs r0, r0, #0x0D
-    adds r0, r0, r1
-    ldrh r3, [r0, #0x04]
-    lsls r1, r3, #0x01
-    adds r1, r1, r3
-    lsls r1, r1, #0x02
-    adds r1, r1, r2
-    ldr r2, [r1, #0x00]
-    ldr r1, [r0, #0x00]
-    adds r0, r2, #0x0
-    bl MPlayStart_rev01
-    pop {r0}
-    bx r0
-_0805FF44: .4byte 0x08102414
-_0805FF48: .4byte 0x08102498
-    thumb_func_start m4aSongNumStartOrChange
-m4aSongNumStartOrChange: @ 0805FF4C
-    push {lr}
-    lsls r0, r0, #0x10
-    ldr r2, _0805FF78 @ =0x08102414
-    ldr r1, _0805FF7C @ =0x08102498
-    lsrs r0, r0, #0x0D
-    adds r0, r0, r1
-    ldrh r3, [r0, #0x04]
-    lsls r1, r3, #0x01
-    adds r1, r1, r3
-    lsls r1, r1, #0x02
-    adds r1, r1, r2
-    ldr r1, [r1, #0x00]
-    ldr r3, [r1, #0x00]
-    ldr r2, [r0, #0x00]
-    cmp r3, r2
-    beq _0805FF80
-    adds r0, r1, #0x0
-    adds r1, r2, #0x0
-    bl MPlayStart_rev01
-    b _0805FF94
-    .byte 0x00, 0x00
-_0805FF78: .4byte 0x08102414
-_0805FF7C: .4byte 0x08102498
-_0805FF80:
-    ldr r2, [r1, #0x04]
-    ldrh r0, [r1, #0x04]
-    cmp r0, #0x00
-    beq _0805FF8C
-    cmp r2, #0x00
-    bge _0805FF94
-_0805FF8C:
-    adds r0, r1, #0x0
-    adds r1, r3, #0x0
-    bl MPlayStart_rev01
-_0805FF94:
-    pop {r0}
-    bx r0
-    thumb_func_start m4aSongNumStartOrContinue
-m4aSongNumStartOrContinue: @ 0805FF98
-    push {lr}
-    lsls r0, r0, #0x10
-    ldr r2, _0805FFC4 @ =0x08102414
-    ldr r1, _0805FFC8 @ =0x08102498
-    lsrs r0, r0, #0x0D
-    adds r0, r0, r1
-    ldrh r3, [r0, #0x04]
-    lsls r1, r3, #0x01
-    adds r1, r1, r3
-    lsls r1, r1, #0x02
-    adds r1, r1, r2
-    ldr r1, [r1, #0x00]
-    ldr r3, [r1, #0x00]
-    ldr r2, [r0, #0x00]
-    cmp r3, r2
-    beq _0805FFCC
-    adds r0, r1, #0x0
-    adds r1, r2, #0x0
-    bl MPlayStart_rev01
-    b _0805FFE8
-    .byte 0x00, 0x00
-_0805FFC4: .4byte 0x08102414
-_0805FFC8: .4byte 0x08102498
-_0805FFCC:
-    ldr r2, [r1, #0x04]
-    ldrh r0, [r1, #0x04]
-    cmp r0, #0x00
-    bne _0805FFDE
-    adds r0, r1, #0x0
-    adds r1, r3, #0x0
-    bl MPlayStart_rev01
-    b _0805FFE8
-_0805FFDE:
-    cmp r2, #0x00
-    bge _0805FFE8
-    adds r0, r1, #0x0
-    bl MPlayContinue
-_0805FFE8:
-    pop {r0}
-    bx r0
-    thumb_func_start m4aSongNumStop
-m4aSongNumStop: @ 0805FFEC
-    push {lr}
-    lsls r0, r0, #0x10
-    ldr r2, _08060018 @ =0x08102414
-    ldr r1, _0806001C @ =0x08102498
-    lsrs r0, r0, #0x0D
-    adds r0, r0, r1
-    ldrh r3, [r0, #0x04]
-    lsls r1, r3, #0x01
-    adds r1, r1, r3
-    lsls r1, r1, #0x02
-    adds r1, r1, r2
-    ldr r2, [r1, #0x00]
-    ldr r1, [r2, #0x00]
-    ldr r0, [r0, #0x00]
-    cmp r1, r0
-    bne _08060012
-    adds r0, r2, #0x0
-    bl MPlayStop_rev01
-_08060012:
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08060018: .4byte 0x08102414
-_0806001C: .4byte 0x08102498
-    thumb_func_start m4aSongNumContinue
-m4aSongNumContinue: @ 08060020
-    push {lr}
-    lsls r0, r0, #0x10
-    ldr r2, _0806004C @ =0x08102414
-    ldr r1, _08060050 @ =0x08102498
-    lsrs r0, r0, #0x0D
-    adds r0, r0, r1
-    ldrh r3, [r0, #0x04]
-    lsls r1, r3, #0x01
-    adds r1, r1, r3
-    lsls r1, r1, #0x02
-    adds r1, r1, r2
-    ldr r2, [r1, #0x00]
-    ldr r1, [r2, #0x00]
-    ldr r0, [r0, #0x00]
-    cmp r1, r0
-    bne _08060046
-    adds r0, r2, #0x0
-    bl MPlayContinue
-_08060046:
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_0806004C: .4byte 0x08102414
-_08060050: .4byte 0x08102498
-    thumb_func_start m4aMPlayAllStop
-m4aMPlayAllStop: @ 08060054
-    push {r4, r5, lr}
-    ldr r0, _08060078 @ =0x0000000B
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    cmp r0, #0x00
-    beq _08060072
-    ldr r5, _0806007C @ =0x08102414
-    adds r4, r0, #0x0
-_08060064:
-    ldr r0, [r5, #0x00]
-    bl MPlayStop_rev01
-    adds r5, #0x0C
-    subs r4, #0x01
-    cmp r4, #0x00
-    bne _08060064
-_08060072:
-    pop {r4, r5}
-    pop {r0}
-    bx r0
-_08060078: .4byte 0x0000000B
-_0806007C: .4byte 0x08102414
-    thumb_func_start m4aMPlayContinue
-m4aMPlayContinue: @ 08060080
-    push {lr}
-    bl MPlayContinue
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-    thumb_func_start m4aMPlayAllContinue
-m4aMPlayAllContinue: @ 0806008C
-    push {r4, r5, lr}
-    ldr r0, _080600B0 @ =0x0000000B
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    cmp r0, #0x00
-    beq _080600AA
-    ldr r5, _080600B4 @ =0x08102414
-    adds r4, r0, #0x0
-_0806009C:
-    ldr r0, [r5, #0x00]
-    bl MPlayContinue
-    adds r5, #0x0C
-    subs r4, #0x01
-    cmp r4, #0x00
-    bne _0806009C
-_080600AA:
-    pop {r4, r5}
-    pop {r0}
-    bx r0
-_080600B0: .4byte 0x0000000B
-_080600B4: .4byte 0x08102414
-    thumb_func_start m4aMPlayFadeOut
-m4aMPlayFadeOut: @ 080600B8
-    push {lr}
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    bl MPlayFadeOut
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-    thumb_func_start sub_80600C8
-sub_80600C8:
-    adds r2, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    ldr r3, [r2, #0x34]
-    ldr r0, _080600E0 @ =0x68736D53
-    cmp r3, r0
-    bne _080600DE
-    strh r1, [r2, #0x26]
-    strh r1, [r2, #0x24]
-    ldr r0, _080600E4 @ =0x00000101
-    strh r0, [r2, #0x28]
-_080600DE:
-    bx lr
-_080600E0: .4byte 0x68736D53
-_080600E4: .4byte 0x00000101
-    thumb_func_start sub_80600E8
-sub_80600E8:
-    adds r2, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    ldr r3, [r2, #0x34]
-    ldr r0, _08060108 @ =0x68736D53
-    cmp r3, r0
-    bne _08060106
-    strh r1, [r2, #0x26]
-    strh r1, [r2, #0x24]
-    movs r0, #0x02
-    strh r0, [r2, #0x28]
-    ldr r0, [r2, #0x04]
-    ldr r1, _0806010C @ =0x7FFFFFFF
-    ands r0, r1
-    str r0, [r2, #0x04]
-_08060106:
-    bx lr
-_08060108: .4byte 0x68736D53
-_0806010C: .4byte 0x7FFFFFFF
-    thumb_func_start m4aMPlayImmInit
-m4aMPlayImmInit: @ 08060110
-    push {r4, r5, r6, r7, lr}
-    ldrb r5, [r0, #0x08]
-    ldr r4, [r0, #0x2C]
-    cmp r5, #0x00
-    ble _08060152
-    movs r7, #0x80
-_0806011C:
-    ldrb r1, [r4, #0x00]
-    adds r0, r7, #0x0
-    ands r0, r1
-    cmp r0, #0x00
-    beq _0806014A
-    movs r6, #0x40
-    adds r0, r6, #0x0
-    ands r0, r1
-    cmp r0, #0x00
-    beq _0806014A
-    adds r0, r4, #0x0
-    bl Clear64byte_rev
-    strb r7, [r4, #0x00]
-    movs r0, #0x02
-    strb r0, [r4, #0x0F]
-    strb r6, [r4, #0x13]
-    movs r0, #0x16
-    strb r0, [r4, #0x19]
-    adds r1, r4, #0x0
-    adds r1, #0x24
-    movs r0, #0x01
-    strb r0, [r1, #0x00]
-_0806014A:
-    subs r5, #0x01
-    adds r4, #0x50
-    cmp r5, #0x00
-    bgt _0806011C
-_08060152:
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-    thumb_func_start MPlayExtender
-MPlayExtender: @ 08060158
-    push {r4, r5, r6, lr}
-    add sp, #-0x004
-    adds r5, r0, #0x0
-    ldr r1, _08060220 @ =0x04000084
-    movs r0, #0x8F
-    strh r0, [r1, #0x00]
-    ldr r3, _08060224 @ =0x04000080
-    movs r2, #0x00
-    strh r2, [r3, #0x00]
-    ldr r0, _08060228 @ =0x04000063
-    movs r1, #0x08
-    strb r1, [r0, #0x00]
-    adds r0, #0x06
-    strb r1, [r0, #0x00]
-    adds r0, #0x10
-    strb r1, [r0, #0x00]
-    subs r0, #0x14
-    movs r1, #0x80
-    strb r1, [r0, #0x00]
-    adds r0, #0x08
-    strb r1, [r0, #0x00]
-    adds r0, #0x10
-    strb r1, [r0, #0x00]
-    subs r0, #0x0D
-    strb r2, [r0, #0x00]
-    movs r0, #0x77
-    strb r0, [r3, #0x00]
-    ldr r0, _0806022C @ =0x03007FF0
-    ldr r4, [r0, #0x00]
-    ldr r6, [r4, #0x00]
-    ldr r0, _08060230 @ =0x68736D53
-    cmp r6, r0
-    bne _08060218
-    adds r0, r6, #0x1
-    str r0, [r4, #0x00]
-    ldr r1, _08060234 @ =0x03006720
-    ldr r0, _08060238 @ =0x080610CD
-    str r0, [r1, #0x20]
-    ldr r0, _0806023C @ =0x0805FDD1
-    str r0, [r1, #0x44]
-    ldr r0, _08060240 @ =0x0805FDE5
-    str r0, [r1, #0x4C]
-    ldr r0, _08060244 @ =0x08061225
-    str r0, [r1, #0x70]
-    ldr r0, _08060248 @ =0x0805FD69
-    str r0, [r1, #0x74]
-    ldr r0, _0806024C @ =0x08060369
-    str r0, [r1, #0x78]
-    ldr r0, _08060250 @ =0x0805FAF5
-    str r0, [r1, #0x7C]
-    adds r2, r1, #0x0
-    adds r2, #0x80
-    ldr r0, _08060254 @ =0x08060731
-    str r0, [r2, #0x00]
-    adds r1, #0x84
-    ldr r0, _08060258 @ =0x080607F9
-    str r0, [r1, #0x00]
-    str r5, [r4, #0x1C]
-    ldr r0, _0806025C @ =0x08060A0D
-    str r0, [r4, #0x28]
-    ldr r0, _08060260 @ =0x08060955
-    str r0, [r4, #0x2C]
-    ldr r0, _08060264 @ =0x080608AD
-    str r0, [r4, #0x30]
-    ldr r0, _08060268 @ =0x00000040
-    movs r1, #0x00
-    strb r0, [r4, #0x0C]
-    str r1, [sp, #0x000]
-    ldr r2, _0806026C @ =0x05000040
-    mov r0, sp
-    adds r1, r5, #0x0
-    bl CpuSet
-    movs r0, #0x01
-    strb r0, [r5, #0x01]
-    movs r0, #0x11
-    strb r0, [r5, #0x1C]
-    adds r1, r5, #0x0
-    adds r1, #0x41
-    movs r0, #0x02
-    strb r0, [r1, #0x00]
-    adds r1, #0x1B
-    movs r0, #0x22
-    strb r0, [r1, #0x00]
-    adds r1, #0x25
-    movs r0, #0x03
-    strb r0, [r1, #0x00]
-    adds r1, #0x1B
-    movs r0, #0x44
-    strb r0, [r1, #0x00]
-    adds r1, #0x24
-    movs r0, #0x04
-    strb r0, [r1, #0x01]
-    movs r0, #0x88
-    strb r0, [r1, #0x1C]
-    str r6, [r4, #0x00]
-_08060218:
-    add sp, #0x004
-    pop {r4, r5, r6}
-    pop {r0}
-    bx r0
-_08060220: .4byte 0x04000084
-_08060224: .4byte 0x04000080
-_08060228: .4byte 0x04000063
-_0806022C: .4byte 0x03007FF0
-_08060230: .4byte 0x68736D53
-_08060234: .4byte 0x03006720
-_08060238: .4byte ply_memacc
-_0806023C: .4byte ply_lfos_rev01
-_08060240: .4byte ply_mod_rev01
-_08060244: .4byte ply_xcmd
-_08060248: .4byte ply_endtie_rev01
-_0806024C: .4byte SampFreqSet_rev01
-_08060250: .4byte TrackStop_rev01
-_08060254: .4byte FadeOutBody_rev01
-_08060258: .4byte TrkVolPitSet_rev01
-_0806025C: .4byte CgbSound
-_08060260: .4byte CgbOscOff
-_08060264: .4byte MidiKey2CgbFr
-_08060268: .4byte 0x00000040
-_0806026C: .4byte 0x05000040
-    thumb_func_start MusicPlayerJumpTableCopy
-MusicPlayerJumpTableCopy: @ 08060270
-    swi #42
-    bx lr
-    thumb_func_start ClearChain_rev
-ClearChain_rev: @ 08060274
-    push {lr}
-    ldr r1, _08060284 @ =0x030067A8
-    ldr r1, [r1, #0x00]
-    bl _call_via_r1
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08060284: .4byte 0x030067A8
-    thumb_func_start Clear64byte_rev
-Clear64byte_rev: @ 08060288
-    push {lr}
-    ldr r1, _08060298 @ =0x030067AC
-    ldr r1, [r1, #0x00]
-    bl _call_via_r1
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08060298: .4byte 0x030067AC
-    thumb_func_start SoundInit_rev01
-SoundInit_rev01: @ 0806029C
-    push {r4, r5, lr}
-    add sp, #-0x004
-    adds r5, r0, #0x0
-    movs r3, #0x00
-    str r3, [r5, #0x00]
-    ldr r2, _08060334 @ =0x040000C4
-    ldr r0, [r2, #0x00]
-    movs r1, #0x80
-    lsls r1, r1, #0x12
-    ands r0, r1
-    cmp r0, #0x00
-    beq _080602B8
-    ldr r0, _08060338 @ =0x84400004
-    str r0, [r2, #0x00]
-_080602B8:
-    ldr r1, _0806033C @ =0x040000C6
-    movs r2, #0x80
-    lsls r2, r2, #0x03
-    adds r0, r2, #0x0
-    strh r0, [r1, #0x00]
-    subs r1, #0x42
-    movs r0, #0x8F
-    strh r0, [r1, #0x00]
-    subs r1, #0x02
-    ldr r2, _08060340 @ =0x00000B0E
-    adds r0, r2, #0x0
-    strh r0, [r1, #0x00]
-    ldr r2, _08060344 @ =0x04000089
-    ldrb r1, [r2, #0x00]
-    movs r0, #0x3F
-    ands r0, r1
-    movs r1, #0x40
-    orrs r0, r1
-    strb r0, [r2, #0x00]
-    ldr r1, _08060348 @ =0x040000BC
-    movs r2, #0xD4
-    lsls r2, r2, #0x02
-    adds r0, r5, r2
-    str r0, [r1, #0x00]
-    adds r1, #0x04
-    ldr r0, _0806034C @ =0x040000A0
-    str r0, [r1, #0x00]
-    ldr r0, _08060350 @ =0x03007FF0
-    str r5, [r0, #0x00]
-    str r3, [sp, #0x000]
-    ldr r2, _08060354 @ =0x05000260
-    mov r0, sp
-    adds r1, r5, #0x0
-    bl CpuSet
-    movs r0, #0x08
-    strb r0, [r5, #0x06]
-    movs r0, #0x0F
-    strb r0, [r5, #0x07]
-    ldr r0, _08060358 @ =0x0805FB69
-    str r0, [r5, #0x38]
-    ldr r0, _0806035C @ =0x08061345
-    str r0, [r5, #0x28]
-    str r0, [r5, #0x2C]
-    str r0, [r5, #0x30]
-    str r0, [r5, #0x3C]
-    ldr r4, _08060360 @ =0x03006720
-    adds r0, r4, #0x0
-    bl MPlyJmpTblCopy
-    str r4, [r5, #0x34]
-    movs r0, #0x80
-    lsls r0, r0, #0x0B
-    bl SampFreqSet_rev01
-    ldr r0, _08060364 @ =0x68736D53
-    str r0, [r5, #0x00]
-    add sp, #0x004
-    pop {r4, r5}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08060334: .4byte 0x040000C4
-_08060338: .4byte 0x84400004
-_0806033C: .4byte 0x040000C6
-_08060340: .4byte 0x00000B0E
-_08060344: .4byte 0x04000089
-_08060348: .4byte 0x040000BC
-_0806034C: .4byte 0x040000A0
-_08060350: .4byte 0x03007FF0
-_08060354: .4byte 0x05000260
-_08060358: .4byte ply_note_rev01
-_0806035C: .4byte DummyFunc_rev
-_08060360: .4byte 0x03006720
-_08060364: .4byte 0x68736D53
-    thumb_func_start SampFreqSet_rev01
-SampFreqSet_rev01: @ 08060368
-    push {r4, r5, r6, lr}
-    adds r2, r0, #0x0
-    ldr r0, _080603E8 @ =0x03007FF0
-    ldr r4, [r0, #0x00]
-    movs r0, #0xF0
-    lsls r0, r0, #0x0C
-    ands r0, r2
-    lsrs r2, r0, #0x10
-    movs r6, #0x00
-    strb r2, [r4, #0x08]
-    ldr r1, _080603EC @ =0x080F3344
-    subs r0, r2, #0x1
-    lsls r0, r0, #0x01
-    adds r0, r0, r1
-    ldrh r5, [r0, #0x00]
-    str r5, [r4, #0x10]
-    movs r0, #0xC6
-    lsls r0, r0, #0x03
-    adds r1, r5, #0x0
-    bl __divsi3
-    strb r0, [r4, #0x0B]
-    ldr r0, _080603F0 @ =0x00091D1B
-    muls r0, r5
-    ldr r1, _080603F4 @ =0x00001388
-    adds r0, r0, r1
-    ldr r1, _080603F8 @ =0x00002710
-    bl __divsi3
-    adds r1, r0, #0x0
-    str r1, [r4, #0x14]
-    movs r0, #0x80
-    lsls r0, r0, #0x11
-    bl __divsi3
-    adds r0, #0x01
-    asrs r0, r0, #0x01
-    str r0, [r4, #0x18]
-    ldr r0, _080603FC @ =0x04000102
-    strh r6, [r0, #0x00]
-    ldr r4, _08060400 @ =0x04000100
-    ldr r0, _08060404 @ =0x00044940
-    adds r1, r5, #0x0
-    bl __divsi3
-    negs r0, r0
-    strh r0, [r4, #0x00]
-    bl SoundVSyncOn_rev01
-    ldr r1, _08060408 @ =0x04000006
-_080603CC:
-    ldrb r0, [r1, #0x00]
-    cmp r0, #0x9F
-    beq _080603CC
-    ldr r1, _08060408 @ =0x04000006
-_080603D4:
-    ldrb r0, [r1, #0x00]
-    cmp r0, #0x9F
-    bne _080603D4
-    ldr r1, _080603FC @ =0x04000102
-    movs r0, #0x80
-    strh r0, [r1, #0x00]
-    pop {r4, r5, r6}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_080603E8: .4byte 0x03007FF0
-_080603EC: .4byte 0x080F3344
-_080603F0: .4byte 0x00091D1B
-_080603F4: .4byte 0x00001388
-_080603F8: .4byte 0x00002710
-_080603FC: .4byte 0x04000102
-_08060400: .4byte 0x04000100
-_08060404: .4byte 0x00044940
-_08060408: .4byte 0x04000006
-    thumb_func_start SoundMode_rev01
-SoundMode_rev01: @ 0806040C
-    push {r4, r5, lr}
-    adds r3, r0, #0x0
-    ldr r0, _08060498 @ =0x03007FF0
-    ldr r5, [r0, #0x00]
-    ldr r1, [r5, #0x00]
-    ldr r0, _0806049C @ =0x68736D53
-    cmp r1, r0
-    bne _08060492
-    adds r0, r1, #0x1
-    str r0, [r5, #0x00]
-    movs r4, #0xFF
-    ands r4, r3
-    cmp r4, #0x00
-    beq _0806042E
-    movs r0, #0x7F
-    ands r4, r0
-    strb r4, [r5, #0x05]
-_0806042E:
-    movs r4, #0xF0
-    lsls r4, r4, #0x04
-    ands r4, r3
-    cmp r4, #0x00
-    beq _0806044E
-    lsrs r0, r4, #0x08
-    strb r0, [r5, #0x06]
-    movs r4, #0x0C
-    adds r0, r5, #0x0
-    adds r0, #0x50
-    movs r1, #0x00
-_08060444:
-    strb r1, [r0, #0x00]
-    subs r4, #0x01
-    adds r0, #0x40
-    cmp r4, #0x00
-    bne _08060444
-_0806044E:
-    movs r4, #0xF0
-    lsls r4, r4, #0x08
-    ands r4, r3
-    cmp r4, #0x00
-    beq _0806045C
-    lsrs r0, r4, #0x0C
-    strb r0, [r5, #0x07]
-_0806045C:
-    movs r4, #0xB0
-    lsls r4, r4, #0x10
-    ands r4, r3
-    cmp r4, #0x00
-    beq _0806047A
-    movs r0, #0xC0
-    lsls r0, r0, #0x0E
-    ands r0, r4
-    lsrs r4, r0, #0x0E
-    ldr r2, _080604A0 @ =0x04000089
-    ldrb r1, [r2, #0x00]
-    movs r0, #0x3F
-    ands r0, r1
-    orrs r0, r4
-    strb r0, [r2, #0x00]
-_0806047A:
-    movs r4, #0xF0
-    lsls r4, r4, #0x0C
-    ands r4, r3
-    cmp r4, #0x00
-    beq _0806048E
-    bl SoundVSyncOff_rev01
-    adds r0, r4, #0x0
-    bl SampFreqSet_rev01
-_0806048E:
-    ldr r0, _0806049C @ =0x68736D53
-    str r0, [r5, #0x00]
-_08060492:
-    pop {r4, r5}
-    pop {r0}
-    bx r0
-_08060498: .4byte 0x03007FF0
-_0806049C: .4byte 0x68736D53
-_080604A0: .4byte 0x04000089
-    thumb_func_start SoundClear_rev01
-SoundClear_rev01: @ 080604A4
-    push {r4, r5, r6, r7, lr}
-    ldr r0, _080604F0 @ =0x03007FF0
-    ldr r6, [r0, #0x00]
-    ldr r1, [r6, #0x00]
-    ldr r0, _080604F4 @ =0x68736D53
-    cmp r1, r0
-    bne _080604EA
-    adds r0, r1, #0x1
-    str r0, [r6, #0x00]
-    movs r5, #0x0C
-    adds r4, r6, #0x0
-    adds r4, #0x50
-    movs r0, #0x00
-_080604BE:
-    strb r0, [r4, #0x00]
-    subs r5, #0x01
-    adds r4, #0x40
-    cmp r5, #0x00
-    bgt _080604BE
-    ldr r4, [r6, #0x1C]
-    cmp r4, #0x00
-    beq _080604E6
-    movs r5, #0x01
-    movs r7, #0x00
-_080604D2:
-    lsls r0, r5, #0x18
-    lsrs r0, r0, #0x18
-    ldr r1, [r6, #0x2C]
-    bl _call_via_r1
-    strb r7, [r4, #0x00]
-    adds r5, #0x01
-    adds r4, #0x40
-    cmp r5, #0x04
-    ble _080604D2
-_080604E6:
-    ldr r0, _080604F4 @ =0x68736D53
-    str r0, [r6, #0x00]
-_080604EA:
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-_080604F0: .4byte 0x03007FF0
-_080604F4: .4byte 0x68736D53
-    thumb_func_start SoundVSyncOff_rev01
-SoundVSyncOff_rev01: @ 080604F8
-    push {lr}
-    add sp, #-0x004
-    ldr r0, _08060544 @ =0x03007FF0
-    ldr r2, [r0, #0x00]
-    ldr r1, [r2, #0x00]
-    ldr r3, _08060548 @ =0x978C92AD
-    adds r0, r1, r3
-    cmp r0, #0x01
-    bhi _0806053E
-    adds r0, r1, #0x0
-    adds r0, #0x0A
-    str r0, [r2, #0x00]
-    ldr r3, _0806054C @ =0x040000C4
-    ldr r0, [r3, #0x00]
-    movs r1, #0x80
-    lsls r1, r1, #0x12
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08060522
-    ldr r0, _08060550 @ =0x84400004
-    str r0, [r3, #0x00]
-_08060522:
-    ldr r1, _08060554 @ =0x040000C6
-    movs r3, #0x80
-    lsls r3, r3, #0x03
-    adds r0, r3, #0x0
-    strh r0, [r1, #0x00]
-    movs r0, #0x00
-    str r0, [sp, #0x000]
-    movs r0, #0xD4
-    lsls r0, r0, #0x02
-    adds r1, r2, r0
-    ldr r2, _08060558 @ =0x0500018C
-    mov r0, sp
-    bl CpuSet
-_0806053E:
-    add sp, #0x004
-    pop {r0}
-    bx r0
-_08060544: .4byte 0x03007FF0
-_08060548: .4byte 0x978C92AD
-_0806054C: .4byte 0x040000C4
-_08060550: .4byte 0x84400004
-_08060554: .4byte 0x040000C6
-_08060558: .4byte 0x0500018C
-    thumb_func_start SoundVSyncOn_rev01
-SoundVSyncOn_rev01: @ 0806055C
-    push {r4, lr}
-    ldr r0, _08060588 @ =0x03007FF0
-    ldr r2, [r0, #0x00]
-    ldr r3, [r2, #0x00]
-    ldr r0, _0806058C @ =0x68736D53
-    cmp r3, r0
-    beq _08060580
-    ldr r1, _08060590 @ =0x040000C6
-    movs r4, #0xB6
-    lsls r4, r4, #0x08
-    adds r0, r4, #0x0
-    strh r0, [r1, #0x00]
-    ldrb r0, [r2, #0x04]
-    movs r0, #0x00
-    strb r0, [r2, #0x04]
-    adds r0, r3, #0x0
-    subs r0, #0x0A
-    str r0, [r2, #0x00]
-_08060580:
-    pop {r4}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08060588: .4byte 0x03007FF0
-_0806058C: .4byte 0x68736D53
-_08060590: .4byte 0x040000C6
-    thumb_func_start MPlayOpen_rev01
-MPlayOpen_rev01: @ 08060594
-    push {r4, r5, r6, r7, lr}
-    adds r7, r0, #0x0
-    adds r6, r1, #0x0
-    lsls r2, r2, #0x18
-    lsrs r4, r2, #0x18
-    cmp r4, #0x00
-    beq _080605F8
-    cmp r4, #0x10
-    bls _080605A8
-    movs r4, #0x10
-_080605A8:
-    ldr r0, _08060600 @ =0x03007FF0
-    ldr r5, [r0, #0x00]
-    ldr r1, [r5, #0x00]
-    ldr r0, _08060604 @ =0x68736D53
-    cmp r1, r0
-    bne _080605F8
-    adds r0, r1, #0x1
-    str r0, [r5, #0x00]
-    adds r0, r7, #0x0
-    bl Clear64byte_rev
-    str r6, [r7, #0x2C]
-    strb r4, [r7, #0x08]
-    movs r0, #0x80
-    lsls r0, r0, #0x18
-    str r0, [r7, #0x04]
-    cmp r4, #0x00
-    beq _080605DC
-    movs r1, #0x00
-_080605CE:
-    strb r1, [r6, #0x00]
-    subs r0, r4, #0x1
-    lsls r0, r0, #0x18
-    lsrs r4, r0, #0x18
-    adds r6, #0x50
-    cmp r4, #0x00
-    bne _080605CE
-_080605DC:
-    ldr r0, [r5, #0x20]
-    cmp r0, #0x00
-    beq _080605EC
-    str r0, [r7, #0x38]
-    ldr r0, [r5, #0x24]
-    str r0, [r7, #0x3C]
-    movs r0, #0x00
-    str r0, [r5, #0x20]
-_080605EC:
-    str r7, [r5, #0x24]
-    ldr r0, _08060608 @ =0x0805F88D
-    str r0, [r5, #0x20]
-    ldr r0, _08060604 @ =0x68736D53
-    str r0, [r5, #0x00]
-    str r0, [r7, #0x34]
-_080605F8:
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08060600: .4byte 0x03007FF0
-_08060604: .4byte 0x68736D53
-_08060608: .4byte MPlayMain_rev01
-    thumb_func_start MPlayStart_rev01
-MPlayStart_rev01: @ 0806060C
-    push {r4, r5, r6, r7, lr}
-    mov r7, r8
-    push {r7}
-    adds r5, r0, #0x0
-    adds r7, r1, #0x0
-    ldr r1, [r5, #0x34]
-    ldr r0, _080606EC @ =0x68736D53
-    cmp r1, r0
-    bne _080606E2
-    ldrb r0, [r5, #0x0B]
-    ldrb r2, [r7, #0x02]
-    cmp r0, #0x00
-    beq _0806064E
-    ldr r0, [r5, #0x00]
-    cmp r0, #0x00
-    beq _08060638
-    ldr r1, [r5, #0x2C]
-    movs r0, #0x40
-    ldrb r1, [r1, #0x00]
-    ands r0, r1
-    cmp r0, #0x00
-    bne _08060644
-_08060638:
-    ldr r1, [r5, #0x04]
-    ldrh r0, [r5, #0x04]
-    cmp r0, #0x00
-    beq _0806064E
-    cmp r1, #0x00
-    blt _0806064E
-_08060644:
-    ldrb r0, [r7, #0x02]
-    adds r2, r0, #0x0
-    ldrb r0, [r5, #0x09]
-    cmp r0, r2
-    bhi _080606E2
-_0806064E:
-    ldr r0, [r5, #0x34]
-    adds r0, #0x01
-    str r0, [r5, #0x34]
-    movs r1, #0x00
-    str r1, [r5, #0x04]
-    str r7, [r5, #0x00]
-    ldr r0, [r7, #0x04]
-    str r0, [r5, #0x30]
-    strb r2, [r5, #0x09]
-    str r1, [r5, #0x0C]
-    movs r0, #0x96
-    strh r0, [r5, #0x1C]
-    strh r0, [r5, #0x20]
-    adds r0, #0x6A
-    strh r0, [r5, #0x1E]
-    strh r1, [r5, #0x22]
-    strh r1, [r5, #0x24]
-    movs r6, #0x00
-    ldr r4, [r5, #0x2C]
-    ldrb r1, [r7, #0x00]
-    cmp r6, r1
-    bge _080606AE
-    ldrb r0, [r5, #0x08]
-    cmp r6, r0
-    bge _080606CE
-    mov r8, r6
-_08060682:
-    adds r0, r5, #0x0
-    adds r1, r4, #0x0
-    bl TrackStop_rev01
-    movs r0, #0xC0
-    strb r0, [r4, #0x00]
-    mov r1, r8
-    str r1, [r4, #0x20]
-    lsls r1, r6, #0x02
-    adds r0, r7, #0x0
-    adds r0, #0x08
-    adds r0, r0, r1
-    ldr r0, [r0, #0x00]
-    str r0, [r4, #0x40]
-    adds r6, #0x01
-    adds r4, #0x50
-    ldrb r0, [r7, #0x00]
-    cmp r6, r0
-    bge _080606AE
-    ldrb r1, [r5, #0x08]
-    cmp r6, r1
-    blt _08060682
-_080606AE:
-    ldrb r0, [r5, #0x08]
-    cmp r6, r0
-    bge _080606CE
-    movs r1, #0x00
-    mov r8, r1
-_080606B8:
-    adds r0, r5, #0x0
-    adds r1, r4, #0x0
-    bl TrackStop_rev01
-    mov r0, r8
-    strb r0, [r4, #0x00]
-    adds r6, #0x01
-    adds r4, #0x50
-    ldrb r1, [r5, #0x08]
-    cmp r6, r1
-    blt _080606B8
-_080606CE:
-    movs r0, #0x80
-    ldrb r1, [r7, #0x03]
-    ands r0, r1
-    cmp r0, #0x00
-    beq _080606DE
-    ldrb r0, [r7, #0x03]
-    bl SoundMode_rev01
-_080606DE:
-    ldr r0, _080606EC @ =0x68736D53
-    str r0, [r5, #0x34]
-_080606E2:
-    pop {r3}
-    mov r8, r3
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-_080606EC: .4byte 0x68736D53
-    thumb_func_start MPlayStop_rev01
-MPlayStop_rev01: @ 080606F0
-    push {r4, r5, r6, lr}
-    adds r6, r0, #0x0
-    ldr r1, [r6, #0x34]
-    ldr r0, _0806072C @ =0x68736D53
-    cmp r1, r0
-    bne _08060726
-    adds r0, r1, #0x1
-    str r0, [r6, #0x34]
-    ldr r0, [r6, #0x04]
-    movs r1, #0x80
-    lsls r1, r1, #0x18
-    orrs r0, r1
-    str r0, [r6, #0x04]
-    ldrb r4, [r6, #0x08]
-    ldr r5, [r6, #0x2C]
-    cmp r4, #0x00
-    ble _08060722
-_08060712:
-    adds r0, r6, #0x0
-    adds r1, r5, #0x0
-    bl TrackStop_rev01
-    subs r4, #0x01
-    adds r5, #0x50
-    cmp r4, #0x00
-    bgt _08060712
-_08060722:
-    ldr r0, _0806072C @ =0x68736D53
-    str r0, [r6, #0x34]
-_08060726:
-    pop {r4, r5, r6}
-    pop {r0}
-    bx r0
-_0806072C: .4byte 0x68736D53
-    thumb_func_start FadeOutBody_rev01
-FadeOutBody_rev01: @ 08060730
-    push {r4, r5, r6, r7, lr}
-    adds r6, r0, #0x0
-    ldrh r1, [r6, #0x24]
-    cmp r1, #0x00
-    beq _080607F2
-    ldrh r0, [r6, #0x26]
-    subs r0, #0x01
-    strh r0, [r6, #0x26]
-    ldr r3, _08060770 @ =0x0000FFFF
-    adds r2, r3, #0x0
-    lsls r0, r0, #0x10
-    lsrs r3, r0, #0x10
-    cmp r3, #0x00
-    bne _080607F2
-    strh r1, [r6, #0x26]
-    ldrh r1, [r6, #0x28]
-    movs r0, #0x02
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08060774
-    adds r0, r1, #0x0
-    adds r0, #0x10
-    strh r0, [r6, #0x28]
-    ands r0, r2
-    cmp r0, #0xFF
-    bls _080607C6
-    movs r0, #0x80
-    lsls r0, r0, #0x01
-    strh r0, [r6, #0x28]
-    strh r3, [r6, #0x24]
-    b _080607C6
-    .byte 0x00, 0x00
-_08060770: .4byte 0x0000FFFF
-_08060774:
-    adds r0, r1, #0x0
-    subs r0, #0x10
-    strh r0, [r6, #0x28]
-    ands r0, r2
-    lsls r0, r0, #0x10
-    cmp r0, #0x00
-    bgt _080607C6
-    ldrb r5, [r6, #0x08]
-    ldr r4, [r6, #0x2C]
-    cmp r5, #0x00
-    ble _080607A6
-_0806078A:
-    adds r0, r6, #0x0
-    adds r1, r4, #0x0
-    bl TrackStop_rev01
-    movs r0, #0x01
-    ldrh r7, [r6, #0x28]
-    ands r0, r7
-    cmp r0, #0x00
-    bne _0806079E
-    strb r0, [r4, #0x00]
-_0806079E:
-    subs r5, #0x01
-    adds r4, #0x50
-    cmp r5, #0x00
-    bgt _0806078A
-_080607A6:
-    movs r0, #0x01
-    ldrh r1, [r6, #0x28]
-    ands r0, r1
-    cmp r0, #0x00
-    beq _080607BA
-    ldr r0, [r6, #0x04]
-    movs r1, #0x80
-    lsls r1, r1, #0x18
-    orrs r0, r1
-    b _080607BE
-_080607BA:
-    movs r0, #0x80
-    lsls r0, r0, #0x18
-_080607BE:
-    str r0, [r6, #0x04]
-    movs r0, #0x00
-    strh r0, [r6, #0x24]
-    b _080607F2
-_080607C6:
-    ldrb r5, [r6, #0x08]
-    ldr r4, [r6, #0x2C]
-    cmp r5, #0x00
-    ble _080607F2
-    movs r3, #0x80
-    movs r7, #0x00
-    movs r2, #0x03
-_080607D4:
-    ldrb r1, [r4, #0x00]
-    adds r0, r3, #0x0
-    ands r0, r1
-    cmp r0, #0x00
-    beq _080607EA
-    ldrh r7, [r6, #0x28]
-    lsrs r0, r7, #0x02
-    strb r0, [r4, #0x13]
-    adds r0, r1, #0x0
-    orrs r0, r2
-    strb r0, [r4, #0x00]
-_080607EA:
-    subs r5, #0x01
-    adds r4, #0x50
-    cmp r5, #0x00
-    bgt _080607D4
-_080607F2:
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-    thumb_func_start TrkVolPitSet_rev01
-TrkVolPitSet_rev01: @ 080607F8
-    push {r4, lr}
-    adds r2, r1, #0x0
-    movs r0, #0x01
-    ldrb r1, [r2, #0x00]
-    ands r0, r1
-    cmp r0, #0x00
-    beq _0806085C
-    ldrb r3, [r2, #0x13]
-    ldrb r1, [r2, #0x12]
-    adds r0, r3, #0x0
-    muls r0, r1
-    lsrs r3, r0, #0x05
-    ldrb r4, [r2, #0x18]
-    cmp r4, #0x01
-    bne _08060820
-    movs r0, #0x16
-    ldsb r0, [r2, r0]
-    adds r0, #0x80
-    muls r0, r3
-    lsrs r3, r0, #0x07
-_08060820:
-    movs r0, #0x14
-    ldsb r0, [r2, r0]
-    lsls r0, r0, #0x01
-    movs r1, #0x15
-    ldsb r1, [r2, r1]
-    adds r1, r0, r1
-    cmp r4, #0x02
-    bne _08060836
-    movs r0, #0x16
-    ldsb r0, [r2, r0]
-    adds r1, r1, r0
-_08060836:
-    movs r0, #0x80
-    negs r0, r0
-    cmp r1, r0
-    bge _08060842
-    adds r1, r0, #0x0
-    b _08060848
-_08060842:
-    cmp r1, #0x7F
-    ble _08060848
-    movs r1, #0x7F
-_08060848:
-    adds r0, r1, #0x0
-    adds r0, #0x80
-    muls r0, r3
-    lsrs r0, r0, #0x08
-    strb r0, [r2, #0x10]
-    movs r0, #0x7F
-    subs r0, r0, r1
-    muls r0, r3
-    lsrs r0, r0, #0x08
-    strb r0, [r2, #0x11]
-_0806085C:
-    ldrb r1, [r2, #0x00]
-    movs r0, #0x04
-    ands r0, r1
-    adds r3, r1, #0x0
-    cmp r0, #0x00
-    beq _080608A0
-    movs r0, #0x0E
-    ldsb r0, [r2, r0]
-    ldrb r1, [r2, #0x0F]
-    muls r0, r1
-    movs r1, #0x0C
-    ldsb r1, [r2, r1]
-    adds r1, r1, r0
-    lsls r1, r1, #0x02
-    movs r0, #0x0A
-    ldsb r0, [r2, r0]
-    lsls r0, r0, #0x08
-    adds r1, r1, r0
-    movs r0, #0x0B
-    ldsb r0, [r2, r0]
-    lsls r0, r0, #0x08
-    adds r1, r1, r0
-    ldrb r0, [r2, #0x0D]
-    adds r1, r0, r1
-    ldrb r0, [r2, #0x18]
-    cmp r0, #0x00
-    bne _0806089A
-    movs r0, #0x16
-    ldsb r0, [r2, r0]
-    lsls r0, r0, #0x04
-    adds r1, r1, r0
-_0806089A:
-    asrs r0, r1, #0x08
-    strb r0, [r2, #0x08]
-    strb r1, [r2, #0x09]
-_080608A0:
-    movs r0, #0xFA
-    ands r0, r3
-    strb r0, [r2, #0x00]
-    pop {r4}
-    pop {r0}
-    bx r0
-    thumb_func_start MidiKey2CgbFr
-MidiKey2CgbFr: @ 080608AC
-    push {r4, r5, r6, r7, lr}
-    lsls r0, r0, #0x18
-    lsrs r0, r0, #0x18
-    lsls r1, r1, #0x18
-    lsrs r5, r1, #0x18
-    lsls r2, r2, #0x18
-    lsrs r2, r2, #0x18
-    mov r12, r2
-    cmp r0, #0x04
-    bne _080608E4
-    cmp r5, #0x14
-    bhi _080608C8
-    movs r5, #0x00
-    b _080608D6
-_080608C8:
-    adds r0, r5, #0x0
-    subs r0, #0x15
-    lsls r0, r0, #0x18
-    lsrs r5, r0, #0x18
-    cmp r5, #0x3B
-    bls _080608D6
-    movs r5, #0x3B
-_080608D6:
-    ldr r0, _080608E0 @ =0x080F33F8
-    adds r0, r5, r0
-    ldrb r0, [r0, #0x00]
-    b _08060946
-    .byte 0x00, 0x00
-_080608E0: .4byte 0x080F33F8
-_080608E4:
-    cmp r5, #0x23
-    bhi _080608F0
-    movs r0, #0x00
-    mov r12, r0
-    movs r5, #0x00
-    b _08060902
-_080608F0:
-    adds r0, r5, #0x0
-    subs r0, #0x24
-    lsls r0, r0, #0x18
-    lsrs r5, r0, #0x18
-    cmp r5, #0x82
-    bls _08060902
-    movs r5, #0x82
-    movs r1, #0xFF
-    mov r12, r1
-_08060902:
-    ldr r3, _0806094C @ =0x080F335C
-    adds r0, r5, r3
-    ldrb r6, [r0, #0x00]
-    ldr r4, _08060950 @ =0x080F33E0
-    movs r2, #0x0F
-    adds r0, r6, #0x0
-    ands r0, r2
-    lsls r0, r0, #0x01
-    adds r0, r0, r4
-    movs r7, #0x00
-    ldsh r1, [r0, r7]
-    asrs r0, r6, #0x04
-    adds r6, r1, #0x0
-    asrs r6, r0
-    adds r0, r5, #0x1
-    adds r0, r0, r3
-    ldrb r1, [r0, #0x00]
-    adds r0, r1, #0x0
-    ands r0, r2
-    lsls r0, r0, #0x01
-    adds r0, r0, r4
-    movs r2, #0x00
-    ldsh r0, [r0, r2]
-    asrs r1, r1, #0x04
-    asrs r0, r1
-    subs r0, r0, r6
-    mov r7, r12
-    muls r7, r0
-    adds r0, r7, #0x0
-    asrs r0, r0, #0x08
-    adds r0, r6, r0
-    movs r1, #0x80
-    lsls r1, r1, #0x04
-    adds r0, r0, r1
-_08060946:
-    pop {r4, r5, r6, r7}
-    pop {r1}
-    bx r1
-_0806094C: .4byte 0x080F335C
-_08060950: .4byte 0x080F33E0
-    thumb_func_start CgbOscOff
-CgbOscOff: @ 08060954
-    lsls r0, r0, #0x18
-    lsrs r0, r0, #0x18
-    adds r1, r0, #0x0
-    cmp r0, #0x02
-    beq _0806097C
-    cmp r0, #0x02
-    bgt _08060968
-    cmp r0, #0x01
-    beq _0806096E
-    b _08060990
-_08060968:
-    cmp r1, #0x03
-    beq _08060984
-    b _08060990
-_0806096E:
-    ldr r1, _08060978 @ =0x04000063
-    movs r0, #0x08
-    strb r0, [r1, #0x00]
-    adds r1, #0x02
-    b _08060998
-_08060978: .4byte 0x04000063
-_0806097C:
-    ldr r1, _08060980 @ =0x04000069
-    b _08060992
-_08060980: .4byte 0x04000069
-_08060984:
-    ldr r1, _0806098C @ =0x04000070
-    movs r0, #0x00
-    b _0806099A
-    .byte 0x00, 0x00
-_0806098C: .4byte 0x04000070
-_08060990:
-    ldr r1, _080609A0 @ =0x04000079
-_08060992:
-    movs r0, #0x08
-    strb r0, [r1, #0x00]
-    adds r1, #0x04
-_08060998:
-    movs r0, #0x80
-_0806099A:
-    strb r0, [r1, #0x00]
-    bx lr
-    .byte 0x00, 0x00
-_080609A0: .4byte 0x04000079
-    thumb_func_start CgbModVol
-CgbModVol: @ 080609A4
-    push {r4, lr}
-    adds r1, r0, #0x0
-    ldrb r0, [r1, #0x02]
-    lsls r2, r0, #0x18
-    lsrs r4, r2, #0x18
-    ldrb r3, [r1, #0x03]
-    lsls r0, r3, #0x18
-    lsrs r3, r0, #0x18
-    cmp r4, r3
-    bcc _080609C4
-    lsrs r0, r2, #0x19
-    cmp r0, r3
-    bcc _080609D0
-    movs r0, #0x0F
-    strb r0, [r1, #0x1B]
-    b _080609DE
-_080609C4:
-    lsrs r0, r0, #0x19
-    cmp r0, r4
-    bcc _080609D0
-    movs r0, #0xF0
-    strb r0, [r1, #0x1B]
-    b _080609DE
-_080609D0:
-    movs r0, #0xFF
-    strb r0, [r1, #0x1B]
-    ldrb r2, [r1, #0x03]
-    ldrb r3, [r1, #0x02]
-    adds r0, r2, r3
-    lsrs r0, r0, #0x04
-    b _080609EE
-_080609DE:
-    ldrb r2, [r1, #0x03]
-    ldrb r3, [r1, #0x02]
-    adds r0, r2, r3
-    lsrs r0, r0, #0x04
-    strb r0, [r1, #0x0A]
-    cmp r0, #0x0F
-    bls _080609F0
-    movs r0, #0x0F
-_080609EE:
-    strb r0, [r1, #0x0A]
-_080609F0:
-    ldrb r2, [r1, #0x06]
-    ldrb r3, [r1, #0x0A]
-    adds r0, r2, #0x0
-    muls r0, r3
-    adds r0, #0x0F
-    asrs r0, r0, #0x04
-    strb r0, [r1, #0x19]
-    ldrb r0, [r1, #0x1C]
-    ldrb r2, [r1, #0x1B]
-    ands r0, r2
-    strb r0, [r1, #0x1B]
-    pop {r4}
-    pop {r0}
-    bx r0
-    thumb_func_start CgbSound
-CgbSound: @ 08060A0C
-    push {r4, r5, r6, r7, lr}
-    mov r7, r10
-    mov r6, r9
-    mov r5, r8
-    push {r5, r6, r7}
-    add sp, #-0x01C
-    ldr r0, _08060A2C @ =0x03007FF0
-    ldr r0, [r0, #0x00]
-    str r0, [sp, #0x004]
-    ldrb r0, [r0, #0x0A]
-    cmp r0, #0x00
-    beq _08060A30
-    subs r0, #0x01
-    ldr r1, [sp, #0x004]
-    strb r0, [r1, #0x0A]
-    b _08060A36
-_08060A2C: .4byte 0x03007FF0
-_08060A30:
-    movs r0, #0x0E
-    ldr r2, [sp, #0x004]
-    strb r0, [r2, #0x0A]
-_08060A36:
-    movs r6, #0x01
-    ldr r0, [sp, #0x004]
-    ldr r4, [r0, #0x1C]
-_08060A3C:
-    ldrb r1, [r4, #0x00]
-    movs r0, #0xC7
-    ands r0, r1
-    adds r2, r6, #0x1
-    mov r10, r2
-    movs r2, #0x40
-    adds r2, r2, r4
-    mov r9, r2
-    cmp r0, #0x00
-    bne _08060A52
-    b _08060E3C
-_08060A52:
-    cmp r6, #0x02
-    beq _08060A84
-    cmp r6, #0x02
-    bgt _08060A60
-    cmp r6, #0x01
-    beq _08060A66
-    b _08060ABC
-_08060A60:
-    cmp r6, #0x03
-    beq _08060A9C
-    b _08060ABC
-_08060A66:
-    ldr r0, _08060A78 @ =0x04000060
-    str r0, [sp, #0x008]
-    ldr r7, _08060A7C @ =0x04000062
-    ldr r2, _08060A80 @ =0x04000063
-    str r2, [sp, #0x00C]
-    adds r0, #0x04
-    str r0, [sp, #0x010]
-    adds r2, #0x02
-    b _08060ACC
-_08060A78: .4byte 0x04000060
-_08060A7C: .4byte 0x04000062
-_08060A80: .4byte 0x04000063
-_08060A84:
-    ldr r0, _08060A90 @ =0x04000061
-    str r0, [sp, #0x008]
-    ldr r7, _08060A94 @ =0x04000068
-    ldr r2, _08060A98 @ =0x04000069
-    b _08060AC4
-    .byte 0x00, 0x00
-_08060A90: .4byte 0x04000061
-_08060A94: .4byte 0x04000068
-_08060A98: .4byte 0x04000069
-_08060A9C:
-    ldr r0, _08060AB0 @ =0x04000070
-    str r0, [sp, #0x008]
-    ldr r7, _08060AB4 @ =0x04000072
-    ldr r2, _08060AB8 @ =0x04000073
-    str r2, [sp, #0x00C]
-    adds r0, #0x04
-    str r0, [sp, #0x010]
-    adds r2, #0x02
-    b _08060ACC
-    .byte 0x00, 0x00
-_08060AB0: .4byte 0x04000070
-_08060AB4: .4byte 0x04000072
-_08060AB8: .4byte 0x04000073
-_08060ABC:
-    ldr r0, _08060B1C @ =0x04000071
-    str r0, [sp, #0x008]
-    ldr r7, _08060B20 @ =0x04000078
-    ldr r2, _08060B24 @ =0x04000079
-_08060AC4:
-    str r2, [sp, #0x00C]
-    adds r0, #0x0B
-    str r0, [sp, #0x010]
-    adds r2, #0x04
-_08060ACC:
-    str r2, [sp, #0x014]
-    ldr r0, [sp, #0x004]
-    ldrb r0, [r0, #0x0A]
-    str r0, [sp, #0x000]
-    ldr r2, [sp, #0x00C]
-    ldrb r0, [r2, #0x00]
-    mov r8, r0
-    adds r2, r1, #0x0
-    movs r0, #0x80
-    ands r0, r2
-    cmp r0, #0x00
-    beq _08060BC2
-    movs r3, #0x40
-    adds r0, r3, #0x0
-    ands r0, r2
-    lsls r0, r0, #0x18
-    lsrs r5, r0, #0x18
-    adds r0, r6, #0x1
-    mov r10, r0
-    movs r1, #0x40
-    adds r1, r1, r4
-    mov r9, r1
-    cmp r5, #0x00
-    bne _08060BE6
-    movs r0, #0x03
-    strb r0, [r4, #0x00]
-    strb r0, [r4, #0x1D]
-    adds r0, r4, #0x0
-    str r3, [sp, #0x018]
-    bl CgbModVol
-    ldr r3, [sp, #0x018]
-    cmp r6, #0x02
-    beq _08060B34
-    cmp r6, #0x02
-    bgt _08060B28
-    cmp r6, #0x01
-    beq _08060B2E
-    b _08060B88
-    .byte 0x00, 0x00
-_08060B1C: .4byte 0x04000071
-_08060B20: .4byte 0x04000078
-_08060B24: .4byte 0x04000079
-_08060B28:
-    cmp r6, #0x03
-    beq _08060B40
-    b _08060B88
-_08060B2E:
-    ldrb r0, [r4, #0x1F]
-    ldr r2, [sp, #0x008]
-    strb r0, [r2, #0x00]
-_08060B34:
-    ldr r0, [r4, #0x24]
-    lsls r0, r0, #0x06
-    ldrb r1, [r4, #0x1E]
-    adds r0, r1, r0
-    strb r0, [r7, #0x00]
-    b _08060B94
-_08060B40:
-    ldr r1, [r4, #0x24]
-    ldr r0, [r4, #0x28]
-    cmp r1, r0
-    beq _08060B68
-    ldr r2, [sp, #0x008]
-    strb r3, [r2, #0x00]
-    ldr r1, _08060B7C @ =0x04000090
-    ldr r2, [r4, #0x24]
-    ldr r0, [r2, #0x00]
-    str r0, [r1, #0x00]
-    adds r1, #0x04
-    ldr r0, [r2, #0x04]
-    str r0, [r1, #0x00]
-    adds r1, #0x04
-    ldr r0, [r2, #0x08]
-    str r0, [r1, #0x00]
-    adds r1, #0x04
-    ldr r0, [r2, #0x0C]
-    str r0, [r1, #0x00]
-    str r2, [r4, #0x28]
-_08060B68:
-    ldr r0, [sp, #0x008]
-    strb r5, [r0, #0x00]
-    ldrb r0, [r4, #0x1E]
-    strb r0, [r7, #0x00]
-    ldrb r0, [r4, #0x1E]
-    cmp r0, #0x00
-    beq _08060B80
-    movs r0, #0xC0
-    b _08060BA2
-    .byte 0x00, 0x00
-_08060B7C: .4byte 0x04000090
-_08060B80:
-    movs r1, #0x80
-    negs r1, r1
-    strb r1, [r4, #0x1A]
-    b _08060BA4
-_08060B88:
-    ldrb r0, [r4, #0x1E]
-    strb r0, [r7, #0x00]
-    ldr r0, [r4, #0x24]
-    lsls r0, r0, #0x03
-    ldr r2, [sp, #0x010]
-    strb r0, [r2, #0x00]
-_08060B94:
-    ldrb r0, [r4, #0x04]
-    adds r0, #0x08
-    mov r8, r0
-    ldrb r0, [r4, #0x1E]
-    cmp r0, #0x00
-    beq _08060BA2
-    movs r0, #0x40
-_08060BA2:
-    strb r0, [r4, #0x1A]
-_08060BA4:
-    ldrb r1, [r4, #0x04]
-    movs r2, #0x00
-    strb r1, [r4, #0x0B]
-    movs r0, #0xFF
-    ands r0, r1
-    adds r1, r6, #0x1
-    mov r10, r1
-    movs r1, #0x40
-    adds r1, r1, r4
-    mov r9, r1
-    cmp r0, #0x00
-    bne _08060BBE
-    b _08060CFA
-_08060BBE:
-    strb r2, [r4, #0x09]
-    b _08060D28
-_08060BC2:
-    movs r0, #0x04
-    ands r0, r2
-    cmp r0, #0x00
-    beq _08060BF4
-    ldrb r0, [r4, #0x0D]
-    subs r0, #0x01
-    strb r0, [r4, #0x0D]
-    movs r2, #0xFF
-    ands r0, r2
-    lsls r0, r0, #0x18
-    adds r1, r6, #0x1
-    mov r10, r1
-    movs r2, #0x40
-    adds r2, r2, r4
-    mov r9, r2
-    cmp r0, #0x00
-    ble _08060BE6
-    b _08060D3A
-_08060BE6:
-    lsls r0, r6, #0x18
-    lsrs r0, r0, #0x18
-    bl CgbOscOff
-    movs r0, #0x00
-    strb r0, [r4, #0x00]
-    b _08060E38
-_08060BF4:
-    movs r0, #0x40
-    ands r0, r1
-    adds r2, r6, #0x1
-    mov r10, r2
-    movs r2, #0x40
-    adds r2, r2, r4
-    mov r9, r2
-    cmp r0, #0x00
-    beq _08060C34
-    movs r0, #0x03
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08060C34
-    movs r0, #0xFC
-    ands r0, r1
-    movs r2, #0x00
-    strb r0, [r4, #0x00]
-    ldrb r1, [r4, #0x07]
-    strb r1, [r4, #0x0B]
-    movs r0, #0xFF
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08060C66
-    movs r0, #0x01
-    ldrb r1, [r4, #0x1D]
-    orrs r0, r1
-    strb r0, [r4, #0x1D]
-    cmp r6, #0x03
-    beq _08060D28
-    ldrb r2, [r4, #0x07]
-    mov r8, r2
-    b _08060D28
-_08060C34:
-    ldrb r0, [r4, #0x0B]
-    cmp r0, #0x00
-    bne _08060D28
-    cmp r6, #0x03
-    bne _08060C46
-    movs r0, #0x01
-    ldrb r1, [r4, #0x1D]
-    orrs r0, r1
-    strb r0, [r4, #0x1D]
-_08060C46:
-    adds r0, r4, #0x0
-    bl CgbModVol
-    movs r0, #0x03
-    ldrb r2, [r4, #0x00]
-    ands r0, r2
-    cmp r0, #0x00
-    bne _08060C9A
-    ldrb r0, [r4, #0x09]
-    subs r0, #0x01
-    strb r0, [r4, #0x09]
-    movs r1, #0xFF
-    ands r0, r1
-    lsls r0, r0, #0x18
-    cmp r0, #0x00
-    bgt _08060C96
-_08060C66:
-    ldrb r2, [r4, #0x0C]
-    ldrb r1, [r4, #0x0A]
-    adds r0, r2, #0x0
-    muls r0, r1
-    adds r0, #0xFF
-    asrs r0, r0, #0x08
-    movs r1, #0x00
-    strb r0, [r4, #0x09]
-    lsls r0, r0, #0x18
-    cmp r0, #0x00
-    beq _08060BE6
-    movs r0, #0x04
-    ldrb r2, [r4, #0x00]
-    orrs r0, r2
-    strb r0, [r4, #0x00]
-    movs r0, #0x01
-    ldrb r1, [r4, #0x1D]
-    orrs r0, r1
-    strb r0, [r4, #0x1D]
-    cmp r6, #0x03
-    beq _08060D3A
-    movs r2, #0x08
-    mov r8, r2
-    b _08060D3A
-_08060C96:
-    ldrb r0, [r4, #0x07]
-    b _08060D26
-_08060C9A:
-    cmp r0, #0x01
-    bne _08060CA6
-_08060C9E:
-    ldrb r0, [r4, #0x19]
-    strb r0, [r4, #0x09]
-    movs r0, #0x07
-    b _08060D26
-_08060CA6:
-    cmp r0, #0x02
-    bne _08060CEA
-    ldrb r0, [r4, #0x09]
-    subs r0, #0x01
-    strb r0, [r4, #0x09]
-    movs r1, #0xFF
-    ands r0, r1
-    lsls r0, r0, #0x18
-    ldrb r2, [r4, #0x19]
-    lsls r1, r2, #0x18
-    cmp r0, r1
-    bgt _08060CE6
-_08060CBE:
-    ldrb r0, [r4, #0x06]
-    cmp r0, #0x00
-    bne _08060CCE
-    movs r0, #0xFC
-    ldrb r1, [r4, #0x00]
-    ands r0, r1
-    strb r0, [r4, #0x00]
-    b _08060C66
-_08060CCE:
-    ldrb r0, [r4, #0x00]
-    subs r0, #0x01
-    strb r0, [r4, #0x00]
-    movs r0, #0x01
-    ldrb r2, [r4, #0x1D]
-    orrs r0, r2
-    strb r0, [r4, #0x1D]
-    cmp r6, #0x03
-    beq _08060C9E
-    movs r0, #0x08
-    mov r8, r0
-    b _08060C9E
-_08060CE6:
-    ldrb r0, [r4, #0x05]
-    b _08060D26
-_08060CEA:
-    ldrb r0, [r4, #0x09]
-    adds r0, #0x01
-    strb r0, [r4, #0x09]
-    movs r1, #0xFF
-    ands r0, r1
-    ldrb r2, [r4, #0x0A]
-    cmp r0, r2
-    bcc _08060D24
-_08060CFA:
-    ldrb r0, [r4, #0x00]
-    subs r0, #0x01
-    movs r2, #0x00
-    strb r0, [r4, #0x00]
-    ldrb r1, [r4, #0x05]
-    strb r1, [r4, #0x0B]
-    movs r0, #0xFF
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08060CBE
-    movs r0, #0x01
-    ldrb r1, [r4, #0x1D]
-    orrs r0, r1
-    strb r0, [r4, #0x1D]
-    ldrb r0, [r4, #0x0A]
-    strb r0, [r4, #0x09]
-    cmp r6, #0x03
-    beq _08060D28
-    ldrb r2, [r4, #0x05]
-    mov r8, r2
-    b _08060D28
-_08060D24:
-    ldrb r0, [r4, #0x04]
-_08060D26:
-    strb r0, [r4, #0x0B]
-_08060D28:
-    ldrb r0, [r4, #0x0B]
-    subs r0, #0x01
-    strb r0, [r4, #0x0B]
-    ldr r0, [sp, #0x000]
-    cmp r0, #0x00
-    bne _08060D3A
-    subs r0, #0x01
-    str r0, [sp, #0x000]
-    b _08060C34
-_08060D3A:
-    movs r0, #0x02
-    ldrb r1, [r4, #0x1D]
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08060DB2
-    cmp r6, #0x03
-    bgt _08060D7A
-    movs r0, #0x08
-    ldrb r2, [r4, #0x01]
-    ands r0, r2
-    cmp r0, #0x00
-    beq _08060D7A
-    ldr r0, _08060D64 @ =0x04000089
-    ldrb r0, [r0, #0x00]
-    cmp r0, #0x3F
-    bgt _08060D6C
-    ldr r0, [r4, #0x20]
-    adds r0, #0x02
-    ldr r1, _08060D68 @ =0x000007FC
-    b _08060D76
-    .byte 0x00, 0x00
-_08060D64: .4byte 0x04000089
-_08060D68: .4byte 0x000007FC
-_08060D6C:
-    cmp r0, #0x7F
-    bgt _08060D7A
-    ldr r0, [r4, #0x20]
-    adds r0, #0x01
-    ldr r1, _08060D88 @ =0x000007FE
-_08060D76:
-    ands r0, r1
-    str r0, [r4, #0x20]
-_08060D7A:
-    cmp r6, #0x04
-    beq _08060D8C
-    ldr r0, [r4, #0x20]
-    ldr r1, [sp, #0x010]
-    strb r0, [r1, #0x00]
-    b _08060D9A
-    .byte 0x00, 0x00
-_08060D88: .4byte 0x000007FE
-_08060D8C:
-    ldr r2, [sp, #0x010]
-    ldrb r0, [r2, #0x00]
-    movs r1, #0x08
-    ands r1, r0
-    ldr r0, [r4, #0x20]
-    orrs r0, r1
-    strb r0, [r2, #0x00]
-_08060D9A:
-    movs r0, #0xC0
-    ldrb r1, [r4, #0x1A]
-    ands r0, r1
-    adds r1, r4, #0x0
-    adds r1, #0x21
-    ldrb r1, [r1, #0x00]
-    adds r0, r1, r0
-    strb r0, [r4, #0x1A]
-    movs r2, #0xFF
-    ands r0, r2
-    ldr r1, [sp, #0x014]
-    strb r0, [r1, #0x00]
-_08060DB2:
-    movs r0, #0x01
-    ldrb r2, [r4, #0x1D]
-    ands r0, r2
-    cmp r0, #0x00
-    beq _08060E38
-    ldr r1, _08060DFC @ =0x04000081
-    ldrb r0, [r1, #0x00]
-    ldrb r2, [r4, #0x1C]
-    bics r0, r2
-    ldrb r2, [r4, #0x1B]
-    orrs r0, r2
-    strb r0, [r1, #0x00]
-    cmp r6, #0x03
-    bne _08060E04
-    ldr r0, _08060E00 @ =0x080F3434
-    ldrb r1, [r4, #0x09]
-    adds r0, r1, r0
-    ldrb r0, [r0, #0x00]
-    ldr r2, [sp, #0x00C]
-    strb r0, [r2, #0x00]
-    movs r1, #0x80
-    adds r0, r1, #0x0
-    ldrb r2, [r4, #0x1A]
-    ands r0, r2
-    cmp r0, #0x00
-    beq _08060E38
-    ldr r0, [sp, #0x008]
-    strb r1, [r0, #0x00]
-    ldrb r0, [r4, #0x1A]
-    ldr r1, [sp, #0x014]
-    strb r0, [r1, #0x00]
-    movs r0, #0x7F
-    ldrb r2, [r4, #0x1A]
-    ands r0, r2
-    strb r0, [r4, #0x1A]
-    b _08060E38
-    .byte 0x00, 0x00
-_08060DFC: .4byte 0x04000081
-_08060E00: .4byte 0x080F3434
-_08060E04:
-    movs r0, #0x0F
-    mov r1, r8
-    ands r1, r0
-    mov r8, r1
-    ldrb r2, [r4, #0x09]
-    lsls r0, r2, #0x04
-    add r0, r8
-    ldr r1, [sp, #0x00C]
-    strb r0, [r1, #0x00]
-    movs r2, #0x80
-    ldrb r0, [r4, #0x1A]
-    orrs r0, r2
-    ldr r1, [sp, #0x014]
-    strb r0, [r1, #0x00]
-    cmp r6, #0x01
-    bne _08060E38
-    ldr r0, [sp, #0x008]
-    ldrb r1, [r0, #0x00]
-    movs r0, #0x08
-    ands r0, r1
-    cmp r0, #0x00
-    bne _08060E38
-    ldrb r0, [r4, #0x1A]
-    orrs r0, r2
-    ldr r1, [sp, #0x014]
-    strb r0, [r1, #0x00]
-_08060E38:
-    movs r0, #0x00
-    strb r0, [r4, #0x1D]
-_08060E3C:
-    mov r6, r10
-    mov r4, r9
-    cmp r6, #0x04
-    bgt _08060E46
-    b _08060A3C
-_08060E46:
-    add sp, #0x01C
-    pop {r3, r4, r5}
-    mov r8, r3
-    mov r9, r4
-    mov r10, r5
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-    thumb_func_start MPlayTempoControl
-MPlayTempoControl: @ 08060E58
-    push {r4, lr}
-    adds r2, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    ldr r3, [r2, #0x34]
-    ldr r0, _08060E7C @ =0x68736D53
-    cmp r3, r0
-    bne _08060E74
-    strh r1, [r2, #0x1E]
-    ldrh r4, [r2, #0x1C]
-    adds r0, r1, #0x0
-    muls r0, r4
-    asrs r0, r0, #0x08
-    strh r0, [r2, #0x20]
-_08060E74:
-    pop {r4}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08060E7C: .4byte 0x68736D53
-    thumb_func_start MPlayVolumeControl
-MPlayVolumeControl: @ 08060E80
-    push {r4, r5, r6, r7, lr}
-    mov r7, r9
-    mov r6, r8
-    push {r6, r7}
-    adds r4, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r7, r1, #0x10
-    lsls r6, r2, #0x10
-    ldr r3, [r4, #0x34]
-    ldr r0, _08060EE4 @ =0x68736D53
-    cmp r3, r0
-    bne _08060ED8
-    adds r0, r3, #0x1
-    str r0, [r4, #0x34]
-    ldrb r2, [r4, #0x08]
-    ldr r1, [r4, #0x2C]
-    movs r5, #0x01
-    cmp r2, #0x00
-    ble _08060ED4
-    movs r0, #0x80
-    mov r8, r0
-    lsrs r6, r6, #0x12
-    movs r0, #0x03
-    mov r12, r0
-_08060EB0:
-    adds r0, r7, #0x0
-    ands r0, r5
-    cmp r0, #0x00
-    beq _08060ECA
-    ldrb r3, [r1, #0x00]
-    mov r0, r8
-    ands r0, r3
-    cmp r0, #0x00
-    beq _08060ECA
-    strb r6, [r1, #0x13]
-    mov r0, r12
-    orrs r0, r3
-    strb r0, [r1, #0x00]
-_08060ECA:
-    subs r2, #0x01
-    adds r1, #0x50
-    lsls r5, r5, #0x01
-    cmp r2, #0x00
-    bgt _08060EB0
-_08060ED4:
-    ldr r0, _08060EE4 @ =0x68736D53
-    str r0, [r4, #0x34]
-_08060ED8:
-    pop {r3, r4}
-    mov r8, r3
-    mov r9, r4
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-_08060EE4: .4byte 0x68736D53
-    thumb_func_start MPlayPitchControl
-MPlayPitchControl: @ 08060EE8
-    push {r4, r5, r6, r7, lr}
-    mov r7, r10
-    mov r6, r9
-    mov r5, r8
-    push {r5, r6, r7}
-    adds r4, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    mov r12, r1
-    lsls r2, r2, #0x10
-    lsrs r6, r2, #0x10
-    ldr r3, [r4, #0x34]
-    ldr r0, _08060F58 @ =0x68736D53
-    cmp r3, r0
-    bne _08060F4A
-    adds r0, r3, #0x1
-    str r0, [r4, #0x34]
-    ldrb r2, [r4, #0x08]
-    ldr r3, [r4, #0x2C]
-    movs r5, #0x01
-    cmp r2, #0x00
-    ble _08060F46
-    movs r0, #0x80
-    mov r9, r0
-    lsls r0, r6, #0x10
-    asrs r7, r0, #0x18
-    movs r0, #0x0C
-    mov r8, r0
-_08060F20:
-    mov r0, r12
-    ands r0, r5
-    cmp r0, #0x00
-    beq _08060F3C
-    ldrb r1, [r3, #0x00]
-    mov r0, r9
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08060F3C
-    strb r7, [r3, #0x0B]
-    strb r6, [r3, #0x0D]
-    mov r0, r8
-    orrs r0, r1
-    strb r0, [r3, #0x00]
-_08060F3C:
-    subs r2, #0x01
-    adds r3, #0x50
-    lsls r5, r5, #0x01
-    cmp r2, #0x00
-    bgt _08060F20
-_08060F46:
-    ldr r0, _08060F58 @ =0x68736D53
-    str r0, [r4, #0x34]
-_08060F4A:
-    pop {r3, r4, r5}
-    mov r8, r3
-    mov r9, r4
-    mov r10, r5
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-_08060F58: .4byte 0x68736D53
-    thumb_func_start MPlayPanpotControl
-MPlayPanpotControl: @ 08060F5C
-    push {r4, r5, r6, r7, lr}
-    mov r7, r9
-    mov r6, r8
-    push {r6, r7}
-    adds r4, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r7, r1, #0x10
-    lsls r2, r2, #0x18
-    lsrs r6, r2, #0x18
-    ldr r3, [r4, #0x34]
-    ldr r0, _08060FC0 @ =0x68736D53
-    cmp r3, r0
-    bne _08060FB4
-    adds r0, r3, #0x1
-    str r0, [r4, #0x34]
-    ldrb r2, [r4, #0x08]
-    ldr r1, [r4, #0x2C]
-    movs r5, #0x01
-    cmp r2, #0x00
-    ble _08060FB0
-    movs r0, #0x80
-    mov r8, r0
-    movs r0, #0x03
-    mov r12, r0
-_08060F8C:
-    adds r0, r7, #0x0
-    ands r0, r5
-    cmp r0, #0x00
-    beq _08060FA6
-    ldrb r3, [r1, #0x00]
-    mov r0, r8
-    ands r0, r3
-    cmp r0, #0x00
-    beq _08060FA6
-    strb r6, [r1, #0x15]
-    mov r0, r12
-    orrs r0, r3
-    strb r0, [r1, #0x00]
-_08060FA6:
-    subs r2, #0x01
-    adds r1, #0x50
-    lsls r5, r5, #0x01
-    cmp r2, #0x00
-    bgt _08060F8C
-_08060FB0:
-    ldr r0, _08060FC0 @ =0x68736D53
-    str r0, [r4, #0x34]
-_08060FB4:
-    pop {r3, r4}
-    mov r8, r3
-    mov r9, r4
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-_08060FC0: .4byte 0x68736D53
-    thumb_func_start MP_clear_modM
-MP_clear_modM: @ 08060FC4
-    adds r1, r0, #0x0
-    movs r2, #0x00
-    movs r0, #0x00
-    strb r0, [r1, #0x1A]
-    strb r0, [r1, #0x16]
-    ldrb r0, [r1, #0x18]
-    cmp r0, #0x00
-    bne _08060FD8
-    movs r0, #0x0C
-    b _08060FDA
-_08060FD8:
-    movs r0, #0x03
-_08060FDA:
-    ldrb r2, [r1, #0x00]
-    orrs r0, r2
-    strb r0, [r1, #0x00]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start MPlayModDepthSet
-MPlayModDepthSet: @ 08060FE4
-    push {r4, r5, r6, r7, lr}
-    mov r7, r10
-    mov r6, r9
-    mov r5, r8
-    push {r5, r6, r7}
-    adds r6, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    mov r10, r1
-    lsls r2, r2, #0x18
-    lsrs r2, r2, #0x18
-    mov r8, r2
-    ldr r1, [r6, #0x34]
-    ldr r0, _08061054 @ =0x68736D53
-    cmp r1, r0
-    bne _08061044
-    adds r0, r1, #0x1
-    str r0, [r6, #0x34]
-    ldrb r5, [r6, #0x08]
-    ldr r4, [r6, #0x2C]
-    movs r7, #0x01
-    cmp r5, #0x00
-    ble _08061040
-    mov r9, r8
-_08061014:
-    mov r0, r10
-    ands r0, r7
-    cmp r0, #0x00
-    beq _08061036
-    movs r0, #0x80
-    ldrb r1, [r4, #0x00]
-    ands r0, r1
-    cmp r0, #0x00
-    beq _08061036
-    mov r0, r8
-    strb r0, [r4, #0x17]
-    mov r1, r9
-    cmp r1, #0x00
-    bne _08061036
-    adds r0, r4, #0x0
-    bl MP_clear_modM
-_08061036:
-    subs r5, #0x01
-    adds r4, #0x50
-    lsls r7, r7, #0x01
-    cmp r5, #0x00
-    bgt _08061014
-_08061040:
-    ldr r0, _08061054 @ =0x68736D53
-    str r0, [r6, #0x34]
-_08061044:
-    pop {r3, r4, r5}
-    mov r8, r3
-    mov r9, r4
-    mov r10, r5
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08061054: .4byte 0x68736D53
-    thumb_func_start MPlayLFOSpeedSet
-MPlayLFOSpeedSet: @ 08061058
-    push {r4, r5, r6, r7, lr}
-    mov r7, r10
-    mov r6, r9
-    mov r5, r8
-    push {r5, r6, r7}
-    adds r6, r0, #0x0
-    lsls r1, r1, #0x10
-    lsrs r1, r1, #0x10
-    mov r10, r1
-    lsls r2, r2, #0x18
-    lsrs r2, r2, #0x18
-    mov r8, r2
-    ldr r1, [r6, #0x34]
-    ldr r0, _080610C8 @ =0x68736D53
-    cmp r1, r0
-    bne _080610B8
-    adds r0, r1, #0x1
-    str r0, [r6, #0x34]
-    ldrb r5, [r6, #0x08]
-    ldr r4, [r6, #0x2C]
-    movs r7, #0x01
-    cmp r5, #0x00
-    ble _080610B4
-    mov r9, r8
-_08061088:
-    mov r0, r10
-    ands r0, r7
-    cmp r0, #0x00
-    beq _080610AA
-    movs r0, #0x80
-    ldrb r1, [r4, #0x00]
-    ands r0, r1
-    cmp r0, #0x00
-    beq _080610AA
-    mov r0, r8
-    strb r0, [r4, #0x19]
-    mov r1, r9
-    cmp r1, #0x00
-    bne _080610AA
-    adds r0, r4, #0x0
-    bl MP_clear_modM
-_080610AA:
-    subs r5, #0x01
-    adds r4, #0x50
-    lsls r7, r7, #0x01
-    cmp r5, #0x00
-    bgt _08061088
-_080610B4:
-    ldr r0, _080610C8 @ =0x68736D53
-    str r0, [r6, #0x34]
-_080610B8:
-    pop {r3, r4, r5}
-    mov r8, r3
-    mov r9, r4
-    mov r10, r5
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_080610C8: .4byte 0x68736D53
-    thumb_func_start ply_memacc
-ply_memacc: @ 080610CC
-    push {r4, r5, r6, lr}
-    adds r4, r0, #0x0
-    adds r6, r1, #0x0
-    ldr r1, [r6, #0x40]
-    ldrb r5, [r1, #0x00]
-    adds r2, r1, #0x1
-    str r2, [r6, #0x40]
-    ldr r0, [r4, #0x18]
-    ldrb r1, [r1, #0x01]
-    adds r3, r1, r0
-    adds r0, r2, #0x1
-    str r0, [r6, #0x40]
-    ldrb r2, [r2, #0x01]
-    adds r0, #0x01
-    str r0, [r6, #0x40]
-    cmp r5, #0x11
-    bls _080610F0
-    b _0806121E
-_080610F0:
-    lsls r0, r5, #0x02
-    ldr r1, _080610FC @ =0x08061100
-    adds r0, r0, r1
-    ldr r0, [r0, #0x00]
-    mov pc, r0
-    .byte 0x00, 0x00
-_080610FC: .4byte 0x08061100
-    .byte 0x48, 0x11, 0x06, 0x08, 0x4C, 0x11, 0x06, 0x08, 0x54, 0x11, 0x06, 0x08, 0x5C, 0x11, 0x06, 0x08
-    .byte 0x66, 0x11, 0x06, 0x08, 0x74, 0x11, 0x06, 0x08, 0x82, 0x11, 0x06, 0x08, 0x8A, 0x11, 0x06, 0x08
-    .byte 0x92, 0x11, 0x06, 0x08, 0x9A, 0x11, 0x06, 0x08, 0xA2, 0x11, 0x06, 0x08, 0xAA, 0x11, 0x06, 0x08
-    .byte 0xB2, 0x11, 0x06, 0x08, 0xC0, 0x11, 0x06, 0x08, 0xCE, 0x11, 0x06, 0x08, 0xDC, 0x11, 0x06, 0x08
-    .byte 0xEA, 0x11, 0x06, 0x08, 0xF8, 0x11, 0x06, 0x08, 0x1A, 0x70, 0x68, 0xE0, 0x19, 0x78, 0x88, 0x18
-    .byte 0x18, 0x70, 0x64, 0xE0, 0x19, 0x78, 0x88, 0x1A, 0x18, 0x70, 0x60, 0xE0, 0xA0, 0x69, 0x80, 0x18
-    .byte 0x00, 0x78, 0x18, 0x70, 0x5B, 0xE0, 0xA0, 0x69, 0x80, 0x18, 0x19, 0x78, 0x00, 0x78, 0x08, 0x18
-    .byte 0x18, 0x70, 0x54, 0xE0, 0xA0, 0x69, 0x80, 0x18, 0x19, 0x78, 0x00, 0x78, 0x08, 0x1A, 0x18, 0x70
-    .byte 0x4D, 0xE0, 0x1B, 0x78, 0x93, 0x42, 0x3D, 0xD0, 0x46, 0xE0, 0x1B, 0x78, 0x93, 0x42, 0x39, 0xD1
-    .byte 0x42, 0xE0, 0x1B, 0x78, 0x93, 0x42, 0x35, 0xD8, 0x3E, 0xE0, 0x1B, 0x78, 0x93, 0x42, 0x31, 0xD2
-    .byte 0x3A, 0xE0, 0x1B, 0x78, 0x93, 0x42, 0x2D, 0xD9, 0x36, 0xE0, 0x1B, 0x78, 0x93, 0x42, 0x29, 0xD3
-    .byte 0x32, 0xE0, 0xA0, 0x69, 0x80, 0x18, 0x1B, 0x78, 0x00, 0x78, 0x83, 0x42, 0x22, 0xD0, 0x2B, 0xE0
-    .byte 0xA0, 0x69, 0x80, 0x18, 0x1B, 0x78, 0x00, 0x78, 0x83, 0x42, 0x1B, 0xD1, 0x24, 0xE0, 0xA0, 0x69
-    .byte 0x80, 0x18, 0x1B, 0x78, 0x00, 0x78, 0x83, 0x42, 0x14, 0xD8, 0x1D, 0xE0, 0xA0, 0x69, 0x80, 0x18
-    .byte 0x1B, 0x78, 0x00, 0x78, 0x83, 0x42, 0x0D, 0xD2, 0x16, 0xE0, 0xA0, 0x69, 0x80, 0x18, 0x1B, 0x78
-    .byte 0x00, 0x78, 0x83, 0x42, 0x06, 0xD9, 0x0F, 0xE0, 0xA0, 0x69, 0x80, 0x18, 0x1B, 0x78, 0x00, 0x78
-    .byte 0x83, 0x42, 0x09, 0xD2, 0x03, 0x48, 0x02, 0x68, 0x20, 0x1C, 0x31, 0x1C, 0x00, 0xF0, 0x36, 0xFE
-    .byte 0x05, 0xE0, 0x00, 0x00, 0x24, 0x67, 0x00, 0x03, 0x30, 0x6C, 0x04, 0x30, 0x30, 0x64
-_0806121E:
-    pop {r4, r5, r6}
-    pop {r0}
-    bx r0
-    thumb_func_start ply_xcmd
-ply_xcmd: @ 08061224
-    push {lr}
-    ldr r2, [r1, #0x40]
-    ldrb r3, [r2, #0x00]
-    adds r2, #0x01
-    str r2, [r1, #0x40]
-    ldr r2, _08061240 @ =0x080F3478
-    lsls r3, r3, #0x02
-    adds r3, r3, r2
-    ldr r2, [r3, #0x00]
-    bl _call_via_r2
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08061240: .4byte 0x080F3478
-    thumb_func_start ply_xxx
-ply_xxx: @ 08061244
-    push {lr}
-    ldr r2, _08061254 @ =0x03006720
-    ldr r2, [r2, #0x00]
-    bl _call_via_r2
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08061254: .4byte 0x03006720
-    thumb_func_start ply_xwave
-ply_xwave: @ 08061258
-    push {r4, lr}
-    ldr r2, [r1, #0x40]
-    ldr r0, _08061290 @ =0xFFFFFF00
-    ands r4, r0
-    ldrb r0, [r2, #0x00]
-    orrs r4, r0
-    ldrb r0, [r2, #0x01]
-    lsls r3, r0, #0x08
-    ldr r0, _08061294 @ =0xFFFF00FF
-    ands r4, r0
-    orrs r4, r3
-    ldrb r0, [r2, #0x02]
-    lsls r3, r0, #0x10
-    ldr r0, _08061298 @ =0xFF00FFFF
-    ands r4, r0
-    orrs r4, r3
-    ldrb r0, [r2, #0x03]
-    lsls r3, r0, #0x18
-    ldr r0, _0806129C @ =0x00FFFFFF
-    ands r4, r0
-    orrs r4, r3
-    str r4, [r1, #0x28]
-    adds r2, #0x04
-    str r2, [r1, #0x40]
-    pop {r4}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08061290: .4byte 0xFFFFFF00
-_08061294: .4byte 0xFFFF00FF
-_08061298: .4byte 0xFF00FFFF
-_0806129C: .4byte 0x00FFFFFF
-    thumb_func_start ply_xtype
-ply_xtype: @ 080612A0
-    ldr r0, [r1, #0x40]
-    ldrb r2, [r0, #0x00]
-    adds r0, r1, #0x0
-    adds r0, #0x24
-    strb r2, [r0, #0x00]
-    ldr r0, [r1, #0x40]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ply_xatta
-ply_xatta: @ 080612B4
-    ldr r0, [r1, #0x40]
-    ldrb r2, [r0, #0x00]
-    adds r0, r1, #0x0
-    adds r0, #0x2C
-    strb r2, [r0, #0x00]
-    ldr r0, [r1, #0x40]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ply_xdeca
-ply_xdeca: @ 080612C8
-    ldr r0, [r1, #0x40]
-    ldrb r0, [r0, #0x00]
-    adds r2, r1, #0x0
-    adds r2, #0x2D
-    strb r0, [r2, #0x00]
-    ldr r0, [r1, #0x40]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ply_xsust
-ply_xsust: @ 080612DC
-    ldr r0, [r1, #0x40]
-    ldrb r0, [r0, #0x00]
-    adds r2, r1, #0x0
-    adds r2, #0x2E
-    strb r0, [r2, #0x00]
-    ldr r0, [r1, #0x40]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ply_xrele
-ply_xrele: @ 080612F0
-    ldr r0, [r1, #0x40]
-    ldrb r0, [r0, #0x00]
-    adds r2, r1, #0x0
-    adds r2, #0x2F
-    strb r0, [r2, #0x00]
-    ldr r0, [r1, #0x40]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ply_xiecv
-ply_xiecv: @ 08061304
-    ldr r0, [r1, #0x40]
-    ldrb r2, [r0, #0x00]
-    strb r2, [r1, #0x1E]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    thumb_func_start ply_xiecl
-ply_xiecl: @ 08061310
-    ldr r0, [r1, #0x40]
-    ldrb r2, [r0, #0x00]
-    strb r2, [r1, #0x1F]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    thumb_func_start ply_xleng
-ply_xleng: @ 0806131C
-    ldr r0, [r1, #0x40]
-    ldrb r0, [r0, #0x00]
-    adds r2, r1, #0x0
-    adds r2, #0x26
-    strb r0, [r2, #0x00]
-    ldr r0, [r1, #0x40]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ply_xswee
-ply_xswee: @ 08061330
-    ldr r0, [r1, #0x40]
-    ldrb r0, [r0, #0x00]
-    adds r2, r1, #0x0
-    adds r2, #0x27
-    strb r0, [r2, #0x00]
-    ldr r0, [r1, #0x40]
-    adds r0, #0x01
-    str r0, [r1, #0x40]
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start DummyFunc_rev
-DummyFunc_rev: @ 08061344
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ArcTan2
-ArcTan2: @ 08061348
-    swi #10
-    bx lr
-    thumb_func_start CpuFastSet
-CpuFastSet: @ 0806134C
-    swi #12
-    bx lr
-    thumb_func_start CpuSet
-CpuSet: @ 08061350
-    swi #11
-    bx lr
-    thumb_func_start Div
-Div: @ 08061354
-    swi #6
-    bx lr
-    thumb_func_start DivRem
-DivRem: @ 08061358
-    swi #6
-    adds r0, r1, #0x0
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start LZ77UnCompVram
-LZ77UnCompVram: @ 08061360
-    swi #18
-    bx lr
-    thumb_func_start LZ77UnCompWram
-LZ77UnCompWram: @ 08061364
-    swi #17
-    bx lr
-    thumb_func_start MultiBoot
-MultiBoot: @ 08061368
-    movs r1, #0x01
-    swi #37
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start SoftReset
-SoftReset: @ 08061370
-    ldr r3, _08061380 @ =0x04000208
-    movs r2, #0x00
-    strb r2, [r3, #0x00]
-    ldr r1, _08061384 @ =0x03007F00
-    mov sp, r1
-    swi #1
-    swi #0
-    lsls r0, r0, #0x00
-_08061380:
-    lsls r0, r1, #0x08
-    lsls r0, r0, #0x10
-_08061384:
-    ldrb r0, [r0, #0x1C]
-    lsls r0, r0, #0x0C
-    thumb_func_start VBlankIntrWait
-VBlankIntrWait: @ 08061388
-    movs r2, #0x00
-    swi #5
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start ReadFlashID
-ReadFlashID: @ 08061390
-    push {r4, r5, lr}
-    add sp, #-0x044
-    mov r0, sp
-    bl SetReadFlash1
-    mov r5, sp
-    adds r5, #0x01
-    ldr r2, _080613B8 @ =0x0E005555
-    movs r0, #0xAA
-    strb r0, [r2, #0x00]
-    ldr r1, _080613BC @ =0x0E002AAA
-    movs r0, #0x55
-    strb r0, [r1, #0x00]
-    movs r0, #0x90
-    strb r0, [r2, #0x00]
-    add r1, sp, #0x040
-    ldr r2, _080613C0 @ =0x00004E20
-    adds r0, r2, #0x0
-    b _080613C8
-    .byte 0x00, 0x00
-_080613B8: .4byte 0x0E005555
-_080613BC: .4byte 0x0E002AAA
-_080613C0: .4byte 0x00004E20
-_080613C4:
-    ldrh r0, [r1, #0x00]
-    subs r0, #0x01
-_080613C8:
-    strh r0, [r1, #0x00]
-    ldrh r0, [r1, #0x00]
-    cmp r0, #0x00
-    bne _080613C4
-    ldr r0, _08061400 @ =0x0E000001
-    bl _call_via_r5
-    lsls r0, r0, #0x18
-    lsrs r4, r0, #0x10
-    movs r0, #0xE0
-    lsls r0, r0, #0x14
-    bl _call_via_r5
-    lsls r0, r0, #0x18
-    lsrs r0, r0, #0x18
-    orrs r4, r0
-    ldr r2, _08061404 @ =0x0E005555
-    movs r0, #0xAA
-    strb r0, [r2, #0x00]
-    ldr r1, _08061408 @ =0x0E002AAA
-    movs r0, #0x55
-    strb r0, [r1, #0x00]
-    movs r0, #0xF0
-    strb r0, [r2, #0x00]
-    add r1, sp, #0x040
-    ldr r2, _0806140C @ =0x00004E20
-    adds r0, r2, #0x0
-    b _08061414
-_08061400: .4byte 0x0E000001
-_08061404: .4byte 0x0E005555
-_08061408: .4byte 0x0E002AAA
-_0806140C: .4byte 0x00004E20
-_08061410:
-    ldrh r0, [r1, #0x00]
-    subs r0, #0x01
-_08061414:
-    strh r0, [r1, #0x00]
-    ldrh r0, [r1, #0x00]
-    cmp r0, #0x00
-    bne _08061410
-    adds r0, r4, #0x0
-    add sp, #0x044
-    pop {r4, r5}
-    pop {r1}
-    bx r1
-    .byte 0x00, 0x00
-    thumb_func_start IdentifyFlash
-IdentifyFlash: @ 08061428
-    push {r4, lr}
-    ldr r2, _08061448 @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _0806144C @ =0x0000FFFC
-    ands r0, r1
-    movs r1, #0x03
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-    bl ReadFlashID
-    lsls r0, r0, #0x10
-    lsrs r3, r0, #0x10
-    ldr r2, _08061450 @ =0x081E9784
-    movs r4, #0x01
-    b _08061456
-    .byte 0x00, 0x00
-_08061448: .4byte 0x04000204
-_0806144C: .4byte 0x0000FFFC
-_08061450: .4byte 0x081E9784
-_08061454:
-    adds r2, #0x04
-_08061456:
-    ldr r1, [r2, #0x00]
-    adds r0, r1, #0x0
-    adds r0, #0x28
-    ldrb r0, [r0, #0x00]
-    cmp r0, #0x00
-    beq _0806146A
-    ldrh r0, [r1, #0x28]
-    cmp r3, r0
-    bne _08061454
-    movs r4, #0x00
-_0806146A:
-    ldr r1, _080614A4 @ =0x03006A84
-    ldr r0, [r2, #0x00]
-    ldr r0, [r0, #0x00]
-    str r0, [r1, #0x00]
-    ldr r1, _080614A8 @ =0x03006A90
-    ldr r0, [r2, #0x00]
-    ldr r0, [r0, #0x04]
-    str r0, [r1, #0x00]
-    ldr r1, _080614AC @ =0x03006A94
-    ldr r0, [r2, #0x00]
-    ldr r0, [r0, #0x08]
-    str r0, [r1, #0x00]
-    ldr r1, _080614B0 @ =0x03006A80
-    ldr r0, [r2, #0x00]
-    ldr r0, [r0, #0x0C]
-    str r0, [r1, #0x00]
-    ldr r1, _080614B4 @ =0x030023E0
-    ldr r0, [r2, #0x00]
-    ldr r0, [r0, #0x10]
-    str r0, [r1, #0x00]
-    ldr r1, _080614B8 @ =0x03006A88
-    ldr r0, [r2, #0x00]
-    adds r0, #0x14
-    str r0, [r1, #0x00]
-    adds r0, r4, #0x0
-    pop {r4}
-    pop {r1}
-    bx r1
-    .byte 0x00, 0x00
-_080614A4: .4byte 0x03006A84
-_080614A8: .4byte 0x03006A90
-_080614AC: .4byte 0x03006A94
-_080614B0: .4byte 0x03006A80
-_080614B4: .4byte 0x030023E0
-_080614B8: .4byte 0x03006A88
-    thumb_func_start FlashTimerIntr
-FlashTimerIntr: @ 080614BC
-    ldr r1, _080614D8 @ =0x030023EA
-    ldrh r0, [r1, #0x00]
-    cmp r0, #0x00
-    beq _080614D6
-    ldrh r0, [r1, #0x00]
-    subs r0, #0x01
-    strh r0, [r1, #0x00]
-    lsls r0, r0, #0x10
-    cmp r0, #0x00
-    bne _080614D6
-    ldr r1, _080614DC @ =0x030023EC
-    movs r0, #0x01
-    strb r0, [r1, #0x00]
-_080614D6:
-    bx lr
-_080614D8: .4byte 0x030023EA
-_080614DC: .4byte 0x030023EC
-    thumb_func_start SetFlashTimerIntr
-SetFlashTimerIntr: @ 080614E0
-    adds r2, r1, #0x0
-    lsls r0, r0, #0x18
-    lsrs r1, r0, #0x18
-    cmp r1, #0x03
-    bhi _08061514
-    ldr r0, _08061504 @ =0x030023E8
-    strb r1, [r0, #0x00]
-    ldr r1, _08061508 @ =0x030023F0
-    ldrb r0, [r0, #0x00]
-    lsls r0, r0, #0x02
-    ldr r3, _0806150C @ =0x04000100
-    adds r0, r0, r3
-    str r0, [r1, #0x00]
-    ldr r0, _08061510 @ =0x080614BD
-    str r0, [r2, #0x00]
-    movs r0, #0x00
-    b _08061516
-    .byte 0x00, 0x00
-_08061504: .4byte 0x030023E8
-_08061508: .4byte 0x030023F0
-_0806150C: .4byte 0x04000100
-_08061510: .4byte FlashTimerIntr
-_08061514:
-    movs r0, #0x01
-_08061516:
-    bx lr
-    thumb_func_start StartFlashTimer
-StartFlashTimer: @ 08061518
-    push {r4, r5, lr}
-    lsls r0, r0, #0x18
-    lsrs r0, r0, #0x18
-    ldr r1, _08061570 @ =0x030023E0
-    lsls r2, r0, #0x01
-    adds r2, r2, r0
-    lsls r2, r2, #0x01
-    ldr r0, [r1, #0x00]
-    adds r2, r2, r0
-    ldr r1, _08061574 @ =0x030023F4
-    ldr r3, _08061578 @ =0x04000208
-    ldrh r0, [r3, #0x00]
-    strh r0, [r1, #0x00]
-    movs r5, #0x00
-    strh r5, [r3, #0x00]
-    ldr r4, _0806157C @ =0x04000200
-    ldr r0, _08061580 @ =0x030023E8
-    ldrb r0, [r0, #0x00]
-    movs r1, #0x08
-    lsls r1, r0
-    ldrh r0, [r4, #0x00]
-    orrs r0, r1
-    strh r0, [r4, #0x00]
-    movs r0, #0x01
-    strh r0, [r3, #0x00]
-    ldr r0, _08061584 @ =0x030023EC
-    strb r5, [r0, #0x00]
-    ldr r1, _08061588 @ =0x030023EA
-    ldrh r0, [r2, #0x00]
-    strh r0, [r1, #0x00]
-    adds r2, #0x02
-    ldr r3, _0806158C @ =0x030023F0
-    ldr r0, [r3, #0x00]
-    ldrh r1, [r2, #0x00]
-    strh r1, [r0, #0x00]
-    adds r0, #0x02
-    str r0, [r3, #0x00]
-    ldrh r1, [r2, #0x02]
-    strh r1, [r0, #0x00]
-    subs r0, #0x02
-    str r0, [r3, #0x00]
-    pop {r4, r5}
-    pop {r0}
-    bx r0
-_08061570: .4byte 0x030023E0
-_08061574: .4byte 0x030023F4
-_08061578: .4byte 0x04000208
-_0806157C: .4byte 0x04000200
-_08061580: .4byte 0x030023E8
-_08061584: .4byte 0x030023EC
-_08061588: .4byte 0x030023EA
-_0806158C: .4byte 0x030023F0
-    thumb_func_start StopFlashTimer
-StopFlashTimer: @ 08061590
-    ldr r1, _080615C0 @ =0x030023F0
-    ldr r0, [r1, #0x00]
-    movs r2, #0x00
-    strh r2, [r0, #0x00]
-    adds r0, #0x02
-    str r0, [r1, #0x00]
-    strh r2, [r0, #0x00]
-    subs r0, #0x02
-    str r0, [r1, #0x00]
-    ldr r3, _080615C4 @ =0x04000208
-    strh r2, [r3, #0x00]
-    ldr r2, _080615C8 @ =0x04000200
-    ldr r0, _080615CC @ =0x030023E8
-    ldrb r0, [r0, #0x00]
-    movs r1, #0x08
-    lsls r1, r0
-    ldrh r0, [r2, #0x00]
-    bics r0, r1
-    strh r0, [r2, #0x00]
-    ldr r0, _080615D0 @ =0x030023F4
-    ldrh r0, [r0, #0x00]
-    strh r0, [r3, #0x00]
-    bx lr
-    .byte 0x00, 0x00
-_080615C0: .4byte 0x030023F0
-_080615C4: .4byte 0x04000208
-_080615C8: .4byte 0x04000200
-_080615CC: .4byte 0x030023E8
-_080615D0: .4byte 0x030023F4
-    thumb_func_start ReadFlash1
-ReadFlash1: @ 080615D4
-    ldrb r0, [r0, #0x00]
-    bx lr
-    thumb_func_start SetReadFlash1
-SetReadFlash1: @ 080615D8
-    adds r2, r0, #0x0
-    ldr r1, _080615F0 @ =0x030023E4
-    adds r0, r2, #0x1
-    str r0, [r1, #0x00]
-    ldr r3, _080615F4 @ =0x080615D5
-    movs r0, #0x01
-    eors r3, r0
-    ldr r0, _080615F8 @ =0x080615D9
-    ldr r1, _080615F4 @ =0x080615D5
-    subs r0, r0, r1
-    lsls r0, r0, #0x0F
-    b _08061608
-_080615F0: .4byte 0x030023E4
-_080615F4: .4byte ReadFlash1
-_080615F8: .4byte SetReadFlash1
-_080615FC:
-    ldrh r0, [r3, #0x00]
-    strh r0, [r2, #0x00]
-    adds r3, #0x02
-    adds r2, #0x02
-    subs r0, r1, #0x1
-    lsls r0, r0, #0x10
-_08061608:
-    lsrs r1, r0, #0x10
-    cmp r1, #0x00
-    bne _080615FC
-    bx lr
-    thumb_func_start PollingSR_COMMON
-PollingSR_COMMON: @ 08061610
-    push {r4, r5, r6, r7, lr}
-    mov r7, r8
-    push {r7}
-    adds r4, r0, #0x0
-    adds r5, r1, #0x0
-    lsls r4, r4, #0x18
-    lsrs r4, r4, #0x18
-    lsls r2, r2, #0x18
-    lsrs r6, r2, #0x18
-    movs r0, #0x00
-    mov r8, r0
-    adds r0, r4, #0x0
-    bl StartFlashTimer
-    ldr r7, _08061638 @ =0x030023E4
-    movs r0, #0xC0
-    lsls r0, r0, #0x08
-    orrs r4, r0
-    lsls r4, r4, #0x10
-    b _08061660
-_08061638: .4byte 0x030023E4
-_0806163C:
-    ldr r0, _08061654 @ =0x03006A88
-    ldr r1, [r0, #0x00]
-    ldr r0, _08061658 @ =0x00001CC2
-    ldrh r1, [r1, #0x14]
-    cmp r1, r0
-    bne _0806164E
-    ldr r1, _0806165C @ =0x0E005555
-    movs r0, #0xF0
-    strb r0, [r1, #0x00]
-_0806164E:
-    lsrs r4, r4, #0x10
-    mov r8, r4
-    b _08061688
-_08061654: .4byte 0x03006A88
-_08061658: .4byte 0x00001CC2
-_0806165C: .4byte 0x0E005555
-_08061660:
-    ldr r1, [r7, #0x00]
-    adds r0, r5, #0x0
-    bl _call_via_r1
-    lsls r0, r0, #0x18
-    lsrs r0, r0, #0x18
-    cmp r0, r6
-    beq _08061688
-    ldr r0, _08061698 @ =0x030023EC
-    ldrb r0, [r0, #0x00]
-    cmp r0, #0x00
-    beq _08061660
-    ldr r1, [r7, #0x00]
-    adds r0, r5, #0x0
-    bl _call_via_r1
-    lsls r0, r0, #0x18
-    lsrs r0, r0, #0x18
-    cmp r0, r6
-    bne _0806163C
-_08061688:
-    bl StopFlashTimer
-    mov r0, r8
-    pop {r3}
-    mov r8, r3
-    pop {r4, r5, r6, r7}
-    pop {r1}
-    bx r1
-_08061698: .4byte 0x030023EC
-    thumb_func_start ReadFlash_Core
-ReadFlash_Core: @ 0806169C
-    push {r4, lr}
-    adds r4, r0, #0x0
-    subs r3, r2, #0x1
-    cmp r2, #0x00
-    beq _080616B8
-    movs r2, #0x01
-    negs r2, r2
-_080616AA:
-    ldrb r0, [r4, #0x00]
-    strb r0, [r1, #0x00]
-    adds r4, #0x01
-    adds r1, #0x01
-    subs r3, #0x01
-    cmp r3, r2
-    bne _080616AA
-_080616B8:
-    pop {r4}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-    thumb_func_start ReadFlash
-ReadFlash: @ 080616C0
-    push {r4, r5, r6, r7, lr}
-    add sp, #-0x080
-    adds r5, r1, #0x0
-    adds r6, r2, #0x0
-    adds r7, r3, #0x0
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    ldr r2, _080616F0 @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _080616F4 @ =0x0000FFFC
-    ands r0, r1
-    movs r1, #0x03
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-    ldr r3, _080616F8 @ =0x0806169D
-    movs r0, #0x01
-    eors r3, r0
-    mov r2, sp
-    ldr r0, _080616FC @ =0x080616C1
-    ldr r1, _080616F8 @ =0x0806169D
-    subs r0, r0, r1
-    lsls r0, r0, #0x0F
-    b _0806170C
-    .byte 0x00, 0x00
-_080616F0: .4byte 0x04000204
-_080616F4: .4byte 0x0000FFFC
-_080616F8: .4byte ReadFlash_Core
-_080616FC: .4byte ReadFlash
-_08061700:
-    ldrh r0, [r3, #0x00]
-    strh r0, [r2, #0x00]
-    adds r3, #0x02
-    adds r2, #0x02
-    subs r0, r1, #0x1
-    lsls r0, r0, #0x10
-_0806170C:
-    lsrs r1, r0, #0x10
-    cmp r1, #0x00
-    bne _08061700
-    mov r3, sp
-    adds r3, #0x01
-    ldr r0, _08061738 @ =0x081E9838
-    ldrb r0, [r0, #0x1C]
-    lsls r4, r0
-    adds r0, r4, #0x0
-    movs r2, #0xE0
-    lsls r2, r2, #0x14
-    adds r1, r5, r2
-    adds r0, r0, r1
-    adds r1, r6, #0x0
-    adds r2, r7, #0x0
-    bl _call_via_r3
-    add sp, #0x080
-    pop {r4, r5, r6, r7}
-    pop {r0}
-    bx r0
-    .byte 0x00, 0x00
-_08061738: .4byte 0x081E9838
-    thumb_func_start VerifyFlashSector_Core
-VerifyFlashSector_Core: @ 0806173C
-    push {r4, r5, lr}
-    adds r4, r0, #0x0
-    adds r3, r1, #0x0
-    lsls r2, r2, #0x10
-    ldr r0, _08061764 @ =0xFFFF0000
-    adds r2, r2, r0
-    lsrs r2, r2, #0x10
-    ldr r0, _08061768 @ =0x0000FFFF
-    cmp r2, r0
-    beq _08061776
-    adds r5, r0, #0x0
-_08061752:
-    ldrb r1, [r3, #0x00]
-    ldrb r0, [r4, #0x00]
-    adds r4, #0x01
-    adds r3, #0x01
-    cmp r1, r0
-    beq _0806176C
-    subs r0, r3, #0x1
-    b _08061778
-    .byte 0x00, 0x00
-_08061764: .4byte 0xFFFF0000
-_08061768: .4byte 0x0000FFFF
-_0806176C:
-    subs r0, r2, #0x1
-    lsls r0, r0, #0x10
-    lsrs r2, r0, #0x10
-    cmp r2, r5
-    bne _08061752
-_08061776:
-    movs r0, #0x00
-_08061778:
-    pop {r4, r5}
-    pop {r1}
-    bx r1
-    .byte 0x00, 0x00
-    thumb_func_start VerifyFlashSector
-VerifyFlashSector: @ 08061780
-    push {r4, r5, lr}
-    add sp, #-0x100
-    adds r5, r1, #0x0
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    ldr r2, _080617AC @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _080617B0 @ =0x0000FFFC
-    ands r0, r1
-    movs r1, #0x03
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-    ldr r3, _080617B4 @ =0x0806173D
-    movs r0, #0x01
-    eors r3, r0
-    mov r2, sp
-    ldr r0, _080617B8 @ =0x08061781
-    ldr r1, _080617B4 @ =0x0806173D
-    subs r0, r0, r1
-    lsls r0, r0, #0x0F
-    b _080617C8
-    .byte 0x00, 0x00
-_080617AC: .4byte 0x04000204
-_080617B0: .4byte 0x0000FFFC
-_080617B4: .4byte VerifyFlashSector_Core
-_080617B8: .4byte VerifyFlashSector
-_080617BC:
-    ldrh r0, [r3, #0x00]
-    strh r0, [r2, #0x00]
-    adds r3, #0x02
-    adds r2, #0x02
-    subs r0, r1, #0x1
-    lsls r0, r0, #0x10
-_080617C8:
-    lsrs r1, r0, #0x10
-    cmp r1, #0x00
-    bne _080617BC
-    mov r3, sp
-    adds r3, #0x01
-    ldr r0, _080617F0 @ =0x081E9838
-    ldrb r1, [r0, #0x1C]
-    lsls r4, r1
-    adds r1, r4, #0x0
-    movs r2, #0xE0
-    lsls r2, r2, #0x14
-    adds r1, r1, r2
-    ldrh r2, [r0, #0x18]
-    adds r0, r5, #0x0
-    bl _call_via_r3
-    add sp, #0x100
-    pop {r4, r5}
-    pop {r1}
-    bx r1
-_080617F0: .4byte 0x081E9838
-    thumb_func_start sub_80617F4
-sub_80617F4:
-    push {r4, r5, r6, lr}
-    adds r5, r1, #0x0
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    movs r6, #0x00
-    b _08061806
-_08061800:
-    adds r0, r6, #0x1
-    lsls r0, r0, #0x18
-    lsrs r6, r0, #0x18
-_08061806:
-    cmp r6, #0x02
-    bhi _0806182C
-    ldr r0, _08061834 @ =0x03006A84
-    ldr r2, [r0, #0x00]
-    adds r0, r4, #0x0
-    adds r1, r5, #0x0
-    bl _call_via_r2
-    lsls r0, r0, #0x10
-    lsrs r2, r0, #0x10
-    cmp r2, #0x00
-    bne _08061800
-    adds r0, r4, #0x0
-    adds r1, r5, #0x0
-    bl VerifyFlashSector
-    adds r2, r0, #0x0
-    cmp r2, #0x00
-    bne _08061800
-_0806182C:
-    adds r0, r2, #0x0
-    pop {r4, r5, r6}
-    pop {r1}
-    bx r1
-_08061834: .4byte 0x03006A84
-    thumb_func_start EraseFlashChip_LE
-EraseFlashChip_LE: @ 08061838
-    push {r4, r5, r6, lr}
-    add sp, #-0x040
-    ldr r5, _08061894 @ =0x04000204
-    ldrh r1, [r5, #0x00]
-    ldr r6, _08061898 @ =0x0000FFFC
-    ands r1, r6
-    ldr r0, _0806189C @ =0x03006A88
-    ldr r0, [r0, #0x00]
-    ldrh r0, [r0, #0x10]
-    orrs r0, r1
-    strh r0, [r5, #0x00]
-    ldr r1, _080618A0 @ =0x0E005555
-    movs r4, #0xAA
-    strb r4, [r1, #0x00]
-    ldr r3, _080618A4 @ =0x0E002AAA
-    movs r2, #0x55
-    strb r2, [r3, #0x00]
-    movs r0, #0x80
-    strb r0, [r1, #0x00]
-    strb r4, [r1, #0x00]
-    strb r2, [r3, #0x00]
-    movs r0, #0x10
-    strb r0, [r1, #0x00]
-    mov r0, sp
-    bl SetReadFlash1
-    ldr r0, _080618A8 @ =0x03006A80
-    movs r1, #0xE0
-    lsls r1, r1, #0x14
-    ldr r3, [r0, #0x00]
-    movs r0, #0x03
-    movs r2, #0xFF
-    bl _call_via_r3
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    ldrh r1, [r5, #0x00]
-    ands r1, r6
-    movs r2, #0x03
-    orrs r1, r2
-    strh r1, [r5, #0x00]
-    add sp, #0x040
-    pop {r4, r5, r6}
-    pop {r1}
-    bx r1
-    .byte 0x00, 0x00
-_08061894: .4byte 0x04000204
-_08061898: .4byte 0x0000FFFC
-_0806189C: .4byte 0x03006A88
-_080618A0: .4byte 0x0E005555
-_080618A4: .4byte 0x0E002AAA
-_080618A8: .4byte 0x03006A80
-    thumb_func_start EraseFlashSector_LE
-EraseFlashSector_LE: @ 080618AC
-    push {r4, r5, r6, lr}
-    mov r6, r8
-    push {r6}
-    add sp, #-0x040
-    lsls r0, r0, #0x10
-    lsrs r3, r0, #0x10
-    cmp r3, #0x0F
-    bhi _08061934
-    ldr r6, _0806191C @ =0x04000204
-    ldrh r1, [r6, #0x00]
-    ldr r0, _08061920 @ =0x0000FFFC
-    mov r8, r0
-    ands r1, r0
-    ldr r0, _08061924 @ =0x03006A88
-    ldr r2, [r0, #0x00]
-    ldrh r0, [r2, #0x10]
-    orrs r0, r1
-    strh r0, [r6, #0x00]
-    ldrb r4, [r2, #0x08]
-    lsls r3, r4
-    adds r4, r3, #0x0
-    movs r2, #0xE0
-    lsls r2, r2, #0x14
-    adds r4, r4, r2
-    ldr r1, _08061928 @ =0x0E005555
-    movs r5, #0xAA
-    strb r5, [r1, #0x00]
-    ldr r3, _0806192C @ =0x0E002AAA
-    movs r2, #0x55
-    strb r2, [r3, #0x00]
-    movs r0, #0x80
-    strb r0, [r1, #0x00]
-    strb r5, [r1, #0x00]
-    strb r2, [r3, #0x00]
-    movs r0, #0x30
-    strb r0, [r4, #0x00]
-    mov r0, sp
-    bl SetReadFlash1
-    ldr r0, _08061930 @ =0x03006A80
-    ldr r3, [r0, #0x00]
-    movs r0, #0x02
-    adds r1, r4, #0x0
-    movs r2, #0xFF
-    bl _call_via_r3
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    ldrh r1, [r6, #0x00]
-    mov r2, r8
-    ands r1, r2
-    movs r2, #0x03
-    orrs r1, r2
-    strh r1, [r6, #0x00]
-    b _08061936
-    .byte 0x00, 0x00
-_0806191C: .4byte 0x04000204
-_08061920: .4byte 0x0000FFFC
-_08061924: .4byte 0x03006A88
-_08061928: .4byte 0x0E005555
-_0806192C: .4byte 0x0E002AAA
-_08061930: .4byte 0x03006A80
-_08061934:
-    ldr r0, _08061944 @ =0x000080FF
-_08061936:
-    add sp, #0x040
-    pop {r3}
-    mov r8, r3
-    pop {r4, r5, r6}
-    pop {r1}
-    bx r1
-    .byte 0x00, 0x00
-_08061944: .4byte 0x000080FF
-    thumb_func_start ProgramFlashByte_LE
-ProgramFlashByte_LE: @ 08061948
-    push {r4, lr}
-    ldr r4, _08061974 @ =0x0E005555
-    movs r2, #0xAA
-    strb r2, [r4, #0x00]
-    ldr r3, _08061978 @ =0x0E002AAA
-    movs r2, #0x55
-    strb r2, [r3, #0x00]
-    movs r2, #0xA0
-    strb r2, [r4, #0x00]
-    ldrb r2, [r0, #0x00]
-    strb r2, [r1, #0x00]
-    ldr r3, _0806197C @ =0x03006A80
-    ldrb r2, [r0, #0x00]
-    ldr r3, [r3, #0x00]
-    movs r0, #0x01
-    bl _call_via_r3
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    pop {r4}
-    pop {r1}
-    bx r1
-_08061974: .4byte 0x0E005555
-_08061978: .4byte 0x0E002AAA
-_0806197C: .4byte 0x03006A80
-    thumb_func_start ProgramFlashSector_LE
-ProgramFlashSector_LE: @ 08061980
-    push {r4, r5, r6, r7, lr}
-    mov r7, r9
-    mov r6, r8
-    push {r6, r7}
-    add sp, #-0x060
-    mov r9, r1
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    mov r8, r0
-    cmp r0, #0x0F
-    bls _080619A0
-    ldr r0, _0806199C @ =0x000080FF
-    b _08061A8E
-    .byte 0x00, 0x00
-_0806199C: .4byte 0x000080FF
-_080619A0:
-    ldr r0, _080619C0 @ =0x03006A88
-    ldr r0, [r0, #0x00]
-    ldrb r0, [r0, #0x08]
-    mov r7, r8
-    lsls r7, r0
-    movs r0, #0xE0
-    lsls r0, r0, #0x14
-    adds r7, r7, r0
-    ldr r1, _080619C4 @ =0x08061AA5
-    movs r0, #0x01
-    adds r3, r1, #0x0
-    eors r3, r0
-    mov r2, sp
-    ldr r0, _080619C8 @ =0x08061AC9
-    subs r0, r0, r1
-    b _080619D6
-_080619C0: .4byte 0x03006A88
-_080619C4: .4byte VerifyFlashCoreFF
-_080619C8: .4byte VerifyFlashErase
-_080619CC:
-    ldrh r0, [r3, #0x00]
-    strh r0, [r2, #0x00]
-    adds r3, #0x02
-    adds r2, #0x02
-    subs r0, r1, #0x2
-_080619D6:
-    lsls r0, r0, #0x10
-    lsrs r1, r0, #0x10
-    cmp r1, #0x00
-    bne _080619CC
-    movs r4, #0x00
-    b _080619EC
-_080619E2:
-    adds r0, r4, #0x1
-    lsls r0, r0, #0x18
-    lsrs r4, r0, #0x18
-    cmp r4, #0x51
-    beq _08061A8C
-_080619EC:
-    mov r0, r8
-    bl EraseFlashSector_LE
-    lsls r0, r0, #0x10
-    lsrs r5, r0, #0x10
-    cmp r5, #0x00
-    bne _080619E2
-    adds r0, r7, #0x0
-    mov r1, sp
-    adds r1, #0x01
-    bl VerifyFlashErase
-    lsls r0, r0, #0x10
-    lsrs r5, r0, #0x10
-    cmp r5, #0x00
-    bne _080619E2
-    movs r6, #0x01
-    cmp r4, #0x00
-    beq _08061A14
-    movs r6, #0x06
-_08061A14:
-    movs r4, #0x01
-    cmp r4, r6
-    bhi _08061A2A
-_08061A1A:
-    mov r0, r8
-    bl EraseFlashSector_LE
-    adds r0, r4, #0x1
-    lsls r0, r0, #0x18
-    lsrs r4, r0, #0x18
-    cmp r4, r6
-    bls _08061A1A
-_08061A2A:
-    mov r0, sp
-    bl SetReadFlash1
-    ldr r3, _08061A4C @ =0x04000204
-    ldrh r1, [r3, #0x00]
-    ldr r0, _08061A50 @ =0x0000FFFC
-    ands r1, r0
-    ldr r0, _08061A54 @ =0x03006A88
-    ldr r2, [r0, #0x00]
-    ldrh r0, [r2, #0x10]
-    orrs r0, r1
-    strh r0, [r3, #0x00]
-    ldr r1, _08061A58 @ =0x03006A8C
-    ldr r0, [r2, #0x04]
-    strh r0, [r1, #0x00]
-    adds r4, r1, #0x0
-    b _08061A68
-_08061A4C: .4byte 0x04000204
-_08061A50: .4byte 0x0000FFFC
-_08061A54: .4byte 0x03006A88
-_08061A58: .4byte 0x03006A8C
-_08061A5C:
-    ldrh r0, [r4, #0x00]
-    subs r0, #0x01
-    strh r0, [r4, #0x00]
-    movs r0, #0x01
-    add r9, r0
-    adds r7, #0x01
-_08061A68:
-    ldrh r0, [r4, #0x00]
-    cmp r0, #0x00
-    beq _08061A7E
-    mov r0, r9
-    adds r1, r7, #0x0
-    bl ProgramFlashByte_LE
-    lsls r0, r0, #0x10
-    lsrs r5, r0, #0x10
-    cmp r5, #0x00
-    beq _08061A5C
-_08061A7E:
-    ldr r2, _08061A9C @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _08061AA0 @ =0x0000FFFC
-    ands r0, r1
-    movs r1, #0x03
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-_08061A8C:
-    adds r0, r5, #0x0
-_08061A8E:
-    add sp, #0x060
-    pop {r3, r4}
-    mov r8, r3
-    mov r9, r4
-    pop {r4, r5, r6, r7}
-    pop {r1}
-    bx r1
-_08061A9C: .4byte 0x04000204
-_08061AA0: .4byte 0x0000FFFC
-    thumb_func_start VerifyFlashCoreFF
-VerifyFlashCoreFF: @ 08061AA4
-    adds r2, r0, #0x0
-    ldr r0, _08061AB0 @ =0x03006A88
-    ldr r0, [r0, #0x00]
-    ldr r1, [r0, #0x04]
-    b _08061AB6
-    .byte 0x00, 0x00
-_08061AB0: .4byte 0x03006A88
-_08061AB4:
-    subs r1, #0x01
-_08061AB6:
-    cmp r1, #0x00
-    beq _08061AC2
-    ldrb r0, [r2, #0x00]
-    adds r2, #0x01
-    cmp r0, #0xFF
-    beq _08061AB4
-_08061AC2:
-    adds r0, r1, #0x0
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start VerifyFlashErase
-VerifyFlashErase: @ 08061AC8
-    push {lr}
-    bl _call_via_r1
-    cmp r0, #0x00
-    bne _08061AD6
-    movs r0, #0x00
-    b _08061AD8
-_08061AD6:
-    ldr r0, _08061ADC @ =0x00008004
-_08061AD8:
-    pop {r1}
-    bx r1
-_08061ADC: .4byte 0x00008004
-    thumb_func_start ProgramFlashSector_MX
-ProgramFlashSector_MX: @ 08061AE0
-    push {r4, r5, r6, r7, lr}
-    add sp, #-0x040
-    adds r7, r1, #0x0
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    cmp r4, #0x0F
-    bls _08061AF8
-    ldr r0, _08061AF4 @ =0x000080FF
-    b _08061B74
-    .byte 0x00, 0x00
-_08061AF4: .4byte 0x000080FF
-_08061AF8:
-    adds r0, r4, #0x0
-    bl EraseFlashSector_LE
-    lsls r0, r0, #0x10
-    lsrs r5, r0, #0x10
-    cmp r5, #0x00
-    bne _08061B72
-    mov r0, sp
-    bl SetReadFlash1
-    ldr r3, _08061B34 @ =0x04000204
-    ldrh r1, [r3, #0x00]
-    ldr r0, _08061B38 @ =0x0000FFFC
-    ands r1, r0
-    ldr r0, _08061B3C @ =0x03006A88
-    ldr r2, [r0, #0x00]
-    ldrh r0, [r2, #0x10]
-    orrs r0, r1
-    strh r0, [r3, #0x00]
-    ldr r1, _08061B40 @ =0x03006A8C
-    ldr r0, [r2, #0x04]
-    strh r0, [r1, #0x00]
-    ldrb r0, [r2, #0x08]
-    lsls r4, r0
-    movs r0, #0xE0
-    lsls r0, r0, #0x14
-    adds r4, r4, r0
-    adds r6, r1, #0x0
-    b _08061B4E
-    .byte 0x00, 0x00
-_08061B34: .4byte 0x04000204
-_08061B38: .4byte 0x0000FFFC
-_08061B3C: .4byte 0x03006A88
-_08061B40: .4byte 0x03006A8C
-_08061B44:
-    ldrh r0, [r6, #0x00]
-    subs r0, #0x01
-    strh r0, [r6, #0x00]
-    adds r7, #0x01
-    adds r4, #0x01
-_08061B4E:
-    ldrh r0, [r6, #0x00]
-    cmp r0, #0x00
-    beq _08061B64
-    adds r0, r7, #0x0
-    adds r1, r4, #0x0
-    bl ProgramFlashByte_LE
-    lsls r0, r0, #0x10
-    lsrs r5, r0, #0x10
-    cmp r5, #0x00
-    beq _08061B44
-_08061B64:
-    ldr r2, _08061B7C @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _08061B80 @ =0x0000FFFC
-    ands r0, r1
-    movs r1, #0x03
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-_08061B72:
-    adds r0, r5, #0x0
-_08061B74:
-    add sp, #0x040
-    pop {r4, r5, r6, r7}
-    pop {r1}
-    bx r1
-_08061B7C: .4byte 0x04000204
-_08061B80: .4byte 0x0000FFFC
-    thumb_func_start EraseFlashChip_AT
-EraseFlashChip_AT: @ 08061B84
-    push {r4, r5, r6, lr}
-    add sp, #-0x040
-    mov r0, sp
-    bl SetReadFlash1
-    ldr r5, _08061BDC @ =0x04000204
-    ldrh r0, [r5, #0x00]
-    ldr r6, _08061BE0 @ =0x0000FFFC
-    ands r0, r6
-    ldr r1, _08061BE4 @ =0x081E998C
-    ldrh r1, [r1, #0x24]
-    orrs r0, r1
-    strh r0, [r5, #0x00]
-    ldr r1, _08061BE8 @ =0x0E005555
-    movs r4, #0xAA
-    strb r4, [r1, #0x00]
-    ldr r3, _08061BEC @ =0x0E002AAA
-    movs r2, #0x55
-    strb r2, [r3, #0x00]
-    movs r0, #0x80
-    strb r0, [r1, #0x00]
-    strb r4, [r1, #0x00]
-    strb r2, [r3, #0x00]
-    movs r0, #0x10
-    strb r0, [r1, #0x00]
-    ldr r0, _08061BF0 @ =0x03006A80
-    movs r1, #0xE0
-    lsls r1, r1, #0x14
-    ldr r3, [r0, #0x00]
-    movs r0, #0x03
-    movs r2, #0xFF
-    bl _call_via_r3
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    ldrh r1, [r5, #0x00]
-    ands r1, r6
-    movs r2, #0x03
-    orrs r1, r2
-    strh r1, [r5, #0x00]
-    add sp, #0x040
-    pop {r4, r5, r6}
-    pop {r1}
-    bx r1
-_08061BDC: .4byte 0x04000204
-_08061BE0: .4byte 0x0000FFFC
-_08061BE4: .4byte 0x081E998C
-_08061BE8: .4byte 0x0E005555
-_08061BEC: .4byte 0x0E002AAA
-_08061BF0: .4byte 0x03006A80
-    thumb_func_start EraseFlashSector_AT
-EraseFlashSector_AT: @ 08061BF4
-    push {r4, r5, lr}
-    lsls r0, r0, #0x10
-    ldr r3, _08061C64 @ =0x081E998C
-    lsrs r0, r0, #0x10
-    adds r4, r0, #0x0
-    ldrb r1, [r3, #0x1C]
-    lsls r4, r1
-    movs r0, #0xE0
-    lsls r0, r0, #0x14
-    adds r4, r4, r0
-    ldr r1, _08061C68 @ =0x04000208
-    ldrh r0, [r1, #0x00]
-    adds r5, r0, #0x0
-    movs r0, #0x00
-    strh r0, [r1, #0x00]
-    ldr r2, _08061C6C @ =0x0E005555
-    movs r0, #0xAA
-    strb r0, [r2, #0x00]
-    ldr r1, _08061C70 @ =0x0E002AAA
-    movs r0, #0x55
-    strb r0, [r1, #0x00]
-    movs r0, #0xA0
-    strb r0, [r2, #0x00]
-    ldr r0, [r3, #0x18]
-    cmp r0, #0x00
-    beq _08061C34
-    movs r1, #0xFF
-_08061C2A:
-    strb r1, [r4, #0x00]
-    adds r4, #0x01
-    subs r0, #0x01
-    cmp r0, #0x00
-    bne _08061C2A
-_08061C34:
-    subs r4, #0x01
-    ldr r0, _08061C68 @ =0x04000208
-    strh r5, [r0, #0x00]
-    ldr r0, _08061C74 @ =0x03006A80
-    ldr r3, [r0, #0x00]
-    movs r0, #0x01
-    adds r1, r4, #0x0
-    movs r2, #0xFF
-    bl _call_via_r3
-    lsls r0, r0, #0x10
-    lsrs r1, r0, #0x10
-    cmp r1, #0x00
-    beq _08061C5A
-    movs r0, #0xFF
-    lsls r0, r0, #0x08
-    ands r1, r0
-    movs r0, #0x02
-    orrs r1, r0
-_08061C5A:
-    adds r0, r1, #0x0
-    pop {r4, r5}
-    pop {r1}
-    bx r1
-    .byte 0x00, 0x00
-_08061C64: .4byte 0x081E998C
-_08061C68: .4byte 0x04000208
-_08061C6C: .4byte 0x0E005555
-_08061C70: .4byte 0x0E002AAA
-_08061C74: .4byte 0x03006A80
-    thumb_func_start EraseFlash4KB_AT
-EraseFlash4KB_AT: @ 08061C78
-    push {r4, r5, r6, lr}
-    add sp, #-0x040
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    cmp r4, #0x0F
-    bls _08061C8C
-    ldr r0, _08061C88 @ =0x000080FF
-    b _08061CF4
-_08061C88: .4byte 0x000080FF
-_08061C8C:
-    mov r0, sp
-    bl SetReadFlash1
-    ldr r2, _08061CAC @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _08061CB0 @ =0x0000FFFC
-    ands r0, r1
-    ldr r1, _08061CB4 @ =0x081E998C
-    ldrh r1, [r1, #0x24]
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-    lsls r0, r4, #0x15
-    lsrs r5, r0, #0x10
-    movs r6, #0x00
-_08061CA8:
-    movs r4, #0x02
-    b _08061CC2
-_08061CAC: .4byte 0x04000204
-_08061CB0: .4byte 0x0000FFFC
-_08061CB4: .4byte 0x081E998C
-_08061CB8:
-    subs r0, r4, #0x1
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    cmp r4, #0x00
-    beq _08061CD0
-_08061CC2:
-    adds r0, r5, #0x0
-    bl EraseFlashSector_AT
-    lsls r0, r0, #0x10
-    lsrs r3, r0, #0x10
-    cmp r3, #0x00
-    bne _08061CB8
-_08061CD0:
-    adds r0, r5, #0x1
-    lsls r0, r0, #0x10
-    lsrs r5, r0, #0x10
-    cmp r3, #0x00
-    bne _08061CE4
-    adds r0, r6, #0x1
-    lsls r0, r0, #0x10
-    lsrs r6, r0, #0x10
-    cmp r6, #0x1F
-    bls _08061CA8
-_08061CE4:
-    ldr r2, _08061CFC @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _08061D00 @ =0x0000FFFC
-    ands r0, r1
-    movs r1, #0x03
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-    adds r0, r3, #0x0
-_08061CF4:
-    add sp, #0x040
-    pop {r4, r5, r6}
-    pop {r1}
-    bx r1
-_08061CFC: .4byte 0x04000204
-_08061D00: .4byte 0x0000FFFC
-    thumb_func_start ProgramFlashSector_AT
-ProgramFlashSector_AT: @ 08061D04
-    push {r4, r5, r6, lr}
-    adds r5, r1, #0x0
-    lsls r0, r0, #0x10
-    ldr r3, _08061D68 @ =0x081E998C
-    lsrs r0, r0, #0x10
-    adds r4, r0, #0x0
-    ldrb r1, [r3, #0x1C]
-    lsls r4, r1
-    movs r0, #0xE0
-    lsls r0, r0, #0x14
-    adds r4, r4, r0
-    ldr r1, _08061D6C @ =0x04000208
-    ldrh r0, [r1, #0x00]
-    adds r6, r0, #0x0
-    movs r0, #0x00
-    strh r0, [r1, #0x00]
-    ldr r2, _08061D70 @ =0x0E005555
-    movs r0, #0xAA
-    strb r0, [r2, #0x00]
-    ldr r1, _08061D74 @ =0x0E002AAA
-    movs r0, #0x55
-    strb r0, [r1, #0x00]
-    movs r0, #0xA0
-    strb r0, [r2, #0x00]
-    ldr r1, [r3, #0x18]
-    cmp r1, #0x00
-    beq _08061D48
-_08061D3A:
-    ldrb r0, [r5, #0x00]
-    strb r0, [r4, #0x00]
-    adds r5, #0x01
-    adds r4, #0x01
-    subs r1, #0x01
-    cmp r1, #0x00
-    bne _08061D3A
-_08061D48:
-    subs r4, #0x01
-    subs r5, #0x01
-    ldr r0, _08061D6C @ =0x04000208
-    strh r6, [r0, #0x00]
-    ldr r0, _08061D78 @ =0x03006A80
-    ldrb r2, [r5, #0x00]
-    ldr r3, [r0, #0x00]
-    movs r0, #0x01
-    adds r1, r4, #0x0
-    bl _call_via_r3
-    lsls r0, r0, #0x10
-    lsrs r0, r0, #0x10
-    pop {r4, r5, r6}
-    pop {r1}
-    bx r1
-_08061D68: .4byte 0x081E998C
-_08061D6C: .4byte 0x04000208
-_08061D70: .4byte 0x0E005555
-_08061D74: .4byte 0x0E002AAA
-_08061D78: .4byte 0x03006A80
-    thumb_func_start ProgramFlash4KB_AT
-ProgramFlash4KB_AT: @ 08061D7C
-    push {r4, r5, r6, r7, lr}
-    mov r7, r8
-    push {r7}
-    add sp, #-0x040
-    adds r7, r1, #0x0
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    cmp r4, #0x0F
-    bls _08061D98
-    ldr r0, _08061D94 @ =0x000080FF
-    b _08061E2A
-    .byte 0x00, 0x00
-_08061D94: .4byte 0x000080FF
-_08061D98:
-    mov r0, sp
-    bl SetReadFlash1
-    ldr r2, _08061DC0 @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _08061DC4 @ =0x0000FFFC
-    ands r0, r1
-    ldr r1, _08061DC8 @ =0x081E998C
-    ldrh r1, [r1, #0x24]
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-    lsls r0, r4, #0x15
-    lsrs r5, r0, #0x10
-    ldr r1, _08061DCC @ =0x03006A8C
-    ldr r0, _08061DD0 @ =0x081E9960
-    ldr r0, [r0, #0x18]
-    strh r0, [r1, #0x00]
-    adds r0, r1, #0x0
-    mov r8, r0
-    b _08061DEA
-_08061DC0: .4byte 0x04000204
-_08061DC4: .4byte 0x0000FFFC
-_08061DC8: .4byte 0x081E998C
-_08061DCC: .4byte 0x03006A8C
-_08061DD0: .4byte 0x081E9960
-_08061DD4:
-    ldr r0, _08061DF8 @ =0x081E998C
-    ldr r1, [r0, #0x18]
-    mov r2, r8
-    ldrh r2, [r2, #0x00]
-    subs r0, r2, r1
-    mov r3, r8
-    strh r0, [r3, #0x00]
-    adds r7, r7, r1
-    adds r0, r5, #0x1
-    lsls r0, r0, #0x10
-    lsrs r5, r0, #0x10
-_08061DEA:
-    mov r1, r8
-    ldrh r0, [r1, #0x00]
-    cmp r0, #0x00
-    beq _08061E1A
-    movs r4, #0x02
-    b _08061E06
-    .byte 0x00, 0x00
-_08061DF8: .4byte 0x081E998C
-_08061DFC:
-    subs r0, r4, #0x1
-    lsls r0, r0, #0x10
-    lsrs r4, r0, #0x10
-    cmp r4, #0x00
-    beq _08061E16
-_08061E06:
-    adds r0, r5, #0x0
-    adds r1, r7, #0x0
-    bl ProgramFlashSector_AT
-    lsls r0, r0, #0x10
-    lsrs r6, r0, #0x10
-    cmp r6, #0x00
-    bne _08061DFC
-_08061E16:
-    cmp r6, #0x00
-    beq _08061DD4
-_08061E1A:
-    ldr r2, _08061E38 @ =0x04000204
-    ldrh r0, [r2, #0x00]
-    ldr r1, _08061E3C @ =0x0000FFFC
-    ands r0, r1
-    movs r1, #0x03
-    orrs r0, r1
-    strh r0, [r2, #0x00]
-    adds r0, r6, #0x0
-_08061E2A:
-    add sp, #0x040
-    pop {r3}
-    mov r8, r3
-    pop {r4, r5, r6, r7}
-    pop {r1}
-    bx r1
-    .byte 0x00, 0x00
-_08061E38: .4byte 0x04000204
-_08061E3C: .4byte 0x0000FFFC
-    thumb_func_start sub_8061E40
-sub_8061E40:
-    push {r4, r5, r6, lr}
-    adds r6, r1, #0x0
-    adds r5, r0, #0x0
-    cmp r2, #0x00
-    beq _08061E70
-    movs r0, #0x20
-    subs r0, r0, r2
-    cmp r0, #0x00
-    bgt _08061E5C
-    movs r3, #0x00
-    negs r0, r0
-    adds r4, r5, #0x0
-    lsls r4, r0
-    b _08061E6C
-_08061E5C:
-    adds r1, r5, #0x0
-    lsrs r1, r0
-    adds r3, r5, #0x0
-    lsls r3, r2
-    adds r0, r6, #0x0
-    lsls r0, r2
-    adds r4, r0, #0x0
-    orrs r4, r1
-_08061E6C:
-    adds r1, r4, #0x0
-    adds r0, r3, #0x0
-_08061E70:
-    pop {r4, r5, r6, pc}
     .byte 0x00, 0x00

@@ -11,6 +11,8 @@
 
 #define ALIGNED(n) __attribute__((aligned(n)))
 
+#define SOUND_INFO_PTR (*(struct SoundInfo **)0x3007FF0)
+
 #define EWRAM_START 0x02000000
 #define EWRAM_END   (EWRAM_START + 0x40000)
 #define IWRAM_START 0x03000000

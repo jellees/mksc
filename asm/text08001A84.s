@@ -1647,7 +1647,7 @@ _08002838:
 ldr r0, [r5, #0x00]
 ldr r1, _08002904 @ =0x08102498
 ldr r1, [r1, #0x08]
-bl MPlayStart_rev01
+bl MPlayStart
 adds r5, #0x0C
 subs r4, #0x01
 cmp r4, #0x00
@@ -48811,7 +48811,7 @@ push {r5, r6, r7}
 add sp, #-0x004
 bl m4aMPlayAllStop
 bl main_frameProc
-bl SoundVSyncOff_rev01
+bl m4aSoundVSyncOff
 movs r0, #0x00
 mov r10, r0
 movs r0, #0x01
@@ -49181,7 +49181,7 @@ bl irq_updateMask
 ldr r1, _08028B8C @ =0x00010004
 movs r0, #0x02
 bl irq_updateMask
-bl SoundVSyncOn_rev01
+bl m4aSoundVSyncOn
 add sp, #0x004
 pop {r3, r4, r5}
 mov r8, r3
@@ -51157,7 +51157,7 @@ ldr r5, _0802B59C @ =0x03002E20
 adds r5, #0x24
 bl m4aMPlayAllStop
 bl main_frameProc
-bl SoundVSyncOff_rev01
+bl m4aSoundVSyncOff
 movs r6, #0x00
 movs r0, #0x01
 movs r1, #0x02
@@ -51453,7 +51453,7 @@ bl irq_updateMask
 ldr r1, _0802B62C @ =0x00010004
 movs r0, #0x02
 bl irq_updateMask
-bl SoundVSyncOn_rev01
+bl m4aSoundVSyncOn
 add sp, #0x00C
 pop {r3, r4, r5}
 mov r8, r3
@@ -51818,7 +51818,7 @@ _0802B8F4:
 ldr r0, [r5, #0x00]
 ldr r1, _0802B948 @ =0x08102498
 ldr r1, [r1, #0x08]
-bl MPlayStart_rev01
+bl MPlayStart
 adds r5, #0x0C
 subs r4, #0x01
 cmp r4, #0x00
@@ -52304,7 +52304,7 @@ movs r7, #0x8E
 lsls r7, r7, #0x03
 adds r2, r2, r7
 ldr r1, [r2, #0x00]
-bl MPlayStart_rev01
+bl MPlayStart
 ldr r0, _0802C120 @ =0x030001A6
 strh r4, [r0, #0x00]
 b _0802C6F2

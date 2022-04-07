@@ -1,5 +1,14 @@
 gIrqTable = 0x03004F80;
+gSoundInfo = 0x03005CA0;
+gMPlayJumpTable = 0x03006720;
+gCgbChans = 0x030067B0;
+gMPlayMemAccArea = 0x030069F0;
 
 dword_80D830C = 0x80D830C;
 dword_80D89B4 = 0x80D89B4;
 dword_80D82EC = 0x80D82EC;
+gMPlayTable = 0x08102414;
+gSongTable = 0x08102498;
+
+gNumMusicPlayers = 11;
+gMaxLines = 64;

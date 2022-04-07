@@ -26,6 +26,9 @@ SECTIONS
 
         . = 0x23F8;
         src/unklib/irq.o(.bss);
+
+        . = 0x2600;
+        src/mp2000/m4a.o(.bss.code);
         
         . = 0x2E20;
         gSceneState = .; /* As of now we don't know how big this struct is. */
@@ -48,6 +51,8 @@ SECTIONS
         asm/text0802E778.o(.text);
         src/list.o(.text);
         asm/text0802ED80.o(.text);
+        src/mp2000/m4a.o(.text);
+        asm/text08061348.o(.text);
         *libgcc.a:*_call_via_rX*.o(.text*);
         *libgcc.a:_divsi3.o(.text*);
         *libgcc.a:_dvmd_tls.o(.text*);
@@ -56,6 +61,8 @@ SECTIONS
         src/unklib/dma.o(.text);
 
         asm/rodata08062774.o(.rodata);
+        src/mp2000/m4a_tables.o(.rodata);
+        asm/rodata080F34A8.o(.rodata);
         src/unklib/irq.o(.rodata);
         asm/rodata081E9B1C.o(.rodata);
     }
