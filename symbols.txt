@@ -1,14 +1,31 @@
+gFlashMaxTime = 0x030023E0;
+sTimerNum = 0x030023E8;
+sTimerCount = 0x030023EA;
+gFlashTimeoutFlag = 0x030023EC;
+sTimerReg = 0x030023F0;
+sSavedIme = 0x030023F4;
+PollFlashStatus = 0x030023E4;
+
 gIrqTable = 0x03004F80;
 gSoundInfo = 0x03005CA0;
 gMPlayJumpTable = 0x03006720;
 gCgbChans = 0x030067B0;
 gMPlayMemAccArea = 0x030069F0;
 
+WaitForFlashWrite = 0x03006A80;
+ProgramFlashSector = 0x03006A84;
+gFlash = 0x03006A88;
+EraseFlashChip = 0x03006A90;
+EraseFlashSector = 0x03006A94;
+
 dword_80D830C = 0x80D830C;
 dword_80D89B4 = 0x80D89B4;
 dword_80D82EC = 0x80D82EC;
 gMPlayTable = 0x08102414;
 gSongTable = 0x08102498;
+
+sFlashList = 0x081E9784;
+DefaultFlash = 0x081E9838;
 
 gNumMusicPlayers = 11;
 gMaxLines = 64;

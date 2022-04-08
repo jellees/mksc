@@ -34,11 +34,10 @@ struct FlashType {
 
 struct FlashSetupInfo
 {
-    u16 (*programFlashByte)(u16, u32, u8);
     u16 (*programFlashSector)(u16, u8 *);
     u16 (*eraseFlashChip)(void);
     u16 (*eraseFlashSector)(u16);
-    u16 (*WaitForFlashWrite)(u8, u8 *, u8);
+    u16 (*pollingSR)(u8, u8 *, u8);
     const u16 *maxTime;
     struct FlashType type;
 };
@@ -65,7 +64,7 @@ u16 ReadFlashId(void);
 void StartFlashTimer(u8 phase);
 void SetReadFlash1(u16 *dest);
 void StopFlashTimer(void);
-void ReadFlash(u16 sectorNum, u32 offset, u8 *dest, u32 size);
+void ReadFlash(u16 sectorNum, u32 offset, void *dest, u32 size);
 
 u16 WaitForFlashWrite_Common(u8 phase, u8 *addr, u8 lastData);
 
