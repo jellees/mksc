@@ -2,64 +2,6 @@
 
 .syntax unified
 .text
-    thumb_func_start ArcTan2
-ArcTan2: @ 08061348
-    swi #10
-    bx lr
-    thumb_func_start CpuFastSet
-CpuFastSet: @ 0806134C
-    swi #12
-    bx lr
-    thumb_func_start CpuSet
-CpuSet: @ 08061350
-    swi #11
-    bx lr
-    thumb_func_start Div
-Div: @ 08061354
-    swi #6
-    bx lr
-    thumb_func_start DivRem
-DivRem: @ 08061358
-    swi #6
-    adds r0, r1, #0x0
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start LZ77UnCompVram
-LZ77UnCompVram: @ 08061360
-    swi #18
-    bx lr
-    thumb_func_start LZ77UnCompWram
-LZ77UnCompWram: @ 08061364
-    swi #17
-    bx lr
-    thumb_func_start MultiBoot
-MultiBoot: @ 08061368
-    movs r1, #0x01
-    swi #37
-    bx lr
-    .byte 0x00, 0x00
-    thumb_func_start SoftReset
-SoftReset: @ 08061370
-    ldr r3, _08061380 @ =0x04000208
-    movs r2, #0x00
-    strb r2, [r3, #0x00]
-    ldr r1, _08061384 @ =0x03007F00
-    mov sp, r1
-    swi #1
-    swi #0
-    lsls r0, r0, #0x00
-_08061380:
-    lsls r0, r1, #0x08
-    lsls r0, r0, #0x10
-_08061384:
-    ldrb r0, [r0, #0x1C]
-    lsls r0, r0, #0x0C
-    thumb_func_start VBlankIntrWait
-VBlankIntrWait: @ 08061388
-    movs r2, #0x00
-    swi #5
-    bx lr
-    .byte 0x00, 0x00
     thumb_func_start ReadFlashID
 ReadFlashID: @ 08061390
     push {r4, r5, lr}

@@ -52,7 +52,8 @@ SECTIONS
         src/list.o(.text);
         asm/text0802ED80.o(.text);
         src/mp2000/m4a.o(.text);
-        asm/text08061348.o(.text);
+        asm/libagbsyscall.o(.text);
+        asm/text08061390.o(.text);
         *libgcc.a:*_call_via_rX*.o(.text*);
         *libgcc.a:_divsi3.o(.text*);
         *libgcc.a:_dvmd_tls.o(.text*);
