@@ -756,34 +756,3 @@ _08061E2A:
     .byte 0x00, 0x00
 _08061E38: .4byte 0x04000204
 _08061E3C: .4byte 0x0000FFFC
-    thumb_func_start sub_8061E40
-sub_8061E40:
-    push {r4, r5, r6, lr}
-    adds r6, r1, #0x0
-    adds r5, r0, #0x0
-    cmp r2, #0x00
-    beq _08061E70
-    movs r0, #0x20
-    subs r0, r0, r2
-    cmp r0, #0x00
-    bgt _08061E5C
-    movs r3, #0x00
-    negs r0, r0
-    adds r4, r5, #0x0
-    lsls r4, r0
-    b _08061E6C
-_08061E5C:
-    adds r1, r5, #0x0
-    lsrs r1, r0
-    adds r3, r5, #0x0
-    lsls r3, r2
-    adds r0, r6, #0x0
-    lsls r0, r2
-    adds r4, r0, #0x0
-    orrs r4, r1
-_08061E6C:
-    adds r1, r4, #0x0
-    adds r0, r3, #0x0
-_08061E70:
-    pop {r4, r5, r6, pc}
-    .byte 0x00, 0x00

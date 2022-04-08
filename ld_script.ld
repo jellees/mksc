@@ -55,16 +55,14 @@ SECTIONS
         asm/libagbsyscall.o(.text);
         src/agbbackup/agb_flash.o(.text);
         asm/text08061390.o(.text);
-        *libgcc.a:*_call_via_rX*.o(.text*);
-        *libgcc.a:_divsi3.o(.text*);
-        *libgcc.a:_dvmd_tls.o(.text*);
-        asm/text08061EB0.o(.text);
+        libgcc.a(.text);
         src/unklib/irq.o(.text);
         src/unklib/dma.o(.text);
 
         asm/rodata08062774.o(.rodata);
         src/mp2000/m4a_tables.o(.rodata);
         asm/rodata080F34A8.o(.rodata);
+        libgcc.a(.rodata);
         src/unklib/irq.o(.rodata);
         asm/rodata081E9B1C.o(.rodata);
     }
