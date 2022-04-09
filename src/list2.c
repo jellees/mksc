@@ -70,7 +70,7 @@ void list2_insertAfter(list2_t *list, struc21_t *target, struc21_t *item)
   target->next = item;
 }
 
-struc21_t* list_takeHead(list2_t *list)
+struc21_t* list2_takeHead(list2_t *list)
 {
     struc21_t *item;
     struc21_t *next;
@@ -87,7 +87,7 @@ struc21_t* list_takeHead(list2_t *list)
     return item;
 }
 
-struc21_t* list_takeTail(list2_t *list)
+struc21_t* list2_takeTail(list2_t *list)
 {
   struc21_t *item;
   struc21_t *prev;
