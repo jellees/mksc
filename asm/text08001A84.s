@@ -9240,7 +9240,7 @@ adds r0, r0, r4
 ldr r2, [r0, #0x00]
 ldr r1, [r2, #0x00]
 lsls r1, r1, #0x02
-ldr r0, _080089E0 @ =0x08258000
+ldr r0, _080089E0 @ =courseData_bin
 adds r1, r1, r0
 ldr r1, [r1, #0x00]
 adds r0, r1, r0
@@ -9258,7 +9258,7 @@ movs r1, #0x00
 b _08008B3E
 .byte 0x00, 0x00
 _080089DC: .4byte 0x080E7FEC
-_080089E0: .4byte 0x08258000
+_080089E0: .4byte courseData_bin
 _080089E4: .4byte 0x082580C4
 _080089E8: .4byte 0x02004400
 _080089EC: .4byte 0x0203EBFC
@@ -17827,7 +17827,7 @@ ble _0800FDFC
 ldr r6, _080100E8 @ =0x0203787C
 movs r4, #0x00
 ldr r7, _080100E4 @ =0x080E7FEC
-ldr r5, _080100EC @ =0x08258000
+ldr r5, _080100EC @ =courseData_bin
 _0800FE1A:
 adds r0, r4, #0x0
 bl sub_8033BBC
@@ -18145,7 +18145,7 @@ _080100DC: .4byte 0x080AB63C
 _080100E0: .4byte 0x0203788C
 _080100E4: .4byte 0x080E7FEC
 _080100E8: .4byte 0x0203787C
-_080100EC: .4byte 0x08258000
+_080100EC: .4byte courseData_bin
 _080100F0: .4byte 0x082580C4
 _080100F4: .4byte 0x06001000
 _080100F8: .4byte 0x030029B0
