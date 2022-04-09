@@ -12,33 +12,33 @@ void list2_init(list2_t* list) {
 }
 
 //Not matching: might be the fault of a compiler
-void list2_insertHead(list2_t* list, struc21_t* struc21) {
+void list2_insertHead(list2_t* list, struc21_t* item) {
     struc21_t* head;
 
     head = list->head;
-    struc21->prev = NULL;
-    struc21->next = list->head;
+    item->prev = NULL;
+    item->next = list->head;
 
     if (head) {
-        head->prev = struc21;
+        head->prev = item;
     } else {
-        list->tail = struc21;
+        list->tail = item;
     }
-    list->head = struc21;
+    list->head = item;
 }
 
 //Not matching: might be the fault of a compiler
-void list2_insertTail(list2_t* list, struc21_t* struc21) {
+void list2_insertTail(list2_t* list, struc21_t* item) {
   struc21_t *tail;
 
   tail = list->tail;
-  struc21->prev = tail;
-  struc21->next = NULL;
+  item->prev = tail;
+  item->next = NULL;
   if ( tail )
-    tail->next = struc21;
+    tail->next = item;
   else
-    list->head = struc21;
-  list->tail = struc21;
+    list->head = item;
+  list->tail = item;
 }
 
 void list2_insertBefore(list2_t *list, struc21_t *target, struc21_t *item) {
