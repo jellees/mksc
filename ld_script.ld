@@ -65,6 +65,11 @@ SECTIONS
         libgcc.a(.rodata);
         src/unklib/irq.o(.rodata);
         asm/rodata081E9B1C.o(.rodata);
+        data/skyData.o(.rodata*);
+        data/courseData.o(.rodata*);
+        data/mbChild.o(.rodata*);
+        data/sio32MultiLoader.o(.rodata*);
+        asm/rodata08344600.o(.rodata);
     }
 
     /* Discard everything not specifically mentioned above. */

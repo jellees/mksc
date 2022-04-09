@@ -5330,7 +5330,7 @@ _08031500:
     ldr r0, [r0, #0x00]
     ldr r0, [r0, #0x00]
     lsls r0, r0, #0x02
-    ldr r1, _0803155C @ =0x08258000
+    ldr r1, _0803155C @ =courseData_bin
     adds r0, r0, r1
     ldr r2, [r0, #0x00]
     adds r4, r2, r1
@@ -5367,7 +5367,7 @@ _08031548:
     bge _0803152E
     b _08031576
 _08031558: .4byte 0x080E7FEC
-_0803155C: .4byte 0x08258000
+_0803155C: .4byte courseData_bin
 _08031560: .4byte 0x08258080
 _08031564: .4byte 0x06008000
 _08031568:
@@ -5460,7 +5460,7 @@ _08031614:
     ldr r0, [r0, #0x00]
     ldr r0, [r0, #0x00]
     lsls r0, r0, #0x02
-    ldr r1, _08031678 @ =0x08258000
+    ldr r1, _08031678 @ =courseData_bin
     adds r0, r0, r1
     ldr r2, [r0, #0x00]
     adds r5, r2, r1
@@ -5501,7 +5501,7 @@ _08031664:
     bge _0803164A
     b _08031698
 _08031674: .4byte 0x080E7FEC
-_08031678: .4byte 0x08258000
+_08031678: .4byte courseData_bin
 _0803167C: .4byte 0x082580E4
 _08031680: .4byte 0x06010000
 _08031684:
@@ -5617,7 +5617,7 @@ loadtrack_8031990: @ 08031990
     mov r8, r0
     ldr r0, [r0, #0x00]
     lsls r0, r0, #0x02
-    ldr r1, _08031AB4 @ =0x08258000
+    ldr r1, _08031AB4 @ =courseData_bin
     adds r0, r0, r1
     ldr r0, [r0, #0x00]
     adds r6, r0, r1
@@ -5734,7 +5734,7 @@ _08031AA6:
     ldr r0, [r0, #0x00]
     mov pc, r0
 _08031AB0: .4byte 0x080E7FEC
-_08031AB4: .4byte 0x08258000
+_08031AB4: .4byte courseData_bin
 _08031AB8: .4byte 0x00000554
 _08031ABC: .4byte 0x0400000C
 _08031AC0: .4byte 0x00003889
@@ -6526,7 +6526,7 @@ sub_80324B4:
     ldr r0, [r0, #0x00]
     ldr r0, [r0, #0x00]
     lsls r0, r0, #0x02
-    ldr r1, _08032734 @ =0x08258000
+    ldr r1, _08032734 @ =courseData_bin
     adds r0, r0, r1
     ldr r6, [r0, #0x00]
     adds r1, r1, r6
@@ -6831,7 +6831,7 @@ _080326EE:
     b _08032772
     .byte 0x00, 0x00
 _08032730: .4byte 0x080E7FEC
-_08032734: .4byte 0x08258000
+_08032734: .4byte courseData_bin
 _08032738: .4byte 0x082580C4
 _0803273C: .4byte 0x082580D4
 _08032740: .4byte 0x001FFFFF
@@ -7399,7 +7399,7 @@ sub_8032B94:
     ldr r0, [r0, #0x00]
     ldr r0, [r0, #0x04]
     lsls r0, r0, #0x02
-    ldr r2, _08032BC4 @ =0x08234000
+    ldr r2, _08032BC4 @ =skyData_bin
     adds r0, r0, r2
     ldr r0, [r0, #0x00]
     adds r0, r0, r2
@@ -7413,7 +7413,7 @@ sub_8032B94:
     bx r1
     .byte 0x00, 0x00
 _08032BC0: .4byte 0x080E7FEC
-_08032BC4: .4byte 0x08234000
+_08032BC4: .4byte skyData_bin
     thumb_func_start sub_8032BC8
 sub_8032BC8:
     lsrs r0, r0, #0x05
@@ -9443,7 +9443,7 @@ loadtrack_loadSky: @ 08033D14
     push {r4, r5, r6, r7, lr}
     ldr r0, [r0, #0x04]
     lsls r0, r0, #0x02
-    ldr r1, _08033D68 @ =0x08234000
+    ldr r1, _08033D68 @ =skyData_bin
     adds r0, r0, r1
     ldr r0, [r0, #0x00]
     adds r5, r0, r1
@@ -9481,7 +9481,7 @@ _08033D56:
     bge _08033D40
     b _08033D8E
     .byte 0x00, 0x00
-_08033D68: .4byte 0x08234000
+_08033D68: .4byte skyData_bin
 _08033D6C: .4byte 0x06004000
 _08033D70:
     ldr r0, [r5, #0x04]
@@ -9686,7 +9686,7 @@ sub_8033F14:
     ldr r0, [r0, #0x00]
     ldr r0, [r0, #0x04]
     lsls r0, r0, #0x02
-    ldr r1, _08033F64 @ =0x08234000
+    ldr r1, _08033F64 @ =skyData_bin
     adds r0, r0, r1
     ldr r0, [r0, #0x00]
     adds r0, r0, r1
@@ -9712,7 +9712,7 @@ sub_8033F14:
 _08033F58: .4byte 0x080E7FEC
 _08033F5C: .4byte 0x03002E20
 _08033F60: .4byte 0x00000801
-_08033F64: .4byte 0x08234000
+_08033F64: .4byte skyData_bin
 _08033F68: .4byte 0x0000057C
 _08033F6C:
     cmp r1, #0x08
