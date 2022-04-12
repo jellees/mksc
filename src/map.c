@@ -27,7 +27,7 @@ void map_clearBuffer(int buffer)
 
 void map_setBufferDirty(u16 mask)
 {
-    *(vu16*)&sBufferDirtyMask |= mask;
+    sBufferDirtyMask |= mask;
 }
 
 void map_copyBuffersToHw(void)
