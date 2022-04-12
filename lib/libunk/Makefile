@@ -55,7 +55,4 @@ $(LIB): $(OBJS)
 $(HEADERS): $(HEADERS_SRC)
 	cp $< $@
 
-show:
-	@echo $(HEADERS_SRC) $(HEADERS)
-
 -include $(DEPS)

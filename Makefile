@@ -21,11 +21,12 @@ AS 			    := $(BIN_DIR)/./$(PREFIX)as$(EXE)
 SHA1			:= $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 FIX				:= tools/gbafix/./gbafix
 SHELL			:= /bin/bash -o pipefail
-CC1				:= tools/agbcc/bin/old_agbcc$(EXE)
+AGBCC			:= tools/agbcc/bin/old_agbcc$(EXE)
+CC1				:= tools/thumb-elf/lib/gcc-lib/thumb-elf/2.9-arm-000512/cc1$(EXE)
 
 # Flags
 ASFLAGS			:= -mcpu=arm7tdmi
-CFLAGS			:= -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
+CFLAGS			:= -mthumb-interwork -Wimplicit -Wparentheses -O2
 CPPFLAGS		:= -I tools/agbcc -I tools/agbcc/include -I lib -iquote include -nostdinc
 LDFLAGS			= -L../tools/agbcc/lib -L../lib/libunk -lgcc -lc -lunk --just-symbols=../symbols.txt
 
@@ -84,22 +85,23 @@ clean:
 	rm -r build/*
 	$(MAKE) -C lib/libunk clean
 
-$(OBJ_DIR)/src/unklib/%.o : src/unklib/%.c
-	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(OBJ_DIR)/src/unklib/$*.i
-	@$(CC1) $(OBJ_DIR)/src/unklib/$*.i $(CFLAGS) -mno-thumb-interwork -o $(OBJ_DIR)/src/unklib/$*.s
-	@echo -e ".text\n\t.align\t2, 0\n" >> $(OBJ_DIR)/src/unklib/$*.s
-	$(AS) $(ASFLAGS) -o $@ $(OBJ_DIR)/src/unklib/$*.s
-
 $(OBJ_DIR)/src/agbbackup/%.o : src/agbbackup/%.c
 	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(OBJ_DIR)/src/agbbackup/$*.i
-	@$(CC1) $(OBJ_DIR)/src/agbbackup/$*.i $(CFLAGS) -O1 -o $(OBJ_DIR)/src/agbbackup/$*.s
+	@$(AGBCC) $(OBJ_DIR)/src/agbbackup/$*.i $(CFLAGS) -O1 -o $(OBJ_DIR)/src/agbbackup/$*.s
 	@echo -e ".text\n\t.align\t2, 0\n" >> $(OBJ_DIR)/src/agbbackup/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(OBJ_DIR)/src/agbbackup/$*.s
+
+$(C_BUILDDIR)/mp2000/%.o : $(C_SUBDIR)/mp2000/%.c
+	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(OBJ_DIR)/src/mp2000/$*.i
+	@$(AGBCC) $(OBJ_DIR)/src/mp2000/$*.i $(CFLAGS) -o $(OBJ_DIR)/src/mp2000/$*.s
+	@echo -e ".text\n\t.align\t2, 0\n" >> $(OBJ_DIR)/src/mp2000/$*.s
+	$(AS) $(ASFLAGS) -o $@ $(OBJ_DIR)/src/mp2000/$*.s
 
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c
 	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
 	@$(CC1) $(C_BUILDDIR)/$*.i $(CFLAGS) -o $(C_BUILDDIR)/$*.s
 	@echo -e ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
+	@sed -i -e 's/\.align\t2/\.align\t2, 0/' $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s
