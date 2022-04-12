@@ -26,10 +26,8 @@ CC1				:= tools/agbcc/bin/old_agbcc$(EXE)
 # Flags
 ASFLAGS			:= -mcpu=arm7tdmi
 CFLAGS			:= -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
-CPPFLAGS		:= -I tools/agbcc -I tools/agbcc/include -iquote include -nostdinc
-LIBC			:= tools/agbcc/lib/libc.a
-LIBGCC			:= tools/agbcc/lib/libgcc.a
-LDFLAGS			= -L../tools/agbcc/lib -lgcc -lc --just-symbols=../symbols.txt
+CPPFLAGS		:= -I tools/agbcc -I tools/agbcc/include -I lib -iquote include -nostdinc
+LDFLAGS			= -L../tools/agbcc/lib -L../lib/libunk -lgcc -lc -lunk --just-symbols=../symbols.txt
 
 # Files
 ELF = $(ROM:.gba=.elf)
@@ -71,16 +69,20 @@ define bin2o
 endef
 
 # Rules
-.PHONY: rom clean
+.PHONY: libraries rom clean
 
-rom: $(ROM) compare
+rom: libraries $(ROM) compare
 
 compare: $(ROM)
 	@$(SHA1) rom.sha1
 
+libraries:
+	@$(MAKE) -C lib/libunk
+
 clean:
 	rm -f $(ROM) $(ELF) $(MAP)
 	rm -r build/*
+	$(MAKE) -C lib/libunk clean
 
 $(OBJ_DIR)/src/unklib/%.o : src/unklib/%.c
 	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(OBJ_DIR)/src/unklib/$*.i

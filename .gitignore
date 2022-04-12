@@ -7,3 +7,8 @@
 
 /tools/agbcc
 /tools/gbafix
+/tools/thumb-elf
+
+/lib/*/build
+/lib/*/*.a
+/lib/*/*.h

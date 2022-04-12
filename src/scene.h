@@ -1,5 +1,5 @@
 #pragma once
-#include "unklib/irq.h"
+#include "libunk/irq.h"
 
 typedef struct
 {

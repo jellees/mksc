@@ -25,7 +25,7 @@ SECTIONS
         src/map.o(.bss);
 
         . = 0x23F8;
-        src/unklib/irq.o(.bss);
+        libunk.a(.bss);
 
         . = 0x2600;
         src/mp2000/m4a.o(.bss.code);
@@ -56,14 +56,13 @@ SECTIONS
         src/agbbackup/agb_flash.o(.text);
         asm/text08061390.o(.text);
         libgcc.a(.text);
-        src/unklib/irq.o(.text);
-        src/unklib/dma.o(.text);
+        libunk.a(.text);
 
         asm/rodata08062774.o(.rodata);
         src/mp2000/m4a_tables.o(.rodata);
         asm/rodata080F34A8.o(.rodata);
         libgcc.a(.rodata);
-        src/unklib/irq.o(.rodata);
+        libunk.a(.rodata);
         asm/rodata081E9B1C.o(.rodata);
         data/skyData.o(.rodata*);
         data/courseData.o(.rodata*);
