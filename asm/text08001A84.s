@@ -5223,7 +5223,7 @@ str r0, [r4, #0x00]
 str r6, [r4, #0x08]
 movs r0, #0x01
 strb r0, [r4, #0x0E]
-bl sub_8030630
+bl trns_start
 movs r0, #0x00
 bl pltt_getBuffer
 strh r6, [r0, #0x00]
@@ -5257,9 +5257,9 @@ _08005534: .4byte 0x02013000
 _08005538: .4byte 0x06012C00
 _0800553C: .4byte 0x80000800
 _08005540: .4byte 0x00000D88
-_08005544: .4byte sub_80306FC
+_08005544: .4byte trns_initDefaultOutTransition
 _08005548: .4byte 0x03004F70
-_0800554C: .4byte sub_8030738
+_0800554C: .4byte trns_applyDefaultOutTransition
 _08005550: .4byte 0x0000109C
 _08005554:
 ldr r1, [sp, #0x02C]
@@ -8705,7 +8705,7 @@ ldr r0, _080085B8 @ =0x08030739
 str r0, [r4, #0x00]
 str r5, [r4, #0x08]
 strb r6, [r4, #0x0E]
-bl sub_8030630
+bl trns_start
 movs r0, #0x00
 bl pltt_getBuffer
 strh r5, [r0, #0x00]
@@ -8738,9 +8738,9 @@ _080085A0: .4byte 0x02013000
 _080085A4: .4byte 0x06012C00
 _080085A8: .4byte 0x80000800
 _080085AC: .4byte 0x080AFE00
-_080085B0: .4byte sub_80306FC
+_080085B0: .4byte trns_initDefaultOutTransition
 _080085B4: .4byte 0x03004F70
-_080085B8: .4byte sub_8030738
+_080085B8: .4byte trns_applyDefaultOutTransition
 _080085BC: .4byte 0x0000109C
 _080085C0:
 movs r0, #0x92
@@ -24923,7 +24923,7 @@ movs r0, #0x00
 str r0, [r4, #0x08]
 movs r0, #0x01
 strb r0, [r4, #0x0E]
-bl sub_8030630
+bl trns_start
 bl main_frameProc
 ldrb r1, [r4, #0x0C]
 movs r0, #0x02
@@ -24975,9 +24975,9 @@ mov r9, r4
 pop {r4, r5, r6, r7}
 pop {r1}
 bx r1
-_08014C80: .4byte sub_80306FC
+_08014C80: .4byte trns_initDefaultOutTransition
 _08014C84: .4byte 0x03004F70
-_08014C88: .4byte sub_8030738
+_08014C88: .4byte trns_applyDefaultOutTransition
 _08014C8C: .4byte 0x03002E20
 _08014C90: .4byte 0x00010001
 _08014C94: .4byte nullsub_2
@@ -27711,7 +27711,7 @@ ldr r0, _08016C84 @ =0x080306D9
 str r0, [r4, #0x08]
 movs r0, #0x01
 strb r0, [r4, #0x0E]
-bl sub_8030630
+bl trns_start
 movs r0, #0x01
 bl oam_802FE4C
 ldr r5, _08016C88 @ =0x0801681D
@@ -27752,10 +27752,10 @@ _08016C68: .4byte 0x0202A400
 _08016C6C: .4byte 0x03000188
 _08016C70: .4byte 0x06005400
 _08016C74: .4byte 0x80000080
-_08016C78: .4byte sub_8030660
+_08016C78: .4byte trns_initDefaultInTransition
 _08016C7C: .4byte 0x03004F70
-_08016C80: .4byte sub_803068C
-_08016C84: .4byte sub_80306D8
+_08016C80: .4byte trns_applyDefaultInTransition
+_08016C84: .4byte trns_finishDefaultInTransition
 _08016C88: .4byte sub_801681C
 _08016C8C: .4byte 0x00010001
 _08016C90: .4byte 0x04000130
@@ -27813,12 +27813,12 @@ movs r0, #0x00
 str r0, [r4, #0x08]
 mov r0, r8
 strb r0, [r4, #0x0E]
-bl sub_8030630
+bl trns_start
 movs r1, #0x02
 mov r8, r1
 b _08016D26
 _08016D0C: .4byte 0x0000FFFF
-_08016D10: .4byte sub_80306FC
+_08016D10: .4byte trns_initDefaultOutTransition
 _08016D14: .4byte sub_8017048
 _08016D18:
 ldrb r1, [r4, #0x0C]
@@ -48961,7 +48961,7 @@ ldr r0, _08028A4C @ =0x080306D9
 str r0, [r1, #0x08]
 movs r0, #0x01
 strb r0, [r1, #0x0E]
-bl sub_8030630
+bl trns_start
 ldr r1, _08028A0C @ =0x03002E20
 ldr r2, _08028A50 @ =0x00000C7C
 adds r0, r1, r2
@@ -49088,10 +49088,10 @@ _08028A30: .4byte 0x080DC430
 _08028A34: .4byte 0x04000008
 _08028A38: .4byte 0x00007741
 _08028A3C: .4byte 0x03002E44
-_08028A40: .4byte sub_8030660
+_08028A40: .4byte trns_initDefaultInTransition
 _08028A44: .4byte 0x03004F70
-_08028A48: .4byte sub_803068C
-_08028A4C: .4byte sub_80306D8
+_08028A48: .4byte trns_applyDefaultInTransition
+_08028A4C: .4byte trns_finishDefaultInTransition
 _08028A50: .4byte 0x00000C7C
 _08028A54: .4byte 0x080BF788
 _08028A58: .4byte 0x06012000
@@ -51789,7 +51789,7 @@ ldr r0, _0802B8D4 @ =0x08030739
 str r0, [r5, #0x00]
 str r4, [r5, #0x08]
 strb r6, [r5, #0x0E]
-bl sub_8030630
+bl trns_start
 ldr r0, _0802B8D8 @ =0x08102414
 ldr r0, [r0, #0x00]
 movs r1, #0x01
@@ -51798,8 +51798,8 @@ b _0802B90E
 .byte 0x00, 0x00
 _0802B8C8: .4byte 0x03004F70
 _0802B8CC: .4byte 0x00000DD8
-_0802B8D0: .4byte sub_80306FC
-_0802B8D4: .4byte sub_8030738
+_0802B8D0: .4byte trns_initDefaultOutTransition
+_0802B8D4: .4byte trns_applyDefaultOutTransition
 _0802B8D8: .4byte 0x08102414
 _0802B8DC:
 ldr r0, _0802B93C @ =0x03004F70
@@ -54412,7 +54412,7 @@ bl sub_802D82C
 cmp r0, #0x00
 bne _0802D622
 bl sub_802D398
-bl sub_80305A4
+bl trns_update
 pop {r4, r5}
 pop {r0}
 bx r0
