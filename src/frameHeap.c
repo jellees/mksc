@@ -7,7 +7,7 @@ void frmheap_init(frmheap_t* heap, void* address, u32 size)
     heap->head = address;
     heap->ptr = address;
     heap->size = size;
-    for(i = 0; i < heap->size >> 2; i++)
+    for (i = 0; i < heap->size >> 2; i++)
         *(u32*)&heap->head[i << 2] = 0;
 }
 
@@ -24,7 +24,7 @@ void* frmheap_calloc(frmheap_t* heap, int elements, int elemSize)
 
     result = NULL;
     size = elements * elemSize;
-    if ( heap->ptr + size <= heap->head + heap->size )
+    if (heap->ptr + size <= heap->head + heap->size)
     {
         result = heap->ptr;
         heap->ptr += size;

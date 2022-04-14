@@ -3,21 +3,21 @@
 
 extern u16 sTimerCount;
 extern u8 sTimerNum;
-extern vu16 *sTimerReg;
+extern vu16* sTimerReg;
 extern u16 sSavedIme;
 
 extern u8 gFlashTimeoutFlag;
-extern u8 (*PollFlashStatus)(u8 *);
-extern u16 (*WaitForFlashWrite)(u8 phase, u8 *addr, u8 lastData);
-extern u16 (*ProgramFlashSector)(u16 sectorNum, u8 *src);
-extern const struct FlashType *gFlash;
+extern u8 (*PollFlashStatus)(u8*);
+extern u16 (*WaitForFlashWrite)(u8 phase, u8* addr, u8 lastData);
+extern u16 (*ProgramFlashSector)(u16 sectorNum, u8* src);
+extern const struct FlashType* gFlash;
 extern u16 (*EraseFlashChip)();
 extern u16 (*EraseFlashSector)(u16 sectorNum);
-extern const u16 *gFlashMaxTime;
+extern const u16* gFlashMaxTime;
 
-void SetReadFlash1(u16 *dest);
+void SetReadFlash1(u16* dest);
 
-extern const struct FlashSetupInfo* const sFlashList[];// =
+extern const struct FlashSetupInfo* const sFlashList[]; // =
 // {
 // 	// &LE39FW512,
 //     // &AT29LV512_lib,
@@ -26,21 +26,22 @@ extern const struct FlashSetupInfo* const sFlashList[];// =
 // 	&DefaultFlash,
 // };
 
-#define DELAY()                  \
-do {                             \
-    vu16 i;                      \
-    for (i = 20000; i != 0; i--) \
-        ;                        \
-} while (0)
+#define DELAY()                      \
+    do                               \
+    {                                \
+        vu16 i;                      \
+        for (i = 20000; i != 0; i--) \
+            ;                        \
+    } while (0)
 
 u16 ReadFlashId(void)
 {
     u16 flashId;
     u16 readFlash1Buffer[0x20];
-    u8 (*readFlash1)(u8 *);
+    u8 (*readFlash1)(u8*);
 
     SetReadFlash1(readFlash1Buffer);
-    readFlash1 = (u8 (*)(u8 *))((s32)readFlash1Buffer + 1);
+    readFlash1 = (u8(*)(u8*))((s32)readFlash1Buffer + 1);
 
     // Enter ID mode.
     FLASH_WRITE(0x5555, 0xAA);
@@ -63,7 +64,7 @@ u16 ReadFlashId(void)
 u16 IdentifyFlash(void)
 {
     u16 result, flashId;
-    const struct FlashSetupInfo* const * list;
+    const struct FlashSetupInfo* const* list;
 
     REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
 
@@ -110,7 +111,7 @@ u16 SetFlashTimerIntr(u8 timerNum, void (**intrFunc)(void))
 
 void StartFlashTimer(u8 phase)
 {
-    const u16 *maxTime = &gFlashMaxTime[phase * 3];
+    const u16* maxTime = &gFlashMaxTime[phase * 3];
     sSavedIme = REG_IME;
     REG_IME = 0;
     REG_IE |= (INTR_FLAG_TIMER0 << sTimerNum);
@@ -130,20 +131,20 @@ void StopFlashTimer(void)
     REG_IME = sSavedIme;
 }
 
-u8 ReadFlash1(u8 *addr)
+u8 ReadFlash1(u8* addr)
 {
     return *addr;
 }
 
-void SetReadFlash1(u16 *dest)
+void SetReadFlash1(u16* dest)
 {
-    u16 *src;
+    u16* src;
     u16 i;
 
-    PollFlashStatus = (u8 (*)(u8 *))((s32)dest + 1);
+    PollFlashStatus = (u8(*)(u8*))((s32)dest + 1);
 
-    src = (u16 *)ReadFlash1;
-    src = (u16 *)((s32)src ^ 1);
+    src = (u16*)ReadFlash1;
+    src = (u16*)((s32)src ^ 1);
 
     i = ((s32)SetReadFlash1 - (s32)ReadFlash1) >> 1;
 
@@ -176,7 +177,7 @@ u16 PollingSR_COMMON(u8 phase, u8* adr, u8 lastData)
     return result;
 }
 
-void ReadFlash_Core(u8 *src, u8 *dest, u32 size)
+void ReadFlash_Core(u8* src, u8* dest, u32 size)
 {
     while (size-- != 0)
     {
@@ -184,19 +185,19 @@ void ReadFlash_Core(u8 *src, u8 *dest, u32 size)
     }
 }
 
-void ReadFlash(u16 sectorNum, u32 offset, void *dest, u32 size)
+void ReadFlash(u16 sectorNum, u32 offset, void* dest, u32 size)
 {
-    u8 *src;
+    u8* src;
     u16 i;
     vu16 readFlash_Core_Buffer[0x40];
-    vu16 *funcSrc;
-    vu16 *funcDest;
-    void (*readFlash_Core)(u8 *, u8 *, u32);
+    vu16* funcSrc;
+    vu16* funcDest;
+    void (*readFlash_Core)(u8*, u8*, u32);
 
     REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
 
-    funcSrc = (vu16 *)ReadFlash_Core;
-    funcSrc = (vu16 *)((s32)funcSrc ^ 1);
+    funcSrc = (vu16*)ReadFlash_Core;
+    funcSrc = (vu16*)((s32)funcSrc ^ 1);
     funcDest = readFlash_Core_Buffer;
 
     i = ((s32)ReadFlash - (s32)ReadFlash_Core) >> 1;
@@ -207,14 +208,14 @@ void ReadFlash(u16 sectorNum, u32 offset, void *dest, u32 size)
         i--;
     }
 
-    readFlash_Core = (void (*)(u8 *, u8 *, u32))((s32)readFlash_Core_Buffer + 1);
+    readFlash_Core = (void (*)(u8*, u8*, u32))((s32)readFlash_Core_Buffer + 1);
 
     src = FLASH_BASE + (sectorNum << DefaultFlash.type.sector.shift) + offset;
 
     readFlash_Core(src, dest, size);
 }
 
-u32 VerifyFlashSector_Core(u8 *src, u8 *tgt, u16 size)
+u32 VerifyFlashSector_Core(u8* src, u8* tgt, u16 size)
 {
     while (size-- != 0)
     {
@@ -225,20 +226,20 @@ u32 VerifyFlashSector_Core(u8 *src, u8 *tgt, u16 size)
     return 0;
 }
 
-u32 VerifyFlashSector(u16 sectorNum, u8 *src)
+u32 VerifyFlashSector(u16 sectorNum, u8* src)
 {
     u16 i;
     vu16 verifyFlashSector_Core_Buffer[0x80];
-    vu16 *funcSrc;
-    vu16 *funcDest;
-    u8 *tgt;
+    vu16* funcSrc;
+    vu16* funcDest;
+    u8* tgt;
     u16 size;
-    u32 (*verifyFlashSector_Core)(u8 *, u8 *, u16);
+    u32 (*verifyFlashSector_Core)(u8*, u8*, u16);
 
     REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
 
-    funcSrc = (vu16 *)VerifyFlashSector_Core;
-    funcSrc = (vu16 *)((s32)funcSrc ^ 1);
+    funcSrc = (vu16*)VerifyFlashSector_Core;
+    funcSrc = (vu16*)((s32)funcSrc ^ 1);
     funcDest = verifyFlashSector_Core_Buffer;
 
     i = ((s32)VerifyFlashSector - (s32)VerifyFlashSector_Core) >> 1;
@@ -249,7 +250,7 @@ u32 VerifyFlashSector(u16 sectorNum, u8 *src)
         i--;
     }
 
-    verifyFlashSector_Core = (u32 (*)(u8 *, u8 *, u16))((s32)verifyFlashSector_Core_Buffer + 1);
+    verifyFlashSector_Core = (u32(*)(u8*, u8*, u16))((s32)verifyFlashSector_Core_Buffer + 1);
 
     tgt = FLASH_BASE + (sectorNum << DefaultFlash.type.sector.shift);
     size = DefaultFlash.type.sector.size;
@@ -257,7 +258,7 @@ u32 VerifyFlashSector(u16 sectorNum, u8 *src)
     return verifyFlashSector_Core(src, tgt, size); // return 0 if verified.
 }
 
-u32 ProgramFlashSectorAndVerify(u16 sectorNum, u8 *src)
+u32 ProgramFlashSectorAndVerify(u16 sectorNum, u8* src)
 {
     u8 i;
     u32 result;

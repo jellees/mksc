@@ -68,13 +68,13 @@ void dma_8062740(void* dst, const void* src, int a3, int count)
     srcPtr = src;
     v6 = a3 << 16;
     srcStep = a3 << 1;
-    
+
     cnt = count;
-    
+
     do
     {
         dma_copy16(srcPtr, dstPtr, v6 >> 16);
         dstPtr += 64;
         srcPtr += srcStep;
-    } while(--cnt);
+    } while (--cnt);
 }

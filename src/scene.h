@@ -13,7 +13,7 @@ typedef struct
 
 extern scene_state_t gSceneState;
 
-static inline void scene_setVBlankFunc(scene_state_t *scene, int func)
+static inline void scene_setVBlankFunc(scene_state_t* scene, int func)
 {
     irq_updateMask(IRQ_UPDATE_MODE_AND, ~IRQ_MASK_VBLANK);
     scene->vBlankFunc = func;

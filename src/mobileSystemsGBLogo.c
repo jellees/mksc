@@ -30,13 +30,13 @@ int gbm_main(void)
 
     sState = (gbm_state_t*)frmheap_calloc(&scene->frameHeap, 1, 12);
     state = sState;
-    *(vu16 *)&state->bg0cnt;
+    *(vu16*)&state->bg0cnt;
     state->bg0cnt = BGCNT_CHARBASE(1);
-    *(vu16 *)&state->dispcnt;
+    *(vu16*)&state->dispcnt;
     state->dispcnt = DISPCNT_BG0_ON;
-    *(vu16 *)&state->bldcnt;
+    *(vu16*)&state->bldcnt;
     state->bldcnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
-    *(vu16 *)&state->bldy;
+    *(vu16*)&state->bldy;
     state->bldy = 16;
 
     scene_setVBlankFunc(scene, gbm_vblank);
@@ -60,7 +60,7 @@ int gbm_main(void)
         int val;
         main_frameProc();
         val = 16 - i;
-        *(vu16 *)&state->bldy;
+        *(vu16*)&state->bldy;
         state->bldy = val;
     }
 
@@ -70,7 +70,7 @@ int gbm_main(void)
     for (i = 0; i < 16; ++i)
     {
         main_frameProc();
-        *(vu16 *)&state->bldy;
+        *(vu16*)&state->bldy;
         state->bldy = i;
     }
 

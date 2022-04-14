@@ -17,8 +17,8 @@ typedef struct
     void* tail;
 } list_t;
 
-void list_insertHeadSingle(list_t *list, list_link_single_t *item);
-void list_insertTailSingle(list_t *list, list_link_single_t *item);
+void list_insertHeadSingle(list_t* list, list_link_single_t* item);
+void list_insertTailSingle(list_t* list, list_link_single_t* item);
 list_link_single_t* list_takeHeadSingle(list_t* list);
 
 bool32 list_isEmpty(list_t* list);

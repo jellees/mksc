@@ -7,27 +7,12 @@ static u8 sIntrMain[512];
 
 static void dummyHandler(void)
 {
-
 }
 
-static const irq_handler_t sIrqTableInitData[15] =
-{
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler,
-    dummyHandler
-};
+static const irq_handler_t sIrqTableInitData[15] = { dummyHandler, dummyHandler, dummyHandler, dummyHandler,
+                                                     dummyHandler, dummyHandler, dummyHandler, dummyHandler,
+                                                     dummyHandler, dummyHandler, dummyHandler, dummyHandler,
+                                                     dummyHandler, dummyHandler, dummyHandler };
 
 extern void intr_main(void);
 extern irq_handler_t gIrqTable[];
