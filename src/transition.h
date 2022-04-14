@@ -18,3 +18,12 @@ typedef struct
 } trns_state_t;
 
 extern trns_state_t gTransitionState;
+
+void trns_update(void);
+void trns_init(void);
+void trns_start(void);
+void trns_initDefaultInTransition(void);
+void trns_applyDefaultInTransition(void);
+void trns_finishDefaultInTransition(void);
+void trns_initDefaultOutTransition(void);
+void trns_applyDefaultOutTransition(void);

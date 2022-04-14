@@ -29,12 +29,18 @@ SECTIONS
 
         . = 0x2600;
         src/mp2000/m4a.o(.bss.code);
+
+        . = 0x2D20;
+        src/vcount.o(.bss);
         
         . = 0x2E20;
         gSceneState = .; /* As of now we don't know how big this struct is. */
 
         . = 0x4F70;
         src/transition.o(COMMON);
+
+        . = 0x4FC0;
+        src/vcount.o(COMMON);
     }
 
     . = 0x8000000;
@@ -54,6 +60,7 @@ SECTIONS
         asm/text0802E778.o(.text);
         src/list.o(.text);
         asm/text0802ED80.o(.text);
+        src/vcount.o(.text);
         src/transition.o(.text);
         asm/text08030774.o(.text);
         src/mp2000/m4a.o(.text);
