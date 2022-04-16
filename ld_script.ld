@@ -80,7 +80,8 @@ SECTIONS
         data/courseData.o(.rodata*);
         data/mbChild.o(.rodata*);
         data/sio32MultiLoader.o(.rodata*);
-        asm/rodata08344600.o(.rodata);
+        data/characterPalettes.o(.rodata*);
+        data/characterTiles.o(.rodata*);
     }
 
     /* Discard everything not specifically mentioned above. */
