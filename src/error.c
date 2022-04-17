@@ -66,7 +66,7 @@ typedef struct
 
 static error_state_t* sState;
 
-void error_vblank()
+static void error_vblank(void)
 {
     error_state_t* state = sState;
 
@@ -89,7 +89,7 @@ void error_vblank()
     REG_BLDY = state->bldy;
 }
 
-void error_loadGraphics()
+static void error_loadGraphics(void)
 {
     int i, j;
 
