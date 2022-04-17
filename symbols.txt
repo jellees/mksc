@@ -6,6 +6,8 @@ sTimerReg = 0x030023F0;
 sSavedIme = 0x030023F4;
 PollFlashStatus = 0x030023E4;
 
+sio2_sMPlayerId = 0x03002C80;
+
 dmaq_sHeap = 0x030048A0;
 
 gIrqTable = 0x03004F80;
@@ -19,6 +21,21 @@ ProgramFlashSector = 0x03006A84;
 gFlash = 0x03006A88;
 EraseFlashChip = 0x03006A90;
 EraseFlashSector = 0x03006A94;
+
+dword_807D1E8 = 0x807D1E8;
+dword_80A97F8 = 0x80A97F8;
+dword_80A9E2C = 0x80A9E2C;
+dword_80AA56C = 0x80AA56C;
+dword_80B83A4 = 0x80B83A4;
+dword_80BBBB0 = 0x80BBBB0;
+dword_80BC960 = 0x80BC960;
+dword_80C4784 = 0x80C4784;
+dword_80C7F38 = 0x80C7F38;
+dword_80C8060 = 0x80C8060;
+dword_80C8080 = 0x80C8080;
+dword_80C8284 = 0x80C8284;
+dword_80C83FC = 0x80C83FC;
+dword_80C84B8 = 0x80C84B8;
 
 dword_80D830C = 0x80D830C;
 dword_80D89B4 = 0x80D89B4;

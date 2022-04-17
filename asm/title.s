@@ -1411,7 +1411,7 @@
         str r1, [sp, #0x00C]
         ldr r0, _08001088 @ =0x03002C80
         strh r2, [r0, #0x16]
-        bl sub_802DC44
+        bl sio2_stop
         ldr r4, _0800108C @ =0x03002E20
         ldr r3, _08001090 @ =0x00000704
         adds r4, r4, r3
@@ -1639,7 +1639,7 @@
         movs r1, #0x04
         bl irq_updateMask
     _08001060:
-        bl oam_802FD3C
+        bl oam_update
         bl main_frameProc
         movs r1, #0xE4
         lsls r1, r1, #0x02

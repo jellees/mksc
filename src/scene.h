@@ -1,5 +1,6 @@
 #pragma once
 #include "libunk/irq.h"
+#include "frameHeap.h"
 
 typedef struct
 {
@@ -13,9 +14,16 @@ typedef struct
 
 extern scene_state_t gSceneState;
 
-static inline void scene_setVBlankFunc(scene_state_t* scene, int func)
+static inline void scene_setVBlankFunc(int func)
 {
+    scene_state_t* sceneState = &gSceneState;
     irq_updateMask(IRQ_UPDATE_MODE_AND, ~IRQ_MASK_VBLANK);
-    scene->vBlankFunc = func;
+    sceneState->vBlankFunc = func;
     irq_updateMask(IRQ_UPDATE_MODE_OR, IRQ_MASK_VBLANK | IRQ_MASK_IME);
+}
+
+static inline void scene_setMainFunc(int func)
+{
+    gSceneState.menuMainFunc = func;
+    gSceneState.byte_3002E28 = (gSceneState.byte_3002E28 + 1) & 7;
 }

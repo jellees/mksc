@@ -2128,8 +2128,8 @@ _0802FD2C: .4byte 0x0300217C
 _0802FD30: .4byte 0x03002180
 _0802FD34: .4byte 0x03002188
 _0802FD38: .4byte 0x0300218C
-    thumb_func_start oam_802FD3C
-oam_802FD3C: @ 0802FD3C
+    thumb_func_start oam_update
+oam_update: @ 0802FD3C
     push {r4, lr}
     ldr r0, _0802FD84 @ =0x03002188
     ldr r0, [r0, #0x00]

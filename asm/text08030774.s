@@ -57334,7 +57334,7 @@ race_main: @ 0805167C
 _080516D2:
     ldr r0, _080516F0 @ =0x03002C80
     strh r5, [r0, #0x16]
-    bl sub_802DC44
+    bl sio2_stop
     ldr r1, _080516F4 @ =0x000007FC
     adds r0, r4, r1
     b _08051710
@@ -57376,7 +57376,7 @@ _08051712:
     bl sub_80515BC
     movs r0, #0x01
     bl oam_802FE4C
-    bl oam_802FD3C
+    bl oam_update
     bl main_frameProc
     ldr r0, _080517B4 @ =0x03002E44
     bl sub_8048D44
@@ -57523,7 +57523,7 @@ _0805185E:
     ble _08051898
     movs r0, #0x00
     strh r0, [r7, #0x16]
-    bl sub_802DC44
+    bl sio2_stop
     b _0805189E
     .byte 0x00, 0x00
 _0805187C: .4byte 0x03002E20
@@ -57707,7 +57707,7 @@ _08051A0A:
     movs r2, #0x00
     str r2, [sp, #0x000]
 _08051A12:
-    bl oam_802FD3C
+    bl oam_update
     bl main_frameProc
     ldr r3, [sp, #0x004]
     ldrb r1, [r3, #0x00]
@@ -59242,7 +59242,7 @@ _08052AC2:
     movs r0, #0x01
     str r0, [r1, #0x00]
 _08052AC8:
-    bl oam_802FD3C
+    bl oam_update
     bl main_frameProc
     mov r7, r8
     cmp r7, #0x0A

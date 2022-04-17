@@ -20,6 +20,9 @@ SECTIONS
         . = 0x4;
         src/mobileSystemsGBLogo.o(.bss);
 
+        . = 0x188;
+        src/error.o(.bss);
+
         . = 0x02D8;
         src/palette.o(.bss);
         src/map.o(.bss);
@@ -56,6 +59,8 @@ SECTIONS
         asm/title.o(.text);
         src/mobileSystemsGBLogo.o(.text);
         asm/text08001A84.o(.text);
+        src/error.o(.text);
+        asm/text08016D90.o(.text);
         src/frameHeap.o(.text);
         asm/text0802D708.o(.text);
         src/palette.o(.text);

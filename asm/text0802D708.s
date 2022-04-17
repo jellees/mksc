@@ -570,8 +570,8 @@
         pop {r0}
         bx r0
     _0802DC40: .4byte 0x080DE17C
-        thumb_func_start sub_802DC44
-    sub_802DC44:
+        thumb_func_start sio2_stop
+    sio2_stop:
         push {r4, lr}
         ldr r2, _0802DC7C @ =0x04000134
         ldrb r0, [r2, #0x01]

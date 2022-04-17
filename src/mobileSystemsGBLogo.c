@@ -8,7 +8,7 @@
 
 // External declarations.
 extern u8 gMainFrmHeap[0x8000];
-extern int title_sDriversBgTilesBuf[0x5800];
+extern char title_sDriversBgTilesBuf[0x16000];
 
 extern int dword_80D830C[1];
 extern int dword_80D89B4[1];
@@ -36,11 +36,11 @@ int gbm_main(void)
     state->bldcnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
     state->bldy = 16;
 
-    scene_setVBlankFunc(scene, gbm_vblank);
+    scene_setVBlankFunc(gbm_vblank);
     main_frameProc();
 
     LZ77UnCompWram(dword_80D830C, title_sDriversBgTilesBuf);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), (int)title_sDriversBgTilesBuf, BG_CHAR_ADDR(1), 0x80000600);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), title_sDriversBgTilesBuf, BG_CHAR_ADDR(1), 0x80000600);
     main_frameProc();
 
     map_setBufferDestination(0, BG_VRAM);
@@ -71,9 +71,8 @@ int gbm_main(void)
 
     state = 0;
 
-    scene_setVBlankFunc(&gSceneState, NULL);
-    gSceneState.menuMainFunc = (int)title_main;
-    gSceneState.byte_3002E28 = (gSceneState.byte_3002E28 + 1) & 7;
+    scene_setVBlankFunc(NULL);
+    scene_setMainFunc(title_main);
 
     return 1;
 }
