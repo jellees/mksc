@@ -53,7 +53,7 @@ SECTIONS
         /* code */
         asm/romHeader.o(.text);
         asm/crt0.o(.text);
-        asm/text080001D8.o(.text);
+        asm/title.o(.text);
         src/mobileSystemsGBLogo.o(.text);
         asm/text08001A84.o(.text);
         src/frameHeap.o(.text);
