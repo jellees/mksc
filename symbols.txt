@@ -6,6 +6,8 @@ sTimerReg = 0x030023F0;
 sSavedIme = 0x030023F4;
 PollFlashStatus = 0x030023E4;
 
+dmaq_sHeap = 0x030048A0;
+
 gIrqTable = 0x03004F80;
 gSoundInfo = 0x03005CA0;
 gMPlayJumpTable = 0x03006720;

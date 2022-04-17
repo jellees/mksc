@@ -18742,7 +18742,7 @@ movs r0, #0x00
 strh r0, [r1, #0x00]
 bl oam_cpuCopyToHw
 bl dmaq_getVBlankDmaQueue
-bl sub_80302A8
+bl dmaq_process
 bl pltt_copyBufferToHw
 bl map_copyBuffersToHw
 bl oam_reset
@@ -53940,7 +53940,7 @@ _0802D1DE:
 movs r0, #0x02
 bl irq_setHandler
 bl dmaq_getVBlankDmaQueue
-bl sub_803039C
+bl dmaq_init
 bl vcount_init
 ldr r0, _0802D2A4 @ =0x03002C80
 strh r4, [r0, #0x16]
@@ -53968,7 +53968,7 @@ cmp r0, #0x00
 beq _0802D2AC
 bl vcount_reset
 bl dmaq_getVBlankDmaQueue
-bl sub_80303C0
+bl dmaq_reset
 bl main_frameProc
 b _0802D21E
 _0802D240: .4byte 0x03002E20
@@ -54025,7 +54025,7 @@ ldrh r0, [r1, #0x0A]
 bl oam_dmaCopyToHw
 bl oam_reset
 bl dmaq_getVBlankDmaQueue
-bl sub_80302A8
+bl dmaq_process
 bl pltt_copyBufferToHw
 bl map_copyBuffersToHw
 ldr r0, [r4, #0x0C]

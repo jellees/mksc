@@ -3,6 +3,7 @@
 #include "map.h"
 #include "palette.h"
 #include "scene.h"
+#include "dmaQueue.h"
 #include "mobileSystemsGBLogo.h"
 
 // External declarations.

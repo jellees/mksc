@@ -24,6 +24,9 @@ SECTIONS
         src/palette.o(.bss);
         src/map.o(.bss);
 
+        . = 0x2190;
+        src/dmaQueue.o(.bss);
+
         . = 0x23F8;
         libunk.a(.bss);
 
@@ -60,6 +63,7 @@ SECTIONS
         asm/text0802E778.o(.text);
         src/list.o(.text);
         asm/text0802ED80.o(.text);
+        src/dmaQueue.o(.text);
         src/vcount.o(.text);
         src/transition.o(.text);
         asm/text08030774.o(.text);
