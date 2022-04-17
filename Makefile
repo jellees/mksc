@@ -25,7 +25,7 @@ AGBCC			:= tools/agbcc/bin/old_agbcc$(EXE)
 CC1				:= tools/thumb-elf/lib/gcc-lib/thumb-elf/2.9-arm-000512/cc1$(EXE)
 
 # Flags
-ASFLAGS			:= -mcpu=arm7tdmi
+ASFLAGS			:= -mcpu=arm7tdmi -I include
 CFLAGS			:= -mthumb-interwork -Wimplicit -Wparentheses -O2
 CPPFLAGS		:= -I tools/agbcc -I tools/agbcc/include -I lib -iquote include -nostdinc
 LDFLAGS			= -L../tools/agbcc/lib -L../lib/libunk -lgcc -lc -lunk --just-symbols=../symbols.txt
@@ -37,12 +37,14 @@ OBJ_DIR := build
 
 C_SUBDIR = src
 ASM_SUBDIR = asm
+SOUND_SUBDIR = sound
 DATA_SRC_SUBDIR = src/data
 # DATA_ASM_SUBDIR = data
 DATA_SUBDIR = data
 
 C_BUILDDIR = $(OBJ_DIR)/$(C_SUBDIR)
 ASM_BUILDDIR = $(OBJ_DIR)/$(ASM_SUBDIR)
+SOUND_BUILDDIR = $(OBJ_DIR)/$(SOUND_SUBDIR)
 # DATA_ASM_BUILDDIR = $(OBJ_DIR)/$(DATA_ASM_SUBDIR)
 DATA_BUILDDIR = $(OBJ_DIR)/$(DATA_SUBDIR)
 
@@ -53,12 +55,15 @@ C_DEPS := $(patsubst $(C_SUBDIR)/%.c,$(C_BUILDDIR)/%.d,$(C_SRCS))
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(ASM_BUILDDIR)/%.o,$(ASM_SRCS))
 
+SOUND_SRCS := $(wildcard $(SOUND_SUBDIR)/*.s $(SOUND_SUBDIR)/*/*.s $(SOUND_SUBDIR)/*/*/*.s)
+SOUND_OBJS := $(patsubst $(SOUND_SUBDIR)/%.s,$(SOUND_BUILDDIR)/%.o,$(SOUND_SRCS))
+
 DATA_BINS := $(wildcard $(DATA_SUBDIR)/*.bin)
 DATA_OBJS := $(patsubst $(DATA_SUBDIR)/%.bin,$(DATA_BUILDDIR)/%.o,$(DATA_BINS))
 # DATA_ASM_SRCS := $(wildcard $(DATA_ASM_SUBDIR)/*.s)
 # DATA_ASM_OBJS := $(patsubst $(DATA_ASM_SUBDIR)/%.s,$(DATA_ASM_BUILDDIR)/%.o,$(DATA_ASM_SRCS))
 
-OBJS     := $(C_OBJS) $(ASM_OBJS) $(DATA_OBJS)
+OBJS     := $(C_OBJS) $(ASM_OBJS) $(DATA_OBJS) $(SOUND_OBJS)
 OBJS_REL := $(patsubst $(OBJ_DIR)/%,%,$(OBJS))
 
 SUBDIRS  := $(sort $(dir $(OBJS)))
@@ -103,6 +108,9 @@ $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c
 	@echo -e ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
 	@sed -i -e 's/\.align\t2/\.align\t2, 0/' $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
+
+$(SOUND_BUILDDIR)/%.o: $(SOUND_SUBDIR)/%.s
+	$(AS) $(ASFLAGS) -o $@ $<
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -o $@ $<
