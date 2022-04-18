@@ -23,6 +23,7 @@ FIX				:= tools/gbafix/./gbafix
 SHELL			:= /bin/bash -o pipefail
 AGBCC			:= tools/agbcc/bin/old_agbcc$(EXE)
 CC1				:= tools/thumb-elf/lib/gcc-lib/thumb-elf/2.9-arm-000512/cc1$(EXE)
+AIF2PCM   		:= tools/aif2pcm/aif2pcm$(EXE)
 
 # Flags
 ASFLAGS			:= -mcpu=arm7tdmi -I include
@@ -58,12 +59,15 @@ ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(ASM_BUILDDIR)/%.o,$(ASM_SRCS))
 SOUND_SRCS := $(wildcard $(SOUND_SUBDIR)/*.s $(SOUND_SUBDIR)/*/*.s $(SOUND_SUBDIR)/*/*/*.s)
 SOUND_OBJS := $(patsubst $(SOUND_SUBDIR)/%.s,$(SOUND_BUILDDIR)/%.o,$(SOUND_SRCS))
 
+SOUND_AIFS := $(wildcard $(SOUND_SUBDIR)/*.aif $(SOUND_SUBDIR)/*/*.aif $(SOUND_SUBDIR)/*/*/*.aif)
+SOUND_AIF_OBJS := $(patsubst $(SOUND_SUBDIR)/%.aif,$(SOUND_BUILDDIR)/%.o,$(SOUND_AIFS))
+
 DATA_BINS := $(wildcard $(DATA_SUBDIR)/*.bin)
 DATA_OBJS := $(patsubst $(DATA_SUBDIR)/%.bin,$(DATA_BUILDDIR)/%.o,$(DATA_BINS))
 # DATA_ASM_SRCS := $(wildcard $(DATA_ASM_SUBDIR)/*.s)
 # DATA_ASM_OBJS := $(patsubst $(DATA_ASM_SUBDIR)/%.s,$(DATA_ASM_BUILDDIR)/%.o,$(DATA_ASM_SRCS))
 
-OBJS     := $(C_OBJS) $(ASM_OBJS) $(DATA_OBJS) $(SOUND_OBJS)
+OBJS     := $(C_OBJS) $(ASM_OBJS) $(DATA_OBJS) $(SOUND_OBJS) $(SOUND_AIF_OBJS)
 OBJS_REL := $(patsubst $(OBJ_DIR)/%,%,$(OBJS))
 
 SUBDIRS  := $(sort $(dir $(OBJS)))
@@ -75,9 +79,9 @@ define bin2o
 endef
 
 # Rules
-.PHONY: libraries rom clean
+.PHONY: tools libraries rom clean
 
-rom: libraries $(ROM) compare
+rom: tools libraries $(ROM) compare
 
 compare: $(ROM)
 	@$(SHA1) rom.sha1
@@ -86,9 +90,13 @@ libraries:
 	@$(MAKE) -C lib/libunk
 
 clean:
+	$(MAKE) clean -C tools/aif2pcm
 	rm -f $(ROM) $(ELF) $(MAP)
 	rm -r build/*
 	$(MAKE) -C lib/libunk clean
+
+tools:
+	@$(MAKE) -C tools/aif2pcm
 
 $(OBJ_DIR)/src/agbbackup/%.o : src/agbbackup/%.c
 	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(OBJ_DIR)/src/agbbackup/$*.i
@@ -108,6 +116,10 @@ $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c
 	@echo -e ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
 	@sed -i -e 's/\.align\t2/\.align\t2, 0/' $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
+
+$(SOUND_BUILDDIR)/%.o: $(SOUND_SUBDIR)/%.aif
+	$(AIF2PCM) $< $(patsubst %.o,%,$@)
+	bin2s -H $(@).h $(patsubst %.o,%,$@) | $(AS) -o $(@)
 
 $(SOUND_BUILDDIR)/%.o: $(SOUND_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -o $@ $<
