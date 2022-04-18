@@ -1,0 +1,389 @@
+#pragma once
+
+#define SONG_001                     1
+#define SONG_MENU                    2
+#define SONG_GP_INTRO                3
+#define SONG_RACE_START_JINGLE       4
+#define SONG_RACE_END_JINGLE_SUCCESS 5
+#define SONG_RACE_END_JINGLE_OK      6
+#define SONG_RACE_END_JINGLE_FAIL    7
+
+#define SONG_STAR_ITEM            10
+#define SONG_011                  11
+#define SONG_012                  12
+#define SONG_013                  13
+#define SONG_014                  14
+#define SONG_015                  15
+#define SONG_016                  16
+#define SONG_017                  17
+#define SONG_BATTLE               18
+#define SONG_FINAL_LAP_JINGLE     19
+#define SONG_020                  20
+#define SONG_COURSE_BEACH         21
+#define SONG_COURSE_CASTLE        22
+#define SONG_COURSE_CHEESE        23
+#define SONG_COURSE_RIVER         24
+#define SONG_COURSE_CIRCUIT       25
+#define SONG_COURSE_SUNSET        26
+#define SONG_COURSE_HAUNTED       27
+#define SONG_COURSE_RAINBOW       28
+#define SONG_COURSE_DESERT        29
+#define SONG_COURSE_RIBBON        30
+#define SONG_COURSE_SNOW          31
+#define SONG_COURSE_LAKE          32
+#define SONG_033                  33
+#define SONG_034                  34
+#define SONG_COURSE_SKY           35
+#define SONG_COURSE_RAINBOW_INTRO 36
+#define SONG_037                  37
+#define SONG_038                  38
+#define SONG_039                  39
+#define SONG_LINK                 40
+#define SONG_COURSE_SMK_CIRCUIT   41
+#define SONG_COURSE_SMK_DONUT     42
+#define SONG_COURSE_SMK_CHOCO     43
+#define SONG_COURSE_SMK_VANILLA   44
+#define SONG_COURSE_SMK_GHOST     45
+#define SONG_COURSE_SMK_RAINBOW   46
+#define SONG_COURSE_SMK_CASTLE    47
+#define SONG_COURSE_SMK_BEACH     48
+
+#define SONG_TITLE_INTRO_NIGHT 51
+#define SONG_TITLE             52
+#define SONG_TITLE_INTRO       53
+#define SONG_054               54
+#define SONG_055               55
+#define SONG_056               56
+#define SONG_057               57
+
+#define SONG_059 59
+#define SONG_060 60
+
+#define SONG_070             70
+#define SONG_071             71
+#define SONG_072             72
+#define SONG_073             73
+#define SONG_074             74
+#define SONG_075             75
+#define SONG_076             76
+#define SONG_077             77
+#define SONG_078             78
+#define SONG_079             79
+#define SONG_080             80
+#define SONG_081             81
+#define SONG_082             82
+#define SONG_083             83
+#define SONG_084             84
+#define SONG_085             85
+#define SONG_086             86
+#define SONG_087             87
+#define SONG_088             88
+#define SONG_089             89
+#define SONG_090             90
+#define SONG_091             91
+#define SONG_092             92
+#define SONG_093             93
+#define SONG_094             94
+#define SONG_095             95
+#define SONG_096             96
+#define SONG_097             97
+#define SONG_098             98
+#define SONG_099             99
+#define SONG_100             100
+#define SONG_SFX_COIN        101
+#define SONG_102             102
+#define SONG_103             103
+#define SONG_104             104
+#define SONG_105             105
+#define SONG_106             106
+#define SONG_107             107
+#define SONG_108             108
+#define SONG_CONGRATULATIONS 109
+#define SONG_110             110
+#define SONG_111             111
+
+#define SONG_SFX_COUNT_LO 114
+#define SONG_SFX_COUNT_HI 115
+
+#define SONG_119 119
+#define SONG_120 120
+#define SONG_121 121
+#define SONG_122 122
+#define SONG_123 123
+#define SONG_124 124
+#define SONG_125 125
+#define SONG_126 126
+#define SONG_127 127
+#define SONG_128 128
+#define SONG_129 129
+#define SONG_130 130
+#define SONG_131 131
+#define SONG_132 132
+#define SONG_133 133
+#define SONG_134 134
+#define SONG_135 135
+#define SONG_136 136
+#define SONG_137 137
+#define SONG_138 138
+#define SONG_139 139
+#define SONG_140 140
+#define SONG_141 141
+#define SONG_142 142
+#define SONG_143 143
+#define SONG_144 144
+#define SONG_145 145
+#define SONG_146 146
+#define SONG_147 147
+#define SONG_148 148
+#define SONG_149 149
+#define SONG_150 150
+#define SONG_151 151
+#define SONG_152 152
+#define SONG_153 153
+#define SONG_154 154
+#define SONG_155 155
+#define SONG_156 156
+#define SONG_157 157
+#define SONG_158 158
+#define SONG_159 159
+#define SONG_160 160
+#define SONG_161 161
+#define SONG_162 162
+#define SONG_163 163
+#define SONG_164 164
+#define SONG_165 165
+
+#define SONG_167 167
+#define SONG_168 168
+#define SONG_169 169
+#define SONG_170 170
+
+#define SONG_174 174
+#define SONG_175 175
+#define SONG_176 176
+#define SONG_177 177
+#define SONG_178 178
+#define SONG_179 179
+#define SONG_180 180
+#define SONG_181 181
+#define SONG_182 182
+#define SONG_183 183
+#define SONG_184 184
+#define SONG_185 185
+#define SONG_186 186
+#define SONG_187 187
+#define SONG_188 188
+#define SONG_189 189
+#define SONG_190 190
+#define SONG_191 191
+#define SONG_192 192
+#define SONG_193 193
+#define SONG_194 194
+#define SONG_195 195
+#define SONG_196 196
+#define SONG_197 197
+#define SONG_198 198
+#define SONG_199 199
+
+#define SONG_VOICE1_MARIO_YAYYAHAHA 201
+#define SONG_VOICE1_MARIO_LETSAGO   202
+#define SONG_VOICE1_MARIO_AUW_1     203
+#define SONG_VOICE1_MARIO_AUW_2     204
+
+#define SONG_VOICE1_LUIGI_BINGO    206
+#define SONG_VOICE1_LUIGI_HEREWEGO 207
+#define SONG_VOICE1_LUIGI_AUW_1    208
+#define SONG_VOICE1_LUIGI_AUW_2    209
+
+#define SONG_VOICE1_PEACH_BINGO    211
+#define SONG_VOICE1_PEACH_HEREWEGO 212
+#define SONG_VOICE1_PEACH_AUW_1    213
+#define SONG_VOICE1_PEACH_AUW_2    214
+
+#define SONG_VOICE1_TOAD_BINGO 216
+#define SONG_VOICE1_TOAD_YAHOO 217
+#define SONG_VOICE1_TOAD_AUW_1 218
+#define SONG_VOICE1_TOAD_AUW_2 219
+
+#define SONG_VOICE1_WARIO_BINGO    221
+#define SONG_VOICE1_WARIO_HAHAHAHA 222
+#define SONG_VOICE1_WARIO_AUW_1    223
+#define SONG_VOICE1_WARIO_AUW_2    224
+
+#define SONG_VOICE1_YOSHI_WOAW  226
+#define SONG_VOICE1_YOSHI_YOSHI 227
+#define SONG_VOICE1_YOSHI_AUW_1 228
+#define SONG_VOICE1_YOSHI_AUW_2 229
+
+#define SONG_VOICE1_DK_1 231
+#define SONG_VOICE1_DK_2 232
+#define SONG_VOICE1_DK_3 233
+#define SONG_VOICE1_DK_4 234
+
+#define SONG_VOICE1_BOWSER_1 236
+#define SONG_VOICE1_BOWSER_2 237
+#define SONG_VOICE1_BOWSER_3 238
+#define SONG_VOICE1_BOWSER_4 239
+
+#define SONG_VOICE2_MARIO_YAYYAHAHA 241
+#define SONG_VOICE2_MARIO_LETSAGO   242
+#define SONG_VOICE2_MARIO_AUW_1     243
+#define SONG_VOICE2_MARIO_AUW_2     244
+
+#define SONG_VOICE2_LUIGI_BINGO    246
+#define SONG_VOICE2_LUIGI_HEREWEGO 247
+#define SONG_VOICE2_LUIGI_AUW_1    248
+#define SONG_VOICE2_LUIGI_AUW_2    249
+
+#define SONG_VOICE2_PEACH_BINGO    251
+#define SONG_VOICE2_PEACH_HEREWEGO 252
+#define SONG_VOICE2_PEACH_AUW_1    253
+#define SONG_VOICE2_PEACH_AUW_2    254
+
+#define SONG_VOICE2_TOAD_BINGO 256
+#define SONG_VOICE2_TOAD_YAHOO 257
+#define SONG_VOICE2_TOAD_AUW_1 258
+#define SONG_VOICE2_TOAD_AUW_2 259
+
+#define SONG_VOICE2_WARIO_BINGO    261
+#define SONG_VOICE2_WARIO_HAHAHAHA 262
+#define SONG_VOICE2_WARIO_AUW_1    263
+#define SONG_VOICE2_WARIO_AUW_2    264
+
+#define SONG_VOICE2_YOSHI_WOAW  266
+#define SONG_VOICE2_YOSHI_YOSHI 267
+#define SONG_VOICE2_YOSHI_AUW_1 268
+#define SONG_VOICE2_YOSHI_AUW_2 269
+
+#define SONG_VOICE2_DK_1 271
+#define SONG_VOICE2_DK_2 272
+#define SONG_VOICE2_DK_3 273
+#define SONG_VOICE2_DK_4 274
+
+#define SONG_VOICE2_BOWSER_1 276
+#define SONG_VOICE2_BOWSER_2 277
+#define SONG_VOICE2_BOWSER_3 278
+#define SONG_VOICE2_BOWSER_4 279
+
+#define SONG_VOICE1_SMALL_MARIO_YAYYAHAHA 281
+#define SONG_VOICE1_SMALL_MARIO_LETSAGO   282
+#define SONG_VOICE1_SMALL_MARIO_AUW_1     283
+#define SONG_VOICE1_SMALL_MARIO_AUW_2     284
+
+#define SONG_VOICE1_SMALL_LUIGI_BINGO    286
+#define SONG_VOICE1_SMALL_LUIGI_HEREWEGO 287
+#define SONG_VOICE1_SMALL_LUIGI_AUW_1    288
+#define SONG_VOICE1_SMALL_LUIGI_AUW_2    289
+
+#define SONG_VOICE1_SMALL_PEACH_BINGO    291
+#define SONG_VOICE1_SMALL_PEACH_HEREWEGO 292
+#define SONG_VOICE1_SMALL_PEACH_AUW_1    293
+#define SONG_VOICE1_SMALL_PEACH_AUW_2    294
+
+#define SONG_VOICE1_SMALL_TOAD_BINGO 296
+#define SONG_VOICE1_SMALL_TOAD_YAHOO 297
+#define SONG_VOICE1_SMALL_TOAD_AUW_1 298
+#define SONG_VOICE1_SMALL_TOAD_AUW_2 299
+
+#define SONG_VOICE1_SMALL_WARIO_BINGO    301
+#define SONG_VOICE1_SMALL_WARIO_HAHAHAHA 302
+#define SONG_VOICE1_SMALL_WARIO_AUW_1    303
+#define SONG_VOICE1_SMALL_WARIO_AUW_2    304
+
+#define SONG_VOICE1_SMALL_YOSHI_WOAW  306
+#define SONG_VOICE1_SMALL_YOSHI_YOSHI 307
+#define SONG_VOICE1_SMALL_YOSHI_AUW_1 308
+#define SONG_VOICE1_SMALL_YOSHI_AUW_2 309
+
+#define SONG_VOICE1_SMALL_DK_1 311
+#define SONG_VOICE1_SMALL_DK_2 312
+#define SONG_VOICE1_SMALL_DK_3 313
+#define SONG_VOICE1_SMALL_DK_4 314
+
+#define SONG_VOICE1_SMALL_BOWSER_1 316
+#define SONG_VOICE1_SMALL_BOWSER_2 317
+#define SONG_VOICE1_SMALL_BOWSER_3 318
+#define SONG_VOICE1_SMALL_BOWSER_4 319
+
+#define SONG_VOICE2_SMALL_MARIO_YAYYAHAHA 321
+#define SONG_VOICE2_SMALL_MARIO_LETSAGO   322
+#define SONG_VOICE2_SMALL_MARIO_AUW_1     323
+#define SONG_VOICE2_SMALL_MARIO_AUW_2     324
+
+#define SONG_VOICE2_SMALL_LUIGI_BINGO    326
+#define SONG_VOICE2_SMALL_LUIGI_HEREWEGO 327
+#define SONG_VOICE2_SMALL_LUIGI_AUW_1    328
+#define SONG_VOICE2_SMALL_LUIGI_AUW_2    329
+
+#define SONG_VOICE2_SMALL_PEACH_BINGO    331
+#define SONG_VOICE2_SMALL_PEACH_HEREWEGO 332
+#define SONG_VOICE2_SMALL_PEACH_AUW_1    333
+#define SONG_VOICE2_SMALL_PEACH_AUW_2    334
+
+#define SONG_VOICE2_SMALL_TOAD_BINGO 336
+#define SONG_VOICE2_SMALL_TOAD_YAHOO 337
+#define SONG_VOICE2_SMALL_TOAD_AUW_1 338
+#define SONG_VOICE2_SMALL_TOAD_AUW_2 339
+
+#define SONG_VOICE2_SMALL_WARIO_BINGO    341
+#define SONG_VOICE2_SMALL_WARIO_HAHAHAHA 342
+#define SONG_VOICE2_SMALL_WARIO_AUW_1    343
+#define SONG_VOICE2_SMALL_WARIO_AUW_2    344
+
+#define SONG_VOICE2_SMALL_YOSHI_WOAW  346
+#define SONG_VOICE2_SMALL_YOSHI_YOSHI 347
+#define SONG_VOICE2_SMALL_YOSHI_AUW_1 348
+#define SONG_VOICE2_SMALL_YOSHI_AUW_2 349
+
+#define SONG_VOICE2_SMALL_DK_1 351
+#define SONG_VOICE2_SMALL_DK_2 352
+#define SONG_VOICE2_SMALL_DK_3 353
+#define SONG_VOICE2_SMALL_DK_4 354
+
+#define SONG_VOICE2_SMALL_BOWSER_1 356
+#define SONG_VOICE2_SMALL_BOWSER_2 357
+#define SONG_VOICE2_SMALL_BOWSER_3 358
+#define SONG_VOICE2_SMALL_BOWSER_4 359
+
+#define SONG_HORN_MARIO  361
+#define SONG_HORN_LUIGI  362
+#define SONG_HORN_PEACH  363
+#define SONG_HORN_TOAD   364
+#define SONG_HORN_YOSHI  365
+#define SONG_HORN_WARIO  366
+#define SONG_HORN_DK     367
+#define SONG_HORN_BOWSER 368
+
+#define SONG_370 370
+#define SONG_371 371
+#define SONG_372 372
+#define SONG_373 373
+#define SONG_374 374
+#define SONG_375 375
+#define SONG_376 376
+#define SONG_377 377
+#define SONG_378 378
+#define SONG_379 379
+#define SONG_380 380
+#define SONG_381 381
+#define SONG_382 382
+#define SONG_383 383
+#define SONG_384 384
+#define SONG_385 385
+#define SONG_386 386
+#define SONG_387 387
+#define SONG_388 388
+#define SONG_389 389
+#define SONG_390 390
+#define SONG_391 391
+#define SONG_392 392
+#define SONG_393 393
+#define SONG_394 394
+#define SONG_395 395
+#define SONG_396 396
+#define SONG_397 397
+#define SONG_398 398
+#define SONG_399 399
+#define SONG_400 400
+#define SONG_401 401
+#define SONG_402 402

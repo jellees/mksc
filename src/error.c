@@ -1,4 +1,5 @@
 #include "common.h"
+#include "songs.h"
 #include "map.h"
 #include "palette.h"
 #include "scene.h"
@@ -235,7 +236,7 @@ int error_main()
             case 0:
                 if (!(gTransitionState.flags & TRNS_FLAG_UPDATE_FRAME))
                 {
-                    m4aSongNumStart(146);
+                    m4aSongNumStart(SONG_146);
                     funcState = 1;
                 }
                 break;
@@ -256,7 +257,7 @@ int error_main()
 
                 if (keyDown & (A_BUTTON | START_BUTTON))
                 {
-                    m4aSongNumStart(143);
+                    m4aSongNumStart(SONG_143);
                     *pltt_getBuffer(PLTT_BUFFER_BG) = -1;
                     pltt_setDirtyFlag(TRUE);
                     gTransitionState.initFunc = trns_initDefaultOutTransition;
