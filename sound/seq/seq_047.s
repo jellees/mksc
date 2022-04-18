@@ -1003,6 +1003,7 @@ seq_047_4:
 	.byte	W02
 	.byte	GOTO
 	 .word	seq_047_4 + 0x70
+	.byte		VOL   , 0*seq_047_mvl/mxv
 	.byte	FINE
 
 @*********************** Track 06 ***********************@
@@ -1263,6 +1264,7 @@ seq_047_5:
 	.byte	W02
 	.byte	GOTO
 	 .word	seq_047_5 + 0x6A
+	.byte		VOL   , 0*seq_047_mvl/mxv
 	.byte	FINE
 
 @*********************** Track 07 ***********************@

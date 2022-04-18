@@ -166,6 +166,55 @@ seq_084_0:
 	.byte	W02
 	.byte	GOTO
 	 .word	seq_084_0 + 0x3F
+	.byte		BEND  , c_v+0
+	.byte	W02
+	.byte		        c_v-5
+	.byte	W02
+	.byte		        c_v-10
+	.byte	W02
+	.byte		        c_v-15
+	.byte	W02
+	.byte		        c_v-19
+	.byte	W02
+	.byte		        c_v-15
+	.byte	W02
+	.byte		        c_v-10
+	.byte	W02
+	.byte		        c_v-5
+	.byte	W02
+	.byte		        c_v+0
+	.byte	W02
+	.byte		        c_v-5
+	.byte	W02
+	.byte		        c_v-10
+	.byte	W02
+	.byte		        c_v-15
+	.byte	W02
+	.byte		        c_v-19
+	.byte	W02
+	.byte		        c_v-15
+	.byte	W02
+	.byte		        c_v-10
+	.byte	W02
+	.byte		        c_v-5
+	.byte	W02
+	.byte		        c_v+0
+	.byte	W02
+	.byte		        c_v-5
+	.byte	W02
+	.byte		        c_v-10
+	.byte	W02
+	.byte		        c_v-15
+	.byte	W02
+	.byte		        c_v-19
+	.byte	W02
+	.byte		        c_v-15
+	.byte	W02
+	.byte		        c_v-10
+	.byte	W02
+	.byte		        c_v-5
+	.byte	W02
+	.byte		EOT   , As2 
 	.byte	FINE
 
 @******************************************************@

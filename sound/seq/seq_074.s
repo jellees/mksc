@@ -24,6 +24,8 @@ seq_074_0:
 	.byte	W60
 	.byte	GOTO
 	 .word	seq_074_0 + 0xC
+	.byte	W36
+	.byte		EOT   , Bn2 
 	.byte	FINE
 
 @******************************************************@

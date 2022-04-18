@@ -24,6 +24,8 @@ seq_080_0:
 	.byte	W48
 	.byte	GOTO
 	 .word	seq_080_0 + 0xC
+	.byte	W48
+	.byte		EOT   , Bn2 
 	.byte	FINE
 
 @******************************************************@

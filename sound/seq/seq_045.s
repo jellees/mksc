@@ -1357,6 +1357,7 @@ seq_045_2:
 	.byte	W01
 	.byte	GOTO
 	 .word	seq_045_2 + 0x51
+	.byte		BEND  , c_v+0
 	.byte	FINE
 
 @*********************** Track 04 ***********************@
@@ -1606,6 +1607,7 @@ seq_045_3:
 	.byte	W01
 	.byte	GOTO
 	 .word	seq_045_3 + 0xB
+	.byte		BEND  , c_v+0
 	.byte	FINE
 
 @*********************** Track 05 ***********************@
@@ -1746,6 +1748,7 @@ seq_045_4:
 	.byte	W42
 	.byte	GOTO
 	 .word	seq_045_4 + 0x3B
+	.byte		MOD   , 0
 	.byte	FINE
 
 @*********************** Track 06 ***********************@
@@ -1865,6 +1868,8 @@ seq_045_5:
 	.byte	W04
 	.byte	GOTO
 	 .word	seq_045_5 + 0x8
+	.byte		VOL   , 0*seq_045_mvl/mxv
+	.byte		MOD   , 0
 	.byte	FINE
 
 @*********************** Track 07 ***********************@
@@ -1986,6 +1991,8 @@ seq_045_6:
 	.byte	W04
 	.byte	GOTO
 	 .word	seq_045_6 + 0x8
+	.byte		VOL   , 0*seq_045_mvl/mxv
+	.byte		MOD   , 0
 	.byte	FINE
 
 @******************************************************@

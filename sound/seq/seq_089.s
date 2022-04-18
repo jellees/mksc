@@ -61,6 +61,8 @@ seq_089_0:
 	.byte	W96
 	.byte	GOTO
 	 .word	seq_089_0 + 0x36
+	.byte	W96
+	.byte		EOT   , Cn3 
 	.byte	FINE
 
 @******************************************************@

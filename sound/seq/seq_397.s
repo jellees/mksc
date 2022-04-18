@@ -26,6 +26,8 @@ seq_397_0:
 	.byte	W72
 	.byte	GOTO
 	 .word	seq_397_0 + 0x10
+	.byte	W24
+	.byte		EOT   , As3 
 	.byte	FINE
 
 @*********************** Track 02 ***********************@
@@ -42,6 +44,8 @@ seq_397_1:
 	.byte	W72
 	.byte	GOTO
 	 .word	seq_397_1 + 0xE
+	.byte	W24
+	.byte		EOT   , As1 
 	.byte	FINE
 
 @******************************************************@

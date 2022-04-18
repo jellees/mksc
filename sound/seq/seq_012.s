@@ -84,6 +84,25 @@ seq_012_0:
 	.byte	W06
 	.byte	GOTO
 	 .word	seq_012_0 + 0x2
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
 	.byte	FINE
 
 @******************************************************@

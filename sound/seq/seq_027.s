@@ -1366,6 +1366,7 @@ seq_027_0:
 	.byte	W12
 	.byte	GOTO
 	 .word	seq_027_0 + 0x2
+	.byte	W96
 	.byte	FINE
 
 @*********************** Track 02 ***********************@
@@ -1901,6 +1902,7 @@ seq_027_1:
 	.byte	W30
 	.byte	GOTO
 	 .word	seq_027_1 + 0x2
+	.byte	W96
 	.byte	FINE
 
 @*********************** Track 03 ***********************@
@@ -2733,6 +2735,7 @@ seq_027_2:
 	.byte	W06
 	.byte	GOTO
 	 .word	seq_027_2 + 0x2
+	.byte	W96
 	.byte	FINE
 
 @*********************** Track 04 ***********************@
@@ -3428,6 +3431,7 @@ seq_027_3:
 	.byte	W12
 	.byte	GOTO
 	 .word	seq_027_3 + 0x2
+	.byte	W96
 	.byte	FINE
 
 @*********************** Track 05 ***********************@
@@ -3519,6 +3523,7 @@ seq_027_4:
 	.byte	W96
 	.byte	GOTO
 	 .word	seq_027_4 + 0x2
+	.byte	W96
 	.byte	FINE
 
 @*********************** Track 06 ***********************@
@@ -3924,6 +3929,7 @@ seq_027_5:
 	.byte	W12
 	.byte	GOTO
 	 .word	seq_027_5 + 0x2
+	.byte	W96
 	.byte	FINE
 
 @******************************************************@

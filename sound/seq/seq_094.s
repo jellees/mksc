@@ -26,6 +26,9 @@ seq_094_0:
 	.byte	W96
 	.byte	GOTO
 	 .word	seq_094_0 + 0x10
+	.byte	W96
+	.byte		EOT   , Cn3 
+	.byte	W96
 	.byte	FINE
 
 @******************************************************@

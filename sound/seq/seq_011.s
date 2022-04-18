@@ -126,6 +126,15 @@ seq_011_0:
 	 .word	seq_011_0 + 0x2A
 	.byte	GOTO
 	 .word	seq_011_0 + 0x3D
+	.byte	W48
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
 	.byte	FINE
 
 @*********************** Track 02 ***********************@
@@ -887,6 +896,15 @@ seq_011_1:
 	.byte	W01
 	.byte	GOTO
 	 .word	seq_011_1 + 0x70
+	.byte	W48
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
 	.byte	FINE
 
 @******************************************************@

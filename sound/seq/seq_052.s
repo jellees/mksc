@@ -3457,6 +3457,7 @@ seq_052_6:
 	.byte	W06
 	.byte	GOTO
 	 .word	seq_052_6 + 0x26
+	.byte	W06
 	.byte	FINE
 
 @*********************** Track 08 ***********************@

@@ -272,6 +272,10 @@ seq_021_0:
 	.byte	W64
 	.byte	GOTO
 	 .word	seq_021_0 + 0x20
+	.byte		VOICE , 123
+	.byte		VOL   , 57*seq_021_mvl/mxv
+	.byte		PAN   , c_v+0
+	.byte	PRIO  , 6
 	.byte	FINE
 
 @*********************** Track 02 ***********************@

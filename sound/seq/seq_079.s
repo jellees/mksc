@@ -24,6 +24,10 @@ seq_079_0:
 	.byte	W60
 	.byte	GOTO
 	 .word	seq_079_0 + 0xC
+	.byte	W36
+	.byte		EOT   , Cn3 
+	.byte	W96
+	.byte	W96
 	.byte	FINE
 
 @******************************************************@

@@ -48,6 +48,12 @@ seq_085_0:
 	.byte	W48
 	.byte	GOTO
 	 .word	seq_085_0 + 0x29
+	.byte	W48
+	.byte		EOT   , Cn3 
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
 	.byte	FINE
 
 @******************************************************@

@@ -111,6 +111,14 @@ seq_164_0:
 	.byte	W02
 	.byte	GOTO
 	 .word	seq_164_0 + 0x1F
+	.byte	W48
+	.byte		EOT   , Cs3 
+	.byte	W48
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
+	.byte	W96
 	.byte	FINE
 
 @******************************************************@

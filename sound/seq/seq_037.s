@@ -231,6 +231,8 @@ seq_037_0:
 	 .word	seq_037_0 + 0x5C
 	.byte	GOTO
 	 .word	seq_037_0 + 0x71
+	.byte		N04   , Cn5 , v064
+	.byte	W04
 	.byte	FINE
 
 @*********************** Track 02 ***********************@
@@ -452,6 +454,8 @@ seq_037_1:
 	 .word	seq_037_1 + 0x59
 	.byte	GOTO
 	 .word	seq_037_1 + 0x6D
+	.byte		N03   , Gn4 , v052
+	.byte	W03
 	.byte	FINE
 
 @*********************** Track 03 ***********************@
@@ -673,6 +677,8 @@ seq_037_2:
 	 .word	seq_037_2 + 0x5A
 	.byte	GOTO
 	 .word	seq_037_2 + 0x6F
+	.byte		N03   , En4 , v052
+	.byte	W03
 	.byte	FINE
 
 @*********************** Track 04 ***********************@
@@ -2450,6 +2456,10 @@ seq_037_7:
 	 .word	seq_037_7 + 0x16F
 	.byte	GOTO
 	 .word	seq_037_7 + 0x1C5
+	.byte		N04   , Cn1 , v108
+	.byte		N03   , Dn1 , v127
+	.byte		N02   , As3 , v036
+	.byte	W04
 	.byte	FINE
 
 @******************************************************@

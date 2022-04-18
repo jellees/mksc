@@ -423,6 +423,7 @@ seq_018_0:
 	.byte	W06
 	.byte	GOTO
 	 .word	seq_018_0 + 0x29
+	.byte	W06
 	.byte	FINE
 
 @*********************** Track 02 ***********************@
@@ -834,6 +835,7 @@ seq_018_1:
 	.byte	W06
 	.byte	GOTO
 	 .word	seq_018_1 + 0x1C
+	.byte	W05
 	.byte	FINE
 
 @*********************** Track 03 ***********************@

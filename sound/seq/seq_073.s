@@ -24,6 +24,8 @@ seq_073_0:
 	.byte	W48
 	.byte	GOTO
 	 .word	seq_073_0 + 0xC
+	.byte	W48
+	.byte		EOT   , Gn2 
 	.byte	FINE
 
 @******************************************************@

@@ -289,6 +289,7 @@ seq_041_0:
 	.byte	W01
 	.byte	GOTO
 	 .word	seq_041_0 + 0x26
+	.byte		BEND  , c_v-64
 	.byte	FINE
 
 @*********************** Track 02 ***********************@
@@ -710,6 +711,7 @@ seq_041_2:
 	.byte	W01
 	.byte	GOTO
 	 .word	seq_041_2 + 0x26
+	.byte		BEND  , c_v-64
 	.byte	FINE
 
 @*********************** Track 04 ***********************@
@@ -981,6 +983,7 @@ seq_041_3:
 	.byte	W01
 	.byte	GOTO
 	 .word	seq_041_3 + 0x4
+	.byte		BEND  , c_v-64
 	.byte	FINE
 
 @*********************** Track 05 ***********************@
