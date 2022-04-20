@@ -8,10 +8,10 @@
 #define SONG_RACE_END_JINGLE_OK      6
 #define SONG_RACE_END_JINGLE_FAIL    7
 
-#define SONG_STAR_ITEM            10
-#define SONG_011                  11
-#define SONG_012                  12
-#define SONG_013                  13
+#define SONG_STAR_THEME           10
+#define SONG_LIGHTNING_THEME      11
+#define SONG_BOO_THEME            12
+#define SONG_DOUBLE_BOO_THEME     13
 #define SONG_014                  14
 #define SONG_015                  15
 #define SONG_016                  16
@@ -51,7 +51,7 @@
 #define SONG_TITLE_INTRO_NIGHT 51
 #define SONG_TITLE             52
 #define SONG_TITLE_INTRO       53
-#define SONG_054               54
+#define SONG_STAFF_ROLL        54
 #define SONG_055               55
 #define SONG_056               56
 #define SONG_057               57

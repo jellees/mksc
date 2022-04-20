@@ -5,59 +5,59 @@
 gSongTable:
 	song dummy_song, 0, 0
 	song seq_001, 0, 0
-	song seq_002, 0, 0
-	song seq_003, 0, 0
+	song song_menu, 0, 0
+	song song_gp_intro, 0, 0
 	song seq_004, 0, 0
 	song seq_005, 0, 0
 	song seq_006, 0, 0
 	song seq_007, 0, 0
 	song dummy_song, 0, 0
 	song dummy_song, 0, 0
-	song seq_010, 0, 0
-	song seq_011, 0, 0
-	song seq_012, 0, 0
-	song seq_013, 0, 0
+	song song_star_theme, 0, 0
+	song song_lightning_theme, 0, 0
+	song song_boo_theme, 0, 0
+	song song_double_boo_theme, 0, 0
 	song seq_014, 0, 0
 	song seq_015, 0, 0
 	song seq_016, 0, 0
 	song seq_017, 0, 0
-	song seq_018, 0, 0
-	song seq_019, 0, 0
+	song song_battle, 0, 0
+	song song_final_lap_jingle, 0, 0
 	song seq_020, 0, 0
-	song seq_021, 0, 0
-	song seq_022, 0, 0
-	song seq_023, 0, 0
-	song seq_024, 0, 0
-	song seq_025, 0, 0
-	song seq_026, 0, 0
-	song seq_027, 0, 0
-	song seq_028, 0, 0
-	song seq_029, 0, 0
-	song seq_030, 0, 0
-	song seq_031, 0, 0
-	song seq_032, 0, 0
+	song song_course_beach, 0, 0
+	song song_course_castle, 0, 0
+	song song_course_cheese, 0, 0
+	song song_course_river, 0, 0
+	song song_course_circuit, 0, 0
+	song song_course_sunset, 0, 0
+	song song_course_haunted, 0, 0
+	song song_course_rainbow, 0, 0
+	song song_course_desert, 0, 0
+	song song_course_ribbon, 0, 0
+	song song_course_snow, 0, 0
+	song song_course_lake, 0, 0
 	song seq_033, 0, 0
 	song seq_034, 0, 0
-	song seq_035, 0, 0
-	song seq_036, 0, 0
+	song song_course_sky, 0, 0
+	song song_course_rainbow_intro, 0, 0
 	song seq_037, 0, 0
 	song seq_038, 1, 1
 	song seq_039, 1, 1
-	song seq_040, 0, 0
-	song seq_041, 0, 0
-	song seq_042, 0, 0
-	song seq_043, 0, 0
-	song seq_044, 0, 0
-	song seq_045, 0, 0
-	song seq_046, 0, 0
-	song seq_047, 0, 0
-	song seq_048, 0, 0
+	song song_link, 0, 0
+	song song_course_smk_circuit, 0, 0
+	song song_course_smk_donut, 0, 0
+	song song_course_smk_choco, 0, 0
+	song song_course_smk_vanilla, 0, 0
+	song song_course_smk_ghost, 0, 0
+	song song_course_smk_rainbow, 0, 0
+	song song_course_smk_castle, 0, 0
+	song song_course_smk_beach, 0, 0
 	song dummy_song, 0, 0
 	song dummy_song, 0, 0
-	song seq_051, 0, 0
-	song seq_052, 0, 0
-	song seq_053, 0, 0
-	song seq_054, 0, 0
+	song song_title_intro_night, 0, 0
+	song song_title, 0, 0
+	song song_title_intro, 0, 0
+	song song_staff_roll, 0, 0
 	song seq_055, 0, 0
 	song seq_056, 0, 0
 	song seq_057, 0, 0
@@ -364,14 +364,14 @@ gSongTable:
 	song seq_358, 4, 4
 	song seq_359, 4, 4
 	song dummy_song, 0, 0
-	song seq_361, 6, 6
-	song seq_362, 6, 6
-	song seq_363, 6, 6
-	song seq_364, 6, 6
-	song seq_365, 6, 6
-	song seq_366, 6, 6
-	song seq_367, 6, 6
-	song seq_368, 6, 6
+	song song_horn_mario, 6, 6
+	song song_horn_luigi, 6, 6
+	song song_horn_peach, 6, 6
+	song song_horn_toad, 6, 6
+	song song_horn_yoshi, 6, 6
+	song song_horn_wario, 6, 6
+	song song_horn_dk, 6, 6
+	song song_horn_bowser, 6, 6
 	song dummy_song, 0, 0
 	song seq_370, 8, 8
 	song seq_371, 6, 6

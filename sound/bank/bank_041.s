@@ -14,7 +14,7 @@ bank_041:
 	.byte	0x0
 	.byte	0x0
 	.word	bank_040
-	.word	map_002
+	.word	map_002 - 48
 
 @**************** Voice 001 ****************@
 
@@ -446,7 +446,7 @@ bank_041:
 	.byte	0x0
 	.byte	0x0
 	.word	bank_004
-	.word	map_001
+	.word	map_001 - 48
 
 @**************** Voice 049 ****************@
 

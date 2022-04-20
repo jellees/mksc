@@ -518,7 +518,7 @@ bank_027:
 	.byte	0x0
 	.byte	0x0
 	.word	bank_009
-	.word	map_003
+	.word	map_003 - 48
 
 @**************** Voice 057 ****************@
 

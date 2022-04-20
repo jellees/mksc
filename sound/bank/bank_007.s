@@ -14,7 +14,7 @@ bank_007:
 	.byte	0x0
 	.byte	0x0
 	.word	bank_008
-	.word	map_002
+	.word	map_002 - 48
 
 @**************** Voice 001 ****************@
 
@@ -518,7 +518,7 @@ bank_007:
 	.byte	0x0
 	.byte	0x0
 	.word	bank_009
-	.word	map_003
+	.word	map_003 - 48
 
 @**************** Voice 057 ****************@
 

@@ -446,7 +446,7 @@ bank_003:
 	.byte	0x0
 	.byte	0x0
 	.word	bank_004
-	.word	map_001
+	.word	map_001 - 48
 
 @**************** Voice 049 ****************@
 
