@@ -1,4 +1,6 @@
 #pragma once
+#include "list.h"
+#include "frameHeap.h"
 
 typedef void (*vcount_func_t)(void);
 

@@ -48,8 +48,8 @@
     _0802D758: .4byte 0x03002C80
     _0802D75C: .4byte 0x00003FFF
     _0802D760: .4byte 0x03000208
-        thumb_func_start sub_802D764
-    sub_802D764:
+        thumb_func_start sio2_vblank
+    sio2_vblank:
         push {r4, r5, r6, lr}
         ldr r6, _0802D7D8 @ =0x03000208
         ldrh r5, [r6, #0x00]
@@ -110,7 +110,7 @@
     _0802D7E0: .4byte 0x04000128
     _0802D7E4: .4byte 0x04000134
     _0802D7E8: .4byte 0x04000202
-    _0802D7EC: .4byte nullsub_2
+    _0802D7EC: .4byte main_dummyIrqHandler
     _0802D7F0: .4byte 0x00003FFF
     _0802D7F4:
         ldr r0, _0802D81C @ =0x03002C80
@@ -139,8 +139,8 @@
     _0802D820: .4byte 0x04000130
     _0802D824: .4byte 0x03004F58
     _0802D828: .4byte 0x000003FF
-        thumb_func_start sub_802D82C
-    sub_802D82C:
+        thumb_func_start sio2_update
+    sio2_update:
         push {r4, r5, r6, r7, lr}
         mov r7, r10
         mov r6, r9
@@ -230,7 +230,7 @@
     _0802D8DC: .4byte 0x03004F38
     _0802D8E0: .4byte 0x04000134
     _0802D8E4: .4byte 0x04000202
-    _0802D8E8: .4byte nullsub_2
+    _0802D8E8: .4byte main_dummyIrqHandler
     _0802D8EC:
         mov r10, r5
         b _0802DAD8
@@ -598,7 +598,7 @@
         bx r0
     _0802DC7C: .4byte 0x04000134
     _0802DC80: .4byte 0x04000202
-    _0802DC84: .4byte nullsub_2
+    _0802DC84: .4byte main_dummyIrqHandler
         thumb_func_start sub_802DC88
     sub_802DC88:
         push {lr}

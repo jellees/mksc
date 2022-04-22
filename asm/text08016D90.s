@@ -367,7 +367,7 @@ bx r0
 _08017224: .4byte 0x03002C80
 _08017228: .4byte 0x04000202
 _0801722C: .4byte sub_8012254
-_08017230: .4byte nullsub_2
+_08017230: .4byte main_dummyIrqHandler
 _08017234: .4byte 0x03002E20
 _08017238: .4byte 0x00010001
 _0801723C: .4byte 0x00003EDC
@@ -574,7 +574,7 @@ add r0, r10
 movs r4, #0x01
 strb r4, [r0, #0x00]
 movs r0, #0x09
-bl sub_802D4EC
+bl main_checkKeysTriggered
 cmp r0, #0x00
 beq _080173F0
 str r4, [r5, #0x00]
@@ -2587,7 +2587,7 @@ _080186F0: .4byte 0x000006EE
 _080186F4: .4byte 0x00000844
 _080186F8: .4byte 0x03000190
 _080186FC:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r1, #0x09
 ands r1, r0
 cmp r1, #0x00
@@ -2797,7 +2797,7 @@ b _08018962
 .byte 0x00, 0x00
 _080188AC: .4byte 0x03000190
 _080188B0:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r7, #0x30
 ands r7, r0
 cmp r7, #0x00
@@ -2810,7 +2810,7 @@ subs r0, r0, r1
 strb r0, [r6, #0x0D]
 b _08018962
 _080188CC:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r5, #0x09
 ands r5, r0
 cmp r5, #0x00
@@ -2865,7 +2865,7 @@ b _08018962
 .byte 0x00, 0x00
 _08018938: .4byte 0x03000190
 _0801893C:
-bl sub_802D47C
+bl main_getTriggerKeys
 ands r4, r0
 cmp r4, #0x00
 beq _08018962
@@ -3034,7 +3034,7 @@ b _08018B60
 .byte 0x00, 0x00
 _08018A9C: .4byte 0x03000190
 _08018AA0:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r6, #0x30
 ands r6, r0
 cmp r6, #0x00
@@ -3047,7 +3047,7 @@ subs r0, r0, r1
 strb r0, [r7, #0x0D]
 b _08018B60
 _08018ABC:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r5, #0x09
 ands r5, r0
 cmp r5, #0x00
@@ -3085,7 +3085,7 @@ b _08018B60
 .byte 0x00, 0x00
 _08018B0C: .4byte 0x03000190
 _08018B10:
-bl sub_802D47C
+bl main_getTriggerKeys
 ands r4, r0
 cmp r4, #0x00
 beq _08018B60
@@ -5404,7 +5404,7 @@ _0801A688: .4byte 0x80000180
 _0801A68C: .4byte 0x0600F300
 _0801A690: .4byte 0x03000190
 _0801A694:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r4, #0x30
 ands r4, r0
 cmp r4, #0x00
@@ -5418,7 +5418,7 @@ strb r0, [r6, #0x0D]
 add r7, sp, #0x00C
 b _0801A76C
 _0801A6B2:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r1, #0x09
 ands r1, r0
 cmp r1, #0x00
@@ -5465,7 +5465,7 @@ add r7, sp, #0x00C
 b _0801A76C
 _0801A710: .4byte 0x03000190
 _0801A714:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r1, #0x02
 ands r1, r0
 add r7, sp, #0x00C
@@ -5813,7 +5813,7 @@ _0801A9EC: .4byte 0x80000180
 _0801A9F0: .4byte 0x0600F300
 _0801A9F4: .4byte 0x03000190
 _0801A9F8:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r4, #0x30
 ands r4, r0
 cmp r4, #0x00
@@ -5829,7 +5829,7 @@ add r1, sp, #0x010
 mov r8, r1
 b _0801AA82
 _0801AA1A:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r5, #0x09
 ands r5, r0
 cmp r5, #0x00
@@ -5856,7 +5856,7 @@ b _0801AA82
 .byte 0x00, 0x00
 _0801AA50: .4byte 0x03000190
 _0801AA54:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r1, #0x02
 ands r1, r0
 add r7, sp, #0x00C
@@ -5974,7 +5974,7 @@ b _0801ABD2
 _0801AB4C: .4byte 0x080DAC8C
 _0801AB50: .4byte 0x03000190
 _0801AB54:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r4, #0x09
 ands r4, r0
 cmp r4, #0x00
@@ -6021,7 +6021,7 @@ ldr r0, [r4, #0x00]
 str r2, [r0, #0x04]
 b _0801ABD6
 _0801ABAE:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r1, #0x02
 ands r1, r0
 cmp r1, #0x00
@@ -6183,7 +6183,7 @@ _0801ACF8: .4byte 0x80000180
 _0801ACFC: .4byte 0x080DAC24
 _0801AD00: .4byte 0x03000190
 _0801AD04:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r4, #0x30
 ands r4, r0
 cmp r4, #0x00
@@ -6196,7 +6196,7 @@ subs r0, r0, r1
 strb r0, [r6, #0x0D]
 b _0801ADA4
 _0801AD20:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r5, #0x09
 ands r5, r0
 cmp r5, #0x00
@@ -6241,7 +6241,7 @@ str r4, [r0, #0x04]
 b _0801ADA4
 _0801AD78: .4byte 0x03000190
 _0801AD7C:
-bl sub_802D47C
+bl main_getTriggerKeys
 movs r1, #0x02
 ands r1, r0
 cmp r1, #0x00
@@ -7142,10 +7142,10 @@ str r0, [sp, #0x008]
 ldr r1, _0801B584 @ =0x00000504
 adds r0, r0, r1
 mov r8, r0
-bl sub_802D4A0
+bl main_getRepeatTriggerKeys
 lsls r0, r0, #0x10
 lsrs r6, r0, #0x10
-bl sub_802D47C
+bl main_getTriggerKeys
 lsls r0, r0, #0x10
 lsrs r0, r0, #0x10
 str r0, [sp, #0x00C]
@@ -21000,7 +21000,7 @@ movs r0, #0x01
 bl map_setBufferDestination
 ldr r0, _08028A30 @ =0x080DC430
 movs r1, #0x18
-bl sub_802D53C
+bl main_configureIoRegs
 ldr r7, _08028A34 @ =0x04000008
 ldrb r1, [r7, #0x00]
 movs r2, #0x7F
@@ -22217,7 +22217,7 @@ bx r1
 .byte 0x00, 0x00
 _08029754: .4byte 0x03002E20
 _08029758: .4byte 0x00010001
-_0802975C: .4byte nullsub_2
+_0802975C: .4byte main_dummyIrqHandler
 thumb_func_start sub_8029760
 sub_8029760:
 push {r4, r5, r6, lr}
@@ -23342,7 +23342,7 @@ movs r0, #0x01
 bl map_setBufferDestination
 ldr r0, _0802B5C4 @ =0x080DCEE8
 movs r1, #0x18
-bl sub_802D53C
+bl main_configureIoRegs
 ldr r2, _0802B5C8 @ =0x04000008
 ldrb r1, [r2, #0x00]
 movs r0, #0x7F
@@ -23659,7 +23659,7 @@ ldr r0, [r0, #0x00]
 cmp r0, #0x00
 bne _0802B6A4
 ldr r4, _0802B6A0 @ =0x080DC524
-bl sub_802D5D0
+bl main_getRandom
 lsls r0, r0, #0x10
 asrs r0, r0, #0x10
 cmp r0, #0x00
@@ -23679,7 +23679,7 @@ _0802B69C: .4byte 0x0203EC3C
 _0802B6A0: .4byte 0x080DC524
 _0802B6A4:
 ldr r4, _0802B7D4 @ =0x080DC554
-bl sub_802D5D0
+bl main_getRandom
 lsls r0, r0, #0x10
 asrs r0, r0, #0x10
 cmp r0, #0x00
@@ -23849,7 +23849,7 @@ ldr r0, [r0, #0x00]
 cmp r0, #0x00
 beq _0802B90E
 movs r0, #0x02
-bl sub_802D4EC
+bl main_checkKeysTriggered
 cmp r0, #0x00
 beq _0802B90E
 ldr r2, _0802B874 @ =0x03004F70
@@ -24073,7 +24073,7 @@ _0802BA10: .4byte 0x02020400
 _0802BA14: .4byte 0x01001400
 _0802BA18: .4byte spm_main
 _0802BA1C: .4byte 0x00010001
-_0802BA20: .4byte nullsub_2
+_0802BA20: .4byte main_dummyIrqHandler
 thumb_func_start sub_802BA24
 sub_802BA24:
 push {r4, r5, r6, lr}
@@ -25939,645 +25939,3 @@ _0802D0D6:
 pop {r4, r5, r6, r7}
 pop {r0}
 bx r0
-thumb_func_start AgbMain
-AgbMain: @ 0802D0DC
-push {r4, r5, lr}
-add sp, #-0x008
-ldr r5, _0802D240 @ =0x03002E20
-movs r0, #0x01
-ldr r1, _0802D244 @ =0xFFFEFFFF
-bl irq_updateMask
-movs r2, #0x80
-lsls r2, r2, #0x13
-ldrh r0, [r2, #0x00]
-movs r1, #0x80
-orrs r0, r1
-strh r0, [r2, #0x00]
-ldr r1, _0802D248 @ =0x04000204
-ldr r2, _0802D24C @ =0x00004494
-adds r0, r2, #0x0
-strh r0, [r1, #0x00]
-movs r4, #0x00
-str r4, [sp, #0x000]
-ldr r1, _0802D250 @ =0x040000D4
-mov r0, sp
-str r0, [r1, #0x00]
-movs r0, #0x80
-lsls r0, r0, #0x12
-str r0, [r1, #0x04]
-ldr r0, _0802D254 @ =0x85010000
-str r0, [r1, #0x08]
-ldr r0, [r1, #0x08]
-str r4, [sp, #0x000]
-mov r2, sp
-str r2, [r1, #0x00]
-movs r0, #0xC0
-lsls r0, r0, #0x12
-str r0, [r1, #0x04]
-ldr r0, _0802D258 @ =0x85001F80
-str r0, [r1, #0x08]
-ldr r0, [r1, #0x08]
-add r2, sp, #0x004
-strh r4, [r2, #0x00]
-str r2, [r1, #0x00]
-movs r0, #0xC0
-lsls r0, r0, #0x13
-str r0, [r1, #0x04]
-ldr r0, _0802D25C @ =0x8100C000
-str r0, [r1, #0x08]
-ldr r0, [r1, #0x08]
-str r4, [sp, #0x000]
-mov r0, sp
-str r0, [r1, #0x00]
-movs r0, #0xE0
-lsls r0, r0, #0x13
-str r0, [r1, #0x04]
-ldr r0, _0802D260 @ =0x85000100
-str r0, [r1, #0x08]
-ldr r0, [r1, #0x08]
-strh r4, [r2, #0x00]
-str r2, [r1, #0x00]
-movs r0, #0xA0
-lsls r0, r0, #0x13
-str r0, [r1, #0x04]
-ldr r0, _0802D264 @ =0x81000200
-str r0, [r1, #0x08]
-ldr r0, [r1, #0x08]
-ldr r2, _0802D268 @ =0x081E9B1C
-str r2, [r1, #0x00]
-ldr r0, _0802D26C @ =0x0203EBE0
-str r0, [r1, #0x04]
-ldr r0, _0802D270 @ =0x081E9BCC
-subs r0, r0, r2
-lsrs r2, r0, #0x1F
-adds r0, r0, r2
-asrs r0, r0, #0x01
-movs r2, #0x80
-lsls r2, r2, #0x18
-orrs r0, r2
-str r0, [r1, #0x08]
-ldr r0, [r1, #0x08]
-movs r0, #0x00
-movs r1, #0x00
-bl sub_802D53C
-str r4, [r5, #0x14]
-bl sub_802D330
-ldr r0, _0802D274 @ =0x04000100
-str r4, [r0, #0x00]
-ldr r1, _0802D278 @ =0x040000BC
-ldrh r2, [r1, #0x0A]
-ldr r0, _0802D27C @ =0x0000C5FF
-ands r0, r2
-strh r0, [r1, #0x0A]
-ldrh r2, [r1, #0x0A]
-ldr r0, _0802D280 @ =0x00007FFF
-ands r0, r2
-strh r0, [r1, #0x0A]
-ldrh r0, [r1, #0x0A]
-bl m4aSoundInit
-bl irq_init
-ldr r0, _0802D284 @ =0x04000200
-strh r4, [r0, #0x00]
-ldr r1, _0802D288 @ =0x04000202
-ldr r2, _0802D28C @ =0x0000FFFF
-adds r0, r2, #0x0
-strh r0, [r1, #0x00]
-ldr r1, _0802D290 @ =0x04000004
-movs r0, #0x18
-strh r0, [r1, #0x00]
-ldr r1, _0802D294 @ =0x00010001
-movs r0, #0x00
-bl irq_updateMask
-movs r1, #0x90
-lsls r1, r1, #0x09
-movs r0, #0x02
-bl irq_updateMask
-ldr r1, _0802D298 @ =0x0802D2BD
-cmp r1, #0x00
-bne _0802D1D0
-ldr r1, _0802D29C @ =0x0802D5F1
-_0802D1D0:
-movs r0, #0x00
-bl irq_setHandler
-ldr r1, _0802D2A0 @ =0x08030561
-cmp r1, #0x00
-bne _0802D1DE
-ldr r1, _0802D29C @ =0x0802D5F1
-_0802D1DE:
-movs r0, #0x02
-bl irq_setHandler
-bl dmaq_getVBlankDmaQueue
-bl dmaq_init
-bl vcount_init
-ldr r0, _0802D2A4 @ =0x03002C80
-strh r4, [r0, #0x16]
-bl sio2_stop
-movs r0, #0x02
-movs r1, #0x80
-lsls r1, r1, #0x09
-bl irq_updateMask
-ldr r0, _0802D2A8 @ =0x08000E6D
-str r0, [r5, #0x00]
-movs r0, #0x01
-strb r0, [r5, #0x08]
-bl sub_805EEF4
-bl sub_805C8A4
-bl sub_80436F8
-bl sub_8001B30
-bl sub_8001ADC
-_0802D21E:
-ldr r0, _0802D240 @ =0x03002E20
-ldr r0, [r0, #0x00]
-cmp r0, #0x00
-beq _0802D2AC
-bl _call_via_r0
-cmp r0, #0x00
-beq _0802D2AC
-bl vcount_reset
-bl dmaq_getVBlankDmaQueue
-bl dmaq_reset
-bl main_frameProc
-b _0802D21E
-_0802D240: .4byte 0x03002E20
-_0802D244: .4byte 0xFFFEFFFF
-_0802D248: .4byte 0x04000204
-_0802D24C: .4byte 0x00004494
-_0802D250: .4byte 0x040000D4
-_0802D254: .4byte 0x85010000
-_0802D258: .4byte 0x85001F80
-_0802D25C: .4byte 0x8100C000
-_0802D260: .4byte 0x85000100
-_0802D264: .4byte 0x81000200
-_0802D268: .4byte 0x081E9B1C
-_0802D26C: .4byte 0x0203EBE0
-_0802D270: .4byte 0x081E9BCC
-_0802D274: .4byte 0x04000100
-_0802D278: .4byte 0x040000BC
-_0802D27C: .4byte 0x0000C5FF
-_0802D280: .4byte 0x00007FFF
-_0802D284: .4byte 0x04000200
-_0802D288: .4byte 0x04000202
-_0802D28C: .4byte 0x0000FFFF
-_0802D290: .4byte 0x04000004
-_0802D294: .4byte 0x00010001
-_0802D298: .4byte main_vblankHandler
-_0802D29C: .4byte nullsub_2
-_0802D2A0: .4byte vcount_irqHandler
-_0802D2A4: .4byte 0x03002C80
-_0802D2A8: .4byte title_main
-_0802D2AC:
-movs r0, #0xFF
-bl SoftReset
-add sp, #0x008
-pop {r4, r5}
-pop {r0}
-bx r0
-.byte 0x00, 0x00
-thumb_func_start main_vblankHandler
-main_vblankHandler: @ 0802D2BC
-push {r4, lr}
-ldr r4, _0802D314 @ =0x03002E20
-bl SoundVSync_rev01
-bl sub_802D648
-ldr r1, _0802D318 @ =0x040000B0
-ldrh r2, [r1, #0x0A]
-ldr r0, _0802D31C @ =0x0000C5FF
-ands r0, r2
-strh r0, [r1, #0x0A]
-ldrh r2, [r1, #0x0A]
-ldr r0, _0802D320 @ =0x00007FFF
-ands r0, r2
-strh r0, [r1, #0x0A]
-ldrh r0, [r1, #0x0A]
-bl oam_dmaCopyToHw
-bl oam_reset
-bl dmaq_getVBlankDmaQueue
-bl dmaq_process
-bl pltt_copyBufferToHw
-bl map_copyBuffersToHw
-ldr r0, [r4, #0x0C]
-cmp r0, #0x00
-beq _0802D2FE
-bl _call_via_r0
-_0802D2FE:
-bl sub_802D764
-ldr r0, [r4, #0x14]
-adds r0, #0x01
-str r0, [r4, #0x14]
-bl sub_802D658
-pop {r4}
-pop {r0}
-bx r0
-.byte 0x00, 0x00
-_0802D314: .4byte 0x03002E20
-_0802D318: .4byte 0x040000B0
-_0802D31C: .4byte 0x0000C5FF
-_0802D320: .4byte 0x00007FFF
-.byte 0x00, 0xB5, 0x03, 0xF0, 0x1B, 0xF9, 0x01, 0xBC, 0x00, 0x47, 0x00, 0x00
-thumb_func_start sub_802D330
-sub_802D330:
-push {r4, r5, r6, r7, lr}
-mov r7, r8
-push {r7}
-ldr r0, _0802D380 @ =0x03002E20
-mov r8, r0
-movs r0, #0x18
-movs r1, #0x06
-bl sub_802D438
-movs r3, #0x00
-movs r2, #0x00
-ldr r1, _0802D384 @ =0x03004F58
-mov r12, r1
-ldr r6, _0802D388 @ =0x03004F48
-ldr r5, _0802D38C @ =0x03004EA0
-ldr r4, _0802D390 @ =0x03004F30
-_0802D350:
-lsls r0, r3, #0x01
-mov r7, r12
-strh r2, [r7, #0x00]
-strh r2, [r6, #0x00]
-strh r2, [r5, #0x00]
-strh r2, [r4, #0x00]
-ldr r1, _0802D394 @ =0x030001B0
-adds r0, r0, r1
-mov r7, r8
-ldrh r1, [r7, #0x20]
-strh r1, [r0, #0x00]
-movs r0, #0x02
-add r12, r0
-adds r6, #0x02
-adds r5, #0x02
-adds r4, #0x02
-adds r3, #0x01
-cmp r3, #0x03
-ble _0802D350
-pop {r3}
-mov r8, r3
-pop {r4, r5, r6, r7}
-pop {r0}
-bx r0
-_0802D380: .4byte 0x03002E20
-_0802D384: .4byte 0x03004F58
-_0802D388: .4byte 0x03004F48
-_0802D38C: .4byte 0x03004EA0
-_0802D390: .4byte 0x03004F30
-_0802D394: .4byte 0x030001B0
-thumb_func_start sub_802D398
-sub_802D398:
-push {r4, r5, r6, r7, lr}
-mov r7, r10
-mov r6, r9
-mov r5, r8
-push {r5, r6, r7}
-ldr r7, _0802D3F8 @ =0x03002E20
-ldr r0, _0802D3FC @ =0x03004F58
-mov r10, r0
-ldr r1, _0802D400 @ =0x03004EA0
-mov r9, r1
-ldr r2, _0802D404 @ =0x03004F48
-mov r8, r2
-ldr r0, _0802D408 @ =0x03004F30
-mov r12, r0
-mov r5, r12
-movs r6, #0x00
-ldr r4, _0802D40C @ =0x030001B0
-_0802D3BA:
-mov r1, r10
-adds r0, r6, r1
-ldrh r1, [r0, #0x00]
-ldr r2, _0802D410 @ =0x000003FF
-adds r0, r2, #0x0
-adds r3, r0, #0x0
-eors r3, r1
-mov r0, r9
-adds r2, r6, r0
-ldrh r1, [r5, #0x00]
-adds r0, r3, #0x0
-bics r0, r1
-strh r0, [r2, #0x00]
-mov r2, r8
-adds r1, r6, r2
-strh r0, [r1, #0x00]
-cmp r3, #0x00
-beq _0802D414
-ldrh r0, [r5, #0x00]
-cmp r3, r0
-bne _0802D414
-ldrh r0, [r4, #0x00]
-subs r0, #0x01
-strh r0, [r4, #0x00]
-lsls r0, r0, #0x10
-cmp r0, #0x00
-bne _0802D418
-strh r3, [r1, #0x00]
-ldrh r0, [r7, #0x22]
-b _0802D416
-.byte 0x00, 0x00
-_0802D3F8: .4byte 0x03002E20
-_0802D3FC: .4byte 0x03004F58
-_0802D400: .4byte 0x03004EA0
-_0802D404: .4byte 0x03004F48
-_0802D408: .4byte 0x03004F30
-_0802D40C: .4byte 0x030001B0
-_0802D410: .4byte 0x000003FF
-_0802D414:
-ldrh r0, [r7, #0x20]
-_0802D416:
-strh r0, [r4, #0x00]
-_0802D418:
-strh r3, [r5, #0x00]
-adds r5, #0x02
-adds r6, #0x02
-adds r4, #0x02
-mov r0, r12
-adds r0, #0x06
-cmp r5, r0
-ble _0802D3BA
-pop {r3, r4, r5}
-mov r8, r3
-mov r9, r4
-mov r10, r5
-pop {r4, r5, r6, r7}
-pop {r0}
-bx r0
-.byte 0x00, 0x00
-thumb_func_start sub_802D438
-sub_802D438:
-ldr r3, _0802D450 @ =0x03002E20
-strh r0, [r3, #0x20]
-strh r1, [r3, #0x22]
-ldr r2, _0802D454 @ =0x030001B0
-movs r1, #0x03
-_0802D442:
-ldrh r0, [r3, #0x20]
-strh r0, [r2, #0x00]
-adds r2, #0x02
-subs r1, #0x01
-cmp r1, #0x00
-bge _0802D442
-bx lr
-_0802D450: .4byte 0x03002E20
-_0802D454: .4byte 0x030001B0
-.byte 0x06, 0x48, 0x00, 0x21, 0x41, 0x56, 0x01, 0x20, 0x40, 0x42, 0x81, 0x42, 0x00, 0xD1, 0x00, 0x21
-.byte 0x03, 0x48, 0x49, 0x00, 0x09, 0x18, 0x08, 0x88, 0x70, 0x47, 0x00, 0x00, 0x80, 0x2C, 0x00, 0x03
-.byte 0x30, 0x4F, 0x00, 0x03
-thumb_func_start sub_802D47C
-sub_802D47C:
-ldr r0, _0802D498 @ =0x03002C80
-movs r1, #0x00
-ldsb r1, [r0, r1]
-movs r0, #0x01
-negs r0, r0
-cmp r1, r0
-bne _0802D48C
-movs r1, #0x00
-_0802D48C:
-ldr r0, _0802D49C @ =0x03004EA0
-lsls r1, r1, #0x01
-adds r1, r1, r0
-ldrh r0, [r1, #0x00]
-bx lr
-.byte 0x00, 0x00
-_0802D498: .4byte 0x03002C80
-_0802D49C: .4byte 0x03004EA0
-thumb_func_start sub_802D4A0
-sub_802D4A0:
-ldr r0, _0802D4BC @ =0x03002C80
-movs r1, #0x00
-ldsb r1, [r0, r1]
-movs r0, #0x01
-negs r0, r0
-cmp r1, r0
-bne _0802D4B0
-movs r1, #0x00
-_0802D4B0:
-ldr r0, _0802D4C0 @ =0x03004F48
-lsls r1, r1, #0x01
-adds r1, r1, r0
-ldrh r0, [r1, #0x00]
-bx lr
-.byte 0x00, 0x00
-_0802D4BC: .4byte 0x03002C80
-_0802D4C0: .4byte 0x03004F48
-.byte 0x00, 0x04, 0x02, 0x0C, 0x06, 0x48, 0x00, 0x21, 0x41, 0x56, 0x01, 0x20, 0x40, 0x42, 0x81, 0x42
-.byte 0x00, 0xD1, 0x00, 0x21, 0x03, 0x48, 0x49, 0x00, 0x09, 0x18, 0x08, 0x88, 0x10, 0x40, 0x70, 0x47
-.byte 0x80, 0x2C, 0x00, 0x03, 0x30, 0x4F, 0x00, 0x03
-thumb_func_start sub_802D4EC
-sub_802D4EC:
-lsls r0, r0, #0x10
-lsrs r2, r0, #0x10
-ldr r0, _0802D50C @ =0x03002C80
-movs r1, #0x00
-ldsb r1, [r0, r1]
-movs r0, #0x01
-negs r0, r0
-cmp r1, r0
-bne _0802D500
-movs r1, #0x00
-_0802D500:
-ldr r0, _0802D510 @ =0x03004EA0
-lsls r1, r1, #0x01
-adds r1, r1, r0
-ldrh r0, [r1, #0x00]
-ands r0, r2
-bx lr
-_0802D50C: .4byte 0x03002C80
-_0802D510: .4byte 0x03004EA0
-thumb_func_start sub_802D514
-sub_802D514:
-lsls r0, r0, #0x10
-lsrs r2, r0, #0x10
-ldr r0, _0802D534 @ =0x03002C80
-movs r1, #0x00
-ldsb r1, [r0, r1]
-movs r0, #0x01
-negs r0, r0
-cmp r1, r0
-bne _0802D528
-movs r1, #0x00
-_0802D528:
-ldr r0, _0802D538 @ =0x03004F48
-lsls r1, r1, #0x01
-adds r1, r1, r0
-ldrh r0, [r1, #0x00]
-ands r0, r2
-bx lr
-_0802D534: .4byte 0x03002C80
-_0802D538: .4byte 0x03004F48
-thumb_func_start sub_802D53C
-sub_802D53C:
-adds r2, r0, #0x0
-cmp r2, #0x00
-bne _0802D546
-ldr r2, _0802D55C @ =0x080DE05C
-movs r1, #0x1D
-_0802D546:
-cmp r1, #0x00
-ble _0802D55A
-adds r3, r1, #0x0
-_0802D54C:
-ldr r1, [r2, #0x00]
-ldrh r0, [r2, #0x04]
-strh r0, [r1, #0x00]
-adds r2, #0x08
-subs r3, #0x01
-cmp r3, #0x00
-bne _0802D54C
-_0802D55A:
-bx lr
-_0802D55C: .4byte 0x080DE05C
-thumb_func_start gx_waitVBlankFlag
-gx_waitVBlankFlag: @ 0802D560
-ldr r2, _0802D574 @ =0x04000004
-ldrb r1, [r2, #0x00]
-movs r3, #0x01
-_0802D566:
-adds r0, r3, #0x0
-ands r0, r1
-cmp r0, #0x00
-bne _0802D578
-ldrb r1, [r2, #0x00]
-b _0802D566
-.byte 0x00, 0x00
-_0802D574: .4byte 0x04000004
-_0802D578:
-bx lr
-.byte 0x00, 0x00
-thumb_func_start gx_waitNotVBlankFlag
-gx_waitNotVBlankFlag: @ 0802D57C
-ldr r2, _0802D590 @ =0x04000004
-ldrb r1, [r2, #0x00]
-movs r3, #0x01
-_0802D582:
-adds r0, r3, #0x0
-ands r0, r1
-cmp r0, #0x00
-beq _0802D594
-ldrb r1, [r2, #0x00]
-b _0802D582
-.byte 0x00, 0x00
-_0802D590: .4byte 0x04000004
-_0802D594:
-bx lr
-.byte 0x00, 0x00
-thumb_func_start sub_802D598
-sub_802D598:
-push {r4, r5, lr}
-adds r4, r0, #0x0
-movs r0, #0x02
-negs r0, r0
-ands r4, r0
-movs r5, #0x01
-orrs r5, r1
-movs r3, #0x00
-lsrs r2, r2, #0x02
-cmp r3, r2
-bcs _0802D5B8
-_0802D5AE:
-ldm r4!, {r0}
-stm r1!, {r0}
-adds r3, #0x01
-cmp r3, r2
-bcc _0802D5AE
-_0802D5B8:
-adds r0, r5, #0x0
-pop {r4, r5}
-pop {r1}
-bx r1
-.byte 0x02, 0x49, 0x00, 0x04, 0x00, 0x14, 0x08, 0x60, 0x70, 0x47, 0x00, 0x00, 0xB8, 0x01, 0x00, 0x03
-thumb_func_start sub_802D5D0
-sub_802D5D0:
-ldr r2, _0802D5E4 @ =0x030001B8
-ldr r1, [r2, #0x00]
-ldr r0, _0802D5E8 @ =0x41C64E6D
-muls r0, r1
-ldr r1, _0802D5EC @ =0x00003039
-adds r0, r0, r1
-str r0, [r2, #0x00]
-lsls r0, r0, #0x01
-lsrs r0, r0, #0x11
-bx lr
-_0802D5E4: .4byte 0x030001B8
-_0802D5E8: .4byte 0x41C64E6D
-_0802D5EC: .4byte 0x00003039
-thumb_func_start nullsub_2
-nullsub_2: @ 0802D5F0
-bx lr
-.byte 0x00, 0x00
-thumb_func_start sub_802D5F4
-sub_802D5F4:
-ldr r0, _0802D600 @ =0x03007FF8
-ldr r0, [r0, #0x00]
-lsls r0, r0, #0x1F
-lsrs r0, r0, #0x1F
-bx lr
-.byte 0x00, 0x00
-_0802D600: .4byte 0x03007FF8
-thumb_func_start sub_802D604
-sub_802D604:
-ldr r3, _0802D618 @ =0x03007FF8
-movs r1, #0x01
-ands r0, r1
-ldrb r2, [r3, #0x00]
-movs r1, #0x02
-negs r1, r1
-ands r1, r2
-orrs r1, r0
-strb r1, [r3, #0x00]
-bx lr
-_0802D618: .4byte 0x03007FF8
-thumb_func_start main_frameProc
-main_frameProc: @ 0802D61C
-push {r4, r5, lr}
-ldr r5, _0802D644 @ =0x030001BC
-movs r4, #0x00
-_0802D622:
-str r4, [r5, #0x00]
-bl VBlankIntrWait
-bl m4aSoundMain
-bl sub_802D82C
-cmp r0, #0x00
-bne _0802D622
-bl sub_802D398
-bl trns_update
-pop {r4, r5}
-pop {r0}
-bx r0
-.byte 0x00, 0x00
-_0802D644: .4byte 0x030001BC
-thumb_func_start sub_802D648
-sub_802D648:
-ldr r1, _0802D654 @ =0x030001BC
-ldr r0, [r1, #0x00]
-adds r0, #0x01
-str r0, [r1, #0x00]
-bx lr
-.byte 0x00, 0x00
-_0802D654: .4byte 0x030001BC
-thumb_func_start sub_802D658
-sub_802D658:
-ldr r2, _0802D66C @ =0x03007FF8
-movs r3, #0x01
-ldrb r1, [r2, #0x00]
-movs r0, #0x02
-negs r0, r0
-ands r0, r1
-orrs r0, r3
-strb r0, [r2, #0x00]
-bx lr
-.byte 0x00, 0x00
-_0802D66C: .4byte 0x03007FF8
-thumb_func_start sub_802D670
-sub_802D670:
-ldr r0, _0802D678 @ =0x030001BC
-ldr r0, [r0, #0x00]
-bx lr
-.byte 0x00, 0x00
-_0802D678: .4byte 0x030001BC
-thumb_func_start sub_802D67C
-sub_802D67C:
-ldr r1, _0802D684 @ =0x030001BC
-str r0, [r1, #0x00]
-bx lr
-.byte 0x00, 0x00
-_0802D684: .4byte 0x030001BC

@@ -40,3 +40,13 @@ typedef void (*irq_handler_t)(void);
 
 void irq_init(void);
 void irq_updateMask(int mode, int mask);
+
+static inline void irq_disableIme()
+{
+    irq_updateMask(IRQ_UPDATE_MODE_AND, ~IRQ_MASK_IME);
+}
+
+static inline void irq_enableIme()
+{
+    irq_updateMask(IRQ_UPDATE_MODE_OR, IRQ_MASK_IME);
+}

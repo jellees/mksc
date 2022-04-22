@@ -22,7 +22,7 @@ void irq_init()
     irq_updateMask(IRQ_UPDATE_MODE_SET, 0);
     dma_copy16(sIrqTableInitData, gIrqTable, sizeof(sIrqTableInitData) >> 1);
     dma_copy16(intr_main, sIntrMain, sizeof(sIntrMain) >> 1);
-    INTR_VECTOR_BUF = sIntrMain;
+    INTR_VECTOR_BUF = (u32)sIntrMain;
 }
 
 void irq_setHandler(int irqId, irq_handler_t handler)

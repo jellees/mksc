@@ -1233,7 +1233,7 @@ _08002494: .4byte 0x000011C8
 _08002498: .4byte sub_8001DDC
 _0800249C: .4byte 0x03002E20
 _080024A0: .4byte 0x00010001
-_080024A4: .4byte nullsub_2
+_080024A4: .4byte main_dummyIrqHandler
 _080024A8: .4byte sub_800C680
 _080024AC: .4byte 0x0203EBE4
 _080024B0:
@@ -1737,7 +1737,7 @@ _08002904: .4byte 0x08102498
 _08002908: .4byte 0x0000000B
 _0800290C: .4byte 0x03002E20
 _08002910: .4byte 0x00010001
-_08002914: .4byte nullsub_2
+_08002914: .4byte main_dummyIrqHandler
 _08002918: .4byte 0x000011E4
 _0800291C: .4byte 0x0300000C
 _08002920:
@@ -18160,8 +18160,8 @@ _08010118: .4byte 0x00000454
 _0801011C: .4byte 0x080CA728
 _08010120: .4byte 0x0000046C
 _08010124: .4byte 0x0000049C
-_08010128: .4byte nullsub_25
-_0801012C: .4byte nullsub_2
+_08010128: .4byte main_dummyIrqHandler5
+_0801012C: .4byte main_dummyIrqHandler
 _08010130: .4byte sub_800F77C
 _08010134: .4byte 0x03002E20
 _08010138: .4byte 0x00010001
@@ -18607,7 +18607,7 @@ _08011258: .4byte sub_800F77C
 _0801125C: .4byte 0x03002E20
 _08011260: .4byte 0x00010001
 _08011264: .4byte sub_8011384
-_08011268: .4byte nullsub_2
+_08011268: .4byte main_dummyIrqHandler
 _0801126C: .4byte 0x00000844
 _08011270: .4byte 0x00001008
 _08011274:
@@ -18706,7 +18706,7 @@ ldrh r1, [r6, #0x1E]
 strh r0, [r6, #0x1E]
 b _08011224
 _08011334: .4byte sub_80113CC
-_08011338: .4byte nullsub_2
+_08011338: .4byte main_dummyIrqHandler
 _0801133C: .4byte 0x080C5684
 _08011340: .4byte 0x080C5EF0
 _08011344: .4byte 0x06008000
@@ -18736,7 +18736,7 @@ thumb_func_start sub_8011384
 sub_8011384:
 push {lr}
 bl SoundVSync_rev01
-bl sub_802D648
+bl main_increaseFrameCounter
 ldr r1, _080113C4 @ =0x040000BA
 movs r0, #0x00
 strh r0, [r1, #0x00]
@@ -18753,7 +18753,7 @@ beq _080113B8
 bl _call_via_r0
 _080113B8:
 bl sub_80113F4
-bl sub_802D658
+bl main_setVBlankCheckFlag
 pop {r0}
 bx r0
 _080113C4: .4byte 0x040000BA
@@ -18762,7 +18762,7 @@ thumb_func_start sub_80113CC
 sub_80113CC:
 push {lr}
 bl SoundVSync_rev01
-bl sub_802D648
+bl main_increaseFrameCounter
 ldr r0, _080113F0 @ =0x03002E20
 ldr r0, [r0, #0x0C]
 cmp r0, #0x00
@@ -18770,7 +18770,7 @@ beq _080113E2
 bl _call_via_r0
 _080113E2:
 bl sub_80113F4
-bl sub_802D658
+bl main_setVBlankCheckFlag
 pop {r0}
 bx r0
 .byte 0x00, 0x00
@@ -18838,8 +18838,8 @@ pop {r4}
 pop {r0}
 bx r0
 _08011470: .4byte 0x080C6EAC
-thumb_func_start nullsub_25
-nullsub_25: @ 08011474
+thumb_func_start main_dummyIrqHandler5
+main_dummyIrqHandler5: @ 08011474
 bx lr
 .byte 0x00, 0x00
 thumb_func_start sub_8011478
@@ -22841,7 +22841,7 @@ _08013784:
 ldr r3, [sp, #0x048]
 cmp r3, #0x00
 bne _08013792
-bl sub_802D47C
+bl main_getTriggerKeys
 add r1, sp, #0x008
 b _08013796
 _08013792:
@@ -22994,7 +22994,7 @@ ands r0, r5
 cmp r0, #0x00
 beq _080138C8
 movs r0, #0x09
-bl sub_802D4EC
+bl main_checkKeysTriggered
 cmp r0, #0x00
 beq _080138D6
 b _080138D2
@@ -23589,7 +23589,7 @@ bx r0
 .byte 0x00, 0x00
 _08013EE8: .4byte 0x04000202
 _08013EEC: .4byte sub_8012254
-_08013EF0: .4byte nullsub_2
+_08013EF0: .4byte main_dummyIrqHandler
 _08013EF4: .4byte 0x03002E20
 _08013EF8: .4byte 0x00010001
 _08013EFC: .4byte 0x00003EDE
@@ -24980,7 +24980,7 @@ _08014C84: .4byte 0x03004F70
 _08014C88: .4byte trns_applyDefaultOutTransition
 _08014C8C: .4byte 0x03002E20
 _08014C90: .4byte 0x00010001
-_08014C94: .4byte nullsub_2
+_08014C94: .4byte main_dummyIrqHandler
 _08014C98: .4byte 0x03000180
 thumb_func_start sub_8014C9C
 sub_8014C9C:

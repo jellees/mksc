@@ -755,7 +755,7 @@
     _08000850:
         movs r4, #0x00
         str r4, [r2, #0x00]
-        bl sub_802D5D0
+        bl main_getRandom
         movs r1, #0xB6
         lsls r1, r1, #0x01
         adds r2, r5, r1

@@ -1,3 +1,5 @@
+unk_203EBE0 = 0x0203EBE0;
+
 gFlashMaxTime = 0x030023E0;
 sTimerNum = 0x030023E8;
 sTimerCount = 0x030023EA;
@@ -10,6 +12,10 @@ sio2_sMPlayerId = 0x03002C80;
 
 dmaq_sHeap = 0x030048A0;
 
+gKeyTriggerBuf = 0x03004EA0;
+gKeyBuf = 0x03004F30;
+gKeyRepeatTriggerBuf = 0x03004F48;
+sio2_sKeyBuf = 0x03004F58;
 gIrqTable = 0x03004F80;
 gSoundInfo = 0x03005CA0;
 gMPlayJumpTable = 0x03006720;

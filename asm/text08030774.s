@@ -11068,7 +11068,7 @@ _08036AE0:
     strh r0, [r4, #0x0E]
     mov r3, r10
     strh r3, [r4, #0x0A]
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x1F
     ands r1, r0
     strh r1, [r4, #0x0C]
@@ -11089,7 +11089,7 @@ _08036B16:
     strh r0, [r4, #0x0E]
     mov r3, r10
     strh r3, [r4, #0x0A]
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x3F
     ands r1, r0
     adds r1, #0x14
@@ -11118,7 +11118,7 @@ _08036B50:
     cmp r6, #0x00
     beq _08036B78
 _08036B6C:
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x1F
     ands r1, r0
     strh r1, [r5, #0x0C]
@@ -11126,12 +11126,12 @@ _08036B6C:
 _08036B78:
     cmp r7, #0x00
     bge _08036B88
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, _08036B84 @ =0x080EB37C
     b _08036B8E
 _08036B84: .4byte 0x080EB37C
 _08036B88:
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, _08036BE0 @ =0x080EB38C
 _08036B8E:
     movs r1, #0x07
@@ -11145,7 +11145,7 @@ _08036B8E:
     movs r0, #0x01
     strh r0, [r4, #0x0E]
     strh r0, [r4, #0x0A]
-    bl sub_802D5D0
+    bl main_getRandom
     strh r0, [r4, #0x0C]
     ldr r0, _08036BE4 @ =0x030021E0
     adds r0, #0x10
@@ -11160,14 +11160,14 @@ _08036B8E:
     bgt _08036C10
     cmp r0, #0x00
     blt _08036C10
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x3F
     ands r1, r0
     lsls r0, r1, #0x02
     adds r0, r0, r1
     lsls r0, r0, #0x10
     str r0, [r4, #0x00]
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x1F
     ands r1, r0
     adds r1, #0x08
@@ -11175,14 +11175,14 @@ _08036B8E:
 _08036BE0: .4byte 0x080EB38C
 _08036BE4: .4byte 0x030021E0
 _08036BE8:
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x3F
     ands r1, r0
     lsls r0, r1, #0x02
     adds r0, r0, r1
     lsls r0, r0, #0x10
     str r0, [r4, #0x00]
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, _08036C0C @ =0x030021E4
     add r2, r8
     movs r1, #0x1F
@@ -11193,14 +11193,14 @@ _08036BE8:
     b _08036C2E
 _08036C0C: .4byte 0x030021E4
 _08036C10:
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x3F
     ands r1, r0
     lsls r0, r1, #0x02
     adds r0, r0, r1
     lsls r0, r0, #0x10
     str r0, [r5, #0x00]
-    bl sub_802D5D0
+    bl main_getRandom
     movs r1, #0x0F
     ands r1, r0
     subs r1, #0x08
@@ -47661,7 +47661,7 @@ _0804AFCC: .4byte 0x040000B0
 _0804AFD0: .4byte 0xA6600004
 _0804AFD4: .4byte 0x04000202
 _0804AFD8: .4byte 0x000007F4
-_0804AFDC: .4byte nullsub_2
+_0804AFDC: .4byte main_dummyIrqHandler
 _0804AFE0: .4byte 0x04000200
     thumb_func_start sub_804AFE4
 sub_804AFE4:
@@ -47744,7 +47744,7 @@ _0804B084: .4byte 0x0400000A
 _0804B088: .4byte 0x00002F05
 _0804B08C: .4byte 0x0000F889
 _0804B090: .4byte 0x10082C42
-_0804B094: .4byte nullsub_2
+_0804B094: .4byte main_dummyIrqHandler
 _0804B098: .4byte 0x04000200
 _0804B09C: .4byte 0x0000FFFD
     thumb_func_start sub_804B0A0
@@ -47775,7 +47775,7 @@ sub_804B0A0:
 _0804B0D0: .4byte 0x0000FFF8
 _0804B0D4: .4byte 0x0400000C
 _0804B0D8: .4byte 0x0000F889
-_0804B0DC: .4byte nullsub_2
+_0804B0DC: .4byte main_dummyIrqHandler
 _0804B0E0: .4byte 0x04000200
 _0804B0E4: .4byte 0x0000FFFD
     thumb_func_start sub_804B0E8
@@ -47811,7 +47811,7 @@ _0804B120: .4byte 0x0000FFF8
 _0804B124: .4byte 0x0400000C
 _0804B128: .4byte 0x0000F889
 _0804B12C: .4byte 0x060D3B44
-_0804B130: .4byte nullsub_2
+_0804B130: .4byte main_dummyIrqHandler
 _0804B134: .4byte 0x04000200
 _0804B138: .4byte 0x0000FFFD
     thumb_func_start sub_804B13C
@@ -47858,7 +47858,7 @@ _0804B18C: .4byte 0x0000080D
 _0804B190: .4byte 0x0000FFF8
 _0804B194: .4byte 0x0400000C
 _0804B198: .4byte 0x0000F88B
-_0804B19C: .4byte nullsub_2
+_0804B19C: .4byte main_dummyIrqHandler
 _0804B1A0: .4byte 0x04000200
 _0804B1A4: .4byte 0x0000FFFD
     thumb_func_start sub_804B1A8
@@ -57215,7 +57215,7 @@ sub_80515BC:
     bl pltt_clearBuffer
     ldr r0, _08051670 @ =0x080EFC84
     movs r1, #0x18
-    bl sub_802D53C
+    bl main_configureIoRegs
     ldr r7, _08051674 @ =0x04000008
     ldrb r1, [r7, #0x00]
     movs r6, #0x7F
@@ -63016,12 +63016,12 @@ _08056734:
     pop {r0}
     bx r0
     .byte 0x00, 0x00, 0x08, 0x01, 0x0F, 0x08
-    thumb_func_start nullsub_26
-nullsub_26: @ 08056744
+    thumb_func_start main_dummyIrqHandler6
+main_dummyIrqHandler6: @ 08056744
     bx lr
     .byte 0x00, 0x00
-    thumb_func_start nullsub_27
-nullsub_27: @ 08056748
+    thumb_func_start main_dummyIrqHandler7
+main_dummyIrqHandler7: @ 08056748
     bx lr
     .byte 0x00, 0x00
     thumb_func_start sub_805674C
@@ -65242,12 +65242,12 @@ _08057E14:
     pop {r0}
     bx r0
     .byte 0x00, 0x00, 0x08, 0x0A, 0x0F, 0x08
-    thumb_func_start nullsub_28
-nullsub_28: @ 08057E20
+    thumb_func_start main_dummyIrqHandler8
+main_dummyIrqHandler8: @ 08057E20
     bx lr
     .byte 0x00, 0x00
-    thumb_func_start nullsub_29
-nullsub_29: @ 08057E24
+    thumb_func_start main_dummyIrqHandler9
+main_dummyIrqHandler9: @ 08057E24
     bx lr
     .byte 0x00, 0x00
     thumb_func_start sub_8057E28
@@ -65402,7 +65402,7 @@ sub_80580EC:
     str r0, [r4, #0x4C]
     movs r0, #0x10
     str r0, [r4, #0x60]
-    bl sub_802D5D0
+    bl main_getRandom
     lsls r0, r0, #0x10
     asrs r0, r0, #0x10
     movs r1, #0xFC
@@ -65412,7 +65412,7 @@ sub_80580EC:
     movs r0, #0x80
     lsls r0, r0, #0x0C
     str r0, [r4, #0x68]
-    bl sub_802D5D0
+    bl main_getRandom
     lsls r0, r0, #0x10
     asrs r0, r0, #0x10
     movs r1, #0x58
@@ -66219,7 +66219,7 @@ sub_805892C:
     str r0, [r4, #0x4C]
     movs r0, #0x10
     str r0, [r4, #0x60]
-    bl sub_802D5D0
+    bl main_getRandom
     lsls r0, r0, #0x10
     asrs r0, r0, #0x10
     movs r1, #0xFC
@@ -67102,7 +67102,7 @@ sub_8059004:
     str r0, [r5, #0x4C]
     movs r0, #0x10
     str r0, [r5, #0x60]
-    bl sub_802D5D0
+    bl main_getRandom
     lsls r0, r0, #0x10
     asrs r0, r0, #0x10
     movs r1, #0xFC
@@ -67314,7 +67314,7 @@ sub_805919C:
     str r0, [r4, #0x4C]
     movs r0, #0x10
     str r0, [r4, #0x60]
-    bl sub_802D5D0
+    bl main_getRandom
     lsls r0, r0, #0x10
     asrs r0, r0, #0x10
     movs r1, #0xFC
@@ -68198,7 +68198,7 @@ sub_8059E98:
     str r0, [r5, #0x4C]
     movs r0, #0x10
     str r0, [r5, #0x60]
-    bl sub_802D5D0
+    bl main_getRandom
     lsls r0, r0, #0x10
     asrs r0, r0, #0x10
     movs r1, #0xFC
@@ -71571,14 +71571,14 @@ _0805BE9A:
     ldr r1, [r4, #0x00]
     lsls r0, r6, #0x10
     str r0, [r1, #0x2C]
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, [r4, #0x00]
     adds r1, r5, #0x0
     ands r1, r0
     lsls r1, r1, #0x04
     add r1, r8
     str r1, [r2, #0x1C]
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, [r4, #0x00]
     adds r1, r5, #0x0
     ands r1, r0
@@ -71593,7 +71593,7 @@ _0805BE9A:
     add r0, sp, #0x008
     cmp r4, r0
     bne _0805BF22
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, [sp, #0x008]
     adds r1, r5, #0x0
     ands r1, r0
@@ -71606,14 +71606,14 @@ _0805BF08: .4byte 0x03002E20
 _0805BF0C: .4byte sub_805BF78
 _0805BF10: .4byte 0xFFFF4000
 _0805BF14:
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, [sp, #0x004]
     movs r1, #0x07
     ands r1, r0
     negs r1, r1
     b _0805BF2C
 _0805BF22:
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, [r4, #0x00]
     movs r1, #0x07
     ands r1, r0
@@ -71626,7 +71626,7 @@ _0805BF2C:
 _0805BF36:
     adds r0, r0, r1
     str r0, [r2, #0x30]
-    bl sub_802D5D0
+    bl main_getRandom
     ldr r2, [r4, #0x00]
     adds r1, r5, #0x0
     ands r1, r0
@@ -72590,8 +72590,8 @@ _0805C6F6:
     .byte 0x00, 0x28, 0x0D, 0xDB, 0x60, 0x89, 0x00, 0x28, 0x0A, 0xD0, 0x00, 0x20, 0x09, 0xE0, 0x00, 0x00
     .byte 0x00, 0x34, 0x02, 0x02, 0xDC, 0x23, 0x00, 0x03, 0xFE, 0x0F, 0x00, 0x00, 0xB4, 0x2C, 0x00, 0x00
     .byte 0x01, 0x20, 0x30, 0xBC, 0x02, 0xBC, 0x08, 0x47
-    thumb_func_start sub_805C8A4
-sub_805C8A4:
+    thumb_func_start save_805C8A4
+save_805C8A4:
     push {r4, r5, r6, lr}
     ldr r5, _0805C8E8 @ =0x02032B80
     ldr r6, _0805C8EC @ =0x08000E6D
@@ -72811,7 +72811,7 @@ _0805CA70:
     bne _0805CA7E
     movs r4, #0x00
 _0805CA7E:
-    bl gx_waitVBlankFlag
+    bl main_waitVBlankFlag
     movs r0, #0x02
     adds r1, r6, #0x0
     bl irq_updateMask
@@ -73008,7 +73008,7 @@ _0805CBFC:
     bne _0805CC0A
     movs r7, #0x00
 _0805CC0A:
-    bl gx_waitVBlankFlag
+    bl main_waitVBlankFlag
     movs r0, #0x02
     adds r1, r6, #0x0
     bl irq_updateMask
@@ -75572,7 +75572,7 @@ _0805E876:
     ble _0805E876
     movs r4, #0x01
 _0805E88A:
-    bl gx_waitVBlankFlag
+    bl main_waitVBlankFlag
     movs r0, #0x02
     ldr r1, [sp, #0x000]
     bl irq_updateMask
@@ -76457,8 +76457,8 @@ _0805EEEA:
     pop {r4, r5, r6}
     pop {r1}
     bx r1
-    thumb_func_start sub_805EEF4
-sub_805EEF4:
+    thumb_func_start save_805EEF4
+save_805EEF4:
     push {r4, lr}
     ldr r4, _0805EF0C @ =0x02032B50
     bl sub_805D9C8
