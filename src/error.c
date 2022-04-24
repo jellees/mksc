@@ -4,6 +4,7 @@
 #include "palette.h"
 #include "scene.h"
 #include "transition.h"
+#include "dmaQueue.h"
 
 // External declarations.
 extern char title_sDriversBgTilesBuf[0x16000];
@@ -41,6 +42,17 @@ typedef struct
 extern struc_71 sio2_sMPlayerId;
 extern void sub_8017048(void);
 extern void title_main();
+
+typedef struct
+{
+    s16 x;
+    s16 y;
+} vec2s16_t;
+
+extern const u8 gCharacterTiles[1];
+extern const int gCharacterPalettes[1];
+extern const u16* const off_80DA2FC[4];
+extern u16 dword_80CA7A0[1];
 // End external declarations.
 
 typedef struct
@@ -61,11 +73,14 @@ typedef struct
     vu16 bldcnt;
     vu16 bldalpha;
     vu16 bldy;
-    u8 padding[34];
+    s32 field32;
+    u16 field_24[4][4];
     u32 field68;
 } error_state_t;
 
 static error_state_t* sState;
+
+void error_8016D90(void);
 
 static void error_vblank(void)
 {
@@ -292,3 +307,71 @@ int error_main()
 
     return 1;
 }
+
+#ifndef NONMATCHING
+asm_unified(".include \"nonmatching/text08016D90.s\"");
+#else
+void error_8016D90(void)
+{
+    int i;
+    vec2s16_t a2;
+    vec2s16_t v18;
+    int value;
+
+    error_state_t* state = sState;
+
+    int v1 = sio2_sMPlayerId.field_1;
+    if (v1 <= 1)
+        v1 = 1;
+
+    state->field32++;
+
+    while (state->field32 > 127)
+        state->field32 -= 127;
+
+    while (state->field32 < 0)
+        state->field32 += 127;
+
+    value = 80 / (v1 + 1);
+
+    for (i = 0; i < v1; i++)
+    {
+        int j;
+        int v7;
+        int v8;
+        int v9;
+        const u8* sprite;
+        const int* pltts;
+
+        if (state->field32 > 63)
+            v7 = 127 - state->field32;
+        else
+            v7 = state->field32;
+
+        v8 = sub_8008600(v7);
+        v9 = spm_menuCharIdxToCharId(i);
+
+        sprite = &gCharacterTiles[0x16000 * v9] + 2048 * v8;
+        dmaq_enqueueVBlank(sprite, (void*)(0x6011800 + (i << 11)), 0x80000400);
+        CpuFastSet(&gCharacterPalettes[128 * v9], &pltt_getBuffer(1)[64 + 16 * i], 8);
+
+        for (j = 0; j < 4; j++)
+        {
+            const u16* ptr2 = off_80DA2FC[i];
+            state->field_24[i][j] = ptr2[j];
+        }
+
+        if (state->field32 & 0x40)
+            state->field_24[i][2] |= 0x1000;
+        else
+            state->field_24[i][2] &= 0xEFFF;
+
+        *(u32*)&a2 = (u16)(value * (i + 1) + 128) | 0x700000;
+        oam_renderCellData(&state->field_24[i], &a2, 0, 0, 0, 0);
+    }
+
+    *(u32*)&v18 = 0x7000A8;
+    oam_renderCellData(dword_80CA7A0, &v18, 0, 0, 0, 0);
+    pltt_setDirtyFlag(1);
+}
+#endif

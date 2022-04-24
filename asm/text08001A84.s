@@ -1841,7 +1841,7 @@ _08002A3A:
 cmp r7, #0x00
 bne _08002A54
 ldr r0, [sp, #0x018]
-bl sub_800EDA0
+bl spm_menuCharIdxToCharId
 adds r1, r0, #0x0
 adds r0, r6, #0x0
 movs r2, #0x01
@@ -1855,7 +1855,7 @@ mov r4, sp
 adds r5, r7, #0x1
 _08002A5C:
 ldm r4!, {r0}
-bl sub_800EDA0
+bl spm_menuCharIdxToCharId
 adds r1, r0, #0x0
 adds r0, r6, #0x0
 movs r2, #0x01
@@ -6485,7 +6485,7 @@ _08005F28:
 adds r4, r6, #0x0
 _08005F2A:
 adds r0, r7, #0x0
-bl sub_800EDA0
+bl spm_menuCharIdxToCharId
 adds r5, r0, #0x0
 ldr r0, _08005F90 @ =0x080D9344
 adds r0, r4, r0
@@ -16049,8 +16049,8 @@ pop {r0}
 bx r0
 _0800ED98: .4byte 0x080D9D28
 _0800ED9C: .4byte 0x080D9D68
-thumb_func_start sub_800EDA0
-sub_800EDA0:
+thumb_func_start spm_menuCharIdxToCharId
+spm_menuCharIdxToCharId:
 ldr r1, _0800EDAC @ =0x080D9790
 lsls r0, r0, #0x02
 adds r0, r0, r1

@@ -63,7 +63,7 @@ SECTIONS
         src/mobileSystemsGBLogo.o(.text);
         asm/text08001A84.o(.text);
         src/error.o(.text);
-        asm/text08016D90.o(.text);
+        asm/text08016F28.o(.text);
         src/main.o(.text);
         src/frameHeap.o(.text);
         asm/text0802D708.o(.text);

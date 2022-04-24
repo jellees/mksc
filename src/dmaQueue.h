@@ -24,3 +24,8 @@ dmaq_entry_t* dmaq_enqueue(dmaq_t* queue, const void* src, void* dst, u32 config
 dmaq_t* dmaq_getVBlankDmaQueue(void);
 bool32 dmaq_beginUse(dmaq_t* queue);
 void dmaq_endUse(dmaq_t* queue);
+
+static inline void dmaq_enqueueVBlank(const void* src, void* dst, u32 config)
+{
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), src, dst, config);
+}
