@@ -1,4 +1,7 @@
 unk_203EBE0 = 0x0203EBE0;
+dword_203EC20 = 0x0203EC20;
+
+word_300018C = 0x0300018C;
 
 gFlashMaxTime = 0x030023E0;
 sTimerNum = 0x030023E8;
@@ -50,6 +53,10 @@ dword_80D89B4 = 0x80D89B4;
 dword_80D82EC = 0x80D82EC;
 
 off_80DA2FC = 0x80DA2FC;
+
+dword_80DA30C = 0x80DA30C;
+dword_80DA334 = 0x80DA334;
+dword_80CAE30 = 0x80CAE30;
 
 gMPlayTable = 0x08102414;
 gSongTable = 0x08102498;
