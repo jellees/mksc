@@ -74,7 +74,8 @@ SECTIONS
         src/map.o(.text);
         asm/text0802E778.o(.text);
         src/list.o(.text);
-        asm/text0802ED80.o(.text);
+        src/actorList.O3.o(.text);
+        asm/text0802EE80.o(.text);
         src/oam.O3.o(.text);
         asm/text08030004.o(.text);
         src/dmaQueue.o(.text);

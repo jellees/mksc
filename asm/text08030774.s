@@ -54947,10 +54947,10 @@ sub_804F750:
     adds r5, r0, #0x0
     adds r6, r1, #0x0
     adds r4, r2, #0x0
-    bl sub_802ED90
+    bl actlist_init
     adds r0, r5, #0x0
     adds r0, #0x08
-    bl sub_802ED90
+    bl actlist_init
     cmp r4, #0x00
     ble _0804F780
 _0804F768:
@@ -54960,7 +54960,7 @@ _0804F768:
     bl frmheap_calloc
     adds r1, r0, #0x0
     adds r0, r5, #0x0
-    bl sub_802ED98
+    bl actlist_insertHead
     subs r4, #0x01
     cmp r4, #0x00
     bne _0804F768
@@ -54975,7 +54975,7 @@ _0804F780:
 sub_804F7AC:
     push {r4, r5, lr}
     adds r4, r0, #0x0
-    bl sub_802ED80
+    bl actlist_isEmpty
     cmp r0, #0x00
     beq _0804F7E8
     ldr r5, [r4, #0x0C]
@@ -54986,30 +54986,30 @@ sub_804F7AC:
     bl _call_via_r1
 _0804F7C6:
     adds r0, r4, #0x0
-    bl sub_802ED80
+    bl actlist_isEmpty
     cmp r0, #0x00
     beq _0804F7DE
     ldr r5, [r4, #0x0C]
     adds r4, #0x08
     adds r0, r4, #0x0
-    bl sub_802EE14
+    bl actlist_takeTail
     adds r0, r4, #0x0
     b _0804F7F4
 _0804F7DE:
     ldr r5, [r4, #0x04]
     adds r0, r4, #0x0
-    bl sub_802EE14
+    bl actlist_takeTail
     b _0804F7F0
 _0804F7E8:
     ldr r5, [r4, #0x04]
     adds r0, r4, #0x0
-    bl sub_802EE14
+    bl actlist_takeTail
 _0804F7F0:
     adds r0, r4, #0x0
     adds r0, #0x08
 _0804F7F4:
     adds r1, r5, #0x0
-    bl sub_802ED98
+    bl actlist_insertHead
     adds r0, r5, #0x0
     bl sub_80437D4
     adds r0, r5, #0x0
@@ -55022,10 +55022,10 @@ sub_804F808:
     adds r4, r0, #0x0
     adds r5, r1, #0x0
     adds r0, #0x08
-    bl sub_802EE30
+    bl actlist_remove
     adds r0, r4, #0x0
     adds r1, r5, #0x0
-    bl sub_802ED98
+    bl actlist_insertHead
     pop {r4, r5}
     pop {r0}
     bx r0
@@ -55036,10 +55036,10 @@ sub_804F824:
     adds r5, r0, #0x0
     adds r6, r1, #0x0
     adds r4, r2, #0x0
-    bl sub_802ED90
+    bl actlist_init
     adds r0, r5, #0x0
     adds r0, #0x08
-    bl sub_802ED90
+    bl actlist_init
     cmp r4, #0x00
     ble _0804F854
 _0804F83C:
@@ -55049,7 +55049,7 @@ _0804F83C:
     bl frmheap_calloc
     adds r1, r0, #0x0
     adds r0, r5, #0x0
-    bl sub_802ED98
+    bl actlist_insertHead
     subs r4, #0x01
     cmp r4, #0x00
     bne _0804F83C
@@ -55062,13 +55062,13 @@ _0804F854:
 sub_804F85C:
     push {r4, r5, r6, lr}
     adds r5, r0, #0x0
-    bl sub_802ED80
+    bl actlist_isEmpty
     cmp r0, #0x00
     beq _0804F884
     adds r4, r5, #0x0
     adds r4, #0x08
     adds r0, r4, #0x0
-    bl sub_802ED80
+    bl actlist_isEmpty
     cmp r0, #0x00
     beq _0804F87A
     movs r0, #0x00
@@ -55076,18 +55076,18 @@ sub_804F85C:
 _0804F87A:
     ldr r6, [r5, #0x0C]
     adds r0, r4, #0x0
-    bl sub_802EE14
+    bl actlist_takeTail
     b _0804F890
 _0804F884:
     ldr r6, [r5, #0x00]
     adds r0, r5, #0x0
-    bl sub_802EDF8
+    bl actlist_takeHead
     adds r4, r5, #0x0
     adds r4, #0x08
 _0804F890:
     adds r0, r4, #0x0
     adds r1, r6, #0x0
-    bl sub_802ED98
+    bl actlist_insertHead
     adds r0, r6, #0x0
 _0804F89A:
     pop {r4, r5, r6}
