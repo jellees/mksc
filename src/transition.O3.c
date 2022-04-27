@@ -3,6 +3,17 @@
 
 trns_state_t gTransitionState;
 
+void trns_init(void)
+{
+    gTransitionState.applyFunc = NULL;
+    gTransitionState.initFunc = NULL;
+    gTransitionState.finishFunc = NULL;
+    gTransitionState.waitCounter = 0;
+    gTransitionState.updateDelay = 0;
+    gTransitionState.frame = 0;
+    gTransitionState.flags = 0;
+}
+
 void trns_update(void)
 {
     if (gTransitionState.flags & TRNS_FLAG_UPDATE_FRAME)
@@ -21,30 +32,13 @@ void trns_update(void)
             {
                 if (gTransitionState.finishFunc)
                     gTransitionState.finishFunc();
-                gTransitionState.applyFunc = NULL;
-                gTransitionState.initFunc = NULL;
-                gTransitionState.finishFunc = NULL;
-                gTransitionState.waitCounter = 0;
-                gTransitionState.updateDelay = 0;
-                gTransitionState.frame = 0;
-                gTransitionState.flags = 0;
+                trns_init();
             }
             return;
         }
     }
     if (gTransitionState.flags & TRNS_FLAG_INIT_FRAME)
         gTransitionState.flags = gTransitionState.flags & ~TRNS_FLAG_INIT_FRAME | TRNS_FLAG_UPDATE_FRAME;
-}
-
-void trns_init(void)
-{
-    gTransitionState.applyFunc = NULL;
-    gTransitionState.initFunc = NULL;
-    gTransitionState.finishFunc = NULL;
-    gTransitionState.waitCounter = 0;
-    gTransitionState.updateDelay = 0;
-    gTransitionState.frame = 0;
-    gTransitionState.flags = 0;
 }
 
 void trns_start(void)

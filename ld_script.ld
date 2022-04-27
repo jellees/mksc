@@ -49,7 +49,7 @@ SECTIONS
         gSceneState = .; /* As of now we don't know how big this struct is. */
 
         . = 0x4F70;
-        src/transition.o(COMMON);
+        src/transition.O3.o(COMMON);
 
         . = 0x4FC0;
         src/vcount.o(COMMON);
@@ -74,12 +74,13 @@ SECTIONS
         src/map.o(.text);
         asm/text0802E778.o(.text);
         src/list.o(.text);
-        asm/text0802ED80.o(.text);
+        src/actorList.O3.o(.text);
+        asm/text0802EE80.o(.text);
         src/oam.O3.o(.text);
         asm/text08030004.o(.text);
         src/dmaQueue.o(.text);
         src/vcount.o(.text);
-        src/transition.o(.text);
+        src/transition.O3.o(.text);
         asm/text08030774.o(.text);
         asm/m4a_1.o(.text);
         src/mp2000/m4a.o(.text);
