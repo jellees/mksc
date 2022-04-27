@@ -110,6 +110,13 @@ $(C_BUILDDIR)/mp2000/%.o : $(C_SUBDIR)/mp2000/%.c
 	@echo -e ".text\n\t.align\t2, 0\n" >> $(OBJ_DIR)/src/mp2000/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(OBJ_DIR)/src/mp2000/$*.s
 
+$(C_BUILDDIR)/%.O3.o : $(C_SUBDIR)/%.O3.c
+	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
+	@$(CC1) $(C_BUILDDIR)/$*.i $(CFLAGS) -O3 -o $(C_BUILDDIR)/$*.s
+	@echo -e ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
+	@sed -i -e 's/\.align\t2/\.align\t2, 0/' $(C_BUILDDIR)/$*.s
+	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
+
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c
 	@$(CPP) -MMD -MT $@ $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
 	@$(CC1) $(C_BUILDDIR)/$*.i $(CFLAGS) -o $(C_BUILDDIR)/$*.s

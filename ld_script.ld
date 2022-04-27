@@ -30,6 +30,9 @@ SECTIONS
         src/palette.o(.bss);
         src/map.o(.bss);
 
+        . = 0x16F0;
+        src/oam.O3.o(.bss);
+
         . = 0x2190;
         src/dmaQueue.o(.bss);
 
@@ -72,6 +75,8 @@ SECTIONS
         asm/text0802E778.o(.text);
         src/list.o(.text);
         asm/text0802ED80.o(.text);
+        src/oam.O3.o(.text);
+        asm/text08030004.o(.text);
         src/dmaQueue.o(.text);
         src/vcount.o(.text);
         src/transition.o(.text);
@@ -87,6 +92,8 @@ SECTIONS
         asm/rodata08062774.o(.rodata);
         src/main.o(.rodata);
         asm/rodata080DE144.o(.rodata);
+        src/oam.O3.o(.rodata);
+        asm/rodata080E645C.o(.rodata);
         src/mp2000/m4a_tables.o(.rodata);
         INCLUDE ../ld_script_sound.ld;
         asm/rodata081E9778.o(.rodata);
