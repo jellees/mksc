@@ -5,6 +5,8 @@
 #include "scene.h"
 #include "transition.h"
 #include "dmaQueue.h"
+#include "math.h"
+#include "oam.h"
 
 // External declarations.
 extern char title_sDriversBgTilesBuf[0x16000];
@@ -43,12 +45,6 @@ extern struc_71 sio2_sMPlayerId;
 extern void sub_8017048(void);
 extern void title_main();
 
-typedef struct
-{
-    s16 x;
-    s16 y;
-} vec2s16_t;
-
 extern const u8 gCharacterTiles[1];
 extern const int gCharacterPalettes[1];
 extern const u16* const off_80DA2FC[4];
@@ -57,8 +53,8 @@ extern u16 dword_80CA7A0[1];
 extern u16 dword_80CAE30[3][16];
 extern int dword_203EC20;
 
-extern int* dword_80DA334[1];
-extern int dword_80DA30C;
+extern u16* dword_80DA334[4];
+extern u16 dword_80DA30C[4];
 
 extern vec2s16_t word_300018C;
 // End external declarations.
@@ -386,25 +382,25 @@ void error_8016D90(void)
 
 static void sub_8016F28()
 {
-    CpuSet(dword_80CAE30[0], pltt_getBuffer(1) + 112, 9);
+    CpuSet(dword_80CAE30[0], &pltt_getBuffer(PLTT_BUFFER_OBJ)[112], 9);
 
     if ((gSceneState.field10 & 8))
-        CpuSet(&dword_80CAE30[0][1], pltt_getBuffer(1) + 113, 2);
+        CpuSet(&dword_80CAE30[0][1], &pltt_getBuffer(PLTT_BUFFER_OBJ)[113], 2);
     else
-        CpuSet(&dword_80CAE30[1][1], pltt_getBuffer(1) + 113, 2);
+        CpuSet(&dword_80CAE30[1][1], &pltt_getBuffer(PLTT_BUFFER_OBJ)[113], 2);
 
-    pltt_setDirtyFlag(1);
+    pltt_setDirtyFlag(TRUE);
 
     if (dword_203EC20)
     {
-        int v3 = sio2_sMPlayerId.field_1;
-        int* v1 = dword_80DA334;
+        int idx = sio2_sMPlayerId.field_1;
+        u16** cellData = dword_80DA334;
 
-        if (--v3 < 0)
-            v3 = 0;
+        if (--idx < 0)
+            idx = 0;
 
-        oam_renderCellData(v1[v3], &word_300018C, 0, 0, 0, 0);
+        oam_renderCellData(cellData[idx], &word_300018C, 0, 0, 0, NULL);
     }
 
-    oam_renderCellData(&dword_80DA30C, &word_300018C, 0, 0, 0, 0);
+    oam_renderCellData(dword_80DA30C, &word_300018C, 0, 0, 0, NULL);
 }
