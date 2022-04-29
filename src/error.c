@@ -11,6 +11,7 @@
 
 // External declarations.
 extern char title_sDriversBgTilesBuf[0x16000];
+extern char title_sObjTiles4[];
 extern u8 gMainFrmHeap[0x8000];
 
 extern int dword_80C7F38[1];
@@ -52,12 +53,11 @@ extern const u16* const off_80DA2FC[4];
 extern u16 dword_80CA7A0[1];
 
 extern u16 dword_80CAE30[3][16];
-extern int dword_203EC20;
+extern bool32 dword_203EC20;
 
 extern u16* dword_80DA334[4];
 extern u16 dword_80DA30C[4];
 
-extern vec2s16_t word_300018C;
 extern int dword_3005C50;
 // End external declarations.
 
@@ -85,8 +85,10 @@ typedef struct
 } error_state_t;
 
 static error_state_t* sState;
+static vec2s16_t word_300018C;
 
 void error_8016D90(void);
+void sub_801715C(void);
 
 static void error_vblank(void)
 {
@@ -309,7 +311,7 @@ int error_main(void)
 
     scene_setVBlankFunc(NULL);
     scene_setMainFunc(title_main);
-    SoftReset(31);
+    SoftReset(RESET_EWRAM | RESET_IWRAM | RESET_PALETTE | RESET_VRAM | RESET_OAM);
 
     return 1;
 }
@@ -378,7 +380,7 @@ void error_8016D90(void)
 
     *(u32*)&v18 = 0x7000A8;
     oam_renderCellData(dword_80CA7A0, &v18, 0, 0, 0, 0);
-    pltt_setDirtyFlag(1);
+    pltt_setDirtyFlag(TRUE);
 }
 #endif
 
@@ -409,7 +411,7 @@ static void sub_8016F28(void)
 
 bool32 sub_8016FDC(void)
 {
-    if ((gTransitionState.flags & 2) != 0)
+    if ((gTransitionState.flags & TRNS_FLAG_UPDATE_FRAME) != 0)
         return FALSE;
 
     stopAllSongs();
@@ -418,4 +420,65 @@ bool32 sub_8016FDC(void)
     dword_3005C50 = 1;
 
     return TRUE;
+}
+
+void sub_8017048(void)
+{
+    u8 frame = gTransitionState.frame;
+
+    REG_WIN0H = WIN_RANGE(6 * frame, 240 - 6 * frame);
+    REG_WIN0V = WIN_RANGE(4 * frame, 160 - 4 * frame);
+
+    if (frame == 20)
+    {
+        gTransitionState.applyFunc = sub_801715C;
+        gTransitionState.frame = 0;
+    }
+}
+
+void sub_801708C()
+{
+    LZ77UnCompVram(title_sObjTiles4, 0x6013400);
+    CpuSet(dword_80CAE30, &pltt_getBuffer(PLTT_BUFFER_OBJ)[112], 9);
+    pltt_setDirtyFlag(TRUE);
+    dword_203EC20 = FALSE;
+    word_300018C.x = 284;
+    word_300018C.y = 148;
+}
+
+bool32 sub_80170DC(u32 a1[27])
+{
+    s32 angle = a1[26];
+    bool32 isModified = FALSE;
+
+    angle++;
+
+    if (angle < 17)
+        word_300018C.x = (-64 * math_sin(angle << 10) >> 15) + 284;
+    else
+        isModified = TRUE;
+
+    a1[26] = angle;
+
+    return isModified;
+}
+
+void sub_8017128(void)
+{
+    dword_203EC20 = TRUE;
+}
+
+void sub_8017134(void)
+{
+    trns_setInitFunc(trns_initDefaultOutTransition);
+    gTransitionState.applyFunc = trns_applyDefaultOutTransition;
+    gTransitionState.finishFunc = NULL;
+    gTransitionState.updateDelay = 1;
+    trns_start();
+}
+
+void sub_801715C(void)
+{
+    if (gTransitionState.frame == 40)
+        gTransitionState.applyFunc = 0;
 }

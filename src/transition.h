@@ -27,3 +27,8 @@ void trns_applyDefaultInTransition(void);
 void trns_finishDefaultInTransition(void);
 void trns_initDefaultOutTransition(void);
 void trns_applyDefaultOutTransition(void);
+
+static inline void trns_setInitFunc(trns_func_t func)
+{
+    gTransitionState.initFunc = func;
+}
