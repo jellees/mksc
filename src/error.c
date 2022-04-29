@@ -7,6 +7,7 @@
 #include "dmaQueue.h"
 #include "math.h"
 #include "oam.h"
+#include "sound.h"
 
 // External declarations.
 extern char title_sDriversBgTilesBuf[0x16000];
@@ -57,6 +58,7 @@ extern u16* dword_80DA334[4];
 extern u16 dword_80DA30C[4];
 
 extern vec2s16_t word_300018C;
+extern int dword_3005C50;
 // End external declarations.
 
 typedef struct
@@ -201,7 +203,7 @@ static void error_loadGraphics(void)
     state->field68 = 0;
 }
 
-int error_main()
+int error_main(void)
 {
     int offset;
     error_state_t* state;
@@ -380,7 +382,7 @@ void error_8016D90(void)
 }
 #endif
 
-static void sub_8016F28()
+static void sub_8016F28(void)
 {
     CpuSet(dword_80CAE30[0], &pltt_getBuffer(PLTT_BUFFER_OBJ)[112], 9);
 
@@ -403,4 +405,17 @@ static void sub_8016F28()
     }
 
     oam_renderCellData(dword_80DA30C, &word_300018C, 0, 0, 0, NULL);
+}
+
+bool32 sub_8016FDC(void)
+{
+    if ((gTransitionState.flags & 2) != 0)
+        return FALSE;
+
+    stopAllSongs();
+
+    scene_setMainFunc(error_main);
+    dword_3005C50 = 1;
+
+    return TRUE;
 }
