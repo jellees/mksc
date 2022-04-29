@@ -210,7 +210,6 @@ int error_main(void)
     int offset;
     error_state_t* state;
     scene_state_t* sceneState;
-    trns_func_t tmp;
 
     bool32 finished = FALSE;
     int funcState = 0;
@@ -232,8 +231,7 @@ int error_main(void)
 
     dmaq_enqueue(dmaq_getVBlankDmaQueue(), ((offset - 1) << 8) + 0x6005400, 0x6005400, 0x80000080);
 
-    tmp = trns_initDefaultInTransition;
-    gTransitionState.initFunc = tmp;
+    trns_setInitFunc(trns_initDefaultInTransition);
     gTransitionState.applyFunc = trns_applyDefaultInTransition;
     gTransitionState.finishFunc = trns_finishDefaultInTransition;
     gTransitionState.updateDelay = 1;
