@@ -8,6 +8,7 @@
 #include "math.h"
 #include "oam.h"
 #include "sound.h"
+#include "error.h"
 
 // External declarations.
 extern char title_sDriversBgTilesBuf[0x16000];
@@ -61,41 +62,18 @@ extern u16 dword_80DA30C[4];
 extern int dword_3005C50;
 // End external declarations.
 
-typedef struct
-{
-    vu16 dspcnt;
-    vu16 bg0cnt;
-    vu16 bg0hofs;
-    vu16 bg0vofs;
-    vu16 bg1cnt;
-    vu16 bg1hofs;
-    vu16 bg1vofs;
-    vu16 bg2cnt;
-    vu16 bg2hofs;
-    vu16 bg2vofs;
-    vu16 bg3cnt;
-    vu16 bg3hofs;
-    vu16 bg3vofs;
-    vu16 bldcnt;
-    vu16 bldalpha;
-    vu16 bldy;
-    s32 field32;
-    u16 field_24[4][4];
-    u32 field68;
-} error_state_t;
-
 static error_state_t* sState;
 static vec2s16_t word_300018C;
 
-void error_8016D90(void);
-void sub_801715C(void);
+static void error_8016D90(void);
+static void sub_801715C(void);
 
 static void error_vblank(void)
 {
     error_state_t* state = sState;
 
-    REG_DISPCNT &= 0x6000;
-    REG_DISPCNT |= state->dspcnt & 0x9FFF;
+    REG_DISPCNT &= DISPCNT_WIN0_ON | DISPCNT_WIN1_ON;
+    REG_DISPCNT |= state->dspcnt & ~(DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
     REG_BG0CNT = state->bg0cnt;
     REG_BG0HOFS = state->bg0hofs;
     REG_BG0VOFS = state->bg0vofs;
@@ -187,13 +165,14 @@ static void error_loadGraphics(void)
     dmaq_enqueue(dmaq_getVBlankDmaQueue(), &title_sDriversBgTilesBuf[5120], 0x6011160, 0x80000100);
     main_frameProc();
 
-    state->bg0cnt = 4;
-    state->bg1cnt = 516;
-    state->bg2cnt = 1028;
-    state->bg3cnt = 1543;
-    state->dspcnt = 8000;
-    state->bldcnt = 15937;
-    state->bldalpha = 2060;
+    state->bg0cnt = BGCNT_CHARBASE(1);
+    state->bg1cnt = BGCNT_CHARBASE(1) | BGCNT_SCREENBASE(2);
+    state->bg2cnt = BGCNT_CHARBASE(1) | BGCNT_SCREENBASE(4);
+    state->bg3cnt = BGCNT_PRIORITY(3) | BGCNT_CHARBASE(1) | BGCNT_SCREENBASE(6);
+    state->dspcnt = DISPCNT_OBJ_1D_MAP | DISPCNT_BG_ALL_ON | DISPCNT_OBJ_ON;
+    state->bldcnt = BLDCNT_TGT1_BG0 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3 |
+                    BLDCNT_TGT2_OBJ | BLDCNT_TGT2_BD;
+    state->bldalpha = BLDALPHA_BLEND(12, 8);
     state->bg0hofs = 0;
     state->bg0vofs = 0;
     state->bg1hofs = 0;
@@ -237,7 +216,7 @@ int error_main(void)
     gTransitionState.updateDelay = 1;
     trns_start();
 
-    oam_802FE4C(1);
+    oam_802FE4C(TRUE);
 
     scene_setVBlankFunc(error_vblank);
 
@@ -317,7 +296,7 @@ int error_main(void)
 #ifndef NONMATCHING
 asm_unified(".include \"nonmatching/text08016D90.s\"");
 #else
-void error_8016D90(void)
+static void error_8016D90(void)
 {
     int i;
     vec2s16_t a2;
@@ -407,7 +386,7 @@ static void sub_8016F28(void)
     oam_renderCellData(dword_80DA30C, &word_300018C, 0, 0, 0, NULL);
 }
 
-bool32 sub_8016FDC(void)
+static bool32 sub_8016FDC(void)
 {
     if ((gTransitionState.flags & TRNS_FLAG_UPDATE_FRAME) != 0)
         return FALSE;
@@ -420,7 +399,7 @@ bool32 sub_8016FDC(void)
     return TRUE;
 }
 
-void sub_8017048(void)
+static void sub_8017048(void)
 {
     u8 frame = gTransitionState.frame;
 
@@ -434,7 +413,7 @@ void sub_8017048(void)
     }
 }
 
-void sub_801708C()
+static void sub_801708C(void)
 {
     LZ77UnCompVram(title_sObjTiles4, 0x6013400);
     CpuSet(dword_80CAE30, &pltt_getBuffer(PLTT_BUFFER_OBJ)[112], 9);
@@ -444,7 +423,7 @@ void sub_801708C()
     word_300018C.y = 148;
 }
 
-bool32 sub_80170DC(u32 a1[27])
+static bool32 sub_80170DC(u32 a1[27])
 {
     s32 angle = a1[26];
     bool32 isModified = FALSE;
@@ -461,12 +440,12 @@ bool32 sub_80170DC(u32 a1[27])
     return isModified;
 }
 
-void sub_8017128(void)
+static void sub_8017128(void)
 {
     dword_203EC20 = TRUE;
 }
 
-void sub_8017134(void)
+static void sub_8017134(void)
 {
     trns_setInitFunc(trns_initDefaultOutTransition);
     gTransitionState.applyFunc = trns_applyDefaultOutTransition;
@@ -475,7 +454,7 @@ void sub_8017134(void)
     trns_start();
 }
 
-void sub_801715C(void)
+static void sub_801715C(void)
 {
     if (gTransitionState.frame == 40)
         gTransitionState.applyFunc = 0;
