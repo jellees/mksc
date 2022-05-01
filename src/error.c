@@ -217,8 +217,8 @@ int error_main()
     sio2_stop();
 
     sceneState = &gSceneState;
-    frmheap_init(&sceneState->frameHeap, &gMainFrmHeap, sizeof(gMainFrmHeap));
-    sState = state = frmheap_calloc(&sceneState->frameHeap, 1, sizeof(error_state_t));
+    frmheap_init(&sceneState->raceState.frameHeap, &gMainFrmHeap, sizeof(gMainFrmHeap));
+    sState = state = frmheap_calloc(&sceneState->raceState.frameHeap, 1, sizeof(error_state_t));
 
     error_loadGraphics();
 

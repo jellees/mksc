@@ -109,3 +109,9 @@ void actlist_remove(actlist_t* list, actor_t* item)
         item2->next = NULL;
     }
 }
+
+void actlist_clear(actlist_t* list)
+{
+    list->tail = NULL;
+    list->head = NULL;
+}

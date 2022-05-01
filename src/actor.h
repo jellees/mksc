@@ -1,6 +1,10 @@
 #pragma once
 #include "math.h"
 
+struct actor_t;
+
+typedef void (*actor_collide_func_t)(struct actor_t* a, struct actor_t* b);
+
 typedef struct actor_t
 {
   int posX;
@@ -11,7 +15,7 @@ typedef struct actor_t
   u8 sizeZ;
   u16 typeFlags;
   int updateFunc;
-  int collideFunc;
+  actor_collide_func_t collideFunc;
   vec2s16_t field_1C;
   vec2s16_t positionS16;
   u16 scale;

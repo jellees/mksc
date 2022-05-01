@@ -2,6 +2,20 @@
 #include "libunk/irq.h"
 #include "frameHeap.h"
 
+#define RACE_CUR_RACE_STATE_UNKNOWN_GP_MODE 0x100
+#define RACE_CUR_RACE_STATE_UNKNOWN_MG_MODE 0x800
+
+typedef struct
+{
+    u8 gap0[0x14];
+    u16 nrCheckpoints;
+    u8 gap16[0x6CA];
+    frmheap_t frameHeap;
+    u8 gap6EC[0xEE];
+    u16 curRaceStateUnknown;
+    //...
+} race_state_t;
+
 typedef bool32 (*scene_main_func_t)(void);
 typedef void (*scene_vblank_func_t)(void);
 
@@ -16,8 +30,7 @@ typedef struct
     u8 space2[8];
     u16 initialRepeatWait;
     u16 nextRepeatWait;
-    u8 space3[0x6E0];
-    frmheap_t frameHeap;
+    race_state_t raceState;
 } scene_state_t;
 
 extern scene_state_t gSceneState;

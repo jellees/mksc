@@ -16,3 +16,4 @@ void actlist_insertAfter(actlist_t* list, actor_t* target, actor_t* item);
 actor_t* actlist_takeHead(actlist_t* list);
 actor_t* actlist_takeTail(actlist_t* list);
 void actlist_remove(actlist_t* list, actor_t* item);
+void actlist_clear(actlist_t* list);

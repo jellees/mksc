@@ -27,9 +27,9 @@ int gbm_main(void)
     int i;
     scene_state_t* scene = &gSceneState;
 
-    frmheap_init(&scene->frameHeap, &gMainFrmHeap, sizeof(gMainFrmHeap));
+    frmheap_init(&scene->raceState.frameHeap, &gMainFrmHeap, sizeof(gMainFrmHeap));
 
-    sState = (gbm_state_t*)frmheap_calloc(&scene->frameHeap, 1, 12);
+    sState = (gbm_state_t*)frmheap_calloc(&scene->raceState.frameHeap, 1, 12);
     state = sState;
     state->bg0cnt = BGCNT_CHARBASE(1);
     state->dispcnt = DISPCNT_BG0_ON;

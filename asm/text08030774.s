@@ -44529,7 +44529,7 @@ sub_804978C:
     ldr r0, _080497C8 @ =0x0000057C
     adds r6, r5, r0
     adds r0, r6, #0x0
-    bl sub_802F548
+    bl col_clearLists
     ldr r1, _080497CC @ =0x00000714
     adds r0, r5, r1
     ldr r4, [r0, #0x00]
@@ -44543,7 +44543,7 @@ _080497A4:
     beq _080497B6
     adds r0, r6, #0x0
     adds r1, r4, #0x0
-    bl sub_802F500
+    bl col_addActive
 _080497B6:
     ldr r4, [r4, #0x3C]
     cmp r4, #0x00
@@ -44570,7 +44570,7 @@ _080497D0:
     beq _080497EC
     adds r0, r6, #0x0
     adds r1, r2, #0x0
-    bl sub_802F500
+    bl col_addActive
 _080497EC:
     adds r4, #0x01
     movs r1, #0xFE
@@ -44593,7 +44593,7 @@ _08049804:
     beq _08049816
     adds r0, r6, #0x0
     adds r1, r4, #0x0
-    bl sub_802F524
+    bl col_addPassive
 _08049816:
     ldr r4, [r4, #0x3C]
     cmp r4, #0x00
@@ -44612,7 +44612,7 @@ _08049826:
     beq _08049838
     adds r0, r6, #0x0
     adds r1, r4, #0x0
-    bl sub_802F524
+    bl col_addPassive
 _08049838:
     ldr r4, [r4, #0x3C]
     cmp r4, #0x00
@@ -47559,7 +47559,7 @@ sub_804AEFC:
     push {lr}
     ldr r1, _0804AF0C @ =0x0000057C
     adds r0, r0, r1
-    bl sub_802F550
+    bl col_collide
     pop {r0}
     bx r0
     .byte 0x00, 0x00

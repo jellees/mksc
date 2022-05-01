@@ -12,10 +12,12 @@ sSavedIme = 0x030023F4;
 PollFlashStatus = 0x030023E4;
 
 sio2_sMPlayerId = 0x03002C80;
+col_sCpoiStartIndicesPassive = 0x03002CA0;
 
 dmaq_sHeap = 0x030048A0;
 
 gKeyTriggerBuf = 0x03004EA0;
+col_sCpoiStartIndicesActive = 0x03004EB0;
 gKeyBuf = 0x03004F30;
 gKeyRepeatTriggerBuf = 0x03004F48;
 sio2_sKeyBuf = 0x03004F58;
