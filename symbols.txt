@@ -1,8 +1,6 @@
 unk_203EBE0 = 0x0203EBE0;
 dword_203EC20 = 0x0203EC20;
 
-word_300018C = 0x0300018C;
-
 gFlashMaxTime = 0x030023E0;
 sTimerNum = 0x030023E8;
 sTimerCount = 0x030023EA;
@@ -22,6 +20,7 @@ gKeyBuf = 0x03004F30;
 gKeyRepeatTriggerBuf = 0x03004F48;
 sio2_sKeyBuf = 0x03004F58;
 gIrqTable = 0x03004F80;
+dword_3005C50 = 0x03005C50;
 gSoundInfo = 0x03005CA0;
 gMPlayJumpTable = 0x03006720;
 gCgbChans = 0x030067B0;
@@ -49,6 +48,8 @@ dword_80C83FC = 0x80C83FC;
 dword_80C84B8 = 0x80C84B8;
 
 dword_80CA7A0 = 0x80CA7A0;
+
+title_sObjTiles4 = 0x80CC748;
 
 dword_80D830C = 0x80D830C;
 dword_80D89B4 = 0x80D89B4;
