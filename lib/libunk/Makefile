@@ -25,7 +25,7 @@ CPPFLAGS		:= -I ../../tools/agbcc -I ../../tools/agbcc/include -iquote ../../inc
 OBJ_DIR := build
 SUBDIR = src
 SRCS := $(wildcard $(SUBDIR)/*.c)
-OBJS := $(patsubst $(SUBDIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
+OBJS := $(OBJ_DIR)/irq.o $(OBJ_DIR)/dma.o #$(patsubst $(SUBDIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 DEPS := $(patsubst $(SUBDIR)/%.c,$(OBJ_DIR)/%.d,$(SRCS))
 OBJS_REL := $(patsubst $(OBJ_DIR)/%,%,$(OBJS))
 SUBDIRS := $(sort $(dir $(OBJS)))
@@ -52,7 +52,7 @@ $(OBJ_DIR)/%.o : $(SUBDIR)/%.c
 $(LIB): $(OBJS)
 	$(AR) rs $@ $(OBJS)
 
-$(HEADERS): $(HEADERS_SRC)
+%.h: $(SUBDIR)/%.h
 	cp $< $@
 
 -include $(DEPS)
