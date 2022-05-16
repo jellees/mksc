@@ -18,3 +18,8 @@ static inline stopAllSongs(void)
         stopPlayer(i);
     }
 }
+
+static inline void stopSongPlayer(u16 songId)
+{
+    MPlayStart(gMPlayTable[gSongTable[songId].ms].info, gSongTable[1].header);
+}

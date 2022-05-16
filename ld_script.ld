@@ -78,7 +78,8 @@ SECTIONS
         src/collision.o(.text);
         asm/text0802F5C0.o(.text);
         src/oam.O3.o(.text);
-        asm/text08030004.o(.text);
+        src/script.o(.text);
+        asm/text080301A8.o(.text);
         src/dmaQueue.o(.text);
         src/vcount.o(.text);
         src/transition.O3.o(.text);

@@ -1,9 +1,18 @@
 #pragma once
 #include "libunk/irq.h"
 #include "frameHeap.h"
+#include "actor.h"
 
 #define RACE_CUR_RACE_STATE_UNKNOWN_GP_MODE 0x100
 #define RACE_CUR_RACE_STATE_UNKNOWN_MG_MODE 0x800
+
+typedef struct
+{
+    actor_t actor;
+    u32 field_44;
+    u32 field_48;
+    //...
+} driver_t;
 
 typedef struct
 {
@@ -13,6 +22,9 @@ typedef struct
     frmheap_t frameHeap;
     u8 gap6EC[0xEE];
     u16 curRaceStateUnknown;
+    u8 gap7DC[0x1A];
+    driver_t* drivers[8];
+    driver_t* playerDriver;
     //...
 } race_state_t;
 
