@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{B6D90243-B856-44A3-AD6C-E1EDCE8695B1}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>include;lib;tools\agbcc\include</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\libunk\src\dma.c" />
+    <ClCompile Include="lib\libunk\src\irq.c" />
+    <ClCompile Include="src\actorList.O3.c" />
+    <ClCompile Include="src\agbbackup\agb_flash.c" />
+    <ClCompile Include="src\collision.c" />
+    <ClCompile Include="src\dmaQueue.c" />
+    <ClCompile Include="src\error.c" />
+    <ClCompile Include="src\frameHeap.c" />
+    <ClCompile Include="src\list.c" />
+    <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\map.c" />
+    <ClCompile Include="src\mobileSystemsGBLogo.c" />
+    <ClCompile Include="src\mp2000\m4a.c" />
+    <ClCompile Include="src\mp2000\m4a_tables.c" />
+    <ClCompile Include="src\oam.O3.c" />
+    <ClCompile Include="src\palette.c" />
+    <ClCompile Include="src\scene.c" />
+    <ClCompile Include="src\script.c" />
+    <ClCompile Include="src\title.c" />
+    <ClCompile Include="src\transition.O3.c" />
+    <ClCompile Include="src\vcount.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="asm\macros.inc" />
+    <None Include="data\characterPalettes.bin" />
+    <None Include="data\characterTiles.bin" />
+    <None Include="data\courseData.bin" />
+    <None Include="data\mbChild.bin" />
+    <None Include="data\sio32MultiLoader.bin" />
+    <None Include="data\skyData.bin" />
+    <None Include="include\gba_constants.inc" />
+    <None Include="include\m4a.inc" />
+    <None Include="include\m4a_constants.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\common.h" />
+    <ClInclude Include="include\gba\defines.h" />
+    <ClInclude Include="include\gba\flash_internal.h" />
+    <ClInclude Include="include\gba\gba.h" />
+    <ClInclude Include="include\gba\intellisense.h" />
+    <ClInclude Include="include\gba\io_reg.h" />
+    <ClInclude Include="include\gba\isagbprint.h" />
+    <ClInclude Include="include\gba\m4a_internal.h" />
+    <ClInclude Include="include\gba\macro.h" />
+    <ClInclude Include="include\gba\multiboot.h" />
+    <ClInclude Include="include\gba\syscall.h" />
+    <ClInclude Include="include\gba\types.h" />
+    <ClInclude Include="lib\libunk\dma.h" />
+    <ClInclude Include="lib\libunk\irq.h" />
+    <ClInclude Include="lib\libunk\src\dma.h" />
+    <ClInclude Include="lib\libunk\src\irq.h" />
+    <ClInclude Include="src\actor.h" />
+    <ClInclude Include="src\actorList.h" />
+    <ClInclude Include="src\collision.h" />
+    <ClInclude Include="src\dmaQueue.h" />
+    <ClInclude Include="src\error.h" />
+    <ClInclude Include="src\frameHeap.h" />
+    <ClInclude Include="src\list.h" />
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\map.h" />
+    <ClInclude Include="src\math.h" />
+    <ClInclude Include="src\mobileSystemsGBLogo.h" />
+    <ClInclude Include="src\mp2000\m4a.h" />
+    <ClInclude Include="src\oam.h" />
+    <ClInclude Include="src\palette.h" />
+    <ClInclude Include="src\save.h" />
+    <ClInclude Include="src\scene.h" />
+    <ClInclude Include="src\sio2.h" />
+    <ClInclude Include="src\songs.h" />
+    <ClInclude Include="src\sound.h" />
+    <ClInclude Include="src\title.h" />
+    <ClInclude Include="src\transition.h" />
+    <ClInclude Include="src\vcount.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -11,6 +11,7 @@
 #include "main.h"
 #include "save.h"
 #include "sio2.h"
+#include "songs.h"
 #include "title.h"
 
 extern const struc_76 stru_80D8DF8[3];
@@ -27,7 +28,6 @@ extern const u16 title_sFallingStarCellData[];
 extern const u16 title_sKoopaShipOamData[];
 extern const u16 title_sNightPalette0[];
 extern const u16 title_sNightPalette1[];
-extern const u16 title_sNightPalette2[];
 extern const u16 title_sSunsetPalette0[];
 extern const u16 title_sSunsetPalette1[];
 extern const u16 title_sSunsetPalette2[];
@@ -45,7 +45,6 @@ extern const u8 dword_80CDCA0[];
 extern const u8 title_sSkyTiles0[];
 extern const u8 title_sSkyTiles1[];
 extern u8 byte_2010400[];
-extern const u8 title_sDriversBgMap[];
 extern u8 title_sDriversBgMapBuf[];
 extern const u8 title_sObjTiles0[];
 extern const u8 title_sObjTiles1[];
@@ -67,21 +66,16 @@ extern const u8 dword_80D8E67[2];
 
 static title_state_t* title_sState;
 
-static void vcount70();
+static void vcount70(void);
 
 static void title_80001D8(title_state_t* state)
 {
-    int v2;
-    int v4;
-    int v5;
-    int v6;
-    int v7;
-    int v10;
+    int i;
     vec2s16_t a2;
 
-    for (v2 = 0; v2 < 3; v2++)
+    for (i = 0; i < 3; i++)
     {
-        struc_75* v3 = &state->field_38[v2];
+        struc_75* v3 = &state->field_38[i];
         switch (v3->field_C)
         {
             case 0:
@@ -89,8 +83,8 @@ static void title_80001D8(title_state_t* state)
                 break;
             case 2:
             {
-                v3->x = stru_80D8DF8[v2].x + 120;
-                v3->y = stru_80D8DF8[v2].y + 80;
+                v3->x = stru_80D8DF8[i].x + 120;
+                v3->y = stru_80D8DF8[i].y + 80;
                 v3->scale = 0;
                 v3->field_10 = 0;
                 v3->field_C = 3;
@@ -113,8 +107,8 @@ static void title_80001D8(title_state_t* state)
                 break;
             case 5:
             {
-                v3->x = stru_80D8DF8[v2].x + 120;
-                v3->y = stru_80D8DF8[v2].y + 80;
+                v3->x = stru_80D8DF8[i].x + 120;
+                v3->y = stru_80D8DF8[i].y + 80;
                 v3->scale = 0;
                 v3->field_10 = 0;
                 v3->field_C = 6;
@@ -136,10 +130,10 @@ static void title_80001D8(title_state_t* state)
                 break;
         }
     }
-    for (v2 = 0; v2 < 3; v2++)
+    for (i = 0; i < 3; i++)
     {
         struc_75* v3 = 0;
-        v3 = &state->field_38[2 - v2];
+        v3 = &state->field_38[2 - i];
         if (!v3->scale)
             continue;
         switch (v3->field_C)
@@ -152,7 +146,7 @@ static void title_80001D8(title_state_t* state)
                 const struc_76* shit = 0;
                 u32 y = (u16)v3->y << 16;
                 *(u32*)&a2 = (u16)v3->x | y;
-                shit = &shit2[2 - v2];
+                shit = &shit2[2 - i];
                 oam_renderCellData(shit->cellData, &a2, v3->scale, v3->scale, 0, 0);
                 break;
             }
@@ -168,56 +162,33 @@ typedef struct
 
 static void title_8000350(title_state_t* state)
 {
-    int idx2;
-    int v6;
-    int v7;
+    int optionId;
     int v8;
-    int v9;
     int v10;
-    int v11;
-    int v12;
-    int v13;
-    idk_t* v14;
-    int v15;
-    int v16;
+    int itemCount;
+    idk_t* items;
     int i;
-    int v18;
-    int* v19;
     int v20;
-    const u16** v21;
     const u16* v22;
     u32 v23;
-    int v24;
-    u32 v25;
-    u16* v26;
-    int v27;
-    int v28;
-    int* v29;
-    int v30;
-    char* v31;
-    u16* v32;
     test_t v33;
     test_t a2;
     test_t v35;
     test_t v36;
     int v37;
-    int shit;
-    if (state->inLinkSubMenu != state->field_124)
+
+    if (state->inLinkSubMenu != state->lastInLinkSubMenu)
     {
         if (state->inLinkSubMenu != 0)
-        {
             state->field_134 = (state->field_138 = 156);
-        }
         else
-        {
-            state->field_134 = (state->field_138 = 156 - (16 * state->field_11C));
-        }
+            state->field_134 = (state->field_138 = 156 - (16 * state->mainMenuCursorPos));
 
         state->field_130 = 0;
         state->field_13C = 0;
     }
 
-    state->field_124 = state->inLinkSubMenu;
+    state->lastInLinkSubMenu = state->inLinkSubMenu;
     switch (state->field_130)
     {
         case 0:
@@ -230,7 +201,7 @@ static void title_8000350(title_state_t* state)
             break;
 
         case 2:
-            if ((++state->field_13C) <= 8)
+            if (++state->field_13C <= 8)
             {
                 v10 = state->field_138;
                 v8 = 156 - (state->cursorPos * ((!state->inLinkSubMenu) ? (16) : (13)));
@@ -250,18 +221,18 @@ static void title_8000350(title_state_t* state)
     {
         if (!state->inLinkSubMenu)
         {
-            v13 = state->field_C4;
-            v14 = state->field_74;
+            itemCount = state->mainMenuItemCount;
+            items = state->mainMenuItems;
             v37 = 16;
         }
         else
         {
-            v13 = state->field_118;
-            v14 = state->field_C8;
+            itemCount = state->linkSubMenuItemCount;
+            items = state->linkSubMenuItems;
             v37 = 13;
         }
 
-        if ((v13 > 1) && ((state->field_390 & 0x2Fu) <= 0x1F))
+        if (itemCount > 1 && (state->field_390 & 0x2Fu) <= 0x1F)
         {
             test_t tmp;
             tmp.x = 0x78;
@@ -270,7 +241,7 @@ static void title_8000350(title_state_t* state)
             v33.x = tmp.x;
             a2.y = tmp.y - 7;
             v33.y = tmp.y + 15;
-            if (v13 == 2)
+            if (itemCount == 2)
             {
                 if (state->cursorPos == 0)
                     oam_renderCellData(dword_80D8BA4, &v33, 0, 0, 0, 0);
@@ -279,7 +250,7 @@ static void title_8000350(title_state_t* state)
             }
             else if (state->cursorPos == 0)
                 oam_renderCellData(dword_80D8BA4, &v33, 0, 0, 0, 0);
-            else if (state->cursorPos == (v13 - 1))
+            else if (state->cursorPos == (itemCount - 1))
                 oam_renderCellData(dword_80D8BAC, &a2, 0, 0, 0, 0);
             else
             {
@@ -288,23 +259,23 @@ static void title_8000350(title_state_t* state)
             }
         }
 
-        v20 = v13;
+        v20 = itemCount;
         for (i = 0; i < v20; i++)
         {
             u32 tmp;
             u32 tmp2;
-            idx2 = v14[i].field0;
-            if ((i < state->cursorPos) || (i > state->cursorPos))
-                v22 = off_80D8E4C[idx2];
-            else if (!v14[i].field4)
-                v22 = off_80D8E34[idx2];
+            optionId = items[i].optionId;
+            if (i < state->cursorPos || i > state->cursorPos)
+                v22 = off_80D8E4C[optionId];
+            else if (!items[i].field4)
+                v22 = off_80D8E34[optionId];
             else
-                v22 = off_80D8E1C[idx2];
+                v22 = off_80D8E1C[optionId];
 
             tmp2 = ((state->field_134 + (i * v37)) - 24) << 16;
             tmp = 0x78;
             tmp |= tmp2;
-            *((s32*)(&v35)) = tmp;
+            *(s32*)&v35 = tmp;
             oam_renderCellData(v22, &v35, 0, 0, 0, 0);
         }
 
@@ -326,20 +297,15 @@ static void title_8000350(title_state_t* state)
         if (++state->field_38C > 15)
             state->field_38C = 0;
 
-        CpuSet(&state->field_188[32 * state->field_38C + 16], pltt_getBuffer(1) + 152, 8);
+        CpuCopy16(&state->field_188[32 * state->field_38C + 16], pltt_getBuffer(1) + 152, 16);
         pltt_setDirtyFlag(1);
     }
 }
 
 static void title_handleNightStars(title_state_t* state)
 {
-    int* v2;
-    int v3;
-    int v4;
-    const u16* v5;
-    u16* v6;
-    int v9;
-    int v10;
+    const u16* plttSrc;
+    u16* plttDst;
     int v11;
 
     if (++state->field_154 > 8)
@@ -348,9 +314,9 @@ static void title_handleNightStars(title_state_t* state)
         if (++state->field_150 > 7)
             state->field_150 = 0;
     }
-    v5 = &title_sNightPalette2[16 * state->field_150 + 0xA];
-    v6 = pltt_getBuffer(0);
-    CpuSet(v5, v6 + 122, 4);
+    plttSrc = &title_sNightPalette2[16 * state->field_150 + 0xA];
+    plttDst = pltt_getBuffer(0);
+    CpuSet(plttSrc, plttDst + 122, 4);
     pltt_setDirtyFlag(1);
     switch (state->fallingStarState)
     {
@@ -389,34 +355,33 @@ static void title_handleNightStars(title_state_t* state)
                            state->fallingStarScale, state->fallingStarRot, 0);
 }
 
-static void title_handleNightKoopaShip(title_state_t* a1)
+static void title_handleNightKoopaShip(title_state_t* state)
 {
-
-    if (!a1->koopaShipEnabled)
+    if (!state->koopaShipEnabled)
         return;
-    switch (a1->koopaShipState)
+    switch (state->koopaShipState)
     {
         case 0:
-            a1->koopaShipX = 0xFFE00000;
-            a1->koopaShipCounter = 0;
-            a1->koopaShipState = 1;
+            state->koopaShipX = -2097152;
+            state->koopaShipCounter = 0;
+            state->koopaShipState = 1;
             break;
         case 1:
-            if (++a1->koopaShipCounter > 599)
+            if (++state->koopaShipCounter > 599)
             {
-                a1->koopaShipCounter = 0;
-                a1->koopaShipState = 2;
+                state->koopaShipCounter = 0;
+                state->koopaShipState = 2;
             }
             break;
         case 2:
-            a1->koopaShipCounter++;
-            a1->koopaShipX += 0x2000;
-            a1->koopaShipY = 8 * math_sin((u8)a1->koopaShipCounter << 8) + 0x200000;
+            state->koopaShipCounter++;
+            state->koopaShipX += 0x2000;
+            state->koopaShipY = 8 * math_sin((u8)state->koopaShipCounter << 8) + 0x200000;
             break;
     }
-    a1->koopaShipPosition.x = a1->koopaShipX >> 16;
-    a1->koopaShipPosition.y = a1->koopaShipY >> 16;
-    oam_renderCellData(title_sKoopaShipOamData, &a1->koopaShipPosition, 0, 0, 0, 0u);
+    state->koopaShipPosition.x = state->koopaShipX >> 16;
+    state->koopaShipPosition.y = state->koopaShipY >> 16;
+    oam_renderCellData(title_sKoopaShipOamData, &state->koopaShipPosition, 0, 0, 0, NULL);
 }
 
 static void vblank(void)
@@ -438,7 +403,7 @@ static void vblank(void)
     REG_WIN1H = state->win1H;
     REG_WIN1V = state->win1V;
     REG_WININ = state->winIn;
-    REG_WINOUT = state->winOut | 0x10;
+    REG_WINOUT = state->winOut | WINOUT_WIN01_OBJ;
     REG_BG0CNT = state->bg0Cnt;
     REG_BG1CNT = state->bg1Cnt;
     REG_BG2CNT = state->bg2Cnt;
@@ -448,10 +413,9 @@ static void vblank(void)
 
 static void title_loadGraphics(void)
 {
-    title_state_t* state;
+    title_state_t* state = title_sState;
 
-    state = title_sState;
-    map_setBufferDestination(0, 0x6001000);
+    map_setBufferDestination(0, (void*)(BG_VRAM + 0x1000));
     if (state->isNight)
         LZ77UnCompWram(title_sNightPalette0, pltt_getBuffer(0));
     else if (state->isSunset)
@@ -470,25 +434,25 @@ static void title_loadGraphics(void)
     pltt_setDirtyFlag(1);
     main_frameProc();
     LZ77UnCompWram(dword_80CDCA0, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6004000, 0x80001400);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(BG_VRAM + 0x4000), 0x80001400);
     main_frameProc();
     LZ77UnCompWram(title_sSkyTiles0, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6008000, 0x80001300);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(BG_VRAM + 0x8000), 0x80001300);
     main_frameProc();
     LZ77UnCompWram(title_sSkyTiles1, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x600A600, 0x80001300);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(BG_VRAM + 0xA600), 0x80001300);
     main_frameProc();
     LZ77UnCompWram(title_sLogoBgMap, map_getBufferPtr2d(0, 0, 0));
     map_setBufferDirty(1u);
     main_frameProc();
     LZ77UnCompWram(title_sFlagBgMap, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6002000, 0x80000400);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(BG_VRAM + 0x2000), 0x80000400);
     main_frameProc();
     LZ77UnCompWram(title_sCloudsBgMap, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6002800, 0x80000800);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(BG_VRAM + 0x2800), 0x80000800);
     main_frameProc();
     LZ77UnCompWram(title_sSkyBgMap, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6003800, 0x80000400);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(BG_VRAM + 0x3800), 0x80000400);
     main_frameProc();
     LZ77UnCompWram(title_sObjPltt, pltt_getBuffer(1));
     pltt_setDirtyFlag(1);
@@ -496,25 +460,25 @@ static void title_loadGraphics(void)
     LZ77UnCompWram(byte_80CADC4, state->field_188);
     main_frameProc();
     LZ77UnCompWram(title_sObjTiles0, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6011400, 0x80000A80);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(OBJ_VRAM0 + 0x1400), 0x80000A80);
     main_frameProc();
     LZ77UnCompWram(title_sObjTiles1, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6012900, 0x80000A80);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(OBJ_VRAM0 + 0x2900), 0x80000A80);
     main_frameProc();
     LZ77UnCompWram(title_sObjTiles2, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 0x6013E00, 0x80000A80);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(OBJ_VRAM0 + 0x3E00), 0x80000A80);
     main_frameProc();
     LZ77UnCompWram(title_sObjTiles3, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 100750080, 0x80000A80);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(OBJ_VRAM0 + 0x5300), 0x80000A80);
     main_frameProc();
     LZ77UnCompWram(title_sObjTiles4, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 100755456, 0x80000200);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(OBJ_VRAM0 + 0x6800), 0x80000200);
     main_frameProc();
     LZ77UnCompWram(title_sObjTiles5, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 100756480, 0x80000400);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(OBJ_VRAM0 + 0x6C00), 0x80000400);
     main_frameProc();
     LZ77UnCompWram(title_sObjTiles6, gTempBuffer);
-    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, 100758528, 0x80000260);
+    dmaq_enqueue(dmaq_getVBlankDmaQueue(), gTempBuffer, (void*)(OBJ_VRAM0 + 0x7400), 0x80000260);
     main_frameProc();
     LZ77UnCompWram(title_sDriversBgTiles0, byte_2010400);
     main_frameProc();
@@ -528,19 +492,19 @@ static void title_loadGraphics(void)
     main_frameProc();
     if (state->isNight)
     {
-        LZ77UnCompVram(title_sNightSkyBgMap, 0x6003800);
-        CpuFastSet(title_sNightPalette1, pltt_getBuffer(0) + 64, 8);
-        CpuFastSet(title_sNightPalette2, pltt_getBuffer(0) + 112, 8);
+        LZ77UnCompVram(title_sNightSkyBgMap, (void*)(BG_VRAM + 0x3800));
+        CpuFastCopy(title_sNightPalette1, pltt_getBuffer(0) + 64, 32);
+        CpuFastCopy(title_sNightPalette2, pltt_getBuffer(0) + 112, 32);
         pltt_setDirtyFlag(1);
     }
     main_frameProc();
-    state->bg0Cnt = 16900;
-    state->bg1Cnt = 1029;
-    state->bg2Cnt = -31478;
-    state->bg3Cnt = 1803;
-    state->bldCnt = 191;
+    state->bg0Cnt = BGCNT_TXT512x256 | BGCNT_16COLOR | BGCNT_SCREENBASE(2) | BGCNT_CHARBASE(1) | BGCNT_PRIORITY(0);
+    state->bg1Cnt = BGCNT_TXT256x256 | BGCNT_16COLOR | BGCNT_SCREENBASE(4) | BGCNT_CHARBASE(1) | BGCNT_PRIORITY(1);
+    state->bg2Cnt = BGCNT_TXT256x512 | BGCNT_16COLOR | BGCNT_SCREENBASE(5) | BGCNT_CHARBASE(2) | BGCNT_PRIORITY(2);
+    state->bg3Cnt = BGCNT_TXT256x256 | BGCNT_16COLOR | BGCNT_SCREENBASE(7) | BGCNT_CHARBASE(2) | BGCNT_PRIORITY(3);
+    state->bldCnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
     state->bldY = 16;
-    state->dispCnt = 7232;
+    state->dispCnt = DISPCNT_MODE_0 | DISPCNT_OBJ_ON | DISPCNT_BG3_ON | DISPCNT_BG2_ON | DISPCNT_OBJ_1D_MAP;
     state->bg0HOfs = 0;
     state->bg0VOfs = 0;
     state->bg1HOfs = 0;
@@ -566,62 +530,63 @@ bool32 title_main(void)
     int i;
     int j;
     int k;
-    int v17;
+    int menuItemCount;
     int v20;
-    int v80;
+    int bgMusicState;
     int v81;
     int v82;
     int v83;
     scene_state_t* sceneState;
-    idk_t* v18;
+    idk_t* menuItems;
     u32* v19;
+
     stateId = 1;
     counter = 0;
-    v80 = 0;
+    bgMusicState = 0;
     v81 = 0;
     v82 = 0;
     v83 = 0;
     sio2_sMPlayerId.field_16 = 0;
     sio2_stop();
     sceneState = &gSceneState;
-    frmheap_init(&sceneState->raceState.frameHeap, gMainFrmHeap, 0x8000);
-    state = (title_sState = (title_state_t*)frmheap_calloc(&sceneState->raceState.frameHeap, 1, 0x394));
-    state->frameHeap = frmheap_calloc(&sceneState->raceState.frameHeap, 1, 5120);
-    state->isSunset = 1;
+    frmheap_init(&sceneState->raceState.frameHeap, gMainFrmHeap, sizeof(gMainFrmHeap));
+    state = title_sState = (title_state_t*)frmheap_calloc(&sceneState->raceState.frameHeap, 1, sizeof(title_state_t));
+    state->field_34 = frmheap_calloc(&sceneState->raceState.frameHeap, 1, 0x1400);
+    state->isSunset = TRUE;
     v19 = &state->inLinkSubMenu + 1;
     for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 3; j++)
         {
             if (save_getSavePointer_805D9B0()->field28[i][j])
-                state->isSunset = 0;
+                state->isSunset = FALSE;
         }
     }
 
-    state->isNight = 1;
+    state->isNight = TRUE;
     for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 3; j++)
         {
             if (save_getSavePointer_805D9B0()->field46[i][j])
-                state->isNight = 0;
+                state->isNight = FALSE;
         }
     }
 
     state->field_2C = 0;
     state->field_30 = 0;
-    state->field_C4 = 3;
-    for (i = 0; i < state->field_C4; i++)
+    state->mainMenuItemCount = 3;
+    for (i = 0; i < state->mainMenuItemCount; i++)
     {
-        state->field_74[i].field0 = dword_80D8E64[i];
-        state->field_74[i].field4 = 0;
+        state->mainMenuItems[i].optionId = dword_80D8E64[i];
+        state->mainMenuItems[i].field4 = 0;
     }
 
-    state->field_11C = 0;
-    state->inLinkSubMenu = 0;
-    state->field_124 = 0;
+    state->mainMenuCursorPos = 0;
+    state->inLinkSubMenu = FALSE;
+    state->lastInLinkSubMenu = 0;
     state->cursorPos = 0;
-    state->field_12C = 0;
+    state->lastCursorPos = 0;
     state->field_130 = 0;
     state->field_134 = 156;
     state->field_138 = 156;
@@ -643,12 +608,12 @@ bool32 title_main(void)
     m4aMPlayAllStop();
     oam_init();
     state->dispCnt = 0;
-    state->bldCnt = 191;
+    state->bldCnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
     state->bldY = 16;
     scene_setVBlankFunc(vblank);
     title_loadGraphics();
     vcount_register(70, vcount70);
-    irq_updateMask(2, 4);
+    irq_updateMask(IRQ_UPDATE_MODE_OR, IRQ_MASK_VCOUNT);
     while (1)
     {
         oam_update();
@@ -656,36 +621,36 @@ bool32 title_main(void)
         state->field_390++;
         if (!v19[-1])
         {
-            v17 = state->field_C4;
-            v18 = state->field_74;
+            menuItemCount = state->mainMenuItemCount;
+            menuItems = state->mainMenuItems;
         }
         else
         {
-            v17 = state->field_118;
-            v18 = state->field_C8;
+            menuItemCount = state->linkSubMenuItemCount;
+            menuItems = state->linkSubMenuItems;
         }
 
-        for (k = 0; k < v17; k++)
+        for (k = 0; k < menuItemCount; k++)
         {
-            switch (v18[k].field0)
+            switch (menuItems[k].optionId)
             {
                 case 0:
-                    v18[k].field4 = 1;
+                    menuItems[k].field4 = 1;
                     break;
                 case 1:
-                    v18[k].field4 = 1;
+                    menuItems[k].field4 = 1;
                     break;
                 case 2:
-                    v18[k].field4 = 1;
+                    menuItems[k].field4 = 1;
                     break;
                 case 3:
-                    v18[k].field4 = 1;
+                    menuItems[k].field4 = 1;
                     break;
                 case 4:
-                    v18[k].field4 = 1;
+                    menuItems[k].field4 = 1;
                     break;
                 case 5:
-                    v18[k].field4 = 1;
+                    menuItems[k].field4 = 1;
                     break;
             }
         }
@@ -701,7 +666,7 @@ bool32 title_main(void)
                 v20 = 0;
                 if (counter <= 32)
                 {
-                    state->bldCnt = 191;
+                    state->bldCnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
                     state->bldY = (-16 * counter / 32) + 16;
                 }
                 else if ((u32)(counter - 128) <= 0x80)
@@ -711,9 +676,10 @@ bool32 title_main(void)
 
                 if (counter > 128)
                 {
-                    state->dispCnt |= 0x200;
-                    state->bldCnt = 15682;
-                    state->bldAlpha = ((16 - (s16)v20) << 8) | v20;
+                    state->dispCnt |= DISPCNT_BG1_ON;
+                    state->bldCnt = BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG0 | BLDCNT_TGT2_BG2 |
+                                    BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_TGT2_BD;
+                    state->bldAlpha = BLDALPHA_BLEND(v20, 16 - (s16)v20);
                 }
 
                 if (++counter <= 480)
@@ -736,23 +702,24 @@ bool32 title_main(void)
                     if (v83 <= 15)
                     {
                         const void* src = &byte_2010400[0x580 * v83];
-                        void* dst = 0x600A800 + 0x580 * v83;
+                        void* dst = (void*)(BG_VRAM + 0xA800 + 0x580 * v83);
                         dmaq_enqueue(dmaq_getVBlankDmaQueue(), src, dst, 0x800002C0);
                         ++v83;
                     }
                     else
                     {
-                        dmaq_enqueue(dmaq_getVBlankDmaQueue(), title_sDriversBgMapBuf, 0x6002800, 0x80000400);
+                        dmaq_enqueue(dmaq_getVBlankDmaQueue(), title_sDriversBgMapBuf, (void*)(BG_VRAM + 0x2800),
+                                     0x80000400);
                         v82 = 1;
                     }
 
-                    state->bg2Cnt &= 0xFF7F;
-                    state->bg2Cnt |= 0x80u;
+                    state->bg2Cnt &= ~BGCNT_256COLOR;
+                    state->bg2Cnt |= BGCNT_256COLOR;
                 }
 
-                if (counter > 32 && main_checkKeysTriggered(9u))
+                if (counter > 32 && main_checkKeysTriggered(A_BUTTON | START_BUTTON))
                 {
-                    v80 = 2;
+                    bgMusicState = 2;
                     counter = 0;
                     stateId = 0x16;
                 }
@@ -766,9 +733,9 @@ bool32 title_main(void)
                     stateId = 0x16;
                 }
 
-                if (main_checkKeysTriggered(9u))
+                if (main_checkKeysTriggered(A_BUTTON | START_BUTTON))
                 {
-                    v80 = 2;
+                    bgMusicState = 2;
                     counter = 0;
                     stateId = 0x16;
                 }
@@ -778,12 +745,12 @@ bool32 title_main(void)
             case 22:
                 if (++counter <= 10)
                 {
-                    state->bldCnt = 191;
+                    state->bldCnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
                     state->bldY = (16 * counter) / 10;
                 }
                 else
                 {
-                    state->bldCnt = 191;
+                    state->bldCnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
                     state->bldY = 16;
                     counter = 0;
                     stateId = 0x17;
@@ -802,15 +769,16 @@ bool32 title_main(void)
                 state->bg3VOfs = 80;
                 for (i = 0; i < 3; i++)
                     (state->field_38 + i)->field_C = 0;
-                state->dispCnt |= 0x100;
-                state->dispCnt |= 0x200;
-                state->win0H = 10440;
-                state->win0V = 30099;
-                state->win1H = -14096;
-                state->win1V = -32608;
-                state->winIn = 16191;
-                state->winOut = 47;
-                state->dispCnt |= 0x6000;
+                state->dispCnt |= DISPCNT_BG0_ON;
+                state->dispCnt |= DISPCNT_BG1_ON;
+                state->win0H = WIN_RANGE(40, 200);
+                state->win0V = WIN_RANGE(117, 147);
+                state->win1H = WIN_RANGE(200, 240);
+                state->win1V = WIN_RANGE(128, 160);
+                state->winIn = WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR | WININ_WIN1_BG_ALL |
+                               WININ_WIN1_OBJ | WININ_WIN1_CLR;
+                state->winOut = WINOUT_WIN01_BG_ALL | WINOUT_WIN01_CLR;
+                state->dispCnt |= DISPCNT_WIN0_ON | DISPCNT_WIN1_ON;
                 state->field_140 = 1;
                 state->koopaShipEnabled = 1;
                 if (v82 != 1)
@@ -818,18 +786,19 @@ bool32 title_main(void)
                     if (v83 <= 15)
                     {
                         const void* src = &byte_2010400[0x580 * v83];
-                        void* dst = 0x600A800 + 0x580 * v83;
+                        void* dst = (void*)(BG_VRAM + 0xA800 + 0x580 * v83);
                         dmaq_enqueue(dmaq_getVBlankDmaQueue(), src, dst, 0x800002C0);
                         ++v83;
                     }
                     else
                     {
-                        dmaq_enqueue(dmaq_getVBlankDmaQueue(), title_sDriversBgMapBuf, 0x6002800, 0x80000400);
+                        dmaq_enqueue(dmaq_getVBlankDmaQueue(), title_sDriversBgMapBuf, (void*)(BG_VRAM + 0x2800),
+                                     0x80000400);
                         v82 = 1;
                     }
 
-                    state->bg2Cnt &= 0xFF7F;
-                    state->bg2Cnt |= 0x80u;
+                    state->bg2Cnt &= ~BGCNT_256COLOR;
+                    state->bg2Cnt |= BGCNT_256COLOR;
                 }
 
                 if (v82)
@@ -842,14 +811,15 @@ bool32 title_main(void)
             case 24:
                 if (++counter <= 16)
                 {
-                    state->bldCnt = 191;
+                    state->bldCnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
                     state->bldY = 16 - counter;
                 }
                 else
                 {
                     u32 tmp;
-                    state->bldCnt = 15682;
-                    tmp = 1546;
+                    state->bldCnt = BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG0 | BLDCNT_TGT2_BG2 |
+                                    BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_TGT2_BD;
+                    tmp = BLDALPHA_BLEND(10, 6);
                     state->bldAlpha = tmp;
                     counter = 0;
                     stateId = 0x19;
@@ -860,97 +830,97 @@ bool32 title_main(void)
                 if (counter <= 69)
                     ++counter;
 
-                if (main_checkKeysRepeatTriggered(0x40u))
+                if (main_checkKeysRepeatTriggered(DPAD_UP))
                     --state->cursorPos;
 
-                if (main_checkKeysRepeatTriggered(0x80u))
+                if (main_checkKeysRepeatTriggered(DPAD_DOWN))
                     ++state->cursorPos;
 
                 if (state->cursorPos < 0)
                     state->cursorPos = 0;
 
-                if (state->cursorPos >= state->field_C4)
-                    state->cursorPos = state->field_C4 - 1;
+                if (state->cursorPos >= state->mainMenuItemCount)
+                    state->cursorPos = state->mainMenuItemCount - 1;
 
-                if (state->field_12C != state->cursorPos)
+                if (state->lastCursorPos != state->cursorPos)
                 {
-                    m4aSongNumStart(141);
+                    m4aSongNumStart(SONG_141);
                     state->field_130 = 1;
                 }
-                else if (main_checkKeysTriggered(9u) && counter > 69)
+                else if (main_checkKeysTriggered(A_BUTTON | START_BUTTON) && counter > 69)
                 {
                     counter = 0;
-                    if (state->field_74[state->cursorPos].field4)
+                    if (state->mainMenuItems[state->cursorPos].field4)
                     {
-                        if (state->field_74[state->cursorPos].field0 == 1)
+                        if (state->mainMenuItems[state->cursorPos].optionId == 1)
                         {
-                            m4aSongNumStart(142);
-                            state->field_118 = 2;
-                            for (i = 0; i < state->field_118; i++)
+                            m4aSongNumStart(SONG_142);
+                            state->linkSubMenuItemCount = 2;
+                            for (i = 0; i < state->linkSubMenuItemCount; i++)
                             {
-                                state->field_C8[i].field0 = dword_80D8E67[i];
-                                state->field_C8[i].field4 = 0;
+                                state->linkSubMenuItems[i].optionId = dword_80D8E67[i];
+                                state->linkSubMenuItems[i].field4 = 0;
                             }
 
-                            state->inLinkSubMenu = 1;
-                            state->field_11C = state->cursorPos;
+                            state->inLinkSubMenu = TRUE;
+                            state->mainMenuCursorPos = state->cursorPos;
                             state->cursorPos = 0;
                             stateId = 0x1A;
                         }
                         else
                         {
-                            m4aSongNumStart(143);
-                            state->selectedOption = state->field_74[state->cursorPos].field0;
+                            m4aSongNumStart(SONG_143);
+                            state->selectedOption = state->mainMenuItems[state->cursorPos].optionId;
                             stateId = 0x1C;
                         }
                     }
                     else
-                        m4aSongNumStart(145);
+                        m4aSongNumStart(SONG_145);
                 }
 
-                state->field_12C = state->cursorPos;
+                state->lastCursorPos = state->cursorPos;
                 break;
 
             case 26:
                 counter = 0;
-                if (main_checkKeysRepeatTriggered(0x40u))
+                if (main_checkKeysRepeatTriggered(DPAD_UP))
                     --state->cursorPos;
 
-                if (main_checkKeysRepeatTriggered(0x80u))
+                if (main_checkKeysRepeatTriggered(DPAD_DOWN))
                     ++state->cursorPos;
 
                 if (state->cursorPos < 0)
                     state->cursorPos = 0;
 
-                if (state->cursorPos >= state->field_118)
-                    state->cursorPos = state->field_118 - 1;
+                if (state->cursorPos >= state->linkSubMenuItemCount)
+                    state->cursorPos = state->linkSubMenuItemCount - 1;
 
-                if (state->field_12C != state->cursorPos)
+                if (state->lastCursorPos != state->cursorPos)
                 {
-                    m4aSongNumStart(141);
+                    m4aSongNumStart(SONG_141);
                     state->field_130 = 1;
                 }
-                else if (main_checkKeysTriggered(9u))
+                else if (main_checkKeysTriggered(A_BUTTON | START_BUTTON))
                 {
-                    if (state->field_C8[state->cursorPos].field4)
+                    if (state->linkSubMenuItems[state->cursorPos].field4)
                     {
-                        m4aSongNumStart(143);
-                        state->selectedOption = state->field_C8[state->cursorPos].field0;
+                        m4aSongNumStart(SONG_143);
+                        state->selectedOption = state->linkSubMenuItems[state->cursorPos].optionId;
                         stateId = 0x1C;
                     }
                     else
-                        m4aSongNumStart(145);
+                        m4aSongNumStart(SONG_145);
                 }
-                else if (main_checkKeysTriggered(2u))
+                else if (main_checkKeysTriggered(B_BUTTON))
                 {
-                    m4aSongNumStart(144);
-                    state->inLinkSubMenu = 0;
-                    state->cursorPos = state->field_11C;
+                    m4aSongNumStart(SONG_144);
+                    state->inLinkSubMenu = FALSE;
+                    state->cursorPos = state->mainMenuCursorPos;
                     counter = 70;
                     stateId = 25;
                 }
 
-                state->field_12C = state->cursorPos;
+                state->lastCursorPos = state->cursorPos;
                 break;
 
             case 28:
@@ -967,7 +937,7 @@ bool32 title_main(void)
             case 29:
                 if (++counter <= 16)
                 {
-                    state->bldCnt = 191;
+                    state->bldCnt = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
                     state->bldY = counter;
                     break;
                 }
@@ -975,7 +945,7 @@ bool32 title_main(void)
                 pltt_getBuffer(0)[0] = 0xFFFF;
                 pltt_setDirtyFlag(1);
                 scene_setVBlankFunc(0);
-                irq_updateMask(1, -5);
+                irq_updateMask(IRQ_UPDATE_MODE_AND, ~IRQ_MASK_VCOUNT);
                 switch (state->selectedOption)
                 {
                     case 0:
@@ -1004,8 +974,8 @@ bool32 title_main(void)
         else
             state->bg2HOfs = 0;
 
-        if (state->bg2VOfs > 0x140u)
-            dmaq_enqueue(dmaq_getVBlankDmaQueue(), unk_203EBE0, 0x6008000, 0x81000020);
+        if (state->bg2VOfs > 320)
+            dmaq_enqueue(dmaq_getVBlankDmaQueue(), unk_203EBE0, (void*)(BG_VRAM + 0x8000), 0x81000020);
 
         if (++state->field_2C > 8)
         {
@@ -1013,8 +983,8 @@ bool32 title_main(void)
             if (++state->field_30 > 4)
                 state->field_30 = 0;
 
-            LZ77UnCompWram(off_80D8E6C[state->field_30], state->frameHeap);
-            dmaq_enqueue(dmaq_getVBlankDmaQueue(), state->frameHeap, 0x6006000, 0x80000A00);
+            LZ77UnCompWram(off_80D8E6C[state->field_30], state->field_34);
+            dmaq_enqueue(dmaq_getVBlankDmaQueue(), state->field_34, (void*)(BG_VRAM + 0x6000), 0x80000A00);
         }
 
         title_8000350(state);
@@ -1025,21 +995,21 @@ bool32 title_main(void)
             title_handleNightKoopaShip(state);
         }
 
-        switch (v80)
+        switch (bgMusicState)
         {
             case 0:
-                m4aSongNumStart(state->isNight ? 51 : 53);
-                v80 = 1;
+                m4aSongNumStart(state->isNight ? SONG_TITLE_INTRO_NIGHT : SONG_TITLE_INTRO);
+                bgMusicState = 1;
                 break;
 
             case 1:
                 if (gMPlayMemAccArea[0] > 2u && ++v81 > 23)
-                    v80 = 2;
+                    bgMusicState = 2;
                 break;
 
             case 2:
-                m4aSongNumStart(52);
-                v80 = 3;
+                m4aSongNumStart(SONG_TITLE);
+                bgMusicState = 3;
                 break;
         }
     }

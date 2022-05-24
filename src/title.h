@@ -18,7 +18,7 @@ typedef struct
 
 typedef struct
 {
-    u8 field0;
+    u8 optionId;
     u32 field4;
 } idk_t;
 
@@ -48,24 +48,24 @@ typedef struct
     vu16 dispCnt;
     int field_2C;
     int field_30;
-    int frameHeap;
+    void* field_34;
     struc_75 field_38[3];
-    idk_t field_74[10];
-    u8 field_C4;
-    idk_t field_C8[10];
-    u8 field_118;
-    int field_11C;
-    int inLinkSubMenu;
-    int field_124;
+    idk_t mainMenuItems[10];
+    u8 mainMenuItemCount;
+    idk_t linkSubMenuItems[10];
+    u8 linkSubMenuItemCount;
+    int mainMenuCursorPos;
+    bool32 inLinkSubMenu;
+    int lastInLinkSubMenu;
     int cursorPos;
-    int field_12C;
+    int lastCursorPos;
     int field_130;
     int field_134;
     int field_138;
     int field_13C;
     int field_140;
     int selectedOption;
-    int isNight;
+    bool32 isNight;
     int koopaShipEnabled;
     int field_150;
     int field_154;
@@ -80,7 +80,7 @@ typedef struct
     int koopaShipX;
     int koopaShipY;
     vec2s16_t koopaShipPosition;
-    int isSunset;
+    bool32 isSunset;
     char field_188[512];
     int field_388;
     int field_38C;

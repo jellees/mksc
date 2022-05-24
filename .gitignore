@@ -1,10 +1,16 @@
 /.vscode
+/.vs
+/x64
 
 /build
 *.elf
 *.gba
 *.map
 *.sav
+*.user
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
 
 /tools/agbcc
 /tools/gbafix
