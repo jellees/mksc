@@ -8,6 +8,7 @@
 #include "math.h"
 #include "oam.h"
 #include "sound.h"
+#include "sio2.h"
 #include "error.h"
 
 // External declarations.
@@ -30,21 +31,6 @@ extern int dword_80C8080[1];
 extern int dword_80C84B8[1];
 extern int dword_80BC960[1];
 
-typedef struct
-{
-    u8 mPlayerId;
-    u8 field_1;
-    u16 field_2;
-    u32 field_4;
-    u16 field_8;
-    u8 field_A;
-    u8 field_B;
-    u8 field_C;
-    u8 field_D[9];
-    u16 field_16;
-} struc_71;
-
-extern struc_71 sio2_sMPlayerId;
 extern void sub_8017048(void);
 extern void title_main();
 

@@ -4,6 +4,7 @@
 *.elf
 *.gba
 *.map
+*.sav
 
 /tools/agbcc
 /tools/gbafix

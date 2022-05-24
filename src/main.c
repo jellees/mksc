@@ -187,7 +187,7 @@ u16 main_getRepeatTriggerKeys(void)
     return gKeyRepeatTriggerBuf[mPlayerId];
 }
 
-u16 main_checkKeys(u16 mask)
+u32 main_checkKeys(u16 mask)
 {
     u16 keys;
     int mPlayerId = sio2_sMPlayerId.mPlayerId;
@@ -197,7 +197,7 @@ u16 main_checkKeys(u16 mask)
     return keys & mask;
 }
 
-u16 main_checkKeysTriggered(u16 mask)
+u32 main_checkKeysTriggered(u16 mask)
 {
     u16 keys;
     int mPlayerId = sio2_sMPlayerId.mPlayerId;
@@ -207,7 +207,7 @@ u16 main_checkKeysTriggered(u16 mask)
     return keys & mask;
 }
 
-u16 main_checkKeysRepeatTriggered(u16 mask)
+u32 main_checkKeysRepeatTriggered(u16 mask)
 {
     u16 keys;
     int mPlayerId = sio2_sMPlayerId.mPlayerId;

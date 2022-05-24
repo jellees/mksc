@@ -9598,14 +9598,14 @@ adds r0, r0, r1
 ldr r0, [r0, #0x00]
 cmp r0, #0x00
 bne _08008EE0
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 lsls r4, r4, #0x05
 lsls r6, r6, #0x07
 adds r0, r6, r0
 adds r0, r4, r0
 adds r0, #0x64
 ldrb r7, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r0, r6, r0
 adds r0, r4, r0
 adds r0, #0x64
@@ -9637,12 +9637,12 @@ movs r2, #0xB0
 lsls r2, r2, #0x01
 movs r3, #0x0F
 bl sub_800C6D4
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r0, r6, r0
 adds r0, r4, r0
 adds r0, #0x78
 ldrb r7, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r6, r6, r0
 adds r4, r4, r6
 adds r4, #0x78
@@ -9675,7 +9675,7 @@ bl sub_800C6D4
 b _08008F94
 _08008EDC: .4byte 0x000011E4
 _08008EE0:
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 lsls r4, r4, #0x05
 lsls r6, r6, #0x07
 adds r0, r6, r0
@@ -9684,7 +9684,7 @@ movs r5, #0xB9
 lsls r5, r5, #0x02
 adds r0, r0, r5
 ldrb r7, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r0, r6, r0
 adds r0, r4, r0
 adds r0, r0, r5
@@ -9716,14 +9716,14 @@ movs r2, #0xB0
 lsls r2, r2, #0x01
 movs r3, #0x0F
 bl sub_800C6D4
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r0, r6, r0
 adds r0, r4, r0
 movs r5, #0xBE
 lsls r5, r5, #0x02
 adds r0, r0, r5
 ldrb r7, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r6, r6, r0
 adds r4, r4, r6
 adds r4, r4, r5
@@ -10121,7 +10121,7 @@ adds r0, r4, r1
 ldr r0, [r0, #0x00]
 cmp r0, #0x00
 bne _080095C4
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r2, [r5, #0x00]
 lsls r1, r2, #0x01
 adds r1, r1, r2
@@ -10131,7 +10131,7 @@ adds r0, #0x46
 b _080095D4
 _080095C0: .4byte 0x000011E4
 _080095C4:
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r2, [r5, #0x00]
 lsls r1, r2, #0x01
 adds r1, r1, r2
@@ -10225,7 +10225,7 @@ adds r0, r4, r1
 ldr r0, [r0, #0x00]
 cmp r0, #0x00
 bne _08009790
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r2, [r5, #0x00]
 lsls r1, r2, #0x01
 adds r1, r1, r2
@@ -10236,7 +10236,7 @@ b _080097A0
 .byte 0x00, 0x00
 _0800978C: .4byte 0x000011E4
 _08009790:
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r2, [r5, #0x00]
 lsls r1, r2, #0x01
 adds r1, r1, r2
@@ -10587,7 +10587,7 @@ ldr r0, [r7, #0x00]
 lsls r0, r0, #0x02
 ldr r1, [r7, #0x04]
 adds r6, r0, r1
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 lsls r3, r6, #0x02
 mov r9, r3
 adds r1, r3, r6
@@ -13688,14 +13688,14 @@ mov r7, r10
 movs r0, #0x03
 str r0, [sp, #0x010]
 _0800CBEE:
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 lsls r4, r6, #0x02
 adds r0, r7, r0
 add r0, r8
 adds r0, r4, r0
 adds r0, #0x64
 ldrb r5, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r0, r7, r0
 add r0, r8
 adds r4, r4, r0
@@ -13713,13 +13713,13 @@ str r1, [sp, #0x010]
 adds r6, #0x01
 cmp r6, #0x04
 ble _0800CBEE
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 add r0, r10
 ldr r2, [sp, #0x008]
 adds r0, r2, r0
 adds r0, #0x78
 ldrb r4, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 add r0, r10
 ldr r7, [sp, #0x008]
 adds r0, r7, r0
@@ -13751,7 +13751,7 @@ mov r7, r10
 movs r0, #0x03
 str r0, [sp, #0x00C]
 _0800CC82:
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 lsls r4, r6, #0x02
 adds r0, r7, r0
 add r0, r8
@@ -13760,7 +13760,7 @@ movs r1, #0xB9
 lsls r1, r1, #0x02
 adds r0, r0, r1
 ldrb r5, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 adds r0, r7, r0
 add r0, r8
 adds r4, r4, r0
@@ -13780,7 +13780,7 @@ str r0, [sp, #0x00C]
 adds r6, #0x01
 cmp r6, #0x04
 ble _0800CC82
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 add r0, r10
 ldr r1, [sp, #0x008]
 adds r0, r1, r0
@@ -13788,7 +13788,7 @@ movs r4, #0xBE
 lsls r4, r4, #0x02
 adds r0, r0, r4
 ldrb r5, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 add r0, r10
 ldr r2, [sp, #0x008]
 adds r0, r2, r0
@@ -14798,7 +14798,7 @@ _0800D5FA:
 ldr r0, [r4, #0x04]
 adds r0, r0, r7
 mov r10, r0
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 mov r1, r10
 lsls r2, r1, #0x02
 adds r1, r2, r1
@@ -25307,7 +25307,7 @@ bne _0801514E
 bl sub_805D30C
 _0801514E:
 bl sub_805DA68
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 movs r1, #0xBF
 lsls r1, r1, #0x04
 adds r0, r0, r1
@@ -25323,7 +25323,7 @@ bne _08015174
 movs r0, #0x09
 str r0, [r5, #0x30]
 _08015174:
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 movs r1, #0xBF
 lsls r1, r1, #0x04
 adds r0, r0, r1
@@ -25950,7 +25950,7 @@ bl sub_805DEB8
 lsls r0, r0, #0x10
 lsrs r0, r0, #0x10
 mov r9, r0
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r1, _08015784 @ =0x00000BE8
 adds r0, r0, r1
 adds r2, r7, #0x2
@@ -26493,7 +26493,7 @@ lsls r1, r1, #0x07
 str r1, [sp, #0x010]
 str r1, [sp, #0x008]
 _08015ED8:
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 lsls r4, r7, #0x02
 ldr r1, [sp, #0x008]
 adds r0, r1, r0
@@ -26502,7 +26502,7 @@ adds r0, r1, r0
 adds r0, r4, r0
 adds r0, #0x64
 ldrb r5, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r1, [sp, #0x008]
 adds r0, r1, r0
 ldr r1, [sp, #0x004]
@@ -26599,14 +26599,14 @@ _08015FAC:
 mov r7, r10
 cmp r7, #0x04
 ble _08015ED8
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r1, [sp, #0x010]
 adds r0, r1, r0
 ldr r7, [sp, #0x00C]
 adds r0, r7, r0
 adds r0, #0x78
 ldrb r5, [r0, #0x00]
-bl sub_805D9B0
+bl save_getSavePointer_805D9B0
 ldr r1, [sp, #0x010]
 adds r0, r1, r0
 adds r0, r7, r0

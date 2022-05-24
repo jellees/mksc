@@ -1,3 +1,6 @@
+title_sDriversBgMapBuf = 0x2004400;
+byte_2010400 = 0x02010400;
+gTempBuffer = 0x2025400;
 unk_203EBE0 = 0x0203EBE0;
 dword_203EC20 = 0x0203EC20;
 
@@ -48,18 +51,63 @@ dword_80C83FC = 0x80C83FC;
 dword_80C84B8 = 0x80C84B8;
 
 dword_80CA7A0 = 0x80CA7A0;
+title_sObjPltt = 0x80CAC64;
+byte_80CADC4 = 0x80CADC4;
+dword_80CAE70 = 0x80CAE70;
 
+title_sObjTiles0 = 0x80CAE78;
+title_sObjTiles1 = 0x80CB62C;
+title_sObjTiles2 = 0x80CBA10;
+title_sObjTiles3 = 0x80CC1F0;
 title_sObjTiles4 = 0x80CC748;
+title_sObjTiles6 = 0x80CC8F4;
+title_sObjTiles5 = 0x80CCCEC;
+title_sNormalPalette1 = 0x80CD9A0;
+title_sSunsetPalette1 = 0x80CDA9C;
+title_sSunsetPalette2 = 0x80CDAC4;
+title_sNormalPalette0 = 0x80CDAE4;
+title_sSunsetPalette0 = 0x80CDB78;
+title_sNightPalette0 = 0x80CDC0C;
+dword_80CDCA0 = 0x80CDCA0;
+title_sSkyTiles0 = 0x80CEBB4;
+title_sSkyTiles1 = 0x80D0060;
+title_sDriversBgTiles0 = 0x80D0DE0;
+title_sDriversBgTiles1 = 0x80D1D20;
+title_sDriversBgTiles2 = 0x80D2BA8;
+title_sDriversBgTiles3 = 0x80D3A90;
+title_sFlagBgMap = 0x80D455C;
+title_sLogoBgMap = 0x80D4794;
+title_sCloudsBgMap = 0x80D49FC;
+title_sSkyBgMap = 0x80D4E10;
+title_sNightSkyBgMap = 0x80D53D8;
+title_sDriversBgMap = 0x80D58F8;
+title_sNightPalette1 = 0x80D5CA0;
+title_sNightPalette2 = 0x80D5CC0;
 
+dword_80D82EC = 0x80D82EC;
 dword_80D830C = 0x80D830C;
 dword_80D89B4 = 0x80D89B4;
-dword_80D82EC = 0x80D82EC;
+
+dword_80D8B14 = 0x80D8B14;
+title_sFallingStarCellData = 0x80D8B9C;
+dword_80D8BA4 = 0x80D8BA4;
+dword_80D8BAC = 0x80D8BAC;
+dword_80D8C44 = 0x80D8C44;
+title_sKoopaShipOamData = 0x80D8DDC;
+stru_80D8DF8 = 0x80D8DF8;
+off_80D8E1C = 0x80D8E1C;
+off_80D8E34 = 0x80D8E34;
+off_80D8E4C = 0x80D8E4C;
+dword_80D8E64 = 0x80D8E64;
+dword_80D8E67 = 0x80D8E67;
+off_80D8E6C = 0x80D8E6C;
 
 off_80DA2FC = 0x80DA2FC;
 
 dword_80DA30C = 0x80DA30C;
 dword_80DA334 = 0x80DA334;
 dword_80CAE30 = 0x80CAE30;
+
 
 gMPlayTable = 0x08102414;
 gSongTable = 0x08102498;

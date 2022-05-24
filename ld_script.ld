@@ -17,7 +17,7 @@ SECTIONS
     .bss (NOLOAD) :
     ALIGN(0)
     {
-        . = 0x4;
+        src/title.o(.bss);
         src/mobileSystemsGBLogo.o(.bss);
 
         . = 0x188;
@@ -62,7 +62,7 @@ SECTIONS
         /* code */
         asm/romHeader.o(.text);
         asm/crt0.o(.text);
-        asm/title.o(.text);
+        src/title.o(.text);
         src/mobileSystemsGBLogo.o(.text);
         asm/text08001A84.o(.text);
         src/error.o(.text);
