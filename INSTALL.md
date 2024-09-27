@@ -1,43 +1,71 @@
 # Installing
 
-You need to use WSL or a GNU/Linux distro to build this, a Debian based distro is reccommened. Directions can be found [here](https://learn.microsoft.com/en-us/windows/wsl/install).
+You need to use WSL or a Linux distro to build this, these instructions assume a Debian based distro (Debian, Ubuntu, Linux Mint, etc.). Directions can be found [here](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ## Setting up file structure
-First, download the zip file for this directory and extract it somewhere you will remember.
+First, clone the repository using:
+```sh
+git clone https://github.com/jellees/mksc
+```
+and make sure `apt` is updated:
+```sh
+sudo apt update && sudo apt upgrade
+```
 ### Install Devkitpro
-These instructions are for debian based distributions or WSL. Installation instructions for devkitpro on other distributions can be fount [on their website](https://devkitpro.org/wiki/Getting_Started).
-```bash
+These instructions are for Debian-based distributions or WSL. Installation instructions for Devkitpro on other distributions can be found [on their website](https://devkitpro.org/wiki/Getting_Started).
+```sh
 wget https://apt.devkitpro.org/install-devkitpro-pacman
 chmod +x ./install-devkitpro-pacman
 sudo ./install-devkitpro-pacman
 ```
-and then install the gba libs:
-```bash
+Then, install the GBA libraries:
+```sh
 sudo dkp-pacman -S gba-dev
 ```
-and then export the environment values
-```bash
+Afterward, export the environment variables:
+```sh
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=/opt/devkitpro/devkitARM
 ```
 ### Installing tools
-Donwload the main tools from [here](https://cdn.discordapp.com/attachments/960983413890908220/960983654220308502/tools.7z?ex=65e771c5&is=65d4fcc5&hm=47aa4fe20beb4d9ab203832eeec680b8b3f70dc6c92eab55a062ce61815490a9&).
-And put the contained files inside the /tools/ directory of the project zip you extracted earlier.\
-\
-Download and unpack: https://mid-kid.root.sx/stash/arm-000512.tar.xz \
-if your browser opens this as a text file, you can use the command
-`wget https://mid-kid.root.sx/stash/arm-000512.tar.xz`
-to download the file\
-Change your directory in the to the extracted folder (ex: `cd /mnt/c/path/to/folder/`)
-then run the following commands and replace `/path/to/thumb-elf/` with the path to the `tool/thumb-elf` folder in the project directory.If no folder named `thumb-elf` exists in that directory make one there. An example directory would be `/mnt/c/projects/mksc-master/tools/thumb-elf`
-```bash
-sudo apt update
+#### agbcc
+Clone and install the agbcc compiler:
+```sh
+git clone https://github.com/pret/agbcc
+cd agbcc
+./build.sh
+./install.sh ../mksc
+```
+Return to the initial directory:
+```sh
+cd ..
+```
+#### arm000512
+Download and unpack arm00512: https://mid-kid.root.sx/stash/arm-000512.tar.xz
+```sh
+wget https://mid-kid.root.sx/stash/arm-000512.tar.xz
+tar -xf arm-000512.tar.xz
+cd arm-000512
+```
+Install arm-000512 with the following commands:[^1]
+```sh
 sudo apt install libtinfo-dev
 mkdir build
 cd build
-../configure --target=thumb-elf --without-x --prefix=/path/to/thumb-elf
+mkdir ../../mksc/tools/thumb-elf
+../configure --target=thumb-elf --without-x --prefix=../../mksc/tools/thumb-elf
 make -j$(nproc)
 make install
 ```
 ### Making the project
-Once the build finishes, navigate to the project folder and run `make -j$(nproc)` and the project should build. If you are having any issues, try deleting the build folder and running the command again.
+Once the build finishes, navigate to the project folder:
+```sh
+cd ../../mksc
+```
+Then, run:[^1]
+```sh
+make -j$(nproc)`
+```
+The project should build successfully. If you encounter any issues, try deleting the build folder and running the command again.
+
+[^1]: `make -j$(nproc)` uses multiple cores to build faster. If you get an "nproc: command not found" error you can alternitively just use `make` with no arguments.
