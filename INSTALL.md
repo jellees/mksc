@@ -55,7 +55,7 @@ cd build
 mkdir ../../mksc/tools/thumb-elf
 ../configure --target=thumb-elf --without-x --prefix=$PWD/../../mksc/tools/thumb-elf
 make -j$(nproc)
-make install
+make install -j$(nproc)
 ```
 ### Making the project
 Once the build finishes, navigate to the project folder:
