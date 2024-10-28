@@ -26,6 +26,7 @@ Afterward, export the environment variables:
 ```sh
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=/opt/devkitpro/devkitARM
+export PATH=$PATH:$DEVKITPRO/tools/bin
 ```
 ### Installing tools
 #### agbcc
